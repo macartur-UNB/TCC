@@ -1,8 +1,101 @@
-\chapter*[Introdução]{Introdução}
-\addcontentsline{toc}{chapter}{Introdução}
+\part{Introdução}
 
-Este documento apresenta considerações gerais e preliminares relacionadas 
-à redação de relatórios de Projeto de Graduação da Faculdade UnB Gama 
-(FGA). São abordados os diferentes aspectos sobre a estrutura do trabalho, 
-uso de programas de auxilio a edição, tiragem de cópias, encadernação, etc.
+\chapter[Introdução]{Introdução}
+
+Na computação os primeiros computadores eletrônicos foram engenhocas
+ monstruosas, ocupavam varias salas, consumiam tanta energia quanto
+ uma fábrica, e custavam, em 1940, milhares de dólares, com o poder
+ computacional de uma calculadora moderna \cite{ref34}. Para os
+ programadores que usavam estas máquinas a hora do computador era
+ mais valiosas que a dele. E eles programavam em linguagem de
+ máquina \cite{ref34}.
+
+Programadores ou desenvolvedores são pessoas capazes de criar instruções
+ que podem ser executados por um computador, escrevendo o código-fonte em
+ alguma linguagem de programação. Finalizado o código-fonte, a construção
+ de um programa que seja executado em um computador pode ser feita por um
+ compilador \cite{ref5}, programa capaz de fazer a transformação de
+ código-fonte escrito na linguagem de programação escolhida para uma linguagem
+ entendível pelo computador, que é o código de máquina \cite{ref34}, a qual
+ se trata de uma sequência de instruções que serão executadas  pelo
+ processador. Esta transformação recebe o nome de compilação \cite{ref5}.
+
+Projetos de médio e grande porte gastam recursos e tempo a cada processo
+ de compilação, com perdas que dependem do hardware utilizado e do tamanho
+ do projeto, sendo que a duração de um ciclo de compilação pode variar de
+ alguns minutos até semanas \cite{ref52}. Neste contexto, este trabalho
+ irá realizar um levantamento de métodos e ferramentas para redução do
+ tempo de compilação, uma vez que esta redução pode significar ganhos
+ significativos de recursos humanos, financeiros e no cronograma de
+ desenvolvimento de equipes e empresas. 
+
+\section{Justificativa}
+
+Como dito anteriormente, o tempo de compilação um projeto pode variar
+ de minutos até horas. Isto pode impactar no desenvolvimento de um
+ projeto, visto que a cada modificação é necessário  uma recompilação
+ para a reconstrução dos artefatos do projeto. A redução do processo
+ de compilação permite respostas mais rápidas para as alterações
+ realizadas no projeto antes da compilação, além de desalocar
+ recursos (humanos, de hardware e de tempo) utilizados para
+ a compilação.
+
+\section{Objetivo do Trabalho}
+
+\subsection{Objetivo Geral}
+
+Analisar um conjunto de boas praticas em C++ e ferramentas auxiliares
+ para a redução do tempo de compilação de projetos que utilizam como
+ padrão o compilador g++, avaliando o impacto de cada estratégia no
+ tempo de compilação de cada projeto.
+
+\subsection{Objetivo Especifico}
+
+Para conseguir atingir o objetivo geral do trabalho foram listados
+ alguns objetivos específicos.
+
+
+\begin{enumerate}
+    \item Levantamento de  métodos em C++ garantir menor acoplamento,
+ maior coesão e melhora na redução do tempo de compilação;
+    \item Levantamento de ferramentas que podem auxiliar na compilação
+ de projetos utilizando o compilador g++ e linguagem C++;
+    \item Elencar projetos de código livre para análise do tempo de
+ compilação;
+    \item Realizar experimentos que permitam avaliar o impacto de cada
+ estratégia (método, ferramenta ou ambos) no tempo de compilação de
+ cada projeto.
+\end{enumerate}
+
+\subsection{Delimitação do Escopo}
+
+Para delimitar o escopo e abrangência deste trabalho, e tornar possível
+ a análise de projetos reais, será utilizado como referência uma linguagem
+ de programação compilada conhecida por ser utilizada em sistemas embarcados,
+ sistemas operacionais, sistemas críticos e jogos, dentre outras aplicações,
+ que é a  C++ criada por Bjame Stoustroup \footnote{The C++ Programming Language, 4th Edition, http://www.amazon.com/The-Programming-Language-4th-Edition/dp/0321563840}.
+
+\subsection{Organização do Trabalho}
+
+Capítulo 2 tem por objetivo introduzir o leitor aos conceitos abordados
+ neste trabalho, descrevendo a diferença entre uma linguagem compilada e
+ interpretada, o modelo Just-in-time, Maquina virtual, o processo de compilação
+ e suas etapas e os métodos a serem trabalhados.
+
+O Capítulo 3 descreve um fluxo de trabalho realizado para a primeira etapa
+ deste trabalho, contendo projetos escolhidos, ferramentas utilizadas e
+ condução dos experimentos.
+
+O Capítulo 4 apresenta os resultados alcançados até o presente momento com
+ os estudos dos 3 primeiros métodos descritos na metodologia. Os outros
+ métodos serão analisados na próxima etapa deste trabalho.
+
+O Capítulo 5 contém a descrição das atividades realizadas na primeira
+ etapa deste trabalho e as que serão realizadas na segunda bem como a ordemi
+ de realização das atividades.
+
+Por fim o Capítulo 6  faz as considerações finais do trabalho até o presente
+ momento.
+
+
 

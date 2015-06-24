@@ -4,13 +4,14 @@
 
 \section{Linguagens compiladas vs interpretadas}
 
-Uma linguagem de programação é um método padronizado que possui um conjunto de
- instruções para realizar a comunicação entre o homem e o computador 
-\cite{ref1}, através de um conjunto de regras definidas sintaticamente 
-e sematicamente \cite{ref2}. Com uma linguagem de programação é possível 
-especificar precisamente um conjunto de regras sobre  as quais dados serão
- armazenados ou transmitidos e criar algoritmos que facilitem operações 
-ou resolvam problemas.
+Uma linguagem de programação é um método padronizado que possui
+ um conjunto de instruções para realizar a comunicação entre o homem
+ e o computador \cite{ref1} , através de um conjunto de regras
+ definidas sintaticamente e sematicamente \cite{ref2}.
+ Com uma linguagem
+ de programação é possível especificar precisamente um conjunto de regras
+ sobre  as quais dados serão armazenados ou transmitidos e criar algoritmos
+ que facilitem operações ou resolvam problemas.
     
 Para que um algoritmo escrito em uma linguagem de programação seja executado 
 por um computador é necessário a criação de um arquivo de texto contendo um 
@@ -507,7 +508,7 @@ Ao contrário das bibliotecas estáticas, as bibliotecas dinâmicas são código
 
 \section{Métodos para a redução do tempo de compilação}
 
-\subsection{Include Guards}
+\subsection{Include Guards}\label{include_guards_section}
 
 Em C++ a inclusão de um arquivo de código fonte em outro arquivo fonte é feitai
  através da diretiva de pré-processamente chamada \texttt{include}, que pode 
@@ -768,7 +769,7 @@ desta diretiva.
 
 
 
-\subsection{Forward Declaration}
+\subsection{Forward Declaration}\label{forward_declaration_section}
 
 Em C++, todas as entidades (variáveis, funções, classes, estruturas, uniões,
  etc) deve sem declaradas ou definidas antes de serem referenciadas. Definir
@@ -842,9 +843,6 @@ referência incompleta ("forward") da classe Doutor e da
 
 \end{lstlisting}
 
-
-
-
 A declaração incompleta (\textit{forward declaration}) de uma classe somente podem
  ser utiliza em arquivos na forma de ponteiro (utilizando o operador "*")
  ou referência (utilizando o operador "\&"), pois estas não requerem uma
@@ -889,7 +887,6 @@ Como já mencionado, qualquer entidade deve ser declarada ou definida antes
     \hline
     \end{tabular}
 \end{table}
-
 
 
 Na linguagem C++ há uma separação entre  a implementação e a interface de
@@ -1064,7 +1061,7 @@ O Código \ref{codigo_18} foi feito o uso da diretiva \#include
 \end{table}
 
 
-\subsection{MakeFile}
+\subsection{MakeFile}\label{Makefile_section}
 
 
 Make é uma ferramenta utilizada para determinar automaticamente quais
