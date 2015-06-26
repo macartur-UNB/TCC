@@ -2,12 +2,19 @@
 
 \chapter[Metodologia]{Metodologia}
 
+
+Este capítulo foi elaborado para melhorar o entendimento das atividades
+ realizadas para a produção deste trabalho. O fluxo da figura 
+\ref{fig:fases_metodologia} define estas atividades.
+
+
 \begin{figure}[h]
     \centering
-    \label{fig01}
-        \includegraphics[keepaspectratio=true,scale=0.5]{figuras/fases_metodologia.eps}
+    \label{fig:fases_metodologia}
+        \includegraphics[keepaspectratio=true,scale=0.7]{figuras/fases_metodologia.eps}
     \caption{Fluxo de Atividades para a resolução destes trabalho}
 \end{figure}
+
 
 \section{Revisão Bibliográfica}
 
@@ -21,9 +28,9 @@ A revisão bibliográfica foi a primeira atividade realizada para a construção
 
 Para seleção de métodos foi realizada uma priorização dos métodos, técnicas e
  ferramentas encontradas durante a revisão bibliográfica. A priorização levou
- em conta o esforço da implementação/execução dos métodos, o tempo para a montagem
- de experimentos e o recurso computacional necessário para a criação destes
- experimentos.
+ em conta o esforço da implementação/execução dos métodos, o tempo para a
+ montagem de experimentos e o recurso computacional necessário para a criação
+ destes experimentos.
 
 
 Os métodos selecionados foram:
@@ -66,8 +73,6 @@ Para a seleção dos projetos aqui presentes foram feitos filtros de pesquisas
 
 \begin{table}[h]
 \centering
-\caption{Projetos e Métodos que podem ser aplicados}
-\label{tab:projects}
 \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
 	\hline
 	Projetos & Quantidade de linhas do projeto & Porcentagem em C++ &
@@ -86,6 +91,8 @@ Para a seleção dos projetos aqui presentes foram feitos filtros de pesquisas
 	Jack, the Janitor & 2,062 & 99.22\% & Não & Sim & Sim \\
 	\hline
 \end{tabular}
+\caption{Projetos e Métodos que podem ser aplicados}
+\label{tab:projects}
 \end{table}
 
 \subsection{Projetos Selecionados}
@@ -173,8 +180,6 @@ Os experimentos realizados foram feitos utilizando um computador pessoal
 
 \begin{table}[h]
 \centering
-\caption{Especificações do computador utilizado.}
-\label{tab:especificacoes_hardware}
 \begin{tabular}{|l|l|}
 	\hline
 	Processador         & Intel i7 2.0Ghz \\
@@ -186,6 +191,8 @@ Os experimentos realizados foram feitos utilizando um computador pessoal
 	Sistema Operacional & Ubuntu 15.04 \\
 	\hline
 \end{tabular}
+\caption{Especificações do computador utilizado.}
+\label{tab:especificacoes_hardware}
 \end{table}
 
 
@@ -193,31 +200,31 @@ Apesar de ser um computador pessoal, uma maquina virtual utilizando Virtualbox
  foi criada para realizar um independência entre a máquina pessoal e os
  arquivos e programas pessoais, além de uma melhora  na visualização da
  diferença de tempo de compilação entre projetos
- \footnote{no caso de projetos menores e de compilação mais rápida, pois o 
-overhead proveninte da execução da máquina virtual torna os tempos absolutos
- de compilação maiores do que na máquina host}, independente do tamanho do
- projeto. As especificação da máquina virtual  estão listadas na Tabela
- \ref{tab:especificacoes_vm}.
+ \footnote{No caso de projetos menores e de compilação mais rápida, pois o 
+\textit{overhead} proveninte da execução da máquina virtual torna os tempos
+ absolutos de compilação maiores do que na máquina host}, independente do
+ tamanho do projeto. As especificação da máquina virtual  estão listadas na
+ Tabela \ref{tab:especificacoes_vm}.
 
 \begin{table}[h]
 	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		Processador & 2 PCUs \\
+		\hline
+		Memória RAM & 3 GB \\
+		\hline
+		Memória ROM & 8 GB \\
+		\hline
+		Placa de Rede & Sim \\
+		\hline
+		Sistema Operacional & Ubuntu 14.04 \\
+		\hline
+		VirtualBox & 4.3.26\_Ubuntu \\
+		\hline
+	\end{tabular}
 	\caption{Especificações máquina virtual utilizada}
 	\label{tab:especificacoes_vm}
-		\begin{tabular}{|l|l|}
-			\hline
-			Processador & 2 PCUs \\
-			\hline
-			Memória RAM & 3 GB \\
-			\hline
-			Memória ROM & 8 GB \\
-			\hline
-			Placa de Rede & Sim \\
-			\hline
-			Sistema Operacional & Ubuntu 14.04 \\
-			\hline
-			VirtualBox & 4.3.26\_Ubuntu \\
-			\hline
-		\end{tabular}
 \end{table}
 
 
@@ -226,7 +233,7 @@ overhead proveninte da execução da máquina virtual torna os tempos absolutos
 Para a primeira etapa deste trabalho foram escolhidos 3 experimentos a
  serem aplicados.
 
-Experimento 1:
+\textbf{Experimento 1}:\label{experimento_1}
 
 Para a realização de experimentos com Inclusão de Guarda foram elaborados
  em scripts Python que criam projetos simples com a inclusão de cabeçalhos
@@ -236,20 +243,41 @@ Para a realização de experimentos com Inclusão de Guarda foram elaborados
 
 O script cria uma pasta chamada include e, dentro dela, arquivos com o padrão
  <NUMERO>.hpp, que são os cabeçalhos a serem incluídos no arquivo main.cpp.
- Foram criados 10 mil arquivos. Os Códigos \ref{codigo_24} e  \ref{codigo_25}
+ Foram criados 10 mil arquivos. Os Códigos \ref{codigo_27} e  \ref{codigo_28}
  referenciam estes modelos.
 
 
 
-\begin{lstlisting}[language=C++,frame=single,caption={Código 24: Modelo de
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={Modelo de
 									 Arquivo .hpp gerado pelos scripts de 
 									  guardas de inclusão},
-                                                   label=codigo_24]
+                                                   label=codigo_27]
 
   // <NUMERO>.hpp
+
   const int int<NUMERO> = <NUMERO>;
 
 \end{lstlisting}
+
+
+
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={Modelo de
+                               Arquivo main.cpp criado pelos scripts de
+                                                     guardas de inclusão},
+                                                          label=codigo_28]
+
+    // main.cpp
+
+    /* headers a serem incluidos   */
+
+    ...
+
+
+    int main(){return 0;}
+
+\end{lstlisting}
+
+
 
 
 Os scripts abordam os métodos:
@@ -271,48 +299,44 @@ A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos
 
 \begin{table}[h]
 \centering
+\begin{tabular}{|l|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Tipo & \multicolumn{7}{l|}{Utilização de Guarda de Inclusão} \\ \hline
+Medida & \multicolumn{7}{l|}{Tempos em segundos } \\ \hline
+Amostras & Guarda de Inclusão Extena & Guarda de Inclusão Interna & Pragma Once & Guarda de Inclusão Interna Primeiro que Pragma Once & Pragma Once primeiro que Guarda de Inclusão Interna & Guarda de Inclusão Externa e Pragma Once & Redundancia de Guarda de Inclusão \\ \hline
+ 1  &  &  &   &   &   &  & \\ \hline
+ 2  &  &  &   &   &   &  & \\ \hline
+ 3  &  &  &   &   &   &  & \\ \hline
+ 4  &  &  &   &   &   &  & \\ \hline
+ 5  &  &  &   &   &   &  & \\ \hline
+ 6  &  &  &   &   &   &  & \\ \hline
+ 7  &  &  &   &   &   &  & \\ \hline 
+ 8  &  &  &   &   &   &  & \\ \hline
+ 9  &  &  &   &   &   &  & \\ \hline
+ 10 &  &  &   &   &   &  & \\ \hline
+ Média: &  &  & & &   &  & \\ \hline
+\end{tabular}
 \caption{Template de amostra de Guardas de Inclusão}
 \label{tab:modelo_guards}
-\begin{tabular}{|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|}
-\hline
-Tipo & \multicolumn{7}{l|}{Guardas de Inclusão} \\ \hline
-Amostras & Guarda de Inclusão Extena & Guarda de Inclusão Interna &
- Pragma Once & Guarda de Inclusão Interna Primeiro que Pragma Once &
- Pragma Once primeiro que Guarda de Inclusão Interna & Guarda de Inclusão
- Externa e Pragma Once & Redundancia de Guarda de Inclusão \\ \hline
-1 &  &  &  &  &  &  &  \\ \hline
-2 &  &  &  &  &  &  &  \\ \hline
-3 &  &  &  &  &  &  &  \\ \hline
-4 &  &  &  &  &  &  &  \\ \hline
-5 &  &  &  &  &  &  &  \\ \hline
-6 &  &  &  &  &  &  &  \\ \hline
-7 &  &  &  &  &  &  &  \\ \hline
-8 &  &  &  &  &  &  &  \\ \hline
-9 &  &  &  &  &  &  &  \\ \hline
-10 &  &  &  &  &  &  &  \\ \hline
-Média: &  &  &  &  &  &  &  \\ \hline
-\end{tabular}
 \end{table}
 
 
-Experimento 2:
+\textbf{Experimento 2}:
 
 O segundo experimento utilizou o projeto Jack, the Janitor, no qual foi
  realizada uma refatoração dos cabeçalhos: foram incluídas forward
- declarations, os headers  transferidos para o arquivo de
+ declarations, os headers transferidos para o arquivo de
  implementação. Após estas modificações foi feito testes com o comando
  time e o makefile do projeto. Os valores obtidos foram armazenados no
  modelo mostrado na Tabela \ref{tab:modelo_forward_declaration}
 
-
 \begin{table}[h]
 \centering
-\caption{Template para amostras com Forward Declaration}
-\label{tab:modelo_forward_declaration}
-\begin{tabular}{|l|l|l|l|}
+\begin{tabular}{|l|p{3cm}|p{3cm}|p{3cm}|}
 \hline
-Tipo & \multicolumn{3}{l|}{Forward Declaration} \\ \hline
-Amostras & SEM & COM & Fator de Redução (1 - COM/SEM) \\ \hline
+Tipo       & \multicolumn{3}{l|}{Forward Declaration}                                                                                                                            \\ \hline
+Tempo      & \multicolumn{3}{l|}{Em segundos}                                                                                                                                    \\ \hline
+Repetições & Tempo de Compilação SEM forward Declaration & Tempo de Compilação COM Forward Declaration & Fator de Redução) \\ \hline
 1 &  &  &  \\ \hline
 2 &  &  &  \\ \hline
 3 &  &  &  \\ \hline
@@ -325,21 +349,22 @@ Amostras & SEM & COM & Fator de Redução (1 - COM/SEM) \\ \hline
 10 &  &  &  \\ \hline
 Média &  &  &  \\ \hline
 \end{tabular}
+\caption{Template para amostras com Forward Declaration}
+\label{tab:modelo_forward_declaration}
 \end{table}
 
 
 
-Experimento 3:  
-
+Experimento 3: \label{experimento_03}
 
 Realizar um estudo da redução do tempo de compilação utilizando o comando
- mostrado no Código \ref{codigo_25} que permite a compilação em
+ mostrado no Código \ref{codigo_29} que permite a compilação em
  mútliplas threads.
 
 
-\begin{lstlisting}[language=C++,frame=single,caption={Código 25:Execução programa 
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={Execução programa 
 								time mais programa make executando com threads},
-                                                  			 label=codigo_25]
+                                                  			 label=codigo_29]
 
         $ time make -j N
 \end{lstlisting}
@@ -349,12 +374,12 @@ Os valores foram colocados no modelo mostrado na Tabela \ref{tab:makefile},
 
 \begin{table}[h]
 \centering
-\caption{Template para amostras de Makefile}
-\label{tab:makefile}
-\begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+\begin{tabular}{|p{1cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|p{1.4cm}|}
 \hline
-Projeto & \multicolumn{8}{l|}{} &  \\ \hline
-Amostras & 1 & 2 & 4 & 6 & 8 & 10 & 12 & 14 & 16 \\ \hline
+Projeto               & \multicolumn{9}{l|}{Hayai}        \\ \hline
+Tempo                 & \multicolumn{9}{l|}{Em segundos}      \\ \hline
+Quantidade de Threads & 1 & 2 & 4 & 6 & 8 & 10 & 12 & 14 & 16 \\ \hline
+Repetições            & - & - & - & - & - & -  & -  & -  & -  \\ \hline
 1 &  &  &  &  &  &  &  &  &  \\ \hline
 2 &  &  &  &  &  &  &  &  &  \\ \hline
 3 &  &  &  &  &  &  &  &  &  \\ \hline
@@ -367,6 +392,8 @@ Amostras & 1 & 2 & 4 & 6 & 8 & 10 & 12 & 14 & 16 \\ \hline
 10 &  &  &  &  &  &  &  &  &  \\ \hline
 Média &  &  &  &  &  &  &  &  &  \\ \hline
 \end{tabular}
+\caption{Template para amostras de Makefile}
+\label{tab:makefile}
 \end{table}
 
 

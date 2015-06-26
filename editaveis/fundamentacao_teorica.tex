@@ -209,9 +209,9 @@ principais: análise e síntase\cite{ref12}\cite{ref13}. A Figura \ref{fig01}
 
 \begin{figure}[h]
     \centering
-    \label{fig01}
         \includegraphics[keepaspectratio=true,scale=0.5]{figuras/fases_da_compilacao.eps}
-    \caption{Fases da Compilação, com adaptações.}
+    \caption{Fases da Compilação, (Scott, Michael L.,2008)  com adaptações.}
+    \label{fig01}
 \end{figure}
 
 A fase de analise (ou \textit{front-end}) de um compilador é a fase que 
@@ -243,7 +243,7 @@ avanço e comentários \cite{ref15}. Para auxiliar a construção deste analisad
 cujo objetivo é reduzir o esforço de programação deste tipo de ferramenta, 
 especificando-se apenas os tokens a serem reconhecidos \cite{ref18}.
 
-\subsection{Analise Sintâtica}
+\subsection{Analise Sintática}
 
 A analise sintática, ou analise gramatical, é o processo de se determinar 
 se uma cadeia de símbolos léxicos pode ser gerada por uma gramática pré-definida
@@ -291,13 +291,17 @@ código de maquina ou o \textit{Assembly} \cite{ref25}.
 
 Um tipo bem conhecido de linguagem intermediara é o código (ou sentença) de três 
 endereços\cite{ref26}. Este código é uma sequência de enunciados na forma geral, apresentada 
- no Código \ref{codigo01},
+ no Código \ref{codigo01}.
 
-\begin{lstlisting}[language=Pascal,frame=single,title={Código 1: Codigo de três endereços},label=codigo01]
+
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+								Código de três endereços},
+											label=codigo01]
    x:=y op z
 \end{lstlisting}
 
-onde \textbf{x},\textbf{y},\textbf{z} são nomes, constantes ou objetos de dados 
+
+onde \textbf{x}, \textbf{y}, \textbf{z} são nomes, constantes ou objetos de dados 
 temporários criados pelo compilador e \textbf{op} representa um operador qualquer,
  tal como um operador de ponto fixo, flutuante ou um operador lógico sobre dados
  booleanos \cite{ref27}. Uma forma prática de representar sentenças de três endereços é o uso
@@ -324,7 +328,7 @@ redundantes, desmembramento de laços, eliminação de variáveis de indução,
 substituição de multiplicação pelo \textit{shift} binário, redução da 
 quantidade de laços, entre outras \cite{ref30}.
 
-\subsection{Geração de Codigo}
+\subsection{Geração de Código}
 
 Gerador de código é a parte ou componente do compilador responsável por 
 realizar a o mapeamento da linguagem intermediária otimizada para a linguagem 
@@ -338,10 +342,10 @@ que é possível a otimização especifica apresentada nas Figura \ref{fig02}.
 
 \begin{figure}[h]
     \centering
+        \includegraphics[keepaspectratio=true,scale=0.7]{figuras/otimizacao_especifica.eps}
+    \caption{Exemplos de Otiminizações especificas,
+             (Scott, Michael L.,2009) com adaptações }
     \label{fig02}
-        \includegraphics[keepaspectratio=true,scale=0.5]{figuras/otimizacao_especifica.eps}
-    \caption{Exemplos de Otiminizações especificas na fase \textit{peephole},
-             com adaptações \cite{ref33} }
 \end{figure}
 
 
@@ -356,12 +360,13 @@ uma tarefa trabalhosa \cite{ref34}.
 Um programa capaz de realizar o cálculo do máximo divisor comum através do 
 algoritmo de Euclides estendido pode ser representado  em código de máquina 
 usando notação hexadecimal para a representação dos bits, conforme apresentado
- no Código \ref{codigo_02} .
+ no Código \ref{codigo_02} \cite{ref34}.
 
 
-\begin{lstlisting}[language=Pascal,frame=single,title={Código 2: Algoritmo de 
-                   Euclides estendido representado 
-                   em código de máquina\cite{ref34}},
+\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
+												caption={Algoritmo de 
+									   Euclides estendido representado 
+									   em código de máquina,com adaptações},
                                                             label=codigo_02]
  55 89 e5 53  83 ec 04 83  e4 f0 e8 31  00 00 00 89  c3 e8 a2 00
  00 00 39 c3  74 10 8d b6  00 00 00 00  39 c3 7e 13  29 c3 39 c3
@@ -378,10 +383,10 @@ por acrônimos do inglês (por exemplo, ‘mov’ representa ‘mover’, ‘rep
 representa repetição e assim por diante)\cite{ref34}.
 
 O mesmo programa mostrado no Código \ref{codigo_02} pode ser representado 
-em assembly, conforme ilustrado no Código \ref{codigo_03}. 
+em assembly, conforme ilustrado no Código \ref{codigo_03} \cite{ref34}. 
 
-\begin{lstlisting}[language=Pascal,frame=single,title={Código 3: Algoritmo de 
-                   Euclides estendido representado em Assembly \cite{ref34}},
+\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,caption={Algoritmo de 
+                Euclides estendido representado em Assembly, com adaptações},
                                                             label=codigo_03]
     pushl %ebp              jle   D
     mov   %esp, %ebp        subl  %eax, %ebx
@@ -407,9 +412,10 @@ correspondentes da linguagem de máquina (também chamado de opcode)\cite{ref35}
 
 \begin{figure}[h]
     \centering
+        \includegraphics[keepaspectratio=true,scale=0.6]{figuras/ligador.eps}
+    \caption{Representação da ligação entre objetos,(Levine,
+											    John R.,2000),com adaptações.}
     \label{fig03}
-        \includegraphics[keepaspectratio=true,scale=0.5]{figuras/ligador.eps}
-    \caption{ Representação da ligação entre objetos, com adaptações\cite{ref37}.}
 \end{figure}
 
 Um compilador é capaz de realizar a compilação de partes de programas e gerar
@@ -428,7 +434,8 @@ no inicio de um código executável do modulo iosys” \cite{ref36}.
 
 A fase de linkedição existem dois passos. No primeiro o Linker recebe como 
 entrada um conjunto de arquivos objetos, bibliotecas e parâmetros e produz
- como resultado um arquivo de saída. Neste passo é criada uma tabela com 
+ como resultado um arquivo de saída, como mostrado na Figura \ref{fig03}
+ \cite{ref37}. Neste passo é criada uma tabela com 
 todos os segmentos definidos nos arquivos fontes e uma tabela de símbolos 
 importados ou exportados. Depois o Linker atribui uma localização numérica 
 para cada símbolo, determinando o tamanho e a localização dos segmentos no
@@ -451,30 +458,31 @@ Biblioteca é um conjunto de códigos compilados que podem ser incorporados a
 programas sejam mais modulares, mais rápidos de recompilar e mais 
 fáceis de manter\cite{Lasca}.
 
-As bibliotecas podem ser divididas em três tipos:  estáticas, 
+As bibliotecas podem ser divididas em três tipos: estáticas, 
 dinâmicas e compartilhadas\cite{Lasca}.
 
 \begin{figure}[h]
     \centering
+        \includegraphics[keepaspectratio=true,scale=0.45]{figuras/reuso_lib_estatica.eps}
+    \caption{ Representação de reuso com biblioteca estática,(Milan Stevanovic),com adaptações.}
     \label{fig04}
-        \includegraphics[keepaspectratio=true,scale=0.3]{figuras/reuso_lib_estatica.eps}
-    \caption{ Representação de reuso com biblioteca estatica, com adaptações\cite{ref39}.}
 \end{figure}
 
 \begin{figure}[h]
     \centering
+        \includegraphics[keepaspectratio=true,scale=0.45]{figuras/reuso_lib_estatica2.eps}
+    \caption{Representação de reuso (maneira trivial),(Milan Stevanovic),com adaptações.}
     \label{fig05}
-        \includegraphics[keepaspectratio=true,scale=0.3]{figuras/reuso_lib_estatica2.eps}
-    \caption{ Representação de reuso (maneira trivial), com adaptações\cite{ref40}.}
 \end{figure}
 
 
 \subsection{Bibliotecas Estáticas}
 
-Bibliotecas estáticas (que normalmente  são nomeadas com o  sufixo ‘.a’ ) 
+Bibliotecas estáticas (que normalmente  são nomeadas com o  sufixo ‘.a’) 
 são módulos de programas compilados separadamente, que podem ser utilizados
  na construção de um programa executável. Assim, após a etapa de compilação de
- um projeto, o linker faz a ligação entre as bibliotecas estáticas\cite{ref39}.
+ um projeto, o linker faz a ligação entre as bibliotecas estáticas como
+ mostrado na Figura \ref{fig04} \cite{ref39}.
 
 Estas bibliotecas são mais difíceis de se manter, pois a cada atualização de uma
  biblioteca estática todos os projetos dependentes da mesma devem ser recompilados.
@@ -489,20 +497,20 @@ Estas bibliotecas são mais difíceis de se manter, pois a cada atualização de
 
 Ao contrário das bibliotecas estáticas, as bibliotecas dinâmicas são códigos
  objetos que podem ser carregados durante a execução de um projeto, como
- representado na figura \ref{fig06}. Bibliotecas dinâmicas não aumentam
- o tamanho do código binário do projeto final mas, no entanto, a execução
- do projeto necessita da utilização de um arquivo externo (normalmente
- nomeado com o sufixo ‘.so’ ou ‘.dll’), que contém as informações a serem
- carregadas\cite{Lasca2}. Em ambiente Linux as bibliotecas devem ser 
- registradas em uma variável de ambiente chamada LD\_LIBRARY\_PATH, 
- que possui o caminho de todas as bibliotecas dinâmicas que podem ser 
- utilizadas.
+ representado na figura \ref{fig06} \cite{ref41}. Bibliotecas dinâmicas 
+não aumentam o tamanho do código binário do projeto final mas, no entanto,
+ a execução do projeto necessita da utilização de um arquivo externo
+ (normalmente nomeado com o sufixo ‘.so’ ou ‘.dll’), que contém as
+ informações a serem carregadas\cite{Lasca2}. Em ambiente Linux as
+ bibliotecas devem ser  registradas em uma variável de ambiente chamada
+ LD\_LIBRARY\_PATH, que possui o caminho de todas as bibliotecas dinâmicas
+ que podem ser utilizadas.
 
 \begin{figure}[h]
     \centering
+        \includegraphics[keepaspectratio=true,scale=0.5]{figuras/dynamic_lib.eps}
+    \caption{Representação de biblioteca dinâmica,(Milan Stevanovic) com adaptações.}
     \label{fig06}
-        \includegraphics[keepaspectratio=true,scale=0.3]{figuras/dynamic_lib.eps}
-    \caption{ Representação de biblioteca dinâmica, com adaptações\cite{ref41}.}
 \end{figure}
 
 
@@ -510,17 +518,20 @@ Ao contrário das bibliotecas estáticas, as bibliotecas dinâmicas são código
 
 \subsection{Include Guards}\label{include_guards_section}
 
-Em C++ a inclusão de um arquivo de código fonte em outro arquivo fonte é feitai
+Em C++ a inclusão de um arquivo de código fonte em outro arquivo fonte é feita
  através da diretiva de pré-processamente chamada \texttt{include}, que pode 
 ser utilizada como mostrado no Codigo \ref{codigo_04}. 
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 4: Diretiva de 
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={Diretiva de 
                            pré-processamento para inclusão de um arquivo},
                                                    label=codigo_04]
-    #include <nome do arquivo>  // biblioteca de sistema 
-    ou
-    #include "nome do arquivo"  // outras bibliotecas 
+// biblioteca de sistema 
+#include <nome do arquivo>  
 
+ou
+
+// outras bibliotecas 
+#include "nome do arquivo"  
 
 \end{lstlisting}
 
@@ -531,14 +542,12 @@ Diretivas \texttt{include} normalmente são utilizadas várias vezes em um proje
  estruturas e elementos do código. Um exemplo deste problema é mostrado na
  Figura \ref{fig07} \cite{ref41}.
 
-
 \begin{figure}[h]
     \centering
+        \includegraphics[keepaspectratio=true,scale=0.6]{figuras/multi_include.eps}
+    \caption{ Representação de includes redundante,(John Lakos,1996) com adaptações.}
     \label{fig07}
-        \includegraphics[keepaspectratio=true,scale=0.5]{figuras/multi_include.eps}
-    \caption{ Representação de includes redundante, com adaptações\cite{ref42}.}
 \end{figure}
-
 
 Para correção deste problema foram criadas as guardas de inclusão 
 (no inglês chamada de  \textit{include guards} ou \textit{guard conditions}),
@@ -550,13 +559,14 @@ Normalmente, arquivos-cabeçalho (ou \textit{headers}) são utilizados para
  declarações de estruturas, variáveis, funções e macros. Tais arquivos são
  identificados pelos sufixo ‘.h’,’.hpp’,’.hxx’ ou ‘.hpp’. As implementações
  das funções e definições de variáveis são feitas, na maioria das vezes, em
- arquivos denominados fontes (ou sources), cujas extensões mais comuns são
- ".c", ".cpp", ".cxx", ".cc", ".c++", entre outros \cite{gcc-sufix}.
+ arquivos denominados fontes (ou \textit{sources}), cujas extensões mais
+ comuns são ".c", ".cpp", ".cxx", ".cc", ".c++", entre outros
+ \cite{gcc-sufix}.
 
 Há quatro tipos de guardas de inclusão:
 
 \begin{enumerate}
-\item Interna ao arquivo header:
+\item Interna ao arquivo \textit{header}:
 
 A diretiva "\#ifndef" é utilizada para verificar se um identificador foi 
  definido (forma negativa, para a forma positiva a diretiva é "\#ifdef"); a 
@@ -569,29 +579,29 @@ qualquer informação que que esteja entre as diretivas "\#ifndef"  e "\#endif";
  caso não esteja definido, o identificador serão então definido e as informações
  que seguem a diretiva serão incluídas no arquivo resultante\cite{ref42}.
 
-Os Códigos \ref{codigo_04}, \ref{codigo_05} e \ref{codigo_06} ilustram uma 
-guarda de inclusão interna ao arquivo header.
+Os Códigos \ref{codigo_004}, \ref{codigo_05} e \ref{codigo_06} ilustram uma 
+guarda de inclusão interna ao arquivo \textit{header}.
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 4: Arquivo c.hpp que
-                                       inclue arquivos a.hpp e b.hpp que contém
-                                                 guardasd de inclusão interna },
-                                                            label=codigo_04]
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+									Arquivo c.hpp contendo guardas
+													 de inclusão interna},
+                                                            label=codigo_004]
 // c.h  declaracao de variavel
 // verficar se o simbolo INCLUDE_C esta definido
 #ifndef INCLUDE_C   
 // define um simbolo INCLUDE_C
 #define INCLUDE_C   
 
-#include "a.h"      // importa o arquivo "a.h"
-#include "b.h"      // importa o arquivo "b.h"
+#include "a.hpp"      // importa o arquivo "a.hpp"
+#include "b.hpp"      // importa o arquivo "b.hpp"
 
 ...                 // define as estruturas
 
-#endif              // fim da condicional "ifndef" 
+#endif              // fim da condicional "#ifndef" 
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 5: 
-                                    Arquivo b.hpp que inclue o arquivo a.h},
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+                                     Arquivo b.hpp que inclue o arquivo a.h},
                                                             label=codigo_05]
 // b.hpp
 #ifndef INCLUDE_B
@@ -602,7 +612,7 @@ guarda de inclusão interna ao arquivo header.
 #endif    
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 6: Arquivo a.hpp 
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={Arquivo a.hpp 
                                     contendo guardas de inclusão interna},
                                                             label=codigo_06]
 // a.hpp    arquivo de declaracao
@@ -614,7 +624,7 @@ guarda de inclusão interna ao arquivo header.
 \end{lstlisting}
 
 
-\item Externa ao arquivo de header:
+\item Externa ao arquivo de \textit{header}:
  
 Na  guarda de condição externa  são utilizadas as mesmas diretivas da interna,
  sendo a única diferença é a localização das diretivas: elas antecederão o uso
@@ -623,9 +633,9 @@ externa é mostrado nos Código \ref{codigo_07},\ref{codigo_08} e
  \ref{codigo_09}\cite{ref42}.
 
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 7: Arquivo c.hpp 
-                                    contendo guardas de inclusão externa 
-                                            para os arquivos a.hpp e b.hpp},
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+									Arquivo c.hpp 
+                                    contendo guardas de inclusão externa},
                                                             label=codigo_07]
 // c.hpp arquivo de declaracao de estruturas de c
 
@@ -647,8 +657,9 @@ externa é mostrado nos Código \ref{codigo_07},\ref{codigo_08} e
 
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 8: Arquivo a.hpp 
-                                           com guarda de inclusão externa },
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+										   Arquivo a.hpp 
+                                           com guarda de inclusão externa},
                                                             label=codigo_08]
 // a.hpp         declaracao das estruturas de a.hpp
 
@@ -656,7 +667,8 @@ externa é mostrado nos Código \ref{codigo_07},\ref{codigo_08} e
 
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 9: Arquivo b.hpp
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+										   Arquivo b.hpp
                                            com guarda de inclusão externa},
                                                             label=codigo_09]
 //b.hpp        declaracao das estruturas de b.hpp
@@ -666,7 +678,7 @@ externa é mostrado nos Código \ref{codigo_07},\ref{codigo_08} e
 \end{lstlisting}
 
 
-\item Redundancia:
+\item Redundância:\label{redundancia_melhor}
 
 Consiste em utilizar, simultaneamente, as guardas de inclusão internas e 
 externas. 
@@ -677,51 +689,70 @@ Segundo John Lakos, está guarda de inclusão é a mais trabalhosa de ser mantid
  e obteve os resultados mostrados nas Tabelas \ref{tab:tabela_01} e 
 \ref{tab:tabela_02};
 
-\begin{table}[h]
-    \label{tab:tabela_01}
-    \caption {Amostra de segundos na CPU, com redundancia e sem redundancia
-               de guarda de inclusão, com 10 headers/linha }
+\begin{table}
     \centering
     \begin{tabular}{ |c | c | c | c |}
     \hline
     Quantidade de Arquivos & SEM & COM & Sem Redundancia/Com Redundancia\\
+    \hline
     1 & 0.2 & 0.2 & 1.0\\
+    \hline
     2 & 0.2 & 0.2 & 1.0\\
+    \hline
     4 & 0.3 & 0.3 & 1.0\\
+    \hline
     8 & 0.5 & 0.3 & 1.67\\
+    \hline
     16 & 0.7 & 0.4 & 1.75\\
+    \hline
     32 & 1.5 & 1.1 & 3.0\\
+    \hline
     64 & 0.2 & 0.2 & 1.0\\
+    \hline
     128 & 25.9 & 3.5 & 74.0\\
+    \hline
     256 & 126.5 & 13.6 & 9.3\\
+    \hline
     512 & 702.3 & 61.6 & 11.4\\
+    \hline
     1024 & 4378.5 & 306.6 & 14.28\\
     \hline
     \end{tabular}
+    \caption {Amostra de Redundância com 10 headers por linha}
+    \label{tab:tabela_01}
 \end{table}
 
-
 \begin{table}[h]
-    \label{tab:tabela_02}
     \centering
-    \caption {Amostra de segundos na CPU, com redundância e sem redundância
-               de guarda de inclusão, com 100 headers/linha }
     \begin{tabular}{ |c | c | c | c |}
     \hline
     Quantidade de Arquivos & SEM & COM & Sem Redundância/Com Redundância\\
+    \hline
     1 & 0.2 & 0.2 & 1.0\\
+    \hline
     2 & 0.2 & 0.2 & 1.0\\
+    \hline
     4 & 0.4 & 0.3 & 1.33\\
+    \hline
     8 & 0.7 & 0.4 & 1.75\\
+    \hline
     16 & 1.7 & 0.5 & 3.4\\
+    \hline
     32 & 5.8 & 0.9 & 6.44\\
+    \hline
     64 & 22.1 & 2.0 & 11.05\\
+    \hline
     128 & 89.5 & 5.2 & 17.21\\
+    \hline
     256 & 376.5 & 17.1 & 22.02\\
+    \hline
     512 & 1697.4 & 68.6 & 24.74\\
+    \hline
     1024 & 8303.8 & 330.6 & 25.12\\
     \hline
     \end{tabular}
+    \caption {Amostra de Redundância com 100 headers por linha }
+    \label{tab:tabela_02}
 \end{table}
 
 \item Pragma Once
@@ -730,44 +761,56 @@ Pragma once é uma diretiva de pré-processamente que possui o objetivo de
  garantir que um arquivo será lido apenas uma vez: caso uma diretiva 
 "\#include" seja utilizada novamente e o arquivo já foi incluído anteriormente,
  o mesmo não será aberto. No entanto, esta implementação se tornou obsoleta 
- na implementação do gcc \cite{gcc-pragma_once}. Os Códigos xzy e wzt exemplificam o uso 
-desta diretiva.
+ na implementação do gcc \cite{gcc-pragma_once}. Os Códigos \ref{codigo_10} 
+, \ref{codigo_11} e \ref{codigo_12} exemplificam o uso desta diretiva.
 
 
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 10:
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
                                     Exemplo de arquivo c.hpp com guarda de 
-                                         inclusão que utiliza "\#pragma once"},
+                                         inclusão que utiliza \#pragma once},
                                                             label=codigo_10]
 // c.hpp
-// prgama once indicar que o arquivo c.hpp sera incluido apenas 1 vez
+/* pragma once indicar que o 
+   arquivo c.hpp sera
+   incluido apenas 1 vez */
 #pragma once            
-#include "a.h"
-#include "b.h"
+#include "a.hpp"
+#include "b.hpp"
+
+ // declaracoes de c.hpp
+
+ ...
+
 \end{lstlisting}
-\begin{lstlisting}[language=C++,frame=single,title={Código 11: 
+
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
                                    Exemplo de arquivo a.hpp com guarda de 
-                                    inclusão que utiliza "\#pragma once"},
+                                    inclusão que utiliza \#pragma once},
                                                             label=codigo_11]
-#a.hpp
+// a.hpp
 #pragma once 
- ...       // declaracoes de a.hpp
+
+ // declaracoes de a.hpp
+
+ ...
 
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 12: 
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={ 
                                    Exemplo de arquivo b.hpp com guarda de 
-                                      inclusão que utiliza "\#pragma once"},
+                                      inclusão que utiliza \#pragma once},
                                                             label=codigo_12]
-#b.hpp
+//b.hpp
 #pragma once 
- ...       // declaracoes de b.hpp
+
+ // declaracoes de b.hpp
+
+ ...
 
 \end{lstlisting}
 
 \end{enumerate}
-
-
 
 \subsection{Forward Declaration}\label{forward_declaration_section}
 
@@ -784,29 +827,45 @@ de uma declaração ou de uma definição da classe Doutor. Desta forma, a
 compilação geraria um erro, pois antes de utilizar uma referência é 
 necessário declarar ou definir esta referência.
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 13: 
-                   Arquivo com Declaração de Paciente e Doutor},
-                                                label=codigo_13]
-// doutor\_paciente.cpp
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+                        Implementação de classes Paciente e Doutor},
+                                                     label=codigo_13]
+// doutor_paciente.cpp
+
 class Doutor {
+
+  // implementacoes privadas
+  private:
+
   /* a classe Doutor necessita saber que existe 
      a referencia para a classe Paciente */
   Paciente* p; 
+
   ...          
+
+  // implementacoes publicas
   public:
-  ....
+
+  ...	
+
 };
 
 class Paciente {
+
+ // implementacoes privadas
+ private:
+
  /* a classe paciente necessita saber que 
  existe a classe Doutor, no entanto
  doutor so existe se souber da referencia
  de paciente */
-
  Doutor * d; 
+
  ...  
 
+ // implementacoes publicas
  public:
+
  ...  
 
 };
@@ -814,32 +873,50 @@ class Paciente {
 \end{lstlisting}
 
 Para resolver este problema é preciso utilizar uma 
-referência incompleta ("forward") da classe Doutor e da
+referência incompleta (\textit{"forward"}) da classe Doutor e da
  classe Paciente, conforme apresentado no Código \ref{codigo_14}. 
 
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={ 
+								Implementação de classes Paciente e
+							 Doutor utilizando forward declaration},
+                                                    label=codigo_14]
+// forward declaration
+class Doutor;   
+class Paciente; 
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 14: 
-                   Arquivo com Declaração de Paciente e Doutor},
-                                                label=codigo_14]
+class Doutor   {
+  // implementacoes privadas
+  private:
 
-    class Doutor;   // forward declaration
-    class Paciente; // forward declaration
-    class Doutor   {
-        /* a referencia incompleta de Paciente existe,
-           entao Doutor pode armazenar a 
-           referencia do paciente */
-        Paciente* p; 
-            ... 
-        public: 
-            .... 
-    };
-    
-    class Paciente {
-        Doutor * d; 
-        ... 
-        public: 
-        ...
-     };
+  /* a referencia incompleta de Paciente existe,
+   entao Doutor pode armazenar a 
+   referencia do paciente */
+
+  Paciente* p; 
+  
+  ... 
+
+  // implementacoes publicas
+  public: 
+
+  ...
+ 
+};
+
+class Paciente {
+  // implementacoes privadas
+  private:
+	
+  Doutor * d; 
+
+  ... 
+	
+  // implementacoes publicas
+  public: 
+
+  ...
+
+};
 
 \end{lstlisting}
 
@@ -847,29 +924,30 @@ A declaração incompleta (\textit{forward declaration}) de uma classe somente p
  ser utiliza em arquivos na forma de ponteiro (utilizando o operador "*")
  ou referência (utilizando o operador "\&"), pois estas não requerem uma
  definição de classe completa porque, em C++, é alocado uma quantidade fixa
- de armazenamento para estes tipos de variáveis\cite{ref43}.
+ de armazenamento para estes tipos de variáveis \cite{ref43}.
 
 Um exemplo incorreto de utilização de forward declaration seria utilizar
  um construtor da classe Doutor é mostrado no Código \ref{codigo_15}.
 
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 15: 
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
                    Uso incorreto de Forward Declaration},
                                                 label=codigo_15]
-    class Doutor;
-    Doutor doutor();
+   // forward declaration
+   class Doutor;
+
+   // utilizacao da estrutura Doutor
+   Doutor doutor();
 
 \end{lstlisting}
 
 Como já mencionado, qualquer entidade deve ser declarada ou definida antes
  de ser utilizada, então o caso acima é válido para funções, variáveis,
  estruturas e uniões, entre outros. A Tabela \ref{tab:tabela_03} mostra
- um exemplo de \textit{ forward declaration} para alguns destes tipos
+ um exemplo de \textit{forward declaration} para alguns destes tipos
  de estruturas.
 
 \begin{table}[h]
-    \label{tab:tabela_03}
-    \caption {}
     \centering
     \begin{tabular}{ |c | c |}
     \hline
@@ -886,6 +964,8 @@ Como já mencionado, qualquer entidade deve ser declarada ou definida antes
     union Foo { int x; char x; }Foo; & union Foo;\\
     \hline
     \end{tabular}
+    \caption{Exemplos de \textit{forward declaration}}
+    \label{tab:tabela_03}
 \end{table}
 
 
@@ -894,38 +974,42 @@ Na linguagem C++ há uma separação entre  a implementação e a interface de
  detalhes de sua implementação, como nos Código \ref{codigo_16} e \ref{codigo_17}.
 
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 16: 
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={ 
                           Arquivo declaração da classe Pessoa },
                                                 label=codigo_16]
 
 // pessoa.hpp   - declaracao da classe
 #ifndef PESSOA_HPP
 #define PESSOA_HPP
-// saber detalhes de implementacao da string
+
+// conhecer detalhes de implementacao da string
 #include <string>       
-// saber detalhes de implementacao da Data
+// conhecer detalhes de implementacao da Data
 #include "data.hpp"     
 
 class Pessoa{
 public:
-        Pessoa(std::string nome,Data data);
-        std::string meu_nome() const;
-        Data meu_aniversario() const;
-private:
-        // detalhes de implementacao na declaracao
-        std::string nome;        
 
-        // detalhes de implementacao na declaracao
-        Data aniversario;        
+  Pessoa(std::string nome,Data data);
+  std::string meu_nome() const;
+  Data meu_aniversario() const;
+
+private:
+  // detalhes de implementacao na declaracao
+  std::string nome;        
+
+  // detalhes de implementacao na declaracao
+  Data aniversario;        
 };
+
 #endif
 
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 17: 
-                          Arquivo definição da classe Pessoa },
-                                                label=codigo_17]
-// pessoa.cpp    implementacao da classe
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+                               Arquivo definição da classe Pessoa},
+                                                    label=codigo_17]
+// pessoa.cpp implementacao da classe
 #include "pessoa.hpp"
 
 Pessoa::Pessoa(std::string nome, Data data)
@@ -947,12 +1031,11 @@ Pessoa::meu_aniversario() const
 \end{lstlisting}    
 
 
-
 Definir uma classe com detalhes de implementação em sua definição não é uma
  boa prática de programação, uma vez que ela não pode ser compilada sem
  conhecer as definições das classes utilizadas em sua implementação para
  realizar alocação de memória. Isso conduz à utilização da diretriz
- "\#include", gerando dependência entre arquivos.\cite{ref44}
+ "\#include", gerando dependência entre arquivos\cite{ref44}.
 
 Uma maneira de contornar este problema é utilizar uma forward declaration e a
  armazenar referências das classes, de modo que as definições das classes não
@@ -962,9 +1045,9 @@ Uma maneira de contornar este problema é utilizar uma forward declaration e a
 e \ref{codigo_19}.
 
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 18: 
-                          Arquivo definição da classe Pessoa,       
-                      utilizando \textit{forward declaration} },
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={ 
+                         	     Arquivo definição da classe Pessoa,       
+                          utilizando \textit{forward declaration}},
                                                 label=codigo_18]
 // pessoa.hpp 
 #ifndef PESSOA_HPP
@@ -972,26 +1055,34 @@ e \ref{codigo_19}.
 
 // header para string forward declaration
 #include <bits/stringfwd.h>    
+
 // forward declaration
 class Data;            
+
 class Pessoa{
 public:
         Pessoa(std::string& nome,Data *data);
         std::string& meu_nome() const;
         Data* meu_aniversario() const;
+
 private:
-        std::string& nome;        // referencia para string
-        Data* aniversario;        // referencia para Data
+// referencia para string
+  std::string& nome;
+
+// referencia para Data
+  Data* aniversario;
 };
 
 #endif
+
 \end{lstlisting}
 
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 19: 
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={ 
                           Arquivo definição da classe Pessoa,       
                       utilizando \textit{forward declaration} },
                                                 label=codigo_19]
+
 // pessoa.cpp -  implementacao
 #include "pessoa.hpp"
 #include <string>
@@ -1010,6 +1101,7 @@ Pessoa::meu_aniversario() const
 {
         return aniversario;
 }
+
 \end{lstlisting}
 
 
@@ -1020,44 +1112,44 @@ O Código \ref{codigo_18} foi feito o uso da diretiva \#include
  a gcc-gnu \cite{gcc-api}.
 
 \begin{table}[h]
-    \label{tab:tabela_04}
-    \caption {Tabela de Algumas \textit{forward 
-              declaration} padrões do c++}
     \centering
-    \begin{tabular}{ |l|p{10cm} | l|p{10cm} |}
-    \hline
-    Biblioteca & Alguns includes do header\\
-    \hline
+	\begin{tabular}{ |l|p{10cm} | l|p{10cm} |}
+	\hline
+	Biblioteca & Alguns includes do header\\
+	\hline
 
-    \#include<bits/stringfwd.h> & std::string,
- 
-                                 std::wstring,std::u16string, 
+	\#include<bits/stringfwd.h> & std::string,
 
-                                 std::u32string;\\
-    \hline
-    \#include <iosfwd> & std::filebuf, std::fstream,
-                        std::ifstream, std::iostream,
-                        std::istream, std::ofstream,
-                        std::ostream, std::ostringstream,
-                        std::stringbuf,std::streambuf,
-                        entre outros;\\
-    \hline
-    \#include <bits/localefwd.h> & std:has\_facet, std::isalnum,
-                                  std::isalpha, std::iscntrl,
-                                  std::isdigit,std::isgraph,
-                                  std::islower, std::isprint,
-                                  std::ispunct,
-                                  std::isspace,std::issuper,
-                                  entre outros;\\
-    \hline
-    \#include <bits/algorithmfwd.h> & std::adjacent\_find,std::any\_of,
-                                     std::binary\_search, 
-                                     std::copy\_backward, std::copy\_if,
-                                     std::count\_if, std::count,
-                                     std::find\_end, std::find\_if,
-                                     entre outros.\\
-    \hline
-  \end{tabular}
+								 std::wstring,std::u16string, 
+
+								 std::u32string;\\
+	\hline
+	\#include <iosfwd> & std::filebuf, std::fstream,
+						std::ifstream, std::iostream,
+						std::istream, std::ofstream,
+						std::ostream, std::ostringstream,
+						std::stringbuf,std::streambuf,
+						entre outros;\\
+	\hline
+	\#include <bits/localefwd.h> & std:has\_facet, std::isalnum,
+								  std::isalpha, std::iscntrl,
+								  std::isdigit,std::isgraph,
+								  std::islower, std::isprint,
+								  std::ispunct,
+								  std::isspace,std::issuper,
+								  entre outros;\\
+	\hline
+	\#include <bits/algorithmfwd.h> & std::adjacent\_find,std::any\_of,
+									 std::binary\_search, 
+									 std::copy\_backward, std::copy\_if,
+									 std::count\_if, std::count,
+									 std::find\_end, std::find\_if,
+									 entre outros.\\
+	\hline
+	\end{tabular}
+	\caption {Tabela de Algumas \textit{forward 
+			  declaration} padrões do c++}
+    \label{tab:tabela_04}
 \end{table}
 
 
@@ -1077,16 +1169,17 @@ Para utilizar a ferramenta make é necessário a criação de um arquivo chamado
  Depois de definir o arquivo makefile, utiliza a chamada de sistema apresentada 
 no Codigo \ref{codigo_20}.
 
-\begin{lstlisting}[language=C++,frame=single,title={Código 20: 
-                             Chamada de Sistema para executar o programa make },
-                                                label=codigo_20]
+\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+                             Chamada de Sistema para executar o programa make},
+				                                                label=codigo_20]
     $ make
-
 \end{lstlisting}
+
 
 O programa make realiza as devidas verificações nos códigos fontes e
  nos códigos objetos, e caso seja necessário recompilar um arquivo, o
- makefile contém as instruções necessárias para o tal procedimento \cite{ref46}.
+ makefile contém as instruções necessárias para o tal procedimento
+ \cite{ref46}.
 
 
 \subsection{Estrutura básica de um arquivo makefile}
@@ -1101,35 +1194,34 @@ Arquivos makefile contém 5 tipos básicos de elementos: regras explicitas,
          de arquivos. Ela é definida pela estrutura apresentada no Codigo \ref{codigo_21}.
 
 
-        \begin{lstlisting}[language=C++,frame=single,title={Código 21: 
-                                     Chamada de Sistema para executar o programa make },
+        \begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+                                     			Regras explicitas Makefile},
                                                         label=codigo_21]
 
-        alvo ... : pre-requisitos ... 
-                   procedimentos
-                   ...
-        ou 
+alvo ... : pre-requisitos ... 
+    procedimentos
+	...
+ou 
 
-        alvo ... : pre-requisitos ... ; procedimentos
-            procedimentos
-            ...
+alvo ... : pre-requisitos ... ; procedimentos
+    procedimentos
+    ...
 
         \end{lstlisting}
 
 
- O alvo é utilizado para nomear os artefatos que devem ser gerados pelo projeto.
+ O \textbf{alvo} é utilizado para nomear os artefatos que devem ser gerados pelo projeto.
  O alvo também pode ser utilizado para fazer a chamada de execução de um trecho
  específico do Makefile,  sendo passando como parâmetro na utilização do comando
  make.
 
-
- Os pré-requisitos são os endereços de arquivos utilizados como entrada para a 
+ Os \textbf{pré-requisitos} são os endereços de arquivos utilizados como entrada para a 
 criação do alvo. Este campo é opcional, pois podem existir instruções que não
  necessitam de arquivos de entrada, como por exemplo a instrução "clean”
  (tipicamente utilizada para remoção de todos os códigos objetos gerados a partir
  dos códigos do projeto) \cite{ref47}.
 
-Os procedimentos são as ações que devem ser executadas a partir do comando make.
+Os \textbf{procedimentos} são as ações que devem ser executadas a partir do comando make.
 Este bloco pode conter mais de um comando em uma linha, ou  vários comandos em
  linhas separadas \cite{ref47}.
 
@@ -1138,14 +1230,14 @@ Este bloco pode conter mais de um comando em uma linha, ou  vários comandos em
  baseadas em seus nomes e padrões \cite{ref48}. Um exemplo de utilização de 
  padrões é apresentado no Código \ref{codigo_22} \cite{ref49}
         
-    \begin{lstlisting}[language=C++,frame=single,title={Código 22: 
-                      Exemplo de utilização de padrões no makefile},
-                                                    label=codigo_22]
+    \begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={ 
+                          Exemplo de utilização de padrões no Makefile},
+                                                        label=codigo_22]
 
-        # gerar  objetos ".o" utilizando arquivos ".c"
-        %.o : %.c
-                procedimentos
-                ...
+# gerar  objetos ".o" utilizando arquivos ".c"
+%.o : %.c
+    procedimentos
+    ...
 
     \end{lstlisting}
 
@@ -1155,14 +1247,14 @@ Este bloco pode conter mais de um comando em uma linha, ou  vários comandos em
  texto posteriormente \cite{ref43}. Veja o Código \ref{codigo_23} para um exemplo de 
 definição de variável.
 
-    \begin{lstlisting}[language=C++,frame=single,title={Código 23: 
-                              Definição de variavel e utilização},
-                                                    label=codigo_23]
+    \begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={ 
+                                     Definição de variavel e utilização},
+                                                         label=codigo_23]
 objetos = main.o command.o display.o files.o\
           search.o utils.o
 
 clean:
- rm $(objetos)
+    rm $(objetos)
     \end{lstlisting}
 
 
@@ -1175,9 +1267,9 @@ são instruções que indicam ao make ações especiais a medida que é realizad
         \item Utilizar ou ignorar parte do makefile.\cite{ref43} O Código \ref{codigo_24} ilustra o uso desta diretiva. 
 
 
-    \begin{lstlisting}[language=C++,frame=single,title={Código 24: 
-                        Exemplo Make file com diretiva condicional},
-                                                    label=codigo_24]
+    \begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={ 
+                             Exemplo Make file com diretiva condicional},
+                                                         label=codigo_24]
 
 ibs_for_gcc = -lgnu
 normal_libs =
@@ -1188,7 +1280,6 @@ $(CC) -o foo $(objects) $(libs_for_gcc)
 else
 $(CC) -o foo $(objects) $(normal_libs)
 endif
-
 
     \end{lstlisting}
 
@@ -1209,10 +1300,10 @@ endif
  e  da diretiva endef é possível realizar a definição de uma variável em mais
  de uma linha \cite{ref51}. O Código \ref{codigo_25} ilustra esta situação.
 
-    \begin{lstlisting}[language=C++,frame=single,title={Código 25: 
-                    Exemplo Make file com definição de variavel em
-                                                  multiplas linhas},
-                                                    label=codigo_25]
+    \begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
+						Exemplo Make file com definição de variavel em
+													  multiplas linhas},
+														label=codigo_25]
 bar= "BAR"
 define two-lines =
 echo foo
@@ -1238,8 +1329,8 @@ Em arquivos Makefile a utilização de caractere "\#" em uma linha faz com
 \subsection{Padrões de um arquivo makefile para ferramentas GNU}
 
     
-Tendo como referência o manual do GNU Make\footnote{
-    Manual GNU-Make: http://www.gnu.org/software/make/manual/make.pdf 
+Tendo como referência o manual do GNU Make \footnote{
+Manual GNU-Make: http://www.gnu.org/software/make/manual/make.pdf 
 }, Seção 15.6, existem padrões que podem ser utilizados em arquivo
  makefile. Alguns dos mais comuns são:
 
@@ -1270,12 +1361,12 @@ o nome do projeto e  que inclui  todo o conteúdo do diretório atual.
 
 Depois de gerado o arquivo makefile utilizando as regras descritas nas seções anteriores,
  o comando make pode ser utilizado para executar as regras descritas.
-O comando make pode ser utilizado como mostrado no Codigo xyz e conforme apresentado na Tabela xyz.
+O comando make pode ser utilizado como mostrado no Codigo \ref{codigo_26} e conforme apresentado na Tabela \ref{tab:tabela_05}.
 
 
-    \begin{lstlisting}[language=C++,frame=single,title={Código 23: 
-                              Definição de variavel e utilização},
-                                                    label=codigo_23]
+    \begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={ 
+                                     Definição de variavel e utilização},
+                                                         label=codigo_26]
     
         $ make [opcoes] ... [Alvo]
 
@@ -1286,11 +1377,9 @@ O comando make pode ser utilizado como mostrado no Codigo xyz e conforme apresen
 A omissão deste parâmetro leva a execução do alvo "all".
     
 \textbf{Opções}: são flags de controle utilizadas pelo utilitario make.
- Exemplos de flags estão definidas na tabela xyz:
-
+ Exemplos de flags estão definidas na Tabela \ref{tab:tabela_05}:
 
 \begin{table}[h]
-    \label{tab:tabela_01}
     \centering
     \begin{tabular}{ | l|p{10cm} | l|p{10cm} |}
     \hline
@@ -1311,7 +1400,8 @@ A omissão deste parâmetro leva a execução do alvo "all".
                                  de threads.\\
     \hline
     \end{tabular}
-    \caption { Exemplos de flags que podem ser utilizadas no make}
+    \caption {Exemplos de flags que podem ser utilizadas no make}
+    \label{tab:tabela_05}
 \end{table}
 
     * Palavras entre "[" e "]" são opcionais.
