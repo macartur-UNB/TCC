@@ -2,12 +2,600 @@
 
 \partapendices
 
-\chapter{Primeiro Apêndice}
+\chapter{Script Geração de Projetos}
 
-Texto do primeiro apêndice.
 
-\chapter{Segundo Apêndice}
+\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
+                                                caption={
+                     Script usando para gerar diretorios com Guardas de Inclusão Externa
+                                                                         mais pragma once},
+                                                            label=script_external_pragma_include]
 
-Texto do segundo apêndice.
+# external_pragma.py
+from os import mkdir
+from os import path
+from os import system
 
+number_of_files = 10**4
+number_of_includes = 3
+
+folder =  "./external_pragma/"
+
+include_directory = folder+"include"
+include_path = folder+"include/{0}.hpp"
+path_main_file = folder+"main.cpp"
+
+content_of_include = """#pragma once\nconst int int{0} = {0};"""
+end_of_main_file = "int main() {\n}\n"
+header = """#ifndef H{0}_HPP
+#define H{0}_HPP
+#include "{0}.hpp"
+#endif
+"""
+
+def verify_directory(path_name):
+    if not path.exists(path_name):
+        mkdir(path_name)
+
+def create_include_file(path,content):
+    f =  open(path,"w+")
+    f.write (content)
+    f.close()
+
+def create_includes():
+    #create directory
+    # create all files
+    for number in range(0,number_of_files):
+        path = include_path.format(str(number))
+        content = content_of_include.format(str(number))
+        create_include_file(path,content)
+    
+def create_main_file():
+    #open main.cpp
+    main = open(path_main_file,"w+")
+
+    #write includes 3 times
+    for number in range(0,number_of_files):
+        for x in range(0,number_of_includes):
+            content = header.format(str(number))
+            main.write(content)
+        main.write("\n")
+
+    #write end of file
+    main.write(end_of_main_file)
+
+    #close main.cpp
+    main.close()
+                                                                                  
+def copy_util_files():                                                           
+    command = "cp util/* "                                                       
+    command += folder                                                            
+    system(command)      
+
+def main():
+    verify_directory(folder)
+    verify_directory(include_directory)
+    create_includes()
+    create_main_file()
+    copy_util_files()
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
+                                                caption={
+                     Script usando para gerar diretorios com Guardas de Inclusão Externa},
+                                                            label=script_external_include]
+# external.py
+from os import mkdir
+from os import path
+from os import system
+
+number_of_files = 10**4
+number_of_includes = 3
+
+folder =  "./external/"
+
+include_directory = folder+"include"
+include_path = folder+"include/{0}.hpp"
+path_main_file = folder+"main.cpp"
+
+content_of_include = """const int int{0} = {0};"""
+end_of_main_file = "int main() {\n}\n"
+header = """#ifndef H{0}_HPP
+#define H{0}_HPP
+#include "{0}.hpp"
+#endif
+"""
+
+def verify_directory(path_name):
+    if not path.exists(path_name):
+        mkdir(path_name)
+
+def create_include_file(path,content):
+    f =  open(path,"w+")
+    f.write (content)
+    f.close()
+
+def create_includes():
+    #create directory
+    # create all files
+    for number in range(0,number_of_files):
+        path = include_path.format(str(number))
+        content = content_of_include.format(str(number))
+        create_include_file(path,content)
+    
+def create_main_file():
+    #open main.cpp
+    main = open(path_main_file,"w+")
+
+    #write includes 3 times
+    for number in range(0,number_of_files):
+        for x in range(0,number_of_includes):
+            content = header.format(str(number))
+            main.write(content)
+        main.write("\n")
+
+    #write end of file
+    main.write(end_of_main_file)
+
+    #close main.cpp
+    main.close()
+
+def copy_util_files():
+    command = "cp util/* "
+    command += folder
+    system(command)
+    
+
+def main():
+    verify_directory(folder)
+    verify_directory(include_directory)
+    create_includes()
+    create_main_file()
+    copy_util_files()
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
+                                                caption={
+                     Script usando para gerar diretorios com Guardas de Inclusão Interna},
+                                                            label=script_intenal_include]
+
+
+
+# guard_only.py
+from os import mkdir
+from os import path
+from os import system
+
+number_of_files = 10**4
+number_of_includes = 3
+
+folder =  "./guard-only/"
+
+include_directory = folder+"include"
+include_path = folder+"include/{0}.hpp"
+path_main_file = folder+"main.cpp"
+
+content_of_include = """#ifndef H{0}_HPP
+#define H{0}_HPP
+const int int{0} = {0};
+#endif
+"""
+
+end_of_main_file = "int main() {\n}\n"
+header = "#include \"{0}.h\"\n"
+
+def verify_directory(path_name):
+    if not path.exists(path_name):
+        mkdir(path_name)
+
+def create_include_file(path,content):
+    f =  open(path,"w+")
+    f.write (content)
+    f.close()
+
+def create_includes():
+    #create directory
+    # create all files
+    for number in range(0,number_of_files):
+        path = include_path.format(str(number))
+        content = content_of_include.format(str(number))
+        create_include_file(path,content)
+    
+def create_main_file():
+    #open main.cpp
+    main = open(path_main_file,"w+")
+
+    #write includes 3 times
+    for number in range(0,number_of_files):
+        for x in range(0,number_of_includes):
+            content = header.format(str(number))
+            main.write(content)
+        main.write("\n")
+
+    #write end of file
+    main.write(end_of_main_file)
+
+    #close main.cpp
+    main.close()
+                                                                                  
+def copy_util_files():                                                           
+    command = "cp util/* "                                                       
+    command += folder                                                            
+    system(command)      
+
+def main():
+    verify_directory(folder)
+    verify_directory(include_directory)
+    create_includes()
+    create_main_file()
+    copy_util_files()
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
+                                                caption={
+                     Script usando para gerar diretorios com Guardas de Inclusão Interna
+                                                               primeiro que prgrama once},
+                                                            label=script_guards_pragma_include]
+# guards_pragma.py
+from os import mkdir
+from os import path
+from os import system
+
+number_of_files = 10**4
+number_of_includes = 3
+
+folder =  "./guards-pragma/"
+
+include_directory = folder+"include"
+include_path = folder+"include/{0}.hpp"
+path_main_file = folder+"main.cpp"
+
+content_of_include = """#ifndef H{0}_HPP
+#define H{0}_HPP
+#pragma once
+const int int{0} = {0};
+#endif
+"""
+
+end_of_main_file = "int main() {\n}"
+header = """#include "{0}.hpp"\n"""
+
+def verify_directory(path_name):
+    if not path.exists(path_name):
+        mkdir(path_name)
+
+def create_include_file(path,content):
+    f =  open(path,"w+")
+    f.write (content)
+    f.close()
+
+def create_includes():
+    #create directory
+    # create all files
+    for number in range(0,number_of_files):
+        path = include_path.format(str(number))
+        content = content_of_include.format(str(number))
+        create_include_file(path,content)
+    
+def create_main_file():
+    #open main.cpp
+    main = open(path_main_file,"w+")
+
+    #write includes 3 times
+    for number in range(0,number_of_files):
+        for x in range(0,number_of_includes):
+            content = header.format(str(number))
+            main.write(content)
+
+    #write end of file
+    main.write(end_of_main_file)
+
+    #close main.cpp
+    main.close()
+def copy_util_files():                                                           
+    command = "cp util/* "                                                       
+    command += folder                                                            
+    system(command)                                                              
+                    
+
+def main():
+    verify_directory(folder)
+    verify_directory(include_directory)
+    create_includes()
+    create_main_file()
+    copy_util_files()
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
+                                                caption={
+                     Script usando para gerar diretorios com pragma once primeiro que
+                                                           Guardas de Inclusão Interna},
+                                                            label=script_pragma_guards_include]
+# pragma_guards.py
+from os import mkdir
+from os import path
+from os import system
+
+number_of_files = 10**4
+number_of_includes = 3
+
+folder =  "./pragma-guards/"
+
+include_directory = folder+"include"
+include_path = folder+"include/{0}.hpp"
+path_main_file = folder+"main.cpp"
+
+content_of_include = """#pragma once
+#ifndef H{0}_HPP
+#define H{0}_HPP
+const int int{0} = {0};
+#endif
+"""
+
+end_of_main_file = "int main() {\n}"
+header = """#include "{0}.h"\n"""
+
+def verify_directory(path_name):
+    if not path.exists(path_name):
+        mkdir(path_name)
+
+def create_include_file(path,content):
+    f =  open(path,"w+")
+    f.write (content)
+    f.close()
+
+def create_includes():
+    #create directory
+    # create all files
+    for number in range(0,number_of_files):
+        path = include_path.format(str(number))
+        content = content_of_include.format(str(number))
+        create_include_file(path,content)
+    
+def create_main_file():
+    #open main.cpp
+    main = open(path_main_file,"w+")
+
+    #write includes 3 times
+    for number in range(0,number_of_files):
+        for x in range(0,number_of_includes):
+            content = header.format(str(number))
+            main.write(content)
+
+    #write end of file
+    main.write(end_of_main_file)
+
+    #close main.cpp
+    main.close()
+def copy_util_files():                                                           
+    command = "cp util/* "                                                       
+    command += folder                                                            
+    system(command)                                                              
+
+def main():
+    verify_directory(folder)
+    verify_directory(include_directory)
+    create_includes()
+    create_main_file()
+    copy_util_files()
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
+                                                caption={
+                     Script usando para gerar diretorios com pragma once},
+                                                            label=script_pragma_once_include]
+# pragma_only.py
+from os import mkdir
+from os import path
+from os import system
+
+number_of_files = 10**4
+number_of_includes = 3
+
+folder =  "./pragma-only/"
+
+include_directory = folder+"include"
+include_path = folder+"include/{0}.hpp"
+path_main_file = folder+"main.cpp"
+
+content_of_include = """#pragma once
+const int int{0} = {0};
+"""
+
+end_of_main_file = "int main() {\n}"
+header = """#include "{0}.h"\n"""
+
+def verify_directory(path_name):
+    if not path.exists(path_name):
+        mkdir(path_name)
+
+def create_include_file(path,content):
+    f =  open(path,"w+")
+    f.write (content)
+    f.close()
+
+def create_includes():
+    #create directory
+    # create all files
+    for number in range(0,number_of_files):
+        path = include_path.format(str(number))
+        content = content_of_include.format(str(number))
+        create_include_file(path,content)
+    
+def create_main_file():
+    #open main.cpp
+    main = open(path_main_file,"w+")
+
+    #write includes 3 times
+    for number in range(0,number_of_files):
+        for x in range(0,number_of_includes):
+            content = header.format(str(number))
+            main.write(content)
+
+    #write end of file
+    main.write(end_of_main_file)
+
+    #close main.cpp
+    main.close()
+def copy_util_files():                                                           
+    command = "cp util/* "                                                       
+    command += folder                                                            
+    system(command)                                                              
+                      
+
+def main():
+    verify_directory(folder)
+    verify_directory(include_directory)
+    create_includes()
+    create_main_file()
+    copy_util_files()
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
+                                                caption={
+                     Script usando para gerar diretorios com redundancia de Guardas de Inclusão},
+                                                            label=script_redundante_include]
+# redundante.py
+from os import mkdir
+from os import path
+from os import system
+
+number_of_files = 10**4
+number_of_includes = 3
+
+folder =  "./redundant/"
+
+include_directory = folder+"include"
+include_path = folder+"include/{0}.hpp"
+path_main_file = folder+"main.cpp"
+
+content_of_include = """#ifndef H{0}_HPP
+#define H{0}_HPP
+const int int{0} = {0};
+#endif"""
+end_of_main_file = "int main() {\n}\n"
+header = """#ifndef H{0}_HPP
+#define H{0}_HPP
+#include "{0}.hpp"
+#endif
+"""
+
+def verify_directory(path_name):
+    if not path.exists(path_name):
+        mkdir(path_name)
+
+def create_include_file(path,content):
+    f =  open(path,"w+")
+    f.write (content)
+    f.close()
+
+def create_includes():
+    #create directory
+    # create all files
+    for number in range(0,number_of_files):
+        path = include_path.format(str(number))
+        content = content_of_include.format(str(number))
+        create_include_file(path,content)
+    
+def create_main_file():
+    #open main.cpp
+    main = open(path_main_file,"w+")
+
+    #write includes 3 times
+    for number in range(0,number_of_files):
+        for x in range(0,number_of_includes):
+            content = header.format(str(number))
+            main.write(content)
+        main.write("\n")
+
+    #write end of file
+    main.write(end_of_main_file)
+
+    #close main.cpp
+    main.close()
+def copy_util_files():                                                           
+    command = "cp util/* "                                                       
+    command += folder                                                            
+    system(command)                                                              
+                    
+
+def main():
+    verify_directory(folder)
+    verify_directory(include_directory)
+    create_includes()
+    create_main_file()
+    copy_util_files()
+
+if __name__ == "__main__":
+    main()
+\end{lstlisting}
+
+\chapter{Script de Atualização de Projeto}
+
+\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
+                                                caption={
+                     Script de teste de Projeto Forward Declaration},
+                                        label=script_forward_declaration]
+#update project.py
+#!/usr/bin/python
+
+import glob
+import random
+import os
+import sys
+
+
+def update(_dir):
+    cur_dir = os.getcwd()
+    if _dir != ".":
+        os.chdir(_dir)
+    
+
+    arg = "*.h"
+    includes = glob.glob(arg)
+
+    factors = [.10,.25,.50,.75,.90]
+    factor = random.choice(factors)
+    n = int(len(includes)*factor)
+    files = random.sample(includes,n)
+    print(str(files))
+
+    for f in files:
+        command = "touch {}".format(f)
+        os.system(command)
+
+
+    if _dir != ".":
+        os.chdir(cur_dir)
+
+if __name__ == "__main__":
+    random.seed(204812345)
+
+    _dir = "."
+    if len(sys.argv) > 1:
+        _dir = sys.argv[1]
+    
+    for i in range(10):
+        update(_dir)
+        command = "time make > /dev/null"
+        text = os.system(command)
+\end{lstlisting}
 \end{apendicesenv}

@@ -11,7 +11,6 @@ A Tabela \ref{tab:tabela_guarda_de_inclusao} e o Gráfico
  dos diferentes métodos de guarda de inclusão (Seção \ref{experimento_1} ).
 
 
-
 \begin{table}[h]
 \centering
 \begin{tabular}{|l|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
@@ -56,7 +55,7 @@ método está obsoleto em relação ao g++ e a diferença chega a quase 50\%
 \section{Segundo Experimento}
 
 
-A Tabela \ref{experimento_02} e o Gráfico xyz apresentam os resultados do
+A Tabela \ref{experimento_02} e o Gráfico \ref{grafico_forward_declaration} apresentam os resultados do
  segundo experimento, que avalia o uso das forward declarations.Fator de
  Redução é igual a 1 menos o tempo sem forward declaration divido pelo
  tempo com forward declaration.
@@ -105,7 +104,6 @@ A Tabela \ref{experimento_02} mostra os valores coletados durante
 
 
 
-
 \begin{table}[h]
 \centering
 \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{3cm}|}
@@ -125,7 +123,7 @@ Quantidade de Modificações & Sem forward Declaration  & Com forward Declaratio
 Média  & 3,81  & 3,39  & 10,99\% \\ \hline 
 \end{tabular}
 \caption{Realizando modificações parciais nos Códigos}
-\label{experimento_03}
+\label{amostas_experimento_03}
 \end{table}
 
 
@@ -136,7 +134,8 @@ Média  & 3,81  & 3,39  & 10,99\% \\ \hline
     \label{grafico_forward_declaration2}
 \end{figure}
 
-A figura \ref{grafico_forward_declaration2} representa a utilização do Código \ref{},
+A figura \ref{grafico_forward_declaration2} representa a utilização
+ do Código \ref{script_forward_declaration},
  que realiza modificações na data de modifição de um arquivo, o que forca uma
  recompilação do mesmo na próxima invocação do comando make.
  Esta tabela mostra que realizando modificações em diferentes
@@ -199,7 +198,6 @@ Analisando os resultados dos experimentos realizados com o projeto
  É possível observar que o aumento das threads  não
  necessariamente aumenta a redução do tempo de compilação,
  uma vez que com 16 threads  a redução foi menor  do que com 12 threads.
-
 
 
 \section{Hayai}
@@ -394,10 +392,10 @@ Média & 4,0308  & 2,5651&  2,5293 & 2,2547 & 2,3426 & 2,3657 & 2,4565&  2,3529 
     \label{jack}
 \end{figure}
 
-Analisando o projeto Jack,the Janitor, percebemos as mesmas
- reduções entre os projetos anteriores e ainda mais
- neste projeto as os ganhos da redução do tempo de
- compilação foram maiores.
+Analisando os dados coletados do projeto Jack,the Janitor,
+ percebemos as mesmas reduções entre os projetos anteriores
+ e ainda mais neste projeto as os ganhos da redução do
+ tempo de compilação foram maiores.
 
 Após a coleta dos dados dos 6 projetos distintos podemos
  perceber que não há uma relação direta entre as diferentes
@@ -406,17 +404,3 @@ Após a coleta dos dados dos 6 projetos distintos podemos
  em um aumento proporcional. Os dados encontrados
  sugerem que este método pode reduzir o tempo de
  compilação em aproximadamente 20\%.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
