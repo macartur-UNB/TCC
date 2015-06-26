@@ -1,11 +1,11 @@
 \part{Introdução}
 
-\chapter[Introdução]{Introdução}
+\chapter*[Introdução]{Introdução}
 
 Na computação os primeiros computadores eletrônicos foram engenhocas
  monstruosas, ocupavam varias salas, consumiam tanta energia quanto
  uma fábrica, e custavam, em 1940, milhares de dólares, com o poder
- computacional de uma calculadora moderna \cite{ref34}. Para os
+ computacional de uma calculadora moderna. Para os
  programadores que usavam estas máquinas a hora do computador era
  mais valiosas que a dele. E eles programavam em linguagem de
  máquina \cite{ref34}.
@@ -14,7 +14,7 @@ Programadores ou desenvolvedores são pessoas capazes de criar instruções
  que podem ser executados por um computador, escrevendo o código-fonte em
  alguma linguagem de programação. Finalizado o código-fonte, a construção
  de um programa que seja executado em um computador pode ser feita por um
- compilador \cite{ref5}, programa capaz de fazer a transformação de
+ compilador, programa capaz de fazer a transformação de
  código-fonte escrito na linguagem de programação escolhida para uma linguagem
  entendível pelo computador, que é o código de máquina \cite{ref34}, a qual
  se trata de uma sequência de instruções que serão executadas  pelo
@@ -29,30 +29,30 @@ Projetos de médio e grande porte gastam recursos e tempo a cada processo
  significativos de recursos humanos, financeiros e no cronograma de
  desenvolvimento de equipes e empresas. 
 
-\section{Justificativa}
+%\section*{Justificativa}
 
-Como dito anteriormente, o tempo de compilação um projeto pode variar
- de minutos até horas. Isto pode impactar no desenvolvimento de um
- projeto, visto que a cada modificação é necessário  uma recompilação
- para a reconstrução dos artefatos do projeto. A redução do processo
- de compilação permite respostas mais rápidas para as alterações
- realizadas no projeto antes da compilação, além de desalocar
- recursos (humanos, de hardware e de tempo) utilizados para
- a compilação.
+%Como dito anteriormente, o tempo de compilação um projeto pode variar
+% de minutos até horas. Isto pode impactar no desenvolvimento de um
+% projeto, visto que a cada modificação é necessário  uma recompilação
+% para a reconstrução dos artefatos do projeto. A redução do processo
+% de compilação permite respostas mais rápidas para as alterações
+% realizadas no projeto antes da compilação, além de desalocar
+% recursos (humanos, de hardware e de tempo) utilizados para
+% a compilação.
 
-\section{Objetivo do Trabalho}
+\section*{Objetivos do Trabalho}
 
-\subsection{Objetivo Geral}
+\subsection*{Objetivo Geral}
 
 Analisar um conjunto de boas praticas em C++ e ferramentas auxiliares
  para a redução do tempo de compilação de projetos que utilizam como
  padrão o compilador g++, avaliando o impacto de cada estratégia no
  tempo de compilação de cada projeto.
 
-\subsection{Objetivo Especifico}
+\subsection*{Objetivos Específicos}
 
 Para conseguir atingir o objetivo geral do trabalho foram listados
- alguns objetivos específicos.
+ alguns objetivos específicos:
 
 
 \begin{enumerate}
@@ -67,20 +67,20 @@ Para conseguir atingir o objetivo geral do trabalho foram listados
  cada projeto.
 \end{enumerate}
 
-\subsection{Delimitação do Escopo}
+\subsection*{Delimitação do Escopo}
 
 Para delimitar o escopo e abrangência deste trabalho, e tornar possível
  a análise de projetos reais, será utilizado como referência uma linguagem
  de programação compilada conhecida por ser utilizada em sistemas embarcados,
  sistemas operacionais, sistemas críticos e jogos, dentre outras aplicações,
- que é a  C++ criada por Bjame Stoustroup \footnote{The C++ Programming
+ que é a C++, criada por Bjarne Stroustroup \footnote{The C++ Programming
  Language, 4th Edition, http://www.amazon.com/The-Programming-Language-4th-Edition/dp/0321563840}.
 
-\subsection{Organização do Trabalho}
+\subsection*{Organização do Trabalho}
 
 Capítulo 2 tem por objetivo introduzir o leitor aos conceitos abordados
  neste trabalho, descrevendo a diferença entre uma linguagem compilada e
- interpretada, o modelo Just-in-time, Maquina virtual, o processo de compilação
+ interpretada, o modelo \textit{just-in-time}, máquinas virtuais, o processo de compilação
  e suas etapas e os métodos a serem trabalhados.
 
 O Capítulo 3 descreve um fluxo de trabalho realizado para a primeira etapa
