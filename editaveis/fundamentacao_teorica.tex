@@ -1,4 +1,4 @@
-\part{Fundamentação Teórica}
+\part{Desenvolvimento}
 
 \chapter[Fundamentação Teórica]{Fundamentação Teórica}
 
@@ -6,8 +6,8 @@
 
 Uma linguagem de programação é um método padronizado que possui
  um conjunto de instruções para realizar a comunicação entre o homem
- e o computador \cite{ref1} , através de um conjunto de regras
- definidas sintaticamente e sematicamente \cite{ref2}.
+ e o computador \cite{ref1}, através de um conjunto de regras
+ definidas tanto sintaticamente quanto sematicamente \cite{ref2}.
  Com uma linguagem
  de programação é possível especificar precisamente um conjunto de regras
  sobre  as quais dados serão armazenados ou transmitidos e criar algoritmos
@@ -47,27 +47,9 @@ acesse esta localização sempre que se referenciar a variável x.
 Por outro lado, um interpretador precisa procurar  por x em uma tabela a cada 
 acesso, a fim de achar sua localização \cite{ref8}.
 
-\begin{description}
-    \item[Exemplos de Linguagem que, em geral,são compilada:]\
-    \begin{itemize}
-      \item  Ada
-      \item  ALGOL
-      \item  BASIC
-      \item  C
-      \item  C++
-      \item  COBOL
-      \item  Cobra
-      \item  Common Lisp
-      \item  D
-      \item  Delphi
-      \item  Eiffel
-      \item  Fortran
-      \item  Objective-C
-      \item  Pascal
-      \item  Visual Basic
-      \item  Visual Prolog
-    \end{itemize}
-\end{description}
+Como exemplos de linguagens que, em geral, são compilada, temos Ada, ALGOL, 
+BASIC, C, C++, COBOL, Cobra, Common Lisp, D, Delphi, Eiffel, Fortran, 
+Objective-C, Pascal, Visual Basic, Visual Prolog.
 
 \subsection{Interpretação}
 
@@ -114,13 +96,13 @@ um programa pode escrever novas peças de si mesmo e executá-las em tempo real
     \end{itemize}
 \end{description}
 
-\subsection{VM}
+\subsection{Máquinas Virtuais}
 
 Para algumas linguagens existe o caso em que o compilador tem o papel
- de converter o código fonte em um \textit{byte code}\cite{ref9}. 
+ de converter o código fonte em um \textit{byte code} \cite{ref9}. 
 O \textit{byte code}
 é uma linguagem de baixo nível  similar a linguagem de máquina, que 
-deve ser interpretada por um outro programa chamado Maquina Virtual. 
+deve ser interpretada por um outro programa chamado Maquina Virtual (\textit{Virtual Machine -- VM}).
 
 Esta estratégia mista de pré-compilar o código para uma linguagem 
 intermediária e interpretá-la em uma máquina virtual é denominada 
@@ -142,10 +124,10 @@ estratégia hídriba.
     \end{itemize}
 \end{description}
 
-\subsection{JIT}
+\subsection{Just In Time}
 
-O termo \textit{Just In Time} - JIT - veio de um novo modelo de  negócio da
- indústria manufatureira : uma estratégia de negócio onde a produção 
+O termo \textit{Just In Time} -- JIT -- veio de um novo modelo de  negócio da
+ indústria manufatureira: uma estratégia de negócio onde a produção 
 ou compra era feita sobre demanda, ao invés da utilização de estoques
  \cite{ref10}. 
 Este modelo tem como vantagens menores custos com armazenamento, 
@@ -160,7 +142,7 @@ a compilação apenas de partes do programa necessárias durante a execução
 Foram desenvolvidas, principalmente para linguagens que são, em geral, 
 interpretadas, ferramentas que se valem do JIT para acelerar a interpretação
  e execução dos códigos-fonte (scripts) como, 
-por exemplo, o PyPy para a linguagem Python.\footnote{http://pypy.org/}
+por exemplo, o PyPy para a linguagem Python.\footnote{\url{http://pypy.org/}}
 
 
 \section{Compilação}
@@ -191,10 +173,10 @@ Dentre as possíveis tarefas e caracerísticas comuns a um pré-processador,
 
 \item \textit{Extensões de linguagens}: são formas de conferir maior poder as linguagens
      através de macros embutidas. Por exemplo, 
-    Equel \footnote{Equel:  http://www.eecs.berkeley.edu/~wong/wong\_pubs/wong46.pdf
+    Equel\footnote{Equel:  http://www.eecs.berkeley.edu/~wong/wong\_pubs/wong46.pdf
      acessado 11/junho p.6} é uma linguagem de 
     interrogação embutida em C que permite a manipulação de banco de dados. 
-    Os enunciados começados com \#\# são considerados pelo pré-processador como
+    Os enunciados começados com \texttt{\#\#} são considerados pelo pré-processador como
      comandos de acesso ao banco de dados, os quais não fazem parte da 
     linguagem C e, quando traduzidos, são convertidos em rotinas que tratam 
     este acesso ao banco de dados\cite{ref11}.
@@ -209,8 +191,8 @@ principais: análise e síntase\cite{ref12}\cite{ref13}. A Figura \ref{fig01}
 
 \begin{figure}[h]
     \centering
-        \includegraphics[keepaspectratio=true,scale=0.5]{figuras/fases_da_compilacao.eps}
-    \caption{Fases da Compilação, (Scott, Michael L.,2008)  com adaptações.}
+        \includegraphics[keepaspectratio=true,scale=0.45]{figuras/fases_da_compilacao.eps}
+    \caption{Fases da Compilação \cite{ref6}, com adaptações.}
     \label{fig01}
 \end{figure}
 
@@ -291,18 +273,14 @@ código de maquina ou o \textit{Assembly} \cite{ref25}.
 
 Um tipo bem conhecido de linguagem intermediara é o código (ou sentença) de três 
 endereços\cite{ref26}. Este código é uma sequência de enunciados na forma geral, apresentada 
- no Código \ref{codigo01}.
+ no Código \ref{codigo01},
 
-
-\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={
-								Código de três endereços},
+\begin{lstlisting}[language=C++,caption={Código de três endereços},
 											label=codigo01]
    x:=y op z
 \end{lstlisting}
-
-
-onde \textbf{x}, \textbf{y}, \textbf{z} são nomes, constantes ou objetos de dados 
-temporários criados pelo compilador e \textbf{op} representa um operador qualquer,
+onde \texttt{x}, \texttt{y}, \texttt{z} são nomes, constantes ou objetos de dados 
+temporários criados pelo compilador e \texttt{op} representa um operador qualquer,
  tal como um operador de ponto fixo, flutuante ou um operador lógico sobre dados
  booleanos \cite{ref27}. Uma forma prática de representar sentenças de três endereços é o uso
  de quádrupla (operador, argumento 1, argumento 2 e resultado). 
@@ -338,12 +316,12 @@ variáveis usadas no programa. Então, o código intermediário é traduzido em
 sequência para instruções de máquina que realizarão as operações \cite{ref32}.
 Mesmo que o código traduzido seja otimizado, após a tradução para a 
 linguagem alvo é  possível que novas otimizações possam ser feitas, de modo 
-que é possível a otimização especifica apresentada nas Figura \ref{fig02}.
+que é possível a otimização específica apresentada nas Figura \ref{fig02}.
 
 \begin{figure}[h]
     \centering
         \includegraphics[keepaspectratio=true,scale=0.7]{figuras/otimizacao_especifica.eps}
-    \caption{Exemplos de Otiminizações especificas,
+    \caption{Exemplos de otiminizações específicas,
              (Scott, Michael L.,2009) com adaptações }
     \label{fig02}
 \end{figure}
@@ -363,10 +341,8 @@ usando notação hexadecimal para a representação dos bits, conforme apresenta
  no Código \ref{codigo_02} \cite{ref34}.
 
 
-\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
-												caption={Algoritmo de 
-									   Euclides estendido representado 
-									   em código de máquina,com adaptações},
+\begin{lstlisting}[language=Pascal, caption={Algoritmo de 
+									   Euclides Estendido, com adaptações},
                                                             label=codigo_02]
  55 89 e5 53  83 ec 04 83  e4 f0 e8 31  00 00 00 89  c3 e8 a2 00
  00 00 39 c3  74 10 8d b6  00 00 00 00  39 c3 7e 13  29 c3 39 c3
@@ -691,7 +667,7 @@ Segundo John Lakos, está guarda de inclusão é a mais trabalhosa de ser mantid
 
 \begin{table}
     \centering
-    \begin{tabular}{ |c | c | c | c |}
+    \begin{tabular}{ c | c | c | c }
     \hline
     Quantidade de Arquivos & SEM & COM & Sem Redundancia/Com Redundancia\\
     \hline
@@ -947,25 +923,23 @@ Como já mencionado, qualquer entidade deve ser declarada ou definida antes
  um exemplo de \textit{forward declaration} para alguns destes tipos
  de estruturas.
 
-\begin{table}[h]
+\begin{table}[!ht]
     \centering
-    \begin{tabular}{ |c | c |}
-    \hline
-    Definição & Declaração\\
-    \hline
-    int x; & extern int x;\\
-    \hline
-    typedef struct Foo{int x;}; & typedef struct Foo;\\
-    \hline
-    class Foo { int x;public: Foo() ... }; & class Foo;\\
-    \hline
-    int Add( int x ,int  y) { return x + y; } & int Add(int x, int y);\\
-    \hline
-    union Foo { int x; char x; }Foo; & union Foo;\\
-    \hline
-    \end{tabular}
     \caption{Exemplos de \textit{forward declaration}}
     \label{tab:tabela_03}
+    \begin{tabular}{>{\ttfamily}l>{\ttfamily}l}
+    \toprule
+    \textbf{Definição} & \textbf{Declaração} \\
+    \midrule
+    int x; & extern int x;\\
+    \rowcolor[gray]{0.9}
+    typedef struct Foo{int x;}; & typedef struct Foo;\\
+    class Foo \{ int x;public: Foo() ... \}; & class Foo;\\
+    \rowcolor[gray]{0.9}
+    int Add(int x ,int  y) \{ return x + y; \} & int Add(int x, int y);\\
+    union Foo \{ int x; char x; \} Foo; & union Foo;\\
+    \bottomrule
+    \end{tabular}
 \end{table}
 
 
