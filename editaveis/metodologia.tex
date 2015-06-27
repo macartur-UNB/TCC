@@ -5,12 +5,11 @@ Este capítulo foi elaborado para melhorar o entendimento das atividades
  realizadas para a produção deste trabalho. O fluxo da figura 
 \ref{fig:fases_metodologia} define estas atividades.
 
-
 \begin{figure}[h]
     \centering
-    \label{fig:fases_metodologia}
         \includegraphics[keepaspectratio=true,scale=0.7]{figuras/fases_metodologia.eps}
     \caption{Fluxo de Atividades para a resolução destes trabalho}
+    \label{fig:fases_metodologia}
 \end{figure}
 
 
@@ -34,17 +33,17 @@ Para seleção de métodos foi realizada uma priorização dos métodos, técnic
 Os métodos selecionados foram:
 
 \begin{enumerate}
-	\item Include Guards, descrito na seção
+	\item \textit{Include Guards}, descrito na seção
  \ref{include_guards_section};
-	\item Forward Declaration, descrito na seção
+	\item \textit{Forward Declaration}, descrito na seção
  \ref{forward_declaration_section};
 	\item Makefile, descrito na seção
  \ref{Makefile_section};
 	\item Otimização de baixo nível;
-	\item Pimpl Idiom;
-	\item Compilador + Headers pré-compilados;
+	\item \textit{Pimpl Idiom};
+	\item Compilador + \textit{Headers} pré-compilados;
 	\item Ferramentas que utilizam cache de arquivos 
-pré-processados (CCache, Wrap, Gold);
+preprocessados (CCache, Wrap, Gold);
 \end{enumerate}
 
 \section{Seleção de Projetos}
@@ -121,7 +120,7 @@ descritos a seguir.
  para testes de unitários usando googletest.
 
 \textbf{JsonCpp} \footnote{Jsoncpp: https://github.com/nickbruun/hayai acessado
- em 17/06/2015. } é uma biblioteca que permite a manipulação de arquvios .json,
+ em 17/06/2015. } é uma biblioteca que permite a manipulação de arquivos .json,
  incluindo serialização e deserialização de strings. Esta pode preservar
  comentários existentes na serialização/deserialização, tornando-se um formato
  conveniente para armazenar de entradas de usuário.
@@ -148,7 +147,7 @@ descritos a seguir.
 
 As linguagens utilizadas foram C++ versão 11 e Python versão +2.7.
 
-Para realiazar a contagem do tempo foi utilizado o programa Time.
+Para realizar a contagem do tempo foi utilizado o programa Time.
  Programa escrito por David MacKenzie e tem como objetivo indicar o tempo gasto
  por um processo em diferentes aspectos.
  O comando time tem como saída 3 tipos de valores:
@@ -164,7 +163,7 @@ Para a coleta dos tempos foi utilizado apenas o valor Real, uma vez que este
 
 O compilador escolhido para o trabalho foi o g++. O g++ é uma melhoria do
  compilador gcc, criado pela GNU, que possui com conjunto de ferramentas
- para realiza pré-processamento , compilação, montagem e linkedição.
+ para realiza pré-processamento , compilação, montagem e link-edição.
  No front-end,  este compilador inclui as linguagens C, C++, Objective-C,
  Fortran, Java, Ada, and Go, bem como as suas bibliotecas  (libstdc++,
  libgcj, entre outras)\footnote{GCC\_GNU: https://gcc.gnu.org/ acessado
@@ -194,12 +193,12 @@ Os experimentos realizados foram feitos utilizando um computador pessoal
 \end{table}
 
 
-Apesar de ser um computador pessoal, uma maquina virtual utilizando Virtualbox
+Apesar de ser um computador pessoal, uma máquina virtual utilizando Virtualbox
  foi criada para realizar um independência entre a máquina pessoal e os
  arquivos e programas pessoais, além de uma melhora  na visualização da
  diferença de tempo de compilação entre projetos
  \footnote{No caso de projetos menores e de compilação mais rápida, pois o 
-\textit{overhead} proveninte da execução da máquina virtual torna os tempos
+\textit{overhead} proveniente da execução da máquina virtual torna os tempos
  absolutos de compilação maiores do que na máquina host}, independente do
  tamanho do projeto. As especificação da máquina virtual  estão listadas na
  Tabela \ref{tab:especificacoes_vm}.
@@ -237,7 +236,7 @@ Para a realização de experimentos com Inclusão de Guarda foram elaborados
  em scripts Python que criam projetos simples com a inclusão de cabeçalhos
  três vez e com diferentes tipos de inclusão, como mostrado na  Seção
  \ref{include_guards_section}.
- No apêndice geração de prjetos é apresentado estes scripts.
+ No apêndice geração de projetos é apresentado estes scripts.
 
 O script cria uma pasta chamada include e, dentro dela, arquivos com o padrão
  <NUMERO>.hpp, que são os cabeçalhos a serem incluídos no arquivo main.cpp.
@@ -301,7 +300,7 @@ A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos
 \hline
 Tipo & \multicolumn{7}{l|}{Utilização de Guarda de Inclusão} \\ \hline
 Medida & \multicolumn{7}{l|}{Tempos em segundos } \\ \hline
-Amostras & Guarda de Inclusão Extena & Guarda de Inclusão Interna & Pragma Once & Guarda de Inclusão Interna Primeiro que Pragma Once & Pragma Once primeiro que Guarda de Inclusão Interna & Guarda de Inclusão Externa e Pragma Once & Redundancia de Guarda de Inclusão \\ \hline
+Amostras & Guarda de Inclusão Externa & Guarda de Inclusão Interna & Pragma Once & Guarda de Inclusão Interna Primeiro que Pragma Once & Pragma Once primeiro que Guarda de Inclusão Interna & Guarda de Inclusão Externa e Pragma Once & Redundância de Guarda de Inclusão \\ \hline
  1  &  &  &   &   &   &  & \\ \hline
  2  &  &  &   &   &   &  & \\ \hline
  3  &  &  &   &   &   &  & \\ \hline
@@ -357,7 +356,7 @@ Experimento 3: \label{experimento_03}
 
 Realizar um estudo da redução do tempo de compilação utilizando o comando
  mostrado no Código \ref{codigo_29} que permite a compilação em
- mútliplas threads.
+ múltiplas threads.
 
 
 \begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={Execução programa 
