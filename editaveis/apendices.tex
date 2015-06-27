@@ -4,12 +4,11 @@
 
 \chapter{Script Geração de Projetos}
 
+\section{Gerador de Código para testes de Inclusão de Guarda}
 
-\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
-                                                caption={
-                     Script usando para gerar diretórios com Guardas de Inclusão Externa
-                                                                         mais pragma once},
-                                                            label=script_external_pragma_include]
+\begin{lstlisting}[language=Python, caption={
+     Script Guardas de Inclusão Externa mais pragma once},
+                  label=script_external_pragma_include]
 
 # external_pragma.py
 from os import mkdir
@@ -83,10 +82,9 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
-\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
-                                                caption={
-                     Script usando para gerar diretorios com Guardas de Inclusão Externa},
-                                                            label=script_external_include]
+\begin{lstlisting}[language=Python,caption={
+            Script Guardas de Inclusão Externa },
+                   label=script_external_include]
 # external.py
 from os import mkdir
 from os import path
@@ -160,13 +158,9 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
-\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
-                                                caption={
-                     Script usando para gerar diretorios com Guardas de Inclusão Interna},
-                                                            label=script_intenal_include]
-
-
-
+\begin{lstlisting}[language=Python,caption={
+              Script Guardas de Inclusão Interna},
+                     label=script_intenal_include]
 # guard_only.py
 from os import mkdir
 from os import path
@@ -240,11 +234,9 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
-\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
-                                                caption={
-                     Script usando para gerar diretorios com Guardas de Inclusão Interna
-                                                               primeiro que pragma once},
-                                                            label=script_guards_pragma_include]
+\begin{lstlisting}[language=Python, caption={
+Script Guardas de Inclusão Interna primeiro que \textit{Pragma Once}},
+                   label=script_guards_pragma_include]
 # guards_pragma.py
 from os import mkdir
 from os import path
@@ -318,11 +310,8 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
-\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
-                                                caption={
-                     Script usando para gerar diretorios com pragma once primeiro que
-                                                           Guardas de Inclusão Interna},
-                                                            label=script_pragma_guards_include]
+\begin{lstlisting}[language=Python, caption={
+    Script \textit{Pragma Once} primeiro que Guardas de Inclusão Interna},label=script_pragma_guards_include]
 # pragma_guards.py
 from os import mkdir
 from os import path
@@ -395,10 +384,9 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
-\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
-                                                caption={
-                     Script usando para gerar diretorios com pragma once},
-                                                            label=script_pragma_once_include]
+\begin{lstlisting}[language=Python, caption={
+                     Script Pragma Once},
+             label=script_pragma_once_include]
 # pragma_only.py
 from os import mkdir
 from os import path
@@ -469,10 +457,9 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
-\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
-                                                caption={
-                     Script usando para gerar diretorios com redundancia de Guardas de Inclusão},
-                                                            label=script_redundante_include]
+\begin{lstlisting}[language=Python,caption={
+     Script Redundancia de Guardas de Inclusão},
+                 label=script_redundante_include]
 # redundante.py
 from os import mkdir
 from os import path
@@ -550,10 +537,13 @@ if __name__ == "__main__":
 
 \chapter{Script de Atualização de Projeto}
 
-\begin{lstlisting}[language=Pascal,frame=single,captionpos=b,
-                                                caption={
-                     Script de teste de Projeto Forward Declaration},
-                                        label=script_forward_declaration]
+
+
+\section{Script de teste Forward Declaration}
+
+\begin{lstlisting}[language=Python,caption={
+   Script de teste de Projeto Forward Declaration},
+                  label=script_forward_declaration]
 #update project.py
 #!/usr/bin/python
 
