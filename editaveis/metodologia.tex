@@ -2,7 +2,7 @@
 
 
 Este capítulo foi elaborado para melhorar o entendimento das atividades
- realizadas para a produção deste trabalho. O fluxo da figura 
+ realizadas para a produção deste trabalho. O fluxo da Figura 
 \ref{fig:fases_metodologia} define estas atividades.
 
 \begin{figure}[h]
@@ -100,18 +100,18 @@ descritos a seguir.
 
 \textbf{CppCheck} é uma ferramenta de código de C/C++, que detecta erros no código
  que compiladores e outras ferramentas não detectariam . Este projeto realiza
- as seguintes verificações \footnote{CppCheck: http://cppcheck.sourceforge.net/
+ as seguintes verificações\footnote{CppCheck: http://cppcheck.sourceforge.net/
   acessado em 17/06/2015.}:
 
 \begin{itemize}
-	\item Índice fora dos limites do vetor;    
-    \item Vazamentos de memória;
-    \item Possíveis deferências ponteiro nulo ( o que causa falhas de segmentação);
-	\item Existência de variáveis não inicializadas;
-	\item Uso inválido da STL;
-	\item Funções obsoletas ou com falhas de segurança; 
+	\item índice fora dos limites do vetor;    
+    \item vazamentos de memória;
+    \item possíveis deferências ponteiro nulo (o que causa falhas de segmentação);
+	\item existência de variáveis não inicializadas;
+	\item uso inválido da STL;
+	\item funções obsoletas ou com falhas de segurança; 
 	\item código não utilizado ou redundante;
-	\item Entre outros;
+	\item entre outros.
 \end{itemize}
 
 
@@ -119,33 +119,33 @@ descritos a seguir.
  17/06/2015.} é um framework para realização de benchmark em C++,utilizados
  para testes de unitários usando googletest.
 
-\textbf{JsonCpp} \footnote{Jsoncpp: https://github.com/nickbruun/hayai acessado
+\textbf{JsonCpp}\footnote{Jsoncpp: https://github.com/nickbruun/hayai acessado
  em 17/06/2015. } é uma biblioteca que permite a manipulação de arquivos .json,
  incluindo serialização e deserialização de strings. Esta pode preservar
  comentários existentes na serialização/deserialização, tornando-se um formato
  conveniente para armazenar de entradas de usuário.
 
-\textbf{LibSass} \footnote{LibSass: https://github.com/sass/libsass acessado
+\textbf{LibSass}\footnote{LibSass: https://github.com/sass/libsass acessado
  em 17/06/2015.} é uma ferramenta de pré-processamento de Sass Css. Esta
  ferramenta foi originalmente criada em Ruby, no entanto a versão aqui utilizada
  é mais simples, leve, eficiente e portátil.
 
-\textbf{LibOAuthCpp} \footnote{LibOAuthCpp: https://github.com/sirikata/liboauthcpp
+\textbf{LibOAuthCpp}\footnote{LibOAuthCpp: https://github.com/sirikata/liboauthcpp
  acessado em 17/06/2015} é uma biblioteca de C++ voltada para realizar solicitações
  de autenticação utilizando o protocolo OAuth. Ela não implementa solicitações de
  requisições em HTTP mas, no entanto, é utilizada como uma interface de suporte ao
  OAuth.
 
-\textbf{Jack, the Janitor} \footnote{Jack, the Janitor: https://github.com/athos-ribeiro/jtj
+\textbf{Jack, the Janitor}\footnote{Jack, the Janitor: https://github.com/athos-ribeiro/jtj
  acessado em 17/06/2015;} é um jogo onde o jogador controla  a personagem Jack,
  o zelador de uma escola, que deve organizar o armazém da escola. Jack pode empurrar
- caixas para esquerda, para a direita ou saltar.O objetivo do jogo e preencher uma
+ caixas para esquerda, para a direita ou saltar. O objetivo do jogo e preencher uma
  linha inteira de caixas: caso Jack seja atingido por uma caixa o jogo é finalizado
  com \textit{gameover}.
 
 \section{Ferramentas}
 
-As linguagens utilizadas foram C++ versão 11 e Python versão +2.7.
+As linguagens utilizadas foram C++ versão 11 e Python versão 2.7.
 
 Para realizar a contagem do tempo foi utilizado o programa Time.
  Programa escrito por David MacKenzie e tem como objetivo indicar o tempo gasto
@@ -163,7 +163,7 @@ Para a coleta dos tempos foi utilizado apenas o valor Real, uma vez que este
 
 O compilador escolhido para o trabalho foi o g++. O g++ é uma melhoria do
  compilador gcc, criado pela GNU, que possui com conjunto de ferramentas
- para realiza pré-processamento , compilação, montagem e link-edição.
+ para realiza pré-processamento, compilação, montagem e link-edição.
  No front-end,  este compilador inclui as linguagens C, C++, Objective-C,
  Fortran, Java, Ada, and Go, bem como as suas bibliotecas  (libstdc++,
  libgcj, entre outras)\footnote{GCC\_GNU: https://gcc.gnu.org/ acessado
@@ -196,8 +196,7 @@ Os experimentos realizados foram feitos utilizando um computador pessoal
 Apesar de ser um computador pessoal, uma máquina virtual utilizando Virtualbox
  foi criada para realizar um independência entre a máquina pessoal e os
  arquivos e programas pessoais, além de uma melhora  na visualização da
- diferença de tempo de compilação entre projetos
- \footnote{No caso de projetos menores e de compilação mais rápida, pois o 
+ diferença de tempo de compilação entre projetos\footnote{No caso de projetos menores e de compilação mais rápida, pois o 
 \textit{overhead} proveniente da execução da máquina virtual torna os tempos
  absolutos de compilação maiores do que na máquina host}, independente do
  tamanho do projeto. As especificação da máquina virtual  estão listadas na
@@ -225,12 +224,12 @@ Apesar de ser um computador pessoal, uma máquina virtual utilizando Virtualbox
 \end{table}
 
 
-\section{Montagem dos experimentos/scripts}
+\section{Montagem dos experimentos e scripts}
 
 Para a primeira etapa deste trabalho foram escolhidos 3 experimentos a
  serem aplicados.
 
-\textbf{Experimento 1}:\label{experimento_1}
+\subsection{Experimento 1}\label{experimento_1}
 
 Para a realização de experimentos com Inclusão de Guarda foram elaborados
  em scripts Python que criam projetos simples com a inclusão de cabeçalhos
@@ -239,7 +238,8 @@ Para a realização de experimentos com Inclusão de Guarda foram elaborados
  No apêndice geração de projetos é apresentado estes scripts.
 
 O script cria uma pasta chamada include e, dentro dela, arquivos com o padrão
- <NUMERO>.hpp, que são os cabeçalhos a serem incluídos no arquivo main.cpp.
+ \texttt{<NUMERO>.hpp}, que são os cabeçalhos a serem incluídos no arquivo 
+\texttt{main.cpp}.
  Foram criados 10 mil arquivos. Os Códigos \ref{codigo_27} e  \ref{codigo_28}
  referenciam estes modelos.
 
@@ -280,13 +280,13 @@ O script cria uma pasta chamada include e, dentro dela, arquivos com o padrão
 Os scripts abordam os métodos:
 
 \begin{itemize}
-	\item Guarda de Inclusão Externa;
-	\item Guarda de Inclusão Interna;
-	\item Pragma Once;
-	\item Guarda de Inclusão Interna primeiro que Pragma Once;
-	\item Pragma Once primeiro que  Guarda de Inclusão Interna;
-	\item Guarda de Inclusão Externa + Pragma Once;
-	\item Redundância de Guarda de Inclusão;
+	\item guarda de Inclusão Externa;
+	\item guarda de Inclusão Interna;
+	\item \textit{pragma once};
+	\item guarda de Inclusão Interna primeiro que \textit{pragma once};
+	\item \textit{pragma once} primeiro que  Guarda de Inclusão Interna;
+	\item guarda de Inclusão Externa + \textit{pragma once};
+	\item redundância de Guarda de Inclusão.
 \end{itemize}
 
 
@@ -318,14 +318,14 @@ Amostras & Guarda de Inclusão Externa & Guarda de Inclusão Interna & Pragma On
 \end{table}
 
 
-\textbf{Experimento 2}:
+\subsection{Experimento 2}
 
 O segundo experimento utilizou o projeto Jack, the Janitor, no qual foi
  realizada uma refatoração dos cabeçalhos: foram incluídas forward
  declarations, os headers transferidos para o arquivo de
  implementação. Após estas modificações foi feito testes com o comando
  time e o makefile do projeto. Os valores obtidos foram armazenados no
- modelo mostrado na Tabela \ref{tab:modelo_forward_declaration}
+ modelo mostrado na Tabela \ref{tab:modelo_forward_declaration}.
 
 \begin{table}[h]
 \centering
@@ -350,9 +350,7 @@ Média &  &  &  \\ \hline
 \label{tab:modelo_forward_declaration}
 \end{table}
 
-
-
-Experimento 3: \label{experimento_03}
+\subsection{Experimento 3}\label{experimento_03}
 
 Realizar um estudo da redução do tempo de compilação utilizando o comando
  mostrado no Código \ref{codigo_29} que permite a compilação em

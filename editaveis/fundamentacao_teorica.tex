@@ -41,10 +41,10 @@ execute as instruções de máquina \cite{ref6}.
 As linguagens que, em geral, são compiladas, lideram em performance em relação
  as linguagens que, em geral, são interpretadas. Isso porque as decisões que são
  tomadas em tempo de compilação não são necessários no tempo de execução \cite{ref7}.
-Por exemplo, se um compilador garantir que uma variável x seja sempre alocada 
+Por exemplo, se um compilador garantir que uma variável \texttt{x} seja sempre alocada 
 em uma  mesma posição na memória,  ele pode gerar instruções de máquina que 
-acesse esta localização sempre que se referenciar a variável x. 
-Por outro lado, um interpretador precisa procurar  por x em uma tabela a cada 
+acesse esta localização sempre que se referenciar a variável \texttt{x}. 
+Por outro lado, um interpretador precisa procurar  por \texttt{x} em uma tabela a cada 
 acesso, a fim de achar sua localização \cite{ref8}.
 
 Como exemplos de linguagens que, em geral, são compilada, temos Ada, ALGOL, 
@@ -140,8 +140,7 @@ Dentre as possíveis tarefas e características comuns a um preprocessador,
 
 \item \textit{Extensões de linguagens}: são formas de conferir maior poder as linguagens
      através de macros embutidas. Por exemplo, 
-    Equel\footnote{\url{http://www.eecs.berkeley.edu/~wong/wong\_pubs/wong46.pdf}
-     acessado 11/junho p.6} é uma linguagem de 
+    Equel\footnote{\url{http://www.eecs.berkeley.edu/~wong/wong\_pubs/wong46.pdf}. Acessado em 11 de junho de 2015.} é uma linguagem de 
     interrogação embutida em C que permite a manipulação de banco de dados. 
     Os enunciados começados com \texttt{\#\#} são considerados pelo preprocessador como
      comandos de acesso ao banco de dados, os quais não fazem parte da 
@@ -179,11 +178,11 @@ código alvo, otimização de código  para o alvo específico \cite{ref14}.
 
 \subsection{Analise Léxica}
     
-A analise léxica é a primeira fase a ser executada pelo compilador \cite{ref15}. 
+A analise léxica é a primeira fase a ser executada pelo compilador \cite[pg. 59]{ref15}. 
 A função do analisador léxico, também denominado scanner, é ler o código fonte, 
 caractere a caractere, buscando a separação e  a identificação dos elementos do 
-programa, denominados símbolos léxicos ou tokens \cite{ref16}. Assim, é 
-produzida uma sequência de tokens que será utilizada na análise sintática \cite{ref17}. 
+programa, denominados símbolos léxicos ou tokens \cite[pg. 195]{ref16}. Assim, é 
+produzida uma sequência de tokens que será utilizada na análise sintática \cite[pg. 796]{ref17}. 
 
 Esta fase também tem a importância de realizar a remoção de elementos 
 “decorativos” do programa, tais como espaços, tabulações, caracteres de 
@@ -209,12 +208,9 @@ símbolo a símbolo. Estes dois tipos são utilizados devido seu potencial
 expressivo para descrever a maioria das construções sintáticas das linguagens 
 de programação \cite{ref20}. Para auxiliar na criação de analisadores sintáticos 
 existem disponíveis uma série de geradores automáticos, como por exemplo, 
-o \textit{Flex} 
-\footnote{\url{http://dinosaur.compilertools.net/} acessado dia 20/06/2015}, 
-o \textit{Bison} 
-\footnote{\url{http://www.gnu.org/software/bison/} acessdo dia 20/06/2015}
- e o \textit{JavaCC} 
-\footnote{\url{https://javacc.java.net/} acessado dia 20/06/2015}
+o \textit{Flex}\footnote{\url{http://dinosaur.compilertools.net/}. Acessado no dia 20/06/2015.}, 
+o \textit{Bison}\footnote{\url{http://www.gnu.org/software/bison/} Acessado no dia 20/06/2015.}
+ e o \textit{JavaCC}\footnote{\url{https://javacc.java.net/}. Acessado no dia 20/06/2015.}
  \cite{ref22}.
 
 \subsection{Analise Semântica}
@@ -333,8 +329,8 @@ uma linguagem entendida por um desenvolvedor foi necessário a criação de uma
 abreviações ou símbolos que facilitassem o entendimento por parte do programador.
  Assembly é a linguagem escolhida para estas representações, onde cada 
 instrução do processador foi mapeada em um mnemônico, representados geralmente 
-por acrônimos do inglês (por exemplo, ‘mov’ representa ‘mover’, ‘rep’ 
-representa repetição e assim por diante)\cite{ref34}.
+por acrônimos do inglês (por exemplo, \texttt{mov} representa ‘mover’, \texttt{rep} 
+representa repetição e assim por diante) \cite{ref34}.
 
 O mesmo programa mostrado no Código \ref{codigo_02} pode ser representado 
 em assembly, conforme ilustrado no Código \ref{codigo_03} \cite{ref34}. 
@@ -359,7 +355,7 @@ em assembly, conforme ilustrado no Código \ref{codigo_03} \cite{ref34}.
 Para converter um programa de assembly para um código de máquina é necessário
  um montador, denominado Assembler. O montador é um programa que realiza a 
 parametrização das instruções da linguagem Assembly para os bits 
-correspondentes da linguagem de máquina (também chamado de opcode)\cite{ref35}.
+correspondentes da linguagem de máquina (também chamado de opcode) \cite{ref35}.
 
 \subsection{Linking}
 
@@ -382,7 +378,7 @@ mais abstratos \cite{ref36}.
  Basicamente o Linker liga um nome ou símbolo escrito por um desenvolvedor e
  referencia a localização do inicio do código que possui a função ou o dado
  estático. Como no exemplo descrito por John Levine, o linker pega um 
-referência escrita como “getline”  e vincula a “uma localização de 612 bytes 
+referência escrita como \texttt{getline}  e vincula a “uma localização de 612 bytes 
 no inicio de um código executável do modulo iosys” \cite{ref36}. 
 
 A fase de link-edição existem dois passos. No primeiro o Linker recebe como 
@@ -412,7 +408,7 @@ programas sejam mais modulares, mais rápidos de recompilar e mais
 fáceis de manter\cite{Lasca}.
 
 As bibliotecas podem ser divididas em três tipos: estáticas, 
-dinâmicas e compartilhadas\cite{Lasca}.
+dinâmicas e compartilhadas \cite{Lasca}.
 
 \begin{figure}[h]
     \centering
@@ -431,7 +427,7 @@ dinâmicas e compartilhadas\cite{Lasca}.
 
 \subsection{Bibliotecas Estáticas}
 
-Bibliotecas estáticas (que normalmente  são nomeadas com o  sufixo ‘.a’) 
+Bibliotecas estáticas (que normalmente  são nomeadas com o  sufixo \texttt{.a}) 
 são módulos de programas compilados separadamente, que podem ser utilizados
  na construção de um programa executável. Assim, após a etapa de compilação de
  um projeto, o linker faz a ligação entre as bibliotecas estáticas como
@@ -453,7 +449,7 @@ Ao contrário das bibliotecas estáticas, as bibliotecas dinâmicas são código
  representado na Figura \ref{fig06} \cite{ref41}. Bibliotecas dinâmicas 
 não aumentam o tamanho do código binário do projeto final mas, no entanto,
  a execução do projeto necessita da utilização de um arquivo externo
- (normalmente nomeado com o sufixo ‘.so’ ou ‘.dll’), que contém as
+ (normalmente nomeado com o sufixo \texttt{.so} ou \texttt{.dll}), que contém as
  informações a serem carregadas\cite{Lasca2}. Em ambiente Linux as
  bibliotecas devem ser  registradas em uma variável de ambiente chamada
  \texttt{LD\_LIBRARY\_PATH}, que possui o caminho de todas as bibliotecas dinâmicas
@@ -506,14 +502,14 @@ Para correção deste problema foram criadas as guardas de inclusão
 (no inglês chamada de  \textit{include guards} ou \textit{guard conditions}),
  que são diretivas de pré-processamento utilizada para verificar se um
  identificador já está definido ou não. Existem varias versões de guardas
- de inclusão, as quais serão citadas adiante\cite{ref42}.
+ de inclusão, as quais serão citadas adiante \cite{ref42}.
 
 Normalmente, arquivos-cabeçalho (ou \textit{headers}) são utilizados para
  declarações de estruturas, variáveis, funções e macros. Tais arquivos são
- identificados pelos sufixo ‘.h’,’.hpp’,’.hxx’ ou ‘.hpp’. As implementações
+ identificados pelos sufixo \texttt{.h}, \texttt{.hpp}, \texttt{.hxx} ou \texttt{.hpp}. As implementações
  das funções e definições de variáveis são feitas, na maioria das vezes, em
  arquivos denominados fontes (ou \textit{sources}), cujas extensões mais
- comuns são ".c", ".cpp", ".cxx", ".cc", ".c++", entre outros
+ comuns são \texttt{.c}, \texttt{.cpp}, \texttt{.cxx}, \texttt{.cc}, \texttt{.c++}, entre outros
  \cite{gcc-sufix}.
 
 Há quatro tipos de guardas de inclusão:
@@ -521,16 +517,16 @@ Há quatro tipos de guardas de inclusão:
 \begin{enumerate}
 \item Interna ao arquivo \textit{header}:
 
-A diretiva "\#ifndef" é utilizada para verificar se um identificador foi 
- definido (forma negativa, para a forma positiva a diretiva é "\#ifdef"); a 
-diretiva "\#define" é utilizada para definir um identificador; e a diretiva 
-"\#endif" e utilizada para finalizar  uma condição (diretivas "\#ifdef" e 
-"\#ifndef") \cite{ref42}.
+A diretiva \texttt{\#ifndef} é utilizada para verificar se um identificador foi 
+ definido (forma negativa, para a forma positiva a diretiva é \texttt{\#ifdef}); a 
+diretiva \texttt{\#define} é utilizada para definir um identificador; e a diretiva 
+\texttt{\#endif} e utilizada para finalizar  uma condição (diretivas \texttt{\#ifdef} e 
+\texttt{\#ifndef}) \cite{ref42}.
 
 Caso o identificador já esteja definido, o preprocessador irá ignorar 
-qualquer informação que que esteja entre as diretivas "\#ifndef"  e "\#endif";
+qualquer informação que que esteja entre as diretivas \texttt{\#ifndef}  e \texttt{\#endif};
  caso não esteja definido, o identificador serão então definido e as informações
- que seguem a diretiva serão incluídas no arquivo resultante\cite{ref42}.
+ que seguem a diretiva serão incluídas no arquivo resultante \cite{ref42}.
 
 Os Códigos \ref{codigo_004}, \ref{codigo_05} e \ref{codigo_06} ilustram uma 
 guarda de inclusão interna ao arquivo \textit{header}.
@@ -584,9 +580,9 @@ guarda de inclusão interna ao arquivo \textit{header}.
  
 Na  guarda de condição externa  são utilizadas as mesmas diretivas da interna,
  sendo a única diferença é a localização das diretivas: elas antecederão o uso
- da diretiva \#\texttt{include}. Um exemplo da utilização de guarda de condição 
+ da diretiva \texttt{\#include}. Um exemplo da utilização de guarda de condição 
 externa é mostrado nos Código \ref{codigo_07},\ref{codigo_08} e
- \ref{codigo_09}\cite{ref42}.
+ \ref{codigo_09} \cite{ref42}.
 
 
 \begin{lstlisting}[language=C++,caption={
@@ -640,7 +636,7 @@ Segundo John Lakos, está guarda de inclusão é a mais trabalhosa de ser mantid
  mas, no entanto, é a que mais reduz o tempo de compilação de um projeto. Ele
  realizou um experimento utilizando guardas de inclusão com e sem redundância,
  e obteve os resultados mostrados nas Tabelas \ref{tab:tabela_01} e 
-\ref{tab:tabela_02};
+\ref{tab:tabela_02}.
 
 \begin{table}[!ht]
     \centering
@@ -692,11 +688,11 @@ Segundo John Lakos, está guarda de inclusão é a mais trabalhosa de ser mantid
     \end{tiny}
 \end{table}
 
-\item Pragma Once
+\item \textit{Pragma Once}
 
-Pragma once é uma diretiva de pré-processamento que possui o objetivo de
+\textit{Pragma once} é uma diretiva de pré-processamento que possui o objetivo de
  garantir que um arquivo será lido apenas uma vez: caso uma diretiva 
-"\#include" seja utilizada novamente e o arquivo já foi incluído anteriormente,
+\texttt{\#include} seja utilizada novamente e o arquivo já foi incluído anteriormente,
  o mesmo não será aberto. No entanto, esta implementação se tornou obsoleta 
  na implementação do gcc \cite{gcc-pragma_once}. Os Códigos \ref{codigo_10} 
 , \ref{codigo_11} e \ref{codigo_12} exemplificam o uso desta diretiva.
@@ -807,7 +803,7 @@ class Paciente {
 \end{lstlisting}
 
 Para resolver este problema é preciso utilizar uma 
-referência incompleta (\textit{"forward"}) da classe Doutor e da
+referência incompleta (\textit{forward}) da classe Doutor e da
  classe Paciente, conforme apresentado no Código \ref{codigo_14}. 
 
 \begin{lstlisting}[language=C++,caption={ 
@@ -854,8 +850,8 @@ class Paciente {
 \end{lstlisting}
 
 A declaração incompleta (\textit{forward declaration}) de uma classe somente podem
- ser utiliza em arquivos na forma de ponteiro (utilizando o operador "*")
- ou referência (utilizando o operador "\&"), pois estas não requerem uma
+ ser utiliza em arquivos na forma de ponteiro (utilizando o operador \texttt{*})
+ ou referência (utilizando o operador \texttt{\&}), pois estas não requerem uma
  definição de classe completa porque, em C++, é alocado uma quantidade fixa
  de armazenamento para estes tipos de variáveis \cite{ref43}.
 
@@ -901,7 +897,7 @@ Como já mencionado, qualquer entidade deve ser declarada ou definida antes
 
 
 Na linguagem C++ há uma separação entre  a implementação e a interface de
- classe\cite{ref44}.Na maioria dos casos, a definição de uma classe possui
+ classe \cite{ref44}. Na maioria dos casos, a definição de uma classe possui
  detalhes de sua implementação, como nos Código \ref{codigo_16} e \ref{codigo_17}.
 
 
@@ -966,7 +962,7 @@ Definir uma classe com detalhes de implementação em sua definição não é um
  boa prática de programação, uma vez que ela não pode ser compilada sem
  conhecer as definições das classes utilizadas em sua implementação para
  realizar alocação de memória. Isso conduz à utilização da diretriz
- "\#include", gerando dependência entre arquivos\cite{ref44}.
+ \texttt{\#include}, gerando dependência entre arquivos \cite{ref44}.
 
 Uma maneira de contornar este problema é utilizar uma \textit{forward declaration} e a
  armazenar referências das classes, de modo que as definições das classes não
@@ -976,8 +972,7 @@ Uma maneira de contornar este problema é utilizar uma \textit{forward declarati
 e \ref{codigo_19}.
 
 
-\begin{lstlisting}[language=C++,frame=single,captionpos=b,caption={ 
-                         	     Arquivo definição da classe Pessoa,       
+\begin{lstlisting}[language=C++,caption={Arquivo definição da classe Pessoa,       
                           utilizando \textit{forward declaration}},
                                                 label=codigo_18]
 // pessoa.hpp 
@@ -1042,41 +1037,21 @@ O Código \ref{codigo_18} foi feito o uso da diretiva \texttt{\#include
 
 \begin{table}[h]
     \centering
-	\caption {Tabela de Algumas \textit{forward declaration} padrões do c++}
+	\caption {Tabela de Algumas \textit{forward declaration} padrões do C++}
     \label{tab:tabela_04}
-	\begin{tabular}{l|p{8cm}}
+	\begin{tabularx}{0.95\textwidth}{>{\ttfamily}l>{\ttfamily}X}
 	\toprule
 	\textbf{Biblioteca} & \textbf{Alguns includes do header}\\
 	\midrule
-	\texttt{\#include<bits/stringfwd.h>} & \texttt{std::string},
-
-							               \texttt{std::wstring},\texttt{std::u16string}, 
-
-								           \texttt{std::u32string};\\
+	\#include <bits/stringfwd.h> & std::string, std::wstring, std::u16string, std::u32string; \\
 	\midrule
-	\texttt{\#include <iosfwd>}          & \texttt{std::filebuf}, \texttt{std::fstream},
-                    					   \texttt{std::ifstream}, \texttt{std::iostream},
-                    					   \texttt{std::istream}, \texttt{std::ofstream},
-                    					   \texttt{std::ostream}, \texttt{std::ostringstream},
-                    					   \texttt{std::stringbuf}, \texttt{std::streambuf},
-                    					    entre outros;\\
+	\#include <iosfwd>          & std::filebuf, std::fstream, std::ifstream, std::iostream, std::istream, std::ofstream, std::ostream, std::ostringstream, std::stringbuf, std::streambuf, entre outros;\\
 	\midrule
-	\texttt{\#include <bits/localefwd.h>} & \texttt{std:has\_facet},\texttt{std::isalnum},
-								            \texttt{std::isalpha}, \texttt{std::iscntrl},
-								            \texttt{std::isdigit},\texttt{std::isgraph},
-								            \texttt{std::islower}, \texttt{std::isprint},
-								            \texttt{std::ispunct},
-								            \texttt{std::isspace},\texttt{std::issuper},
-								             entre outros;\\
+	\#include <bits/localefwd.h> & std:has\_facet, std::isalnum, std::isalpha, std::iscntrl, std::isdigit,std::isgraph, std::islower, std::isprint, std::ispunct, std::isspace, std::issuper, entre outros;\\
 	\midrule
-	\texttt{\#include <bits/algorithmfwd.h>} & \texttt{std::adjacent\_find},\texttt{std::any\_of},
-									           \texttt{std::binary\_search}, 
-									           \texttt{std::copy\_backward}, \texttt{std::copy\_if},
-									           \texttt{std::count\_if}, \texttt{std::count},
-									           \texttt{std::find\_end}, \texttt{std::find\_if},
-									           entre outros.\\
+	\#include <bits/algorithmfwd.h> & std::adjacent\_find, std::any\_of, std::binary\_search, std::copy\_backward, std::copy\_if, std::count\_if, std::count, std::find\_end, std::find\_if, entre outros.\\
 	\bottomrule
-	\end{tabular}
+	\end{tabularx}
 \end{table}
 
 
@@ -1087,17 +1062,17 @@ Make é uma ferramenta utilizada para determinar automaticamente quais
  os trechos de código de um grande projeto precisam serem recompilados
  após alguma iteração de desenvolvimento. Esta ferramenta foi implementada
  por Richard Stallman e Roland McGrath. Desde a versão 3.76 até os dias de
- hoje vem sendo mantida por Paul D.Smith\cite{Lasca2}.O manual de utilização do makefile
+ hoje vem sendo mantida por Paul D.Smith \cite{Lasca2}. O manual de utilização do makefile
  é disponibilizado no portal GNU \cite{ref45}.
 
 Para utilizar a ferramenta make é necessário a criação de um arquivo chamado
- makefile, que contem as descrições de relações entre os arquivos em um projeto
- e comandos necessários para realizar as atualizações em cada arquivo\cite{Lasca2}.
+ \texttt{makefile}, que contem as descrições de relações entre os arquivos em um projeto
+ e comandos necessários para realizar as atualizações em cada arquivo \cite{Lasca2}.
  Depois de definir o arquivo makefile, utiliza a chamada de sistema apresentada 
 no Código \ref{codigo_20}.
 
 \begin{lstlisting}[language=C++,caption={
-                             Chamada de Sistema para executar o programa make},
+                             Chamada de sistema para executar o programa make},
 				                                                label=codigo_20]
     $ make
 \end{lstlisting}
@@ -1144,7 +1119,7 @@ alvo ... : pre-requisitos ... ; procedimentos
 
  Os \textbf{pré-requisitos} são os endereços de arquivos utilizados como entrada para a 
 criação do alvo. Este campo é opcional, pois podem existir instruções que não
- necessitam de arquivos de entrada, como por exemplo a instrução "clean”
+ necessitam de arquivos de entrada, como por exemplo a instrução \texttt{clean}
  (tipicamente utilizada para remoção de todos os códigos objetos gerados a partir
  dos códigos do projeto) \cite{ref47}.
 
@@ -1161,7 +1136,7 @@ Este bloco pode conter mais de um comando em uma linha, ou  vários comandos em
                                      Utilização de padrões no makefile},
                                                         label=codigo_22]
 
-# gerar  objetos ".o" utilizando arquivos ".c"
+# gerar  objetos .o utilizando arquivos .c
 %.o : %.c
     procedimentos
     ...
@@ -1191,7 +1166,7 @@ são instruções que indicam ao make ações especiais a medida que é realizad
 
     \begin{itemize}
         \item Realizar a leitura de um outro makefile, através da diretiva include, seguida do nome do arquivo.
-        \item Utilizar ou ignorar parte do makefile.\cite{ref43} O Código \ref{codigo_24} ilustra o uso desta diretiva. 
+        \item Utilizar ou ignorar parte do makefile \cite{ref43}. O Código \ref{codigo_24} ilustra o uso desta diretiva. 
 
 
     \begin{lstlisting}[language=C++,caption={ 
@@ -1214,13 +1189,13 @@ endif
         \item \textbf{ifeq:} Diretiva que começa a condicional e especifica a 
     condição. Ela contém 2 argumentos, separados por virgula e entre parêntesis.
      Caso os argumentos forem iguais as linhas entre o \textbf{ifeq} e o
-     \textbf{else} serão executadas, caso contrário serão ignoradas\cite{ref50}.
+     \textbf{else} serão executadas, caso contrário serão ignoradas \cite{ref50}.
 
         \item \textbf{else:} Diretiva que marca o início das instruções a serem 
-    executadas caso a condição do \textbf{ifeq} falhe. Esta diretiva é opcional\cite{ref50}.
+    executadas caso a condição do \textbf{ifeq} falhe. Esta diretiva é opcional \cite{ref50}.
 
         \item \textbf{endif:} Diretiva que finaliza a condição. 
-    Toda diretiva condicional condição deve ser terminada com endif\cite{ref50}.
+    Toda diretiva condicional condição deve ser terminada com endif \cite{ref50}.
     \end{itemize}
 
     \item Definir variáveis com mais de uma linha. Com a utilização da diretiva define
@@ -1244,10 +1219,9 @@ $(two-lines)
     \end{itemize}
 
     \item Comentários: \
-Em arquivos Makefile a utilização de caractere "\#" em uma linha faz com
+Em arquivos Makefile a utilização de caractere \texttt{\#} em uma linha faz com
  que todos o caracteres que o sucederem sejam ignorados. Caso seja necessário
- a utilização deste o caractere basta precedê-lo com o caractere "\\" 
-(barra invertida)\cite{ref48}.
+ a utilização deste o caractere basta precedê-lo com o caractere \texttt{\textbackslash\textbackslash} (barra invertida) \cite{ref48}.
 
 \end{enumerate}
 
@@ -1293,14 +1267,13 @@ O comando make pode ser utilizado como mostrado no Código \ref{codigo_26} e con
     \begin{lstlisting}[language=C++,caption={ 
                                              Utilizando o programa make},
                                                          label=codigo_26]
-    
         $ make [opcoes] ... [Alvo]
 
     \end{lstlisting}
 
 
 \textbf{Alvo}: é a instrução que será executada pelo makefile. 
-A omissão deste parâmetro leva a execução do alvo "all".
+A omissão deste parâmetro leva a execução do alvo \texttt{all}.
     
 \textbf{Opções}: são flags de controle utilizadas pelo utilitário make.
  Exemplos de flags estão definidas na Tabela \ref{tab:tabela_05}:
@@ -1329,4 +1302,3 @@ A omissão deste parâmetro leva a execução do alvo "all".
     \bottomrule
     \end{tabular}
 \end{table}
-* Palavras entre "[" e "]" são opcionais.

@@ -1,13 +1,11 @@
 \chapter[Resultados Preliminares]{Resultados Preliminares}
 
-
 \section{Primeiro Experimento}
 
-A Tabela \ref{tab:tabela_guarda_de_inclusao} e o Gráfico 
+A Tabela \ref{tab:tabela_guarda_de_inclusao} e a Figura 
 \ref{grafico_guardas_de_inclusao} apresentam os resultados
  do primeiro experimento realizado, que avalia os impactos
- dos diferentes métodos de guarda de inclusão (Seção \ref{experimento_1} ).
-
+ dos diferentes métodos de guarda de inclusão (Seção \ref{experimento_1}).
 
 \begin{table}[!ht]
 \centering
@@ -38,7 +36,7 @@ Para os experimentos realizados com guardas de inclusão mostrados na
 Tabela \ref{tab:tabela_guarda_de_inclusao}, o menor tempo médio foi
  com a utilização do método redundante, fato  que corrobora a afirmação
  de John Lakos de que o método redundante é mais eficiente que a inclusão
- interna ou externa, em poucos segundos. Analisando o Gráfico 
+ interna ou externa, em poucos segundos. Analisando a Figura 
 \ref{grafico_guardas_de_inclusao} os maiores tempos de compilação foram 
  obtidos com a utilização do pragma once. Como dito anteriormente, este 
 método está obsoleto em relação ao g++ e a diferença chega a quase 50\%
@@ -55,10 +53,10 @@ método está obsoleto em relação ao g++ e a diferença chega a quase 50\%
 \section{Segundo Experimento}
 
 
-A Tabela \ref{experimento_02} e o Gráfico \ref{grafico_forward_declaration} apresentam os resultados do
- segundo experimento, que avalia o uso das forward declarations.Fator de
- Redução é igual a 1 menos o tempo sem forward declaration divido pelo
- tempo com forward declaration.
+A Tabela \ref{experimento_02} e a Figura \ref{grafico_forward_declaration} apresentam os resultados do
+ segundo experimento, que avalia o uso das \textit{forward declarations}.Fator de
+ Redução é igual a 1 menos o tempo sem \textit{forward declaration} divido pelo
+ tempo com \textit{forward declaration}.
 
 
 
@@ -81,7 +79,7 @@ Repetições & Tempo de Compilação SEM forward Declaration & Tempo de Compila�
 10     & 5,13  & 5,09  & 0,8\% \\ \hline
 Média  & 5,15  & 5,05  & 1,9\% \\ \hline
 \end{tabular}
-\caption{resultado das experimentos forward declaration}
+\caption{resultado das experimentos \textit{forward declaration}}
 \label{experimento_02}
 \end{table}
 
@@ -96,9 +94,9 @@ Média  & 5,15  & 5,05  & 1,9\% \\ \hline
 
 
 A Tabela \ref{experimento_02} mostra os valores coletados durante
- os experimentos de forward declaration. O Gráfico
+ os experimentos de \textit{forward declaration}. O Gráfico
  \ref{grafico_forward_declaration} demonstra que todos os valores
- foram positivos, indicando que forward declaration reduziu o tempo
+ foram positivos, indicando que \textit{forward declaration} reduziu o tempo
  de compilação em todos os casos, com uma variação de 0,5\% a 3,1\%.
 
 
@@ -134,12 +132,12 @@ Média  & 3,81  & 3,39  & 10,99\% \\ \hline
     \label{grafico_forward_declaration2}
 \end{figure}
 
-A figura \ref{grafico_forward_declaration2} representa a utilização
+A Figura \ref{grafico_forward_declaration2} representa a utilização
  do Código \ref{script_forward_declaration},
  que realiza modificações na data de modificação de um arquivo, o que forca uma
  recompilação do mesmo na próxima invocação do comando make.
  Esta tabela mostra que realizando modificações em diferentes
- quantidades de arquivos o beneficio do forward declaration é
+ quantidades de arquivos o beneficio do \textit{forward declaration} é
  diretamente impactado. Ainda assim, apenas em uma amostra o percentual
  de redução foi negativo  (isto é, houve um acréscimo de tempo,
  em relação a média), no entanto com uma variação baixa.
@@ -190,7 +188,7 @@ Média& 157,3787&  119,8999&  103,5988&  100,7035 & 102,2404 & 101,8278&  106,54
 \end{figure}
 
 Analisando os resultados dos experimentos realizados com o projeto
- CppCheck, apresentados na tabela \ref{tab:cppcheck} e no Gráfico \ref{cppcheck},
+ CppCheck, apresentados na tabela \ref{tab:cppcheck} e na Figura \ref{cppcheck},
  que indica um gráfico das porcentagens de redução, é
  possível afirmar que utilizar mais de uma thread para a
  compilação pode trazer uma redução no tempo de compilação.
@@ -392,7 +390,7 @@ Média & 4,0308  & 2,5651&  2,5293 & 2,2547 & 2,3426 & 2,3657 & 2,4565&  2,3529 
     \label{jack}
 \end{figure}
 
-Analisando os dados coletados do projeto Jack,the Janitor,
+Analisando os dados coletados do projeto Jack, the Janitor,
  percebemos as mesmas reduções entre os projetos anteriores
  e ainda mais neste projeto as os ganhos da redução do
  tempo de compilação foram maiores.
