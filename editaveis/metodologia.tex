@@ -276,18 +276,24 @@ Os scripts abordam os métodos:
 \end{itemize}
 
 
-A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dados.
+A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dados,
+ contendo Guarda de Inclusão Externa(GIE), Guarda de Inclusão Interna(GGI),
+ Pragma Once(PO), Guarda de Inclusão Interna Primeiro que Pragma Once(GIIPPO),
+ Pragma Once Primeiro que Guarda de Inclusão Interna (POPGII),
+ Guarda de Inclusão Externa e Pragma Once (GIEPO) e
+ Redundância de Guarda de Inclusão(RGI).
 
 \begin{table}[!ht]
 \centering
 \caption{Template de amostra de Guardas de Inclusão}
 \label{tab:modelo_guards}
 \begin{tiny}
-\begin{tabular}{lp{1.5cm}p{1.5cm}p{1.5cm}p{1.5cm}p{2cm}p{2cm}p{2cm}p{2cm}|}
+\begin{tabular}{lp{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}}
 \toprule
 \textbf{Tipo} & \multicolumn{7}{l}{Utilização de Guarda de Inclusão} \\
-\textbf{Medida} & \multicolumn{7}{l}{Tempos em segundos } \\ 
-\textbf{Amostras} & \textbf{Guarda de Inclusão Externa} & \textbf{Guarda de Inclusão Interna} & \textbf{Pragma Once} & \textbf{Guarda de Inclusão Interna Primeiro que Pragma Once} & \textbf{Pragma Once primeiro que Guarda de Inclusão Interna} & \textbf{Guarda de Inclusão Externa e Pragma Once} & \textbf{Redundância de Guarda de Inclusão} \\ \midrule
+\textbf{Medida} & \multicolumn{7}{l}{Tempos em segundos } \\
+\textbf{Amostras} & \textbf{GIE} & \textbf{GII} & \textbf{PO} & 
+\textbf{GIIPPO} & \textbf{POPGII} & \textbf{GIEPO} & \textbf{RGI} \\ \midrule
  1  &  &  &   &   &   &   &  \\ \midrule
  2  &  &  &   &   &   &   &  \\ \midrule
  3  &  &  &   &   &   &   &  \\ \midrule
