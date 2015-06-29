@@ -16,12 +16,12 @@ Uma linguagem de programação é um método padronizado que possui
 Para que um algoritmo escrito em uma linguagem de programação seja executado 
 por um computador é necessário a criação de um arquivo de texto contendo um 
 conjunto de palavras ou símbolos escritas de forma ordenada  e de maneira 
-lógica \cite[pag.3]{ref3}. Este arquivo é chamado de código fonte.
+lógica \cite[pág. 3]{ref3}. Este arquivo é chamado de código fonte.
     
 Antes da execução, a linguagem de programação escrita no código fonte deve
  ser convertida (através do processo de compilação), traduzida (através do 
 processo de interpretação) ou convertida e traduzida (forma hibrida) em um 
-código de máquina \cite[pag.2]{ref4}.
+código de máquina \cite[pág. 2]{ref4}.
 
 \subsection{Compilação}
 
@@ -32,20 +32,20 @@ No processo de compilação a linguagem de programação contida no código font
 O processo de compilação requer a utilização de um compilador, o qual consiste
  em um programa ou conjunto de programas  que tem como entrada o código fonte 
 escrito em uma linguagem de programação e cria um programa sematicamente 
-equivalente uma outra linguagem, chamado de código objeto \cite[pag.2]{ref4}.
+equivalente uma outra linguagem, chamado de código objeto \cite[pág. 2]{ref4}.
 
 Após a compilação, a execução do código objeto criado a partir do algoritmo do
  código fonte de entrada é requisitado pelo usuário para que o processador 
-execute as instruções de máquina \cite[pag.17]{ref6}.
+execute as instruções de máquina \cite[pág. 17]{ref6}.
 
 As linguagens que, em geral, são compiladas, lideram em performance em relação
  as linguagens que, em geral, são interpretadas. Isso porque as decisões que são
- tomadas em tempo de compilação não são necessários no tempo de execução \cite[pag.2]{ref3}.
+ tomadas em tempo de compilação não são necessários no tempo de execução \cite[pág. 2]{ref3}.
 Por exemplo, se um compilador garantir que uma variável \texttt{x} seja sempre alocada 
 em uma  mesma posição na memória,  ele pode gerar instruções de máquina que 
 acesse esta localização sempre que se referenciar a variável \texttt{x}. 
 Por outro lado, um interpretador precisa procurar  por \texttt{x} em uma tabela a cada 
-acesso, a fim de achar sua localização \cite[pag.167]{ref2}.
+acesso, a fim de achar sua localização \cite[pág. 167]{ref2}.
 
 Como exemplos de linguagens que, em geral, são compilada, temos Ada, ALGOL, 
 BASIC, C, C++, COBOL, Cobra, Common Lisp, D, Delphi, Eiffel, Fortran, 
@@ -66,12 +66,12 @@ interpretados tenham maior flexibilidade e um melhor diagnóstico (exibição de
 mensagens de erros) do que  códigos compilados. A interpretação também pode lidar 
 melhor com linguagens de programação nas quais características fundamentais, 
 tais como  o tamanho e  o tipo das variáveis, podem depender dos dados de 
-entrada \cite[pag.17]{ref6}.
+entrada \cite[pág. 17]{ref6}.
 
 Sem  o recurso da interpretação, seria uma tarefa deveras complexa implementar 
 alguns recursos  presentes em linguagens Lisp e Prolog onde, por exemplo, 
 um programa pode escrever novas peças de si mesmo e executá-las em tempo real
- \cite[pag.17]{ref6}.
+ \cite[pág. 17]{ref6}.
 Como exemplos de linguagens que, em geral, são interpretadas, temos ActionScript,
  APL, ASP, BASIC, C\#, CYBOL, Java, JavaScript, Lisp, Logo, Lua, PHP, Python, Ruby,
  Scheme, Smalltalk, VBScript.
@@ -79,7 +79,7 @@ Como exemplos de linguagens que, em geral, são interpretadas, temos ActionScrip
 \subsection{Máquinas Virtuais}
 
 Para algumas linguagens existe o caso em que o compilador tem o papel
- de converter o código fonte em um \textit{byte code} \cite[pag.49]{ref9}. 
+ de converter o código fonte em um \textit{byte code} \cite[pág. 49]{ref9}. 
 O \textit{byte code}
 é uma linguagem de baixo nível  similar a linguagem de máquina, que 
 deve ser interpretada por um outro programa chamado Maquina Virtual (\textit{Virtual Machine -- VM}).
@@ -96,7 +96,7 @@ Como exemplo de linguagens que utilizam, em geral, a estrategia híbrida, temos
 O termo \textit{Just In Time} -- JIT -- veio de um novo modelo de  negócio da
  indústria manufatureira: uma estratégia de negócio onde a produção 
 ou compra era feita sobre demanda, ao invés da utilização de estoques
- \cite[pag.177]{ref10}. 
+ \cite[pág. 177]{ref10}. 
 Este modelo tem como vantagens menores custos com armazenamento, 
 menos desperdícios, resposta mais rápida aos clientes e maior 
 produção potencial.
@@ -104,7 +104,7 @@ produção potencial.
 Na compilação, esta analogia se adapta bem por que um compilador JIT 
 não armazena os binários do programa no disco (o estoque), mas começa 
 a compilação apenas de partes do programa necessárias durante a execução
- \cite[pag.8]{ref2}.
+ \cite[pág. 8]{ref2}.
 
 Foram desenvolvidas, principalmente para linguagens que são, em geral, 
 interpretadas, ferramentas que se valem do JIT para acelerar a interpretação
@@ -127,16 +127,16 @@ Dentre as possíveis tarefas e características comuns a um preprocessador,
 \begin{itemize}
 
 \item \textit{Processamento de macros}: um preprocessador pode permitir que um usuário 
-    defina macros que sejam abreviações para construções mais longas\cite[pag.8]{ref3};
+    defina macros que sejam abreviações para construções mais longas \cite[pág. 8]{ref3};
 
 \item \textit{Inclusão de arquivos}: um preprocessador pode incluir arquivos cabeçalho no
      texto do programa. Por exemplo, o preprocessador faz com que o conteúdo de
      um arquivo externo seja transcrito no código-fonte no ponto onde existe a 
-    marcação para sua inclusão\cite[pag.8]{ref2};
+    marcação para sua inclusão \cite[pág. 8]{ref2};
 
 \item \textit{Preprocessadores “racionais”}: este tipo de preprocessador é responsável 
     por permitir a construção de macros utilizando condicionais while ou if mesmo
-     em linguagens que não suportem tais estruturas\cite[pag.8]{ref2};
+     em linguagens que não suportem tais estruturas \cite[pág. 8]{ref2};
 
 \item \textit{Extensões de linguagens}: são formas de conferir maior poder as linguagens
      através de macros embutidas. Por exemplo, 
@@ -145,20 +145,20 @@ Dentre as possíveis tarefas e características comuns a um preprocessador,
     Os enunciados começados com \texttt{\#\#} são considerados pelo preprocessador como
      comandos de acesso ao banco de dados, os quais não fazem parte da 
     linguagem C e, quando traduzidos, são convertidos em rotinas que tratam 
-    este acesso ao banco de dados\cite[pag.8]{ref3}.
+    este acesso ao banco de dados \cite[pág. 8]{ref3}.
 
 \end{itemize}
 
 \subsection{Compilação}
 
 No processo de compilação tradicional, o compilador atua em duas fases 
-principais: análise e síntese\cite[pag.26]{ref6}. A Figura \ref{fig01}
+principais: análise e síntese \cite[pág. 26]{ref6}. A Figura \ref{fig01}
  ilustra estas fases. 
 
 \begin{figure}[h]
     \centering
         \includegraphics[keepaspectratio=true,scale=0.45]{figuras/fases_da_compilacao.eps}
-    \caption{Fases da Compilação \cite[pag.26]{ref6}, com adaptações.}
+    \caption{Fases da Compilação \cite[pág. 26]{ref6}, com adaptações.}
     \label{fig01}
 \end{figure}
 
@@ -166,14 +166,14 @@ A fase de analise (ou \textit{front-end}) de um compilador é a fase que
 tem como objetivo entender o código fonte e  representá-lo em uma 
 estrutura intermediária que facilite sua manipulação posterior. 
 Esta fase é subdividida em analise léxica, analise sintática, 
-analise semântica e geração de código intermediário \cite[pag.36]{ref6}.
+analise semântica e geração de código intermediário \cite[pág. 36]{ref6}.
 
 A fase de síntese (ou \textit{back-end}) de um compilador é a fase que tem 
 como objetivo realizar a geração de código final otimizando o código 
 analisado na fase de sintase, gerando um código sematicamente igual ao 
 código fonte e com melhorias de performance e espaço. Esta fase é 
 subdividida em otimização de código independente do alvo, geração de 
-código alvo, otimização de código  para o alvo específico \cite[pag.36]{ref6}.
+código alvo, otimização de código  para o alvo específico \cite[pág. 36]{ref6}.
 
 
 \subsection{Analise Léxica}
@@ -186,43 +186,43 @@ produzida uma sequência de tokens que será utilizada na análise sintática \c
 
 Esta fase também tem a importância de realizar a remoção de elementos 
 “decorativos” do programa, tais como espaços, tabulações, caracteres de 
-avanço e comentários \cite[pag.59]{ref15}. Para auxiliar a construção deste analisador,
+avanço e comentários \cite[pág. 59]{ref15}. Para auxiliar a construção deste analisador,
  estão disponíveis uma série de geradores automáticos de analisadores léxicos, 
 cujo objetivo é reduzir o esforço de programação deste tipo de ferramenta, 
-especificando-se apenas os tokens a serem reconhecidos \cite[pag.50]{ref18}.
+especificando-se apenas os tokens a serem reconhecidos \cite[pág. 50]{ref18}.
 
 \subsection{Analise Sintática}
 
 A analise sintática, ou analise gramatical, é o processo de determinar 
 se uma cadeia de símbolos léxicos pode ser gerada por uma gramática pré-definida
  \cite{ref19}. O analisador sintático é o responsável por verificar se os 
-símbolos contidos no código fonte formam um programa válido ou não \cite[pag.38]{ref20}.
+símbolos contidos no código fonte formam um programa válido ou não \cite[pág. 38]{ref20}.
 
 A maioria dos métodos de analise sintática são de dois tipos, denominados 
-\textit{top-down} ou \textit{bottom-up} \cite[pag. 227]{ref21}. Como indicado por 
+\textit{top-down} ou \textit{bottom-up} \cite[pág.  227]{ref21}. Como indicado por 
 seus nomes, os analisadores sintáticos \textit{top-down} constroem árvores 
 do topo para as folhas, enquanto o analisadores \textit{bottom-up} começam das 
 folhas e constroem a árvore de baixo para cima até chegar na raiz. Em ambos os
  casos  estas árvores  elas são percorridas da esquerda para a direita, 
 símbolo a símbolo. Estes dois tipos são utilizados devido seu potencial 
 expressivo para descrever a maioria das construções sintáticas das linguagens 
-de programação \cite[pag.38]{ref20}. Para auxiliar na criação de analisadores sintáticos 
+de programação \cite[pág. 38]{ref20}. Para auxiliar na criação de analisadores sintáticos 
 existem disponíveis uma série de geradores automáticos, como por exemplo, 
 o \textit{Flex}\footnote{\url{http://dinosaur.compilertools.net/}. Acessado no dia 20/06/2015.}, 
 o \textit{Bison}\footnote{\url{http://www.gnu.org/software/bison/} Acessado no dia 20/06/2015.}
  e o \textit{JavaCC}\footnote{\url{https://javacc.java.net/}. Acessado no dia 20/06/2015.}
- \cite[pag.30]{ref22}.
+ \cite[pág. 30]{ref22}.
 
 \subsection{Analise Semântica}
 
 O analisador semântico tem como função prover métodos para que as estruturas 
-construídas pelo analisador sintático possam ser avaliadas ou executadas \cite[pag.337]{ref23}. 
+construídas pelo analisador sintático possam ser avaliadas ou executadas \cite[pág. 337]{ref23}. 
 Estas validações são feitas para assegurar que certos tipos de erros de 
 programação sejam detectados e reportados. Os  exemplos de verificação incluem 
 declaração de tipo, declaração de funções, sobrecarga de funções, sobrecarga de 
 operadores, verificação de fluxo de controle, verificação de operações logicas e 
 aritméticas válidas entre variáveis e a verificação de unicidade de variáveis em 
-determinados escopos da linguagem \cite[pag.147]{ref6}.
+determinados escopos da linguagem \cite[pág. 147]{ref6}.
 
 \subsection{Gerador de Código Intermediário}
 
@@ -230,10 +230,10 @@ Após produzir uma árvore sintática sematicamente correta, o compilador é cap
  produzir uma linguagem de representação intermediária do código fonte. Uma linguagem 
 intermediária está mais próxima de uma linguagem de objeto do que do código fonte. 
 No entanto, a linguagem  intermediária permite uma manipulação mais fácil do que o 
-código de máquina ou o \textit{Assembly} \cite[pag.8]{ref25}. 
+código de máquina ou o \textit{Assembly} \cite[pág. 8]{ref25}. 
 
 Um tipo bem conhecido de linguagem intermediara é o código (ou sentença) de três 
-endereços\cite[pag.247]{ref26}. Este código é uma sequência de enunciados na forma geral, apresentada 
+endereços \cite[pág. 247]{ref26}. Este código é uma sequência de enunciados na forma geral, apresentada 
  no Código \ref{codigo01},
 
 \begin{lstlisting}[language=C++,caption={Código de três endereços},
@@ -243,29 +243,29 @@ endereços\cite[pag.247]{ref26}. Este código é uma sequência de enunciados na
 onde \texttt{x}, \texttt{y}, \texttt{z} são nomes, constantes ou objetos de dados 
 temporários criados pelo compilador e \texttt{op} representa um operador qualquer,
  tal como um operador de ponto fixo, flutuante ou um operador lógico sobre dados
- booleanos \cite[pag.201]{ref6}. Uma forma prática de representar sentenças de três endereços é o uso
+ booleanos \cite[pág. 201]{ref6}. Uma forma prática de representar sentenças de três endereços é o uso
  de quádrupla (operador, argumento 1, argumento 2 e resultado). 
 Este esquema de representação de código intermediário é o preferido por diversos
  compiladores, principalmente por aqueles que executam extensivas otimizações de
  código, uma vez que o código intermediário pode ser manipulado mais 
-facilmente \cite[pag.604]{ref5}. Além destas representações existem outras como as 
-árvores, grafos acíclicos dirigidos (DAG) e a notação polonesa \cite[pag.96]{ref29}.
+facilmente \cite[pág. 604]{ref5}. Além destas representações existem outras como as 
+árvores, grafos acíclicos dirigidos (DAG) e a notação polonesa \cite[pág. 96]{ref29}.
 
 Para garantir que um código tenha o seu desempenho ampliado e utilize menos 
 espaço em disco, a fase de otimização de código busca examinar 
 estrategicamente o código intermediário produzido na fase anterior e, com o 
-uso de técnicas de otimização, produzir um código mais eficiente \cite[pag.796]{ref30}
+uso de técnicas de otimização, produzir um código mais eficiente \cite[pág. 796]{ref30}
 . A otimização de código pode ocorrer em duas etapas: uma após a geração de 
 código intermediário e a outra depois da geração do código para a máquina 
-alvo \cite[pag.34]{ref6}. 
+alvo \cite[pág. 34]{ref6}. 
 Para a execução desta etapa são utilizadas técnicas para detectar 
 padrões dentro de um código produzido e substituí-los por códigos mais
- eficientes \cite[pag.604]{ref5}. Entre as técnicas usadas realizadas estão a 
+ eficientes \cite[pág. 604]{ref5}. Entre as técnicas usadas realizadas estão a 
 substituição de expressões que podem ser calculadas durante o tempo 
 de compilação, movimentação de código, eliminação de sub-expressões 
 redundantes, desmembramento de laços, eliminação de variáveis de indução, 
 substituição de multiplicação pelo \textit{shift} binário, redução da 
-quantidade de laços, entre outras \cite[pag.796]{ref30}.
+quantidade de laços, entre outras \cite[pág. 796]{ref30}.
 
 \subsection{Geração de Código}
 
@@ -274,7 +274,7 @@ realizar a o mapeamento da linguagem intermediária otimizada para a linguagem
 alvo. Caso a linguagem alvo seja um código de máquina,  registradores ou 
 localização de memoria são selecionados para armazenar valores das 
 variáveis usadas no programa. Então, o código intermediário é traduzido em 
-sequência para instruções de máquina que realizarão as operações \cite[pag.10]{ref3}.
+sequência para instruções de máquina que realizarão as operações \cite[pág. 10]{ref3}.
 Mesmo que o código traduzido seja otimizado, após a tradução para a 
 linguagem alvo é  possível que novas otimizações possam ser feitas, de modo 
 que é possível a otimização específica apresentada no Código \ref{otimizacao}.
@@ -307,12 +307,12 @@ Segundo Michael L. Scott, um código de máquina é uma sequência de bits que
  corresponde a uma instrução executada por um processador, realizando 
 operações de adições, comparações, movimento de informação de uma localização
  da memória, entre outros. Detalhar instruções de máquina a nível de bits é 
-uma tarefa trabalhosa \cite[pag.5]{ref6}. 
+uma tarefa trabalhosa \cite[pág. 5]{ref6}. 
 
 Um programa capaz de realizar o cálculo do máximo divisor comum através do 
 algoritmo de Euclides estendido pode ser representado  em código de máquina 
 usando notação hexadecimal para a representação dos bits, conforme apresentado
- no Código \ref{codigo_02} \cite[pag.5]{ref6}.
+ no Código \ref{codigo_02} \cite[pág. 5]{ref6}.
 
 
 \begin{lstlisting}[language=Pascal, caption={Algoritmo de 
@@ -330,10 +330,10 @@ abreviações ou símbolos que facilitassem o entendimento por parte do programa
  Assembly é a linguagem escolhida para estas representações, onde cada 
 instrução do processador foi mapeada em um mnemônico, representados geralmente 
 por acrônimos do inglês (por exemplo, \texttt{mov} representa ‘mover’, \texttt{rep} 
-representa repetição e assim por diante) \cite[pag.5]{ref6}.
+representa repetição e assim por diante) \cite[pág. 5]{ref6}.
 
 O mesmo programa mostrado no Código \ref{codigo_02} pode ser representado 
-em assembly, conforme ilustrado no Código \ref{codigo_03} \cite[pag.5]{ref6}. 
+em assembly, conforme ilustrado no Código \ref{codigo_03} \cite[pág. 5]{ref6}. 
 
 \begin{lstlisting}[language=Pascal,caption={Algoritmo de 
                                  Euclides estendido em Assembly , com adaptações},
@@ -355,7 +355,7 @@ em assembly, conforme ilustrado no Código \ref{codigo_03} \cite[pag.5]{ref6}.
 Para converter um programa de assembly para um código de máquina é necessário
  um montador, denominado Assembler. O montador é um programa que realiza a 
 parametrização das instruções da linguagem Assembly para os bits 
-correspondentes da linguagem de máquina (também chamado de opcode) \cite[pag.6]{ref6}.
+correspondentes da linguagem de máquina (também chamado de opcode) \cite[pág. 6]{ref6}.
 
 \subsection{Linking}
 
@@ -363,7 +363,7 @@ correspondentes da linguagem de máquina (também chamado de opcode) \cite[pag.6
 \begin{figure}[h]
     \centering
         \includegraphics[keepaspectratio=true,scale=0.5]{figuras/ligador.eps}
-    \caption{Ligação entre objetos,\cite[pag. 7]{ref36},com adaptações.}
+    \caption{Ligação entre objetos \cite[pág.  7]{ref36}, com adaptações.}
     \label{fig03}
 \end{figure}
 
@@ -379,12 +379,12 @@ mais abstratos \cite{ref36}.
  referencia a localização do inicio do código que possui a função ou o dado
  estático. Como no exemplo descrito por John Levine, o linker pega um 
 referência escrita como \texttt{getline}  e vincula a “uma localização de 612 bytes 
-no inicio de um código executável do modulo iosys” \cite[pag.7]{ref36}. 
+no inicio de um código executável do modulo iosys” \cite[pág. 7]{ref36}. 
 
 A fase de link-edição existem dois passos. No primeiro o Linker recebe como 
 entrada um conjunto de arquivos objetos, bibliotecas e parâmetros e produz
  como resultado um arquivo de saída, como mostrado na Figura \ref{fig03}
- \cite[pag.13]{ref36}. Neste passo é criada uma tabela com 
+ \cite[pág. 13]{ref36}. Neste passo é criada uma tabela com 
 todos os segmentos definidos nos arquivos fontes e uma tabela de símbolos 
 importados ou exportados. Depois o Linker atribui uma localização numérica 
 para cada símbolo, determinando o tamanho e a localização dos segmentos no
@@ -399,13 +399,13 @@ para cada símbolo, determinando o tamanho e a localização dos segmentos no
 Com o passar do tempo utilizando compiladores e linkers, muitos 
 desenvolvedores perceberam que poderiam economizar tempo e esforço 
 reutilizando pedaços de códigos escritos em outros programas. Para evitar a
- cópia de arquivos entre projetos surgiram as chamadas bibliotecas \cite[pag. 227]{ref36}.
+ cópia de arquivos entre projetos surgiram as chamadas bibliotecas \cite[pág.  227]{ref36}.
 
 Biblioteca é um conjunto de códigos compilados que podem ser incorporados a
  um ou mais de um projetos, como mostrado nas Figura \ref{fig04}, e Figura
  \ref{fig05}. A organização de códigos em bibliotecas permite que 
 programas sejam mais modulares, mais rápidos de recompilar e mais 
-fáceis de manter\cite{Lasca}.
+fáceis de manter \cite{Lasca}.
 
 As bibliotecas podem ser divididas em três tipos: estáticas, 
 dinâmicas e compartilhadas \cite{Lasca}.
@@ -413,14 +413,14 @@ dinâmicas e compartilhadas \cite{Lasca}.
 \begin{figure}[h]
     \centering
         \includegraphics[keepaspectratio=true,scale=0.38]{figuras/reuso_lib_estatica.eps}
-    \caption{ Reuso com biblioteca estática,\cite[pag. 54]{ref39},com adaptações.}
+    \caption{Reuso com biblioteca estática \cite[pág.  54]{ref39}, com adaptações.}
     \label{fig04}
 \end{figure}
 
 \begin{figure}[h]
     \centering
         \includegraphics[keepaspectratio=true,scale=0.38]{figuras/reuso_lib_estatica2.eps}
-    \caption{Reuso (maneira trivial),\cite[pag. 54]{ref39},com adaptações.}
+    \caption{Reuso (maneira trivial) \cite[pág.  54]{ref39}, com adaptações.}
     \label{fig05}
 \end{figure}
 
@@ -431,7 +431,7 @@ Bibliotecas estáticas (que normalmente  são nomeadas com o  sufixo \texttt{.a}
 são módulos de programas compilados separadamente, que podem ser utilizados
  na construção de um programa executável. Assim, após a etapa de compilação de
  um projeto, o linker faz a ligação entre as bibliotecas estáticas como
- mostrado na Figura \ref{fig04} \cite[pag.54]{ref39}.
+ mostrado na Figura \ref{fig04} \cite[pág. 54]{ref39}.
 
 Estas bibliotecas são mais difíceis de se manter, pois a cada atualização de uma
  biblioteca estática todos os projetos dependentes da mesma devem ser recompilados.
@@ -446,11 +446,11 @@ Estas bibliotecas são mais difíceis de se manter, pois a cada atualização de
 
 Ao contrário das bibliotecas estáticas, as bibliotecas dinâmicas são códigos
  objetos que podem ser carregados durante a execução de um projeto, como
- representado na Figura \ref{fig06} \cite[pag.57]{ref39}. Bibliotecas dinâmicas 
+ representado na Figura \ref{fig06} \cite[pág. 57]{ref39}. Bibliotecas dinâmicas 
 não aumentam o tamanho do código binário do projeto final mas, no entanto,
  a execução do projeto necessita da utilização de um arquivo externo
  (normalmente nomeado com o sufixo \texttt{.so} ou \texttt{.dll}), que contém as
- informações a serem carregadas\cite{Lasca2}. Em ambiente Linux as
+ informações a serem carregadas \cite{Lasca2}. Em ambiente Linux as
  bibliotecas devem ser  registradas em uma variável de ambiente chamada
  \texttt{LD\_LIBRARY\_PATH}, que possui o caminho de todas as bibliotecas dinâmicas
  que podem ser utilizadas.
@@ -458,7 +458,7 @@ não aumentam o tamanho do código binário do projeto final mas, no entanto,
 \begin{figure}[h]
     \centering
         \includegraphics[keepaspectratio=true,scale=0.45]{figuras/dynamic_lib.eps}
-    \caption{Biblioteca dinâmica,\cite[pag.55]{ref39} com adaptações.}
+    \caption{Biblioteca dinâmica \cite[pág. 55]{ref39}, com adaptações.}
     \label{fig06}
 \end{figure}
 
@@ -489,12 +489,12 @@ Diretivas \texttt{include} normalmente são utilizadas várias vezes em um proje
  No entanto, o preprocessador não é capaz de verificar se um arquivo já foi
  adicionado, o que pode ocasionar um erro de duplicação de definição de
  estruturas e elementos do código. Um exemplo deste problema é mostrado na
- Figura \ref{fig07} \cite[pag.57]{ref39}.
+ Figura \ref{fig07} \cite[pág. 57]{ref39}.
 
 \begin{figure}[h]
     \centering
         \includegraphics[keepaspectratio=true,scale=0.55]{figuras/multi_include.eps}
-    \caption{Includes redundânte \cite[pag. 80]{ref42}, com adaptações.}
+    \caption{Includes redundânte \cite[pág.  80]{ref42}, com adaptações.}
     \label{fig07}
 \end{figure}
 
@@ -502,7 +502,7 @@ Para correção deste problema foram criadas as guardas de inclusão
 (no inglês chamada de  \textit{include guards} ou \textit{guard conditions}),
  que são diretivas de pré-processamento utilizada para verificar se um
  identificador já está definido ou não. Existem varias versões de guardas
- de inclusão, as quais serão citadas adiante \cite[pag.80]{ref42}.
+ de inclusão, as quais serão citadas adiante \cite[pág. 80]{ref42}.
 
 Normalmente, arquivos-cabeçalho (ou \textit{headers}) são utilizados para
  declarações de estruturas, variáveis, funções e macros. Tais arquivos são
@@ -510,7 +510,7 @@ Normalmente, arquivos-cabeçalho (ou \textit{headers}) são utilizados para
  das funções e definições de variáveis são feitas, na maioria das vezes, em
  arquivos denominados fontes (ou \textit{sources}), cujas extensões mais
  comuns são \texttt{.c}, \texttt{.cpp}, \texttt{.cxx}, \texttt{.cc}, \texttt{.c++}, entre outros
- \cite{gcc-sufix}.
+ \cite{gccsufix}.
 
 Há quatro tipos de guardas de inclusão:
 
@@ -526,7 +526,7 @@ diretiva \texttt{\#define} é utilizada para definir um identificador; e a diret
 Caso o identificador já esteja definido, o preprocessador irá ignorar 
 qualquer informação que que esteja entre as diretivas \texttt{\#ifndef}  e \texttt{\#endif};
  caso não esteja definido, o identificador serão então definido e as informações
- que seguem a diretiva serão incluídas no arquivo resultante \cite[pag.80]{ref42}.
+ que seguem a diretiva serão incluídas no arquivo resultante \cite[pág. 80]{ref42}.
 
 Os Códigos \ref{codigo_004}, \ref{codigo_05} e \ref{codigo_06} ilustram uma 
 guarda de inclusão interna ao arquivo \textit{header}.
@@ -581,8 +581,8 @@ guarda de inclusão interna ao arquivo \textit{header}.
 Na  guarda de condição externa  são utilizadas as mesmas diretivas da interna,
  sendo a única diferença é a localização das diretivas: elas antecederão o uso
  da diretiva \texttt{\#include}. Um exemplo da utilização de guarda de condição 
-externa é mostrado nos Código \ref{codigo_07},\ref{codigo_08} e
- \ref{codigo_09} \cite[pag.80]{ref42}.
+externa é mostrado nos Código \ref{codigo_07}, \ref{codigo_08} e
+ \ref{codigo_09} \cite[pág. 80]{ref42}.
 
 
 \begin{lstlisting}[language=C++,caption={
@@ -694,8 +694,7 @@ Segundo John Lakos, está guarda de inclusão é a mais trabalhosa de ser mantid
  garantir que um arquivo será lido apenas uma vez: caso uma diretiva 
 \texttt{\#include} seja utilizada novamente e o arquivo já foi incluído anteriormente,
  o mesmo não será aberto. No entanto, esta implementação se tornou obsoleta 
- na implementação do gcc \cite{gcc-pragma_once}. Os Códigos \ref{codigo_10} 
-, \ref{codigo_11} e \ref{codigo_12} exemplificam o uso desta diretiva.
+ na implementação do gcc \cite{gccpragmaonce}. Os Códigos \ref{codigo_10}, \ref{codigo_11} e \ref{codigo_12} exemplificam o uso desta diretiva.
 
 
 
@@ -853,7 +852,7 @@ A declaração incompleta (\textit{forward declaration}) de uma classe somente p
  ser utiliza em arquivos na forma de ponteiro (utilizando o operador \texttt{*})
  ou referência (utilizando o operador \texttt{\&}), pois estas não requerem uma
  definição de classe completa porque, em C++, é alocado uma quantidade fixa
- de armazenamento para estes tipos de variáveis \cite[pag.111]{ref43}.
+ de armazenamento para estes tipos de variáveis \cite[pág. 111]{ref43}.
 
 Um exemplo incorreto de utilização de \textit{forward declaration} seria utilizar
  um construtor da classe Doutor é mostrado no Código \ref{codigo_15}.
@@ -897,7 +896,7 @@ Como já mencionado, qualquer entidade deve ser declarada ou definida antes
 
 
 Na linguagem C++ há uma separação entre  a implementação e a interface de
- classe \cite[pag.140]{ref44}. Na maioria dos casos, a definição de uma classe possui
+ classe \cite[pág. 140]{ref44}. Na maioria dos casos, a definição de uma classe possui
  detalhes de sua implementação, como nos Código \ref{codigo_16} e \ref{codigo_17}.
 
 
@@ -962,7 +961,7 @@ Definir uma classe com detalhes de implementação em sua definição não é um
  boa prática de programação, uma vez que ela não pode ser compilada sem
  conhecer as definições das classes utilizadas em sua implementação para
  realizar alocação de memória. Isso conduz à utilização da diretriz
- \texttt{\#include}, gerando dependência entre arquivos \cite[pag.140]{ref44}.
+ \texttt{\#include}, gerando dependência entre arquivos \cite[pág. 140]{ref44}.
 
 Uma maneira de contornar este problema é utilizar uma \textit{forward declaration} e a
  armazenar referências das classes, de modo que as definições das classes não
@@ -1033,7 +1032,7 @@ O Código \ref{codigo_18} foi feito o uso da diretiva \texttt{\#include
  <bits/stringfwd.h>}. Em C++  existem arquivos-cabeçalhos que possuem a
  implementação de \textit{forward declaration}. A Tabela \ref{tab:tabela_04} lista 
  alguns \textit{forward declaration} que podem ser utilizados em C++ segundo
- a gcc-gnu \cite{gcc-api}.
+ a gcc-gnu \cite{gccapi}.
 
 \begin{table}[h]
     \centering
@@ -1062,13 +1061,13 @@ Make é uma ferramenta utilizada para determinar automaticamente quais
  os trechos de código de um grande projeto precisam serem recompilados
  após alguma iteração de desenvolvimento. Esta ferramenta foi implementada
  por Richard Stallman e Roland McGrath. Desde a versão 3.76 até os dias de
- hoje vem sendo mantida por Paul D.Smith \cite{Lasca2}. O manual de utilização do makefile
+ hoje vem sendo mantida por Paul D.Smith \cite{Lasca2}. O manual de utilização do \texttt{makefile}
  é disponibilizado no portal GNU \cite{ref45}.
 
 Para utilizar a ferramenta make é necessário a criação de um arquivo chamado
  \texttt{makefile}, que contem as descrições de relações entre os arquivos em um projeto
  e comandos necessários para realizar as atualizações em cada arquivo \cite{Lasca2}.
- Depois de definir o arquivo makefile, utiliza a chamada de sistema apresentada 
+ Depois de definir o arquivo \texttt{makefile}, utiliza a chamada de sistema apresentada 
 no Código \ref{codigo_20}.
 
 \begin{lstlisting}[language=C++,caption={
@@ -1080,13 +1079,13 @@ no Código \ref{codigo_20}.
 
 O programa make realiza as devidas verificações nos códigos fontes e
  nos códigos objetos, e caso seja necessário recompilar um arquivo, o
- makefile contém as instruções necessárias para o tal procedimento
- \cite[pag.1]{ref45}.
+ \texttt{makefile} contém as instruções necessárias para o tal procedimento
+ \cite[pág. 1]{ref45}.
 
 
-\subsection{Estrutura básica de um arquivo makefile}
+\subsection{Estrutura básica de um arquivo \texttt{makefile}}
 
-Arquivos makefile contém 5 tipos básicos de elementos: regras explicitas,
+Arquivos \texttt{makefile} contém 5 tipos básicos de elementos: regras explicitas,
  regras implícitas, definição de variáveis, diretivas e comentários.
 
 \begin{enumerate}
@@ -1121,19 +1120,19 @@ alvo ... : pre-requisitos ... ; procedimentos
 criação do alvo. Este campo é opcional, pois podem existir instruções que não
  necessitam de arquivos de entrada, como por exemplo a instrução \texttt{clean}
  (tipicamente utilizada para remoção de todos os códigos objetos gerados a partir
- dos códigos do projeto) \cite[pag.1]{ref45}.
+ dos códigos do projeto) \cite[pág. 1]{ref45}.
 
 Os \textbf{procedimentos} são as ações que devem ser executadas a partir do comando make.
 Este bloco pode conter mais de um comando em uma linha, ou  vários comandos em
- linhas separadas \cite[pag.1]{ref45}.
+ linhas separadas \cite[pág. 1]{ref45}.
 
     \item Regras Implícitas: \
  conjunto de regras que informam quando e como refazer uma classe de arquivos
- baseadas em seus nomes e padrões \cite[pag.11]{ref45}. Um exemplo de utilização de 
- padrões é apresentado no Código \ref{codigo_22} \cite[pag.19]{ref45}
+ baseadas em seus nomes e padrões \cite[pág. 11]{ref45}. Um exemplo de utilização de 
+ padrões é apresentado no Código \ref{codigo_22} \cite[pág. 19]{ref45}
         
     \begin{lstlisting}[language=C++,caption={ 
-                                     Utilização de padrões no makefile},
+                                     Utilização de padrões no \texttt{makefile}},
                                                         label=codigo_22]
 
 # gerar  objetos .o utilizando arquivos .c
@@ -1146,7 +1145,7 @@ Este bloco pode conter mais de um comando em uma linha, ou  vários comandos em
 
     \item Definição de Variáveis:\
  é uma linha que especifica um valor para uma variável que pode ser substituída no
- texto posteriormente \cite[pag.111]{ref43}. Veja o Código \ref{codigo_23} para um exemplo de 
+ texto posteriormente \cite[pág. 111]{ref43}. Veja o Código \ref{codigo_23} para um exemplo de 
 definição de variável.
 
     \begin{lstlisting}[language=C++,caption={ 
@@ -1162,11 +1161,11 @@ clean:
 
     \item Diretivas: \
 são instruções que indicam ao make ações especiais a medida que é realizada a leitura do
- arquivo Makefile \cite[pag.22]{ref45}. Estas instruções podem ser:
+ arquivo Makefile \cite[pág. 22]{ref45}. Estas instruções podem ser:
 
     \begin{itemize}
-        \item Realizar a leitura de um outro makefile, através da diretiva include, seguida do nome do arquivo.
-        \item Utilizar ou ignorar parte do makefile \cite[pag.22]{ref43}. O Código \ref{codigo_24} ilustra o uso desta diretiva. 
+        \item Realizar a leitura de um outro \texttt{makefile}, através da diretiva include, seguida do nome do arquivo.
+        \item Utilizar ou ignorar parte do \texttt{makefile} \cite[pág. 22]{ref43}. O Código \ref{codigo_24} ilustra o uso desta diretiva. 
 
 
     \begin{lstlisting}[language=C++,caption={ 
@@ -1189,18 +1188,18 @@ endif
         \item \textbf{ifeq:} Diretiva que começa a condicional e especifica a 
     condição. Ela contém 2 argumentos, separados por virgula e entre parêntesis.
      Caso os argumentos forem iguais as linhas entre o \textbf{ifeq} e o
-     \textbf{else} serão executadas, caso contrário serão ignoradas \cite[pag.77]{ref45}.
+     \textbf{else} serão executadas, caso contrário serão ignoradas \cite[pág. 77]{ref45}.
 
         \item \textbf{else:} Diretiva que marca o início das instruções a serem 
-    executadas caso a condição do \textbf{ifeq} falhe. Esta diretiva é opcional \cite[pag.77]{ref45}.
+    executadas caso a condição do \textbf{ifeq} falhe. Esta diretiva é opcional \cite[pág. 77]{ref45}.
 
         \item \textbf{endif:} Diretiva que finaliza a condição. 
-    Toda diretiva condicional condição deve ser terminada com endif \cite[pag.77]{ref45}.
+    Toda diretiva condicional condição deve ser terminada com endif \cite[pág. 77]{ref45}.
     \end{itemize}
 
     \item Definir variáveis com mais de uma linha. Com a utilização da diretiva define
  e  da diretiva endef é possível realizar a definição de uma variável em mais
- de uma linha \cite[pag.69]{ref45}. O Código \ref{codigo_25} ilustra esta situação.
+ de uma linha \cite[pág. 69]{ref45}. O Código \ref{codigo_25} ilustra esta situação.
 
     \begin{lstlisting}[language=C++,caption={
 			 	Makefile com definição de variável em múltiplas linhas},
@@ -1221,21 +1220,21 @@ $(two-lines)
     \item Comentários: \
 Em arquivos Makefile a utilização de caractere \texttt{\#} em uma linha faz com
  que todos o caracteres que o sucederem sejam ignorados. Caso seja necessário
- a utilização deste o caractere basta precedê-lo com o caractere \texttt{\textbackslash\textbackslash} (barra invertida) \cite[pag]{ref45}.
+ a utilização deste o caractere basta precedê-lo com o caractere \texttt{\textbackslash\textbackslash} (barra invertida) \cite{ref45}.
 
 \end{enumerate}
 
 
-\subsection{Padrões de um arquivo makefile para ferramentas GNU}
+\subsection{Padrões de um arquivo \texttt{makefile} para ferramentas GNU}
 
     
 Tendo como referência o manual do GNU Make\footnote{
 \url{http://www.gnu.org/software/make/manual/make.pdf}},
 Seção 15.6, existem padrões que podem ser utilizados em arquivo
- makefile. Alguns dos mais comuns são:
+ \texttt{makefile}. Alguns dos mais comuns são:
 
 \begin{enumerate}
-    \item \textbf{all}: instrução executada por default pelo makefile, 
+    \item \textbf{all}: instrução executada por default pelo \texttt{makefile}, 
 realiza as verificações do arquivos de código fonte e faz atualizações
  nos códigos objetos, se necessário;
     \item \textbf{install}: chama o make all e copia os arquivos 
@@ -1257,9 +1256,9 @@ o nome do projeto e  que inclui  todo o conteúdo do diretório atual.
 \end{enumerate}
 
 
-\subsection{Executando makefile}
+\subsection{Executando o \texttt{makefile}}
 
-Depois de gerado o arquivo makefile utilizando as regras descritas nas seções anteriores,
+Depois de gerado o arquivo \texttt{makefile} utilizando as regras descritas nas seções anteriores,
  o comando make pode ser utilizado para executar as regras descritas.
 O comando make pode ser utilizado como mostrado no Código \ref{codigo_26} e conforme apresentado na Tabela \ref{tab:tabela_05}.
 
@@ -1272,7 +1271,7 @@ O comando make pode ser utilizado como mostrado no Código \ref{codigo_26} e con
     \end{lstlisting}
 
 
-\textbf{Alvo}: é a instrução que será executada pelo makefile. 
+\textbf{Alvo}: é a instrução que será executada pelo \texttt{makefile}. 
 A omissão deste parâmetro leva a execução do alvo \texttt{all}.
     
 \textbf{Opções}: são flags de controle utilizadas pelo utilitário make.
@@ -1286,13 +1285,13 @@ A omissão deste parâmetro leva a execução do alvo \texttt{all}.
     \toprule
     \textbf{Flag} & \textbf{Descrição}\\
     \midrule
-    \texttt{-C dir} , \texttt{--directory=dir} & Modifica o diretório antes de fazer a leitura do makefile\\
+    \texttt{-C dir} , \texttt{--directory=dir} & Modifica o diretório antes de fazer a leitura do \texttt{makefile}\\
     \midrule
-    \texttt{-f file}, \texttt{--file=file}, \texttt{--makefile=FILE} & Realiza a leitura de um makefile especifico\\
+    \texttt{-f file}, \texttt{--file=file}, \texttt{--makefile=FILE} & Realiza a leitura de um \texttt{makefile} especifico\\
     \midrule
     \texttt{-i}, \texttt{--ignore-errors} & Ignora erros na reconstrução de arquivos\\
     \midrule
-    \texttt{-I dir}, \texttt{ --include-dir=dir} & Especifica o diretório que inclue os makefiles\\
+    \texttt{-I dir}, \texttt{ --include-dir=dir} & Especifica o diretório que inclue os \texttt{makefiles}\\
     \midrule
     \texttt{-j [jobs]}, \texttt{--jobs[=jobs]} & Especifica a quantidade de threads
                                  que podem ser executadas em paralelo. 
