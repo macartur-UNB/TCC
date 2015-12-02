@@ -24,6 +24,7 @@ processo de interpretação) ou convertida e traduzida (forma hibrida) em um
 código de máquina \cite[pág. 2]{ref4}.
 
 \subsection{Compilação}
+\label{Compilação}
 
 No processo de compilação a linguagem de programação contida no código fonte
  deve ser transformada em uma linguagem de máquina, a qual será posteriormente
@@ -68,6 +69,24 @@ melhor com linguagens de programação nas quais características fundamentais,
 tais como  o tamanho e  o tipo das variáveis, podem depender dos dados de 
 entrada \cite[pág. 17]{ref6}.
 
+Mesmo que uma linguagem seja feita para ser compilada é possível que exista 
+interpretadores para estas linguagens, como é o caso do CINT\footnote{
+Interpretador de código C/C++ encontrado em \url{https://root.cern.ch/cint}.}
+ e CLING\footnote{Interpretador de código C/C++ com backend clang encontrado em
+  \url{https://root.cern.ch/cling}.}.Estes interpretadores podem ajudar no 
+  processo de desenvolvimento como descrito acima, no entanto existem 
+  limitações para estes como no caso do CINT\footnote{
+  \url{https://root.cern.ch/viewvc/branches/v5-34-00-patches/cint/doc/limitati.txt }}:
+
+\begin{itemize}
+	\item não é possível definir um novo tipo de estrutura dentro de uma função;
+    \item não aceita \textit{unsigned long long}, utiliza este como long long;
+    \item o proprio \textbf{CINT} contem a definição do tipo bool, e carrega o mesmo na execução do programa;
+    \item na declaração de ponteiro é necessario espaço antes e depois do '*'; 
+    \item não aceita o operador de sequenciamento ‘,’; 
+    \item um dos maiores problemas do \textbf{CINT} é a definição de macros, este somente aceita macros simples.
+\end{itemize}
+
 Sem  o recurso da interpretação, seria uma tarefa deveras complexa implementar 
 alguns recursos  presentes em linguagens Lisp e Prolog onde, por exemplo, 
 um programa pode escrever novas peças de si mesmo e executá-las em tempo real
@@ -75,6 +94,7 @@ um programa pode escrever novas peças de si mesmo e executá-las em tempo real
 Como exemplos de linguagens que, em geral, são interpretadas, temos ActionScript,
  APL, ASP, BASIC, C\#, CYBOL, Java, JavaScript, Lisp, Logo, Lua, PHP, Python, Ruby,
  Scheme, Smalltalk, VBScript.
+ 
 
 \subsection{Máquinas Virtuais}
 
@@ -1301,3 +1321,165 @@ A omissão deste parâmetro leva a execução do alvo \texttt{all}.
     \bottomrule
     \end{tabular}
 \end{table}
+
+
+\subsection{Pimpl Idiom - Implementação privada} \label{Pimpl_Idiom}
+
+Ponteiro de implementação é a técnica utilizada para armazenar a
+ implementação privada de uma estrutura em um ponteiro, que será
+ declarado nos arquivos de header e implementado nos arquivos de
+ implementação, através da utilização da declaração incompleta 
+\textit(Forward Declaration).
+
+Esta técnica ao ser utilizada tem como benefício minimizar a
+ interdependência entre estruturas e assim consequência diminui o
+ tempo de recompilação, além de esconder partes que não deveriam
+ ser mostradas na declaração de uma classe, pois estas
+ deveriam ser privadas.\cite{style_idioms}
+
+\begin{lstlisting}[language=C++, caption={Exemplo Utilização Pimpl Idiom},
+                  label=exemplo_implementacao_pimpl]
+    // book.h
+    #ifndef  BOOK_H
+    #define BOOK_H
+
+    #include <iostream>
+    using namespace std;
+
+    class Book
+    {
+    public:
+      Book(string name);
+      void read();
+    private:
+      class BookImpl;        
+      BookImpl* m_impl;        
+    };
+    #endif
+
+    //book.cpp
+    class Book::BookImpl
+    {
+    public:
+      BookImpl(string name,int paginas=0,read=false);
+      string get_name();
+    private:
+      string name;
+      int paginas;
+      bool read;
+    };
+
+
+
+    Book::BookImpl::BookImpl(string name,int paginas,bool read)
+      : name(name), paginas(paginas),read(read)
+    {
+    }
+
+
+    Book::BookImpl::string get_name()
+    {
+        return this->name;
+    }
+
+    Book::Book(string name)
+      : m_impl(new BookImpl(name))
+    {
+    }
+
+    void
+    Book::read()
+    {
+      cout << this->m_impl->get_name() <<endl;
+    }
+
+    //main.cpp
+    #include <iostream>
+    #include "book.h"
+    using namespace std;
+    int main()
+    {
+      Book a("eBook");
+      a.read();
+      return 0;
+    }
+\end{lstlisting}
+
+\subsection{Flags de Otimização de Baixo Nível}
+\label{Otimizacao_de_baixo_nivel}
+Como visto no capitulo sobre Compilação \ref{Compilação} é possível otimizar
+ o código para gerar objetos e executável menores e com tempo de
+ execução mais rápida, no entanto ao executar este processo o compilador perde
+ tempo nestas otimizações isto faz com que o tempo de compilação aumente.
+ Para controlar estas os compiladores recebem como flags (parâmetros) que
+ indicam qual tipo de otimização pode ser aplicadas pelo compilador.
+ Estas flags que aplicam outro conjunto de flags de otimização.\footnote{\url{https://gcc.gnu.org}}
+
+
+No gcc/g++
+\footnote{\url{https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html}}
+\footnote{\url{https://gcc.gnu.org/onlinedocs/gnat\_ugn/Optimization-Levels.html\#Optimization-Levels}}
+ as flags de otimizações de compilação podem ser:
+
+\begin{itemize}
+	\item -O0 : reduz o tempo de compilação e faz a depuração produzir os
+ resultados esperados, este é o padrão caso nenhuma flag seja passada;
+    \item -Ofast : discarta estritas conformidades com padrões;
+    \item -O  : realiza otimização do tamanho do código e do tempo de execução do programa ,
+ no entanto não realiza otimizações que tenha grande perda no tempo de compilação;
+    \item -O1 :  aplica uma otimização moderadamente, mas não degrada significativamente
+ o tempo de compilação;
+    \item -O2 : realiza otimização total, gerando o código altamente otimizado e com o
+ tempo mais lento de compilação;
+    \item -O3 : aplica otimização total como o -O2 , no entanto liga mais flags;
+    \item -Os : aplica as otimizações de -O2 que não implicam no aumento do tamanho do código,
+ e também otimizações adicionais para a redução do tamanho do código;
+    \item -Og : realiza otimizações  que não interferem da depuração,
+ oferecendo um nível de otimização razoável e  mantendo a compilação rápida.
+\end{itemize}
+
+Caso seja utilizado mais de uma flag de otimização, a ultima que será executada
+ e as outras desconsideradas.
+
+
+\subsection{Ferramentas}  \label{ferramentas_de_otimizacao}
+
+\begin{itemize}
+	\item \textbf{Ccache} \label{ccache}
+	
+	\subitem Ccache \footnote{\url{https://ccache.samba.org/download.html}} é uma ferramenta utilizada
+ para armazenar compilações anteriores e 
+guardando os resultados e detectando quando os mesmos serão executados,
+ para reduzir o retrabalho do processo de compilação.
+
+    \subitem Esta ferramenta tem suporte as linguagens C, C++, Objective-C and Objective-C++.
+ Possui as vantagens de : gerenciamento do tamanho de cache,
+ armazena compilações que contém avisos (warnings), baixa sobrecarga,
+ opcionalmente utiliza “hard link” para evitar copias e comprime arquivos para
+ reduzir o tamanho do disco. Apesar destas vantagens, esta ferramenta pode apenas
+ compilar um único arquivo ou link simbólico, somente funciona com compiladores gcc/g++
+ ou similares e algumas flags de otimização não são suportadas.
+
+	\subitem Para utilizar o ccache é necessario adicionar a palavra ccache antes de cada
+ comando de compilação. Para remover cache de compilação anterior será utilizado
+ ccache -c ativar o limpador de ccache e ccache -C para remover a cache completamente.
+
+	\item \textbf{Gold} \label{Gold}
+
+	\subitem Gold é uma ferramenta de lincagem de objetos mais rápida que o lincador padrão do linux,
+ ld. Esta foi desenvolvido apenas para realizar lincagem de arquivos do tipo ELF sem utilizar
+ a biblioteca BFD (Binary File Descriptor library) que possui suporte a manipulação de vários
+ formatos de arquivos binários. Esta ferramenta foi desenvolvida pelo pesquisador da google,
+ Ian Lance Taylor, que realizou a remoção da bliblioteca e utilização de menos camadas de abstrações.
+
+	\subitem O linker gold vem por padrão nos pacotes do GNU e pode ser utilizado no gcc/g++ passando a flag
+ -Wl,-fuse-ld=gold\footnote{\url{https://gcc.gnu.org/onlinedocs/gcc/Link-Options.html}},
+ caso nenhuma flag seja passada ira utilizar o linker padrão ld que utiliza
+ a bliblioteca BFD. O linker gold para ser utilizado em sistemas com back-end llvm é necessario
+ instalar o plugin llvm-gold-plugin\footnote{\url{http://llvm.org/docs/GoldPlugin.html}}.
+
+	\subitem Para sistemas operacionais como um Mac OS ou Windows esta ferramenta não é suportada, uma vez que
+estes sistemas possuem formato de arquivo binário diferente do ELF.Windows possui formato PE ou PE32+ e 
+o Mac OS utiliza PEF ou XCOFF
+\footnote{\url{https://en.wikipedia.org/wiki/Comparison\_of\_executable\_file\_formats\#cite\_note-apple-pef-9}}.
+\end{itemize}

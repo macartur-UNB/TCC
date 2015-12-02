@@ -29,196 +29,712 @@ Para seleção de métodos foi realizada uma priorização dos métodos, técnic
  montagem de experimentos e o recurso computacional necessário para a criação
  destes experimentos.
 
-
 Os métodos selecionados foram:
 
-\begin{enumerate}
+\begin{itemize}
 	\item \textit{Include Guards}, descrito na seção
  \ref{include_guards_section};
 	\item \textit{Forward Declaration}, descrito na seção
  \ref{forward_declaration_section};
 	\item Makefile, descrito na seção
  \ref{Makefile_section};
-	\item Otimização de baixo nível;
-	\item \textit{Pimpl Idiom};
-	\item Compilador + \textit{Headers} pré-compilados;
-	\item Ferramentas que utilizam cache de arquivos 
-preprocessados (CCache, Wrap, Gold);
-\end{enumerate}
+	\item Otimização de baixo nível descrito na seção
+ \ref{Otimizacao_de_baixo_nivel};
+	\item \textit{Pimpl Idiom} descrito na seção
+ \ref{Pimpl_Idiom};
+	\item Ferramentas de otimização descritas na seção
+ \ref{ferramentas_de_otimizacao};
+\end{itemize}
 
 \section{Seleção de Projetos}
 
-Para a realização dos experimentos  envolvendo os métodos selecionados na
- atividade anterior foi feita uma busca de possíveis softwares livres que
- poderiam ser modificados.  As modificações seriam realizadas com o intuito
- de conseguir diferenciar o tempo de compilação de um projeto com a aplicação
- de algum dos métodos selecionados e sem  esta aplicação. Além das
- modificações, foram criados scripts para auxiliar a execução de experimentos
- que automatizassem a compilação e medissem o tempo gasto.
+\subsection{Método de Seleção}
 
-\subsection{Critérios de Seleção}
+Para a seleção dos projetos foram analisadas 3 plataformas de controle de informação
+de software livre: \textit{Openhub}, \textit{Github}, \textit{Gitlab}.
+
+\textit{Openhub}, conhecido como Black Duck Open Hubi, é uma plataforma que busca dados através
+ dos sistemas de versionamento (tais como CVS, Git ,Subversion,Bazaar e Mercurial),
+ exibindo estatísticas sobre o histórico de um projeto e métricas do software.
+ Esta plataforma não foi selecionada devido a possuir um sistema de busca baseada em tags,
+ isso dificulta encontrar projetos específicos, pois o desenvolvedor que deve prover
+ informações do projeto, e em alguns casos estas informações estão incoerentes e ou
+ redundantes. Além deste não possuir um sistema de busca avançado.
+
+\textit{Gitlab} é uma plataforma de gerenciamento de software, que permite os
+ desenvolvedores criarem uma instância própria da ferramenta, para o armazenamento
+ de um projeto de software em uma infra-estrutura própria. Esta ferramenta foi
+ descartada pois também possui sistema de tags para encontrar projetos de uma linguagem,
+não permite selecionar múltiplas tags e não possui outro filtro de pesquisa avançada.
+
+\textit{Github} é uma plataforma de gerenciamento de projetos de software que
+utiliza o sistema de versionamento git. Esta plataforma foi selecionada devido a
+ possibilidade de fazer pesquisa avançada utilizando tags, selecionar quantidade de forks,
+ linguagem principal do projeto, conteúdo de texto dentro da descrição de um projeto e
+ quantidade de estrelas dadas para um projeto.
 
 
-Para a seleção dos projetos aqui presentes foram feitos filtros de pesquisas
- na plataforma Github\footnote{\url{http://github.com}.}. Para o presente
- trabalho foram escolhidos primeiramente os 3 primeiros métodos para estudo,
- e que deveriam ser aplicados em projetos com mais de 50\% do código fonte em
- C++. Para garantir isso, foi utilizado a ferramenta sloccount para realizar
- a contagem de linhas do projeto e a percentagem de código em C++.
- A Tabela \ref{tab:projects} mostra os projetos selecionados e quais métodos
- poderiam ser aplicados.
-
-\begin{table}[!ht]
-\centering
-\caption{Projetos e Métodos que podem ser aplicados}
-\label{tab:projects}
-\begin{tiny}
-\begin{tabular}{lp{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
-	\toprule
-	\textbf{Projetos} & \textbf{Quantidade de linhas do projeto} & \textbf{Porcentagem em C++} &
-	\textbf{Guarda de Inclusão} & \textbf{Forward declaration} & \textbf{Makefile} \\
-	\midrule
-	cppcheck & 136,906 & 96.02\% & Não & Não & Sim \\
-	hayai & 1,668 & 83.27\% & Não & Não & Sim \\
-	jsoncpp & 9,833 & 80.21\% & Não & Não & Sim \\
-	libsass & 21,962 & 93.79\% & Não & Não & Sim \\
-	libOauthCpp & 2,128 & 87.27\% & Não & Não & Sim \\
-	Jack, the Janitor & 2,062 & 99.22\% & Não & Sim & Sim \\
-	\bottomrule
-\end{tabular}
-\end{tiny}
-\end{table}
-
-\subsection{Projetos Selecionados}
-
-Foram selecionados 6 projetos: cppcheck, hayai, jsoncpp, libsass,
- libOAuthcpp e Jack, the Janitor. Este projetos serão brevemente 
-descritos a seguir.
-
-\textbf{CppCheck} é uma ferramenta de código de C/C++, que detecta erros no código
- que compiladores e outras ferramentas não detectariam . Este projeto realiza
- as seguintes verificações\footnote{\url{http://cppcheck.sourceforge.net/}
- acessado em 17/06/2015.}:
+A pesquisa avançada foi realizada no dia 27 de agosto de 2015, e foi utilizada
+ com os seguintes critérios:
 
 \begin{itemize}
-	\item índice fora dos limites do vetor;    
-    \item vazamentos de memória;
-    \item possíveis deferências ponteiro nulo (o que causa falhas de segmentação);
-	\item existência de variáveis não inicializadas;
-	\item uso inválido da STL;
-	\item funções obsoletas ou com falhas de segurança; 
-	\item código não utilizado ou redundante;
-	\item entre outros.
+    \item \textbf{Busca por palavra chave nas informações dos projetos}
+        \subitem \textbf{mac os} - esta palavra foi selecionada para encontrar projetos
+ que seja possível ser compilado em um sistema operacional da Apple. Este sistema tem
+ como padrão o compilador clang e gcc/g++ como front-end  e como back-end possui o LLVM.
+        \subitem \textbf{windows} - esta palavra foi selecionada para encontrar 
+ que possiu compatibilidade para instalar os compiladores gcc/g++.
+\footnote{Para instalar um compilador é necessário utilizar uma ferramenta de criação de ambiente de desenvolvimento como \textit{cygwin}, \textit{mingw}, \textit{visual studio}, entre outros}.
+        \subitem \textbf{linux} - esta palavra foi selecionada para encontrar projetos
+ que seja possível compilar em um sistema operacional linux. Este vem por padrão com
+ o compilador g++/gcc.
+    \item \textbf{Linguagem}
+        \subitem \textbf{language c++} - diretriz utilizada para restrigir a busca de 
+projetos que utilizam a linguagem c++ na maior parte de seu código.
+    \item \textbf{Quantidade de Forks}
+        \subitem \textbf{ > 10 forks} - diretriz para selecionar projetos com
+ mais de 10 \textit{forks}.
+    \item \textbf{Quantidade de Estrelas}
+        \subitem \textbf{ < 10000 stars } - diretriz utilizada para projetos com menos
+ de 10 mil estrelas, indicando que pelo menos 10 mil pessoas gostaram do projeto e este
+é fortemente utilizado. 
 \end{itemize}
 
-
-\textbf{Hayai}\footnote{\url{https://github.com/nickbruun/hayai} acessado em
- 17/06/2015.} é um framework para realização de benchmark em C++,utilizados
- para testes de unitários usando googletest.
-
-\textbf{JsonCpp}\footnote{\url{https://github.com/nickbruun/hayai} acessado
- em 17/06/2015.} é uma biblioteca que permite a manipulação de arquivos .json,
- incluindo serialização e deserialização de strings. Esta pode preservar
- comentários existentes na serialização/deserialização, tornando-se um formato
- conveniente para armazenar de entradas de usuário.
-
-\textbf{LibSass}\footnote{\url{https://github.com/sass/libsass} acessado
- em 17/06/2015.} é uma ferramenta de pré-processamento de Sass Css. Esta
- ferramenta foi originalmente criada em Ruby, no entanto a versão aqui utilizada
- é mais simples, leve, eficiente e portátil.
-
-\textbf{LibOAuthCpp}\footnote{\url{https://github.com/sirikata/liboauthcpp}
- acessado em 17/06/2015} é uma biblioteca de C++ voltada para realizar solicitações
- de autenticação utilizando o protocolo OAuth. Ela não implementa solicitações de
- requisições em HTTP mas, no entanto, é utilizada como uma interface de suporte ao
- OAuth.
-
-\textbf{Jack, the Janitor}\footnote{\url{https://github.com/athos-ribeiro/jtj}
- acessado em 17/06/2015;} é um jogo onde o jogador controla  a personagem Jack,
- o zelador de uma escola, que deve organizar o armazém da escola. Jack pode empurrar
- caixas para esquerda, para a direita ou saltar. O objetivo do jogo e preencher uma
- linha inteira de caixas: caso Jack seja atingido por uma caixa o jogo é finalizado
- com \textit{gameover}.
-
-\section{Ferramentas}
-
-As linguagens utilizadas foram C++ versão 11 e Python versão 2.7.
-
-Para realizar a contagem do tempo foi utilizado o programa Time.
- Programa escrito por David MacKenzie e tem como objetivo indicar o tempo gasto
- por um processo em diferentes aspectos.
- O comando time tem como saída 3 tipos de valores:
-
-\begin{itemize}
-	\item User: É o tempo gasto por um processo em modo usuário;
-	\item System:  É o tempo gasto por um processo em modo kernel;
-	\item Real:  É o tempo total gasto na execução de um processo;
-\end{itemize}
-
-Para a coleta dos tempos foi utilizado apenas o valor Real, uma vez que este
- expressa o tempo total decorrido para a realização de um processo.
-
-O compilador escolhido para o trabalho foi o g++. O g++ é uma melhoria do
- compilador gcc, criado pela GNU, que possui com conjunto de ferramentas
- para realiza pré-processamento, compilação, montagem e link-edição.
- No front-end,  este compilador inclui as linguagens C, C++, Objective-C,
- Fortran, Java, Ada, and Go, bem como as suas bibliotecas  (libstdc++,
- libgcj, entre outras)\footnote{\url{https://gcc.gnu.org/} acessado
- em 17/06/2015}.
+Após esta pesquisa avançada foi selecionado os 5 primeiros projetos.
 
 
-Os experimentos realizados foram feitos utilizando um computador pessoal
- (notebook), com  as especificações  listadas na Tabela 
-\ref{tab:especificacoes_hardware}.
+\begin{lstlisting}[language=python, caption={Busca avançada github },
+                  label=busca_avanacada_github]
+     linux windows mac os  language:C++  stars:<10 00 forks: > 10
+\end{lstlisting}
+
+
+\begin{figure}[h]
+    \centering
+        \includegraphics[scale=0.3]{figuras/github_search_1.eps}
+    \caption{Pesquisa avançada Github parte 1}
+    \label{pesquisa_github}
+\end{figure}
+\begin{figure}[h]
+    \centering
+        \includegraphics[scale=0.3]{figuras/github_search_2.eps}
+    \caption{Pesquisa avançada Github parte 2}
+    \label{pesquisa_github}
+\end{figure}
 
 
 \begin{table}[h]
 \centering
-\caption{Especificações do computador utilizado.}
-\label{tab:especificacoes_hardware}
+\begin{tabular}{lllll}
+\textbf{Projeto} & \textbf{Linguagem} & \textbf{Estrelas} & \textbf{Forks} & \textbf{Porcentagem em C++} \\ \toprule
+Aseprite & C++ & 437  & 77  & 62.1\% \\ \midrule 
+Pencil & C++ &  161 & 22  & 54.6\% \\ \midrule
+Qcad & C++ & 110 & 51 & 80.8\% \\ \midrule 
+Sudoku & C++ &  44  & 24 & 94.9\% \\ \midrule
+iRecoveryplusplus & C++ & 17 & 11 & 84.7\%  \\ \bottomrule
+\end{tabular} 
+\caption{Projetos Selecionados}
+\label{projetos_selecionados}
+\end{table}
+
+
+\subsection{Sobre os Projetos}
+
+\begin{itemize}
+    \item \textbf{Asepriter}
+\footnote{\url{http://www.aseprite.org/}} é uma ferramenta para criação de sprites,
+ compostas por camadas e quadros, suportadas em RGBA, paleta de 256 cores e escala de cinza.
+ Permite visualizar a animação em tempo real e contém ferramentas para preencher contornos
+ e polígonos. Esta ferramenta e opensource e livre, e pode ser encontrada no \textit{github}
+\footnote{\url{https://github.com/aseprite/aseprite}} ou no site da ferramenta
+\footnote{\url{http://www.aseprite.org/}}.
+
+    \begin{figure}[h]
+        \centering
+            \includegraphics[scale=0.3]{figuras/aseprite.eps}
+        \caption{Imagem da ferramenta Aseprite}
+        \label{ferramenta_aseprite}
+    \end{figure}
+
+    \item \textbf{Pencil2D}
+\footnote{\url{http://www.pencil2d.org/pencil2d/}} é uma ferramenta para
+ desenho e animação desenhada a mão, e utilizando desenhos em formato bitmap ou gráfico vetorias. 
+Esta ferramenta é gratuita  e open-source, podendo ser encontrada em no \textit{github}
+\footnote{\url{https://github.com/pencil2d/pencil}} ou no site da ferramenta
+\footnote{\url{http://www.pencil2d.org}}.
+
+    \begin{figure}[h]
+        \centering
+            \includegraphics[scale=0.3]{figuras/pencil2D.eps}
+        \caption{Imagem da ferramenta Pencil2D}
+        \label{ferramenta_pencil2D}
+    \end{figure}
+
+    \item \textbf{Qcad}
+\footnote{\url{http://www.qcad.org/en/}} é um software para desenho
+ assistido por computador em duas dimensões, permitindo a criação de desenhos técnicos como
+ planos para edifícios, interiores, peças mecânicas ou esquemas e diagramas. Esta ferramenta
+ e open-source  e gratuita e podendo ser encontrada no \textit{github}
+\footnote{\url{https://github.com/qcad/qcad}} ou no site da ferramenta.
+\footnote{\url{http://www.qcad.org/en/}}
+
+    \begin{figure}[h]
+        \centering
+            \includegraphics[scale=0.3]{figuras/qcad.eps}
+        \caption{Imagem da ferramenta Qcad}
+        \label{ferramenta_qcad}
+    \end{figure}
+
+    \item \textbf{Sudoku}
+\footnote{\url{https://github.com/macartur-tcc/sudoku}} é um software que foi
+ desenvolvido em um curso na universidade de Hasselt na Bélgica, esta foi escrita em c++ e utilizando Qt.
+ Este é um software livre e liberado para domínio publico e pode ser encontrado apenas no \textit{github}
+\footnote{\url{https://github.com/macartur-tcc/sudoku}}.
+
+    \begin{figure}[h]
+        \centering
+            \includegraphics[scale=0.3]{figuras/sudoku.eps}
+        \caption{Imagem da ferramenta Sudoku}
+        \label{ferramenta_qcad}
+    \end{figure}
+
+    \item \textbf{iRecoveryplusplus}
+\footnote{\url{https://github.com/GreySyntax/iRecoveryplusplus}} é um programa projetado para
+ realizar comunicação de iPod, iPhone e iPad iBoot/iBSS  com interface USB. 
+Este é um software livre e está sobre a licensa GPV v3 e pode ser encontrado no \textit{github}
+\footnote{\url{https://github.com/GreySyntax/iRecoveryplusplus}} e é suportado em Linux, Mac OS e Windows.
+
+\end{itemize}
+
+
+
+
+\section{Ambiente}
+
+\subsection{Ambiente Físico}
+Para a realização dos experimentos foi utilizado uma máquina com as
+ especificações listada na tabela \ref{configuracoes_ambiente_fisico}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lllll}
+\textbf{Sistema Operacional} & \textit{Ubuntu} 14.04 \\ \toprule
+\textbf{Kernel} & 3.19  \\ \midrule 
+\textbf{Processador} & Intel i5 2.0Ghz \\ \midrule
+\textbf{Memória Ram} & 4G  \\ \bottomrule 
+\end{tabular} 
+\caption{Configurações do Ambiente Físico}
+\label{configuracoes_ambiente_fisico}
+\end{table}
+
+
+Nesta máquina foi instalado os programas:
+
+\begin{itemize}
+    \item \textbf{VirtualBox} - 4.0 : é uma ferramenta open-source sobre a
+ licensa GPL v2 que permite a virtualização de máquinas.
+    \item \textbf{Vagrant} - 1.7.4 : ferramenta de controle de
+ máquina virtual possibilitando fácil acesso, criação, destruição, ligar e 
+desligar máquinas virtuals.
+    \item \textbf{Git} - 2.5.1 : ferramenta de controle de versão descentralizada
+com o mesmo objetivo do \textit{SubVersion}(\textbf{SVN}).
+\end{itemize}
+
+\subsection{Ambiente Virtual}
+
+\begin{itemize}
+
+    \item \textbf{Linux}
+        \subitem  O ambiente virtual Linux foi criado utilizando a box
+ ubuntu/trusty64\footnote{\url{https://atlas.hashicorp.com/ubuntu/boxes/trusty64}},
+ com a configuração do Vagrantfile no código \ref{vagrant_linux} e com especificações
+ da máquina virtual mostradas na tabela \ref{especificacoes_linux}.
+ Depois que construída a máquina virtual foram instalados os pacotes utilizando o
+ gerenciador de pacotes apt, e estão listados na tabela \ref{pacotes_instalados_linux}.
+
+Em ambiente linux o compilador padrão de C++ que vem instalado é o gcc/g++, este foi
+ criado pela GNU e contém um conjunto de ferramentas para realizar, pré-processamento,
+ compilação, montagem e link-edição. No front-end este compilador inclue as linguagens C,
+ C++, Objective-C, Fortran, Java, Ada e Go, bem como bibliotecas
+ (stdlibc++, libgcj, entre outras).
+
+
+\begin{lstlisting}[language=ruby, caption={Vagrantfile com configurações da máquina virtual linux},
+                  label=vagrant_linux]
+    # Vagrantfile
+    Vagrant.configure(2) do |config|
+        config.vm.define 'linux' do |linux|
+            linux.vm.box = "ubuntu/trusty64"
+            linux.vm.network 'private_network', ip: "10.10.10.4"
+            linux.vm.provider "virtualbox" do |vm| 
+                vm.cpus = 2
+                vm.memory = 2048
+            end
+        end              
+    end
+\end{lstlisting}
+
+\begin{table}[h]
+\centering
 \begin{tabular}{ll}
-	\toprule
-	\textbf{Processador}& Intel i7 2.0Ghz \\
-	\textbf{Memória RAM}         & 6GB             \\
-	\textbf{Placa de Rede}       & Sim             \\
-	\textbf{Sistema Operacional} & Ubuntu 15.04 \\
-	\bottomrule
-\end{tabular}
+\textbf{Sistema Operacional} & \textit{Ubuntu} 14.04 x86\_64 \\ \toprule
+\textbf{Kernel} & 3.13.0-45-generic  \\ \midrule 
+\textbf{Processador} & 2 processadores Virtuais \\ \midrule
+\textbf{Memória Ram} & 2GB  \\ \bottomrule 
+\end{tabular} 
+\caption{Configurações do Ambiente Vitual Linux}
+\label{especificacoes_linux}
 \end{table}
-
-
-Apesar de ser um computador pessoal, uma máquina virtual utilizando Virtualbox
- foi criada para realizar um independência entre a máquina pessoal e os
- arquivos e programas pessoais, além de uma melhora  na visualização da
- diferença de tempo de compilação entre projetos\footnote{No caso de projetos menores e de compilação mais rápida, pois o 
-\textit{overhead} proveniente da execução da máquina virtual torna os tempos
- absolutos de compilação maiores do que na máquina host}, independente do
- tamanho do projeto. As especificação da máquina virtual  estão listadas na
- Tabela \ref{tab:especificacoes_vm}.
 
 \begin{table}[h]
-	\centering
-	\begin{tabular}{ll}
-		\toprule
-		\textbf{Processador} & 2 PCUs \\
-		\textbf{Memória RAM} & 3 GB \\
-		\textbf{Memória ROM} & 8 GB \\
-		\textbf{Placa de Rede} & Sim \\
-		\textbf{Sistema Operacional} & Ubuntu 14.04 \\
-		\textbf{VirtualBox} & 4.3.26\_Ubuntu \\
-		\bottomrule
-	\end{tabular}
-	\caption{Especificações máquina virtual utilizada}
-	\label{tab:especificacoes_vm}
+\centering
+\begin{tabular}{ll}
+\textbf{Pacote} & \textbf{Versão} \\ \toprule
+Qt5-default & 5.5.1 \\ \midrule 
+Qt4-default & 4.8.7 \\ \midrule 
+libusb-1.0-0 & 1.0.17-1ubuntu2 \\ \midrule 
+libusb-1.0-0-dev & 1.0.17-1ubuntu2 \\ \midrule 
+libreadline6  &  6.3-4ubuntu2 amd6 \\ \midrule 
+libreadline6-dev & 6.3-4ubuntu2 amd6 \\ \midrule 
+zlib1g & 1.2.8.dfsg-1ubuntu1 amd6 \\ \midrule 
+zlib1g-dev & 1.2.8.dfsg-1ubuntu1 amd6  \\ \midrule 
+git & 1.9.1-1 \\ \midrule 
+cmake &   2.8.12.2  \\ \midrule 
+ccache & 3.1.9  \\ \bottomrule 
+\end{tabular} 
+\caption{Pacotes instalados no Ambiente Virtual Linux}
+\label{pacotes_instalados_linux}
+\end{table}
+
+    \item \textbf{Mac OS Yosemite}
+        \subitem Para o ambiente Mac OS foi utilizada uma box com o sistema
+ operacional na versão Yosemite 10.10.4
+\footnote{\url{http://files.dryga.com/boxes/osx-yosemite-0.2.1.box}},
+ com as configurações do Vagrantfile no código \ref{vagrant_mac_os_x} e com
+ especificações da máquina virtual mostradas na tabela \ref{especificicacoes_mac_os_x}.
+ Após a máquina criada foi necessário instalar os pacotes utilizando o gerenciador de
+ pacotes brew, e foram listados os pacotes listados na tabela
+\ref{pacotes_instalados_mac_os_x}.
+Além dos listados foi necessário instalar o pacote "\textbf{MacOSX10.4.Universal.pkg}”
+\footnote{\url{https://github.com/macartur-tcc/aseprite/blob/master/INSTALL.md}}
+ disponibilizado pela Apple \footnote{\url{https://developer.apple.com/downloads/}}.
+
+        \subitem Em um ambiente Mac OS o LLVM
+\footnote{LLVM: infraestrutura de compilação utilizando o principio de modularização
+ e reuso, propondo otimizar a compilação, execução e link-edição de programas
+ escritos em linguagens variadas}é o back-end do compilador e como front-end
+ padrão possui o clang/clang++, que foi projetado para ser 3 vezes mais rápido
+ que o gcc/g++. As linguagens aceitas pelo clang são Objective-C, Fortran,
+ Ada, Haskell, Java, Python, Ruby, ActionScript, GLSL, Julia, entre outras.
+
+
+\begin{lstlisting}[language=ruby, caption={Vagrantfile com configurações da máquina virtual Mac OS Yosemite},
+                  label=vagrant_mac_os_x]
+    # Vagrantfile
+    Vagrant.configure(2) do |config|
+      config.vm.define 'mac_os_x' do |mac_os_x|
+        mac_os_x.vm.box = "mac_os_x"
+        mac_os_x.vm.network 'private_network', ip: "10.10.10.3"
+        mac_os_x.vm.synced_folder "projetos", "/vagrant", type: "rsync"
+
+        mac_os_x.vm.provider "virtualbox" do |vm|
+          vm.gui = true
+          vm.memory = 2024
+        end
+      end
+    end
+
+\end{lstlisting}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\textbf{Sistema Operacional} & \textit{OS X Yosemite} x86\_64  \\ \toprule
+\textbf{Kernel} & Darwin Kernel  14.4.0  \\ \midrule 
+\textbf{Processador} & 2 processadores Virtuais \\ \midrule
+\textbf{Memória Ram} & 2GB  \\ \bottomrule 
+\end{tabular} 
+\caption{Configurações do Ambiente Vitual Mac OS Yosemite}
+\label{especificacoes_mac_os_x}
 \end{table}
 
 
-\section{Montagem dos experimentos e scripts}
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\textbf{Pacote} & \textbf{Versão} \\ \toprule
+qt5 & 5.5.1 \\ \midrule 
+qt4 & 4.8.7 \\ \midrule 
+libusb & 1.0.20 \\ \midrule 
+readline & 6.3-8 \\ \midrule
+zlib & 1.2.8 \\ \midrule
+git & 1.9.1-1 \\ \midrule
+cmake & 3.3.0  \\ \midrule
+binutils & 2.25-4 \\ \midrule
+ccache & 3.2.3 \\ \bottomrule
+\end{tabular} 
+\caption{Pacotes instalados no Ambiente Virtual Mac OS Yosemite}
+\label{pacotes_instalados_mac_os_x}
+\end{table}
 
-Para a primeira etapa deste trabalho foram escolhidos 3 experimentos a
- serem aplicados.
+    \item \textbf{Windows}
+        \subitem Para o ambiente virtual Windows foi utilizado uma box com
+ o sistema operacional Windows7\footnote{\url{https://vagrantcloud.com/datacastle/boxes/windows7}},
+ com as configurações do Vagrantfile mostrada no código \ref{vagrant_windows},
+ e com especificações da máquina virtual mostradas na tabela \ref{especificacoes_windows}.
+ Para a utilização de um ambiente de desenvolvimento no windows é necessário a instalação
+ do software \textit{cygwin}\footnote{\url{https://www.cygwin.com/}} que permite a instalação
+o dos pacotes necessários para a criação do ambiente igual ao Unix.
+ Utilizando o \textit{cygwin} é necesário instalar todos os pacotes para o sistema 
+conseguir compilar programas em c++/c , para isto foram instalados os programas 
+que se segue na tabela \ref{pacotes_instalados_windows}.
 
-\subsection{Experimento 1}\label{experimento_1}
+\begin{lstlisting}[language=ruby, caption={Vagrantfile com configurações da máquina virtual Windows 7},
+                  label=vagrant_windows]
+    #Vagrantfile
+    Vagrant.configure(2) do |config|
+      config.vm.define 'win7' do |win|
+        win.vm.box = 'win7ie8'
+        win.vm.network 'private_network', ip: '10.10.10.5'
+        win.vm.provider 'virtualbox' do |vm|
+              vm.cpus = 2
+              vm.gui = true
+              vm.memory = 1024
+        end
+      end
+    end
+\end{lstlisting}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\textbf{Sistema Operacional} & \textit{Windows 7} x86\\ \toprule
+\textbf{Kernel} & CYGWIN\_NT-6.1  \\ \midrule 
+\textbf{Processador} & 2 processadores Virtuais \\ \midrule
+\textbf{Memória Ram} & 2GB  \\ \bottomrule 
+\end{tabular} 
+\caption{Configurações do Ambiente Vitual Windows 7}
+\label{especificacoes_windows}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\textbf{Pacote} & \textbf{Versão} \\ \toprule
+qt5-devel-tools  &  \\ 
+qt5-translations & 5.5.1-1  \\ 
+todos os pacotes que começam com este nome libQt5 & \\ \midrule
+
+qt4-designer-plugin-webkit  & \\
+qt4-devel-tools & 4.8.7-1 \\ 
+qt4-qtconfig & \\ \midrule
+
+libusb1.0 & 1.0.19-1 \\ \midrule
+
+
+libreadline-devel & 6.3.8-1 \\ \midrule
+
+zlib & 1.2.8 \\ \midrule
+git & 2.5.3-1 \\ \midrule
+ccache & 3.1.9-2 \\ \midrule
+cmake & 3.3.2-1 \\ \midrule
+cygwin-devel & 2.2.1 \\ \midrule
+cygwin64-gcc-core & 4.9.2-1 \\ \midrule
+gcc-core & \\ \midrule
+gcc/g++ & 4.9.3-1 \\ 
+make & 4.1-1 \\ \bottomrule
+\end{tabular} 
+\caption{Pacotes instalados no Ambiente Virtual Windows 7}
+\label{pacotes_instalados_windows}
+\end{table}
+
+\end{itemize}
+
+
+
+\section{Restrições de Compilação}
+
+\subsection{Restrição Global}
+    A utilização do linker gold não é possível compilar em todos os ambientes,
+ pois é aplicada apenas a sistemas de arquivos binários ELF e nos ambientes
+ Windows e Mac OS Yosemite os sistemas de arquivos são PE ou PE32+ e PEF 
+respectivamente.
+
+\subsection{Restrição Especifica}
+    Em ambiente \textit{mingw} ou \textit{cygwin} não possui suporte
+ a biblioteca glibc\footnote{
+\url{https://www.gnu.org/software/gnulib/manual/html\_node/execinfo\_002eh.html}},
+ isto fez com que o projeto Qcad que necessita do header exec\_info.h e
+ este está contido apenas no glibc.
+    Para alguns projetos foi necessário realizar modificações para a compilação
+ dos mesmos nos diferentes sistemas operacionais,
+estas alterações foram colocadas na branch master do repositório modificado,
+utilizando um \textit{fork} do github
+\footnote{\url{https://github.com/macartur-tcc/}} que contém todos os projetos.
+ Esta restrição não impedindo a compilação dos projetos nos diferentes ambientes.
+
+
+
+
+\section {Estudo de Caso}
+
+Antes da realização do estudo de caso foi necessário identificar quais
+ as técnicas que poderiam ser aplicadas em cada um dos projetos.
+ A tabela \ref{tecnicas_nos_projetos} mostra esta analise em cada projeto.
+
+
+\begin{table}[h]
+\tiny
+\begin{tabular}{p{1cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
+\toprule
+\textbf{Projeto} & \multicolumn{7}{c}{tecnicas que podem ser aplicadas} \\ 
+ & \multicolumn{3}{c}{Alteração de Código} & \multicolumn{2}{c}{Alteração de Flags} & \multicolumn{2}{c}{ferramentas auxiliares}  \\ \midrule 
+& \textbf{pragma once} & \textbf{Forward Declaration} & \textbf{Pimpl Idiom} & \textbf{Makafile} &
+ \textbf{Otimização de Baixo Nível} & \textbf{Ccache} & \textbf{Gold} \\ \midrule
+iRecovery++ & SIM & SIM & SIM &  SIM & SIM & SIM & SIM \\ \midrule
+Sudoku &  SIM & SIM & SIM & SIM & SIM & SIM & SIM \\ \midrule
+Pencil & SIM & NÃO &  SIM & SIM & SIM & SIM & SIM \\ \midrule
+Aseprite &  SIM & NÃO & NÃO & SIM & SIM & SIM & SIM \\ \midrule
+Qcad &  SIM & NÃO & NÃO & SIM & SIM & SIM & SIM \\ \bottomrule
+\end{tabular} 
+\caption{Técnicas que podem ser aplicadas}
+\label{tecnicas_que_podem_ser_aplicadas}
+\end{table}
+
+
+
+\begin{itemize}
+    \item Alteração de Código
+    \subitem
+ Para as alterações de código, cada caso foi criado
+ uma branch com suas modificações e estas estão no repositório
+ destinado ao TCC\footnote{\url{https://github.com/macartur-tcc/}}.
+    \begin{enumerate}
+        \item Pragma Once
+        \subitem Neste estudo de caso os arquivos de header foram alterados
+ com a inclusão da diretiva “\#pragma once” no inicio de cada arquivo.
+ No projeto aseprite está sendo removido a diretiva, pois todos os arquivos já possuem.
+Estas alterações estão na branch “\textit{pragma\_once}” dos projetos que foi possível aplicar.
+        \item Forward Declaration
+        \subitem Neste estudo de caso os headers foram alterados para reduzir
+ a quantidade de headers de todos os cabeçalhos e das implementação.
+ Para isso foram removidos headers redundantes e removido headers que referênciava
+ ponteiros e referências de endereço.
+Estas alterações estão na branch "\textit{forward\_declaration}" dos projetos que foi possível aplicar.
+        \item Técnicas de Pimpl Idiom
+        \subitem Neste estudo de caso atributos e métodos privados foram removidos dos headers
+ e incluídos nos arquivos de implementação, como no exemplo de código \ref{exemplo_implementacao_pimpl}
+ da seção \ref{Pimpl Idiom - Implementação privada}
+ que demostra como aplicar a técnica.
+Estas alterações estão na branch "\textit{pimpl}" dos projetos que foi possível aplicar.
+    \end{enumerate}
+
+    \item Alteração de flags de Compilação
+    \subitem 
+        \begin{enumerate}
+            \item makefile
+                \subitem Neste estudo de casos no momento da utilização do makefile
+ será utilizado as flags: -j2,-j4,-j6,-j8 e -j10. Com este resultará na relação entre
+a compilação e a quantidade de \textit{jobs}(\textit{threads}).
+            \item Otimização de Baixo Nível
+                \subitem Neste estudo de caso todos os arquivos Makefile serão
+ alterados para receber a flags: -O, -O0, -O2, -Ofast, -O3, -Os,-Og.
+ Com estes resultados será possível verificar a relação do tempo gasto com
+ o tempo de otimização do compilador.
+        \end{enumerate}
+    \item Ferramentas Auxiliares
+        \begin{enumerate}
+               \item CCache
+                    \subitem Neste estudo de caso em cada projeto será adicionado
+ a palavra ccache antes de cada linha de compilação. Será utilizado as
+ configurações padrão do ccache, e antes de cada compilação para ter certeza
+ que toda a cache será removida utilizará o comando ccache -C e ccache -c.
+                \item Gold
+                    \subitem Neste estudo de caso será ativado o ld.gold
+ utilizando a flag:-Wl,-fuse-ld=gold como mostrado na seção \ref{Gold}. Assim  a
+ compilação irá deixar de utilizar o linker padrão e utilizará o linker
+ otimizado para sistema ELF.
+        \end{enumerate}
+
+    \item  Passos de Compilação dos projetos
+
+        \subitem \textbf{iRecovery++}
+        \subitem Para compilar o projeto é necessário realizar o clone do projeto
+ com o comando \ref{clonando_irecoveryplusplus}, e compilar o projeto
+ segundo a tabela \ref{tecnicas_que_podem_ser_aplicadas}.
+ Para remover os arquivos binários ou compilar utilizando o comando ccache
+ ou gold deve-se utilizar a linha de comando da tabela \ref{t_compilacao_irecoveryplusplus}.
+
+\begin{lstlisting}[language=bash, caption={Clonado Projeto iRecoveryplusplus},
+                  label=clonando_irecoveryplusplus]
+    $ git clone https://github.com/macartur-tcc/iRecoveryplusplus.git 
+    $ cd iRecoveryplusplus
+\end{lstlisting}
+
+
+\begin{table}[h]
+\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}}
+\toprule
+ & \multicolumn{3}{c}{Sistema Operacional} \\ \toprule 
+\textbf{Atividade} & \textbf{Linux} & \textbf{Mac OS Yosemite} & \textbf{Windows 7}  \\ \midrule 
+\textbf{compilar} & \multicolumn{3}{c}{make linux} \\ \midrule
+\textbf{ccache} & \multicolumn{3}{c}{make linux CC="ccache gcc" CXX="ccache g++"} \\ \midrule
+\textbf{gold} & \multicolumn{3}{c}{make linux  CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold"} \\ \midrule
+\textbf{remover binários} & \multicolumn{3}{c}{rm bin/*} \\ \bottomrule
+\end{tabular} 
+\caption{Comandos para compilação do projeto iRecoveryPlusPlus}
+\label{t_compilacao_irecoveryplusplus}
+\end{table}
+
+    \subitem \textbf{Sudoku}
+    \subitem Após realizar o clone do projeto do github
+ \ref{clonando_sudoku} é necessário  gerar os Makefile,
+ para isso utiliza-se o comando de geração de makefile na tabela .
+Depois de gerado a compilação pode ser feita utilizando
+ os comandos da tabela \ref{t_compilacao_sudoku}.
+
+    
+\begin{lstlisting}[language=bash, caption={Clonado Projeto iRecoveryplusplus},
+                  label=clonando_sudoku]
+    $ git clone https://github.com/macartur-tcc/sudoku.git 
+    $ cd sudoku/src
+\end{lstlisting}
+
+
+\begin{table}[h]
+\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}}
+\toprule
+ & \multicolumn{3}{c}{Sistema Operacional} \\ \toprule 
+\textbf{Atividade} & \textbf{Linux} & \textbf{Mac OS Yosemite} & \textbf{Windows 7}  \\ \midrule 
+\textbf{gerar makefile}
+\footnote{Neste projeto e necessário remover a flag -archi386 do arquivo Makefile gerado na raiz, pois em sistemas Mac OS esta flag causa erro.}
+ & \multicolumn{3}{c}{qmake Sudoku\_release.pro} \\ \midrule
+\textbf{compilar} & \multicolumn{3}{c}{make } \\ \midrule
+\textbf{ccache} & \multicolumn{3}{c}{make CC="ccache gcc" CXX="ccache g++"} \\ \midrule
+\textbf{gold} & \multicolumn{3}{c}{make  CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold"} \\ \midrule
+\textbf{remover binários} & \multicolumn{3}{c}{make clean} \\ \bottomrule
+\end{tabular} 
+\caption{Comandos para compilação do projeto Sudoku}
+\label{t_compilacao_sudoku}
+\end{table}
+
+
+
+    \subitem \textbf{Pencil}
+    \subitem Após realizar o clone do projeto do github
+\ref{clonando_pencil} é necessário  gerar os Makefile,
+ para isso utiliza-se o comando de geração de makefile na tabela \ref{t_compilado_pencil}.
+Depois de gerado  a compilação pode ser feita utilizando
+ os comandos da tabela \ref{t_compilando_pencil}.
+
+\begin{lstlisting}[language=bash, caption={Clonado Projeto Pencil},
+                  label=clonando_pencil]
+    $ git clone https://github.com/macartur-tcc/pencil.git
+    $ cd pencil
+\end{lstlisting}
+
+
+\begin{table}[h]
+\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}}
+\toprule
+ & \multicolumn{3}{c}{Sistema Operacional} \\ \toprule 
+\textbf{Atividade} & \textbf{Linux} & \textbf{Mac OS Yosemite} & \textbf{Windows 7}  \\ \midrule 
+\textbf{gerar makefile}
+\footnote{Em ambiente Mac OS Yosemite é necessário passar o arquivo de traduções do projeto, este arquivo não é reconhecido automaticamente neste projeto.}
+ & qmake -r & qmake -r RESOURCES=./pencil.qrc  & qmake -r \\ \midrule
+\textbf{compilar} & \multicolumn{3}{c}{make } \\ \midrule
+\textbf{ccache} & \multicolumn{3}{c}{make CC="ccache gcc" CXX="ccache g++"} \\ \midrule
+\textbf{gold} & \multicolumn{3}{c}{make CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold"} \\ \midrule
+\textbf{remover binários} & \multicolumn{3}{c}{make clean} \\ \bottomrule
+\end{tabular} 
+\caption{Comandos para compilação do projeto Pencil}
+\label{t_compilacao_pencil}
+\end{table}
+
+
+
+    \subitem \textbf{Aseprite}
+    \subitem Após realizar o clone do projeto do github
+\ref{clonando_aseprite} é necessário  gerar os Makefile,
+ para isso utiliza-se o comando de geração de makefile na tabela 
+\ref{t_compilando_aseprite}.Depois de gerado a compilação pode
+ ser feita utilizando os comandos da tabela \ref{t_compilacao_aseprite}.
+
+\begin{lstlisting}[language=bash, caption={Clonado Projeto Aseprite e criando diretório de Compilação},
+                  label=clonando_aseprite]
+    $ git clone https://github.com/macartur-tcc/aseprite.git
+    $ cd aseprite
+    $ mkdir build
+    $ cd build
+\end{lstlisting}
+
+
+\begin{table}[h]
+\begin{tabular}{p{3cm}p{5cm}p{5cm}p{5cm}}
+\toprule
+ & \multicolumn{3}{c}{Sistema Operacional} \\ \toprule 
+\textbf{Atividade} & \textbf{Linux} & \textbf{Mac OS Yosemite} & \textbf{Windows 7}  \\ \midrule 
+\textbf{gerar makefile} 
+\footnote{Para gerar o makefile em sistemas Mac OS é necessário utilizar as flags:
+ -DCMAKE\_OSX\_ARCHITECTURES:STRING=i386  -DCMAKE\_OSX\_DEPLOYMENT\_TARGET:STRING=10.4  -DCMAKE\_OSX\_SYSROOT:STRING=/SDKs/MacOSX10.4u.sdk
+\url{https://github.com/macartur-tcc/aseprite/blob/master/INSTALL.md}}
+ &  \multicolumn{3}{c}{cmake .. -G "Unix Makefiles"} \\ \midrule
+\textbf{compilar} & \multicolumn{3}{c}{make } \\ \midrule
+\textbf{flags para gerar makefile com ccache} & -DCMAKE\_CXX\_COMPILER="ccache"  
+-DCMAKE\_CXX\_COMPILER\_ARG1="g++" -DCMAKE\_C\_COMPILER="ccache" -DCMAKE\_C\_COMPILER\_ARG1="gcc"  \\ \midrule
+\textbf{gerar makefile com gold} & 
+CC="gcc  -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold" cmake .. -G "Unix Makefiles" \\ \midrule
+\textbf{remover binários} & \multicolumn{3}{c}{make clean} \\ \bottomrule
+\end{tabular} 
+\caption{Comandos para compilação do projeto Aseprite}
+\label{t_compilacao_aseprite}
+\end{table}
+
+
+    \subitem \textbf{Qcad}
+       \subitem Após realizar o clone do projeto do github\ref{clonando_qcad}
+ é necessário  gerar os Makefile, para isso utiliza-se o comando de geração de
+ makefile na tabela \ref{t_compilacao_qcad}. Depois de gerado a compilação pode ser feita
+ utilizando os comandos da tabela \ref{t_compilacao_qcad}.
+
+
+\begin{lstlisting}[language=bash, caption={Clonado Projeto Qcad},
+                  label=clonando_qcad]
+    $ git clone https://github.com/macartur-tcc/qcad.git
+    $ cd qcad
+\end{lstlisting}
+
+
+\begin{table}[h]
+\begin{tabular}{p{3cm}p{5cm}p{5cm}p{5cm}}
+\toprule
+ & \multicolumn{3}{c}{Sistema Operacional} \\ \toprule 
+\textbf{Atividade} & \textbf{Linux} & \textbf{Mac OS Yosemite} & \textbf{Windows 7}  \\ \midrule 
+\textbf{gerar makefile} & qmake -r & qmake -spec macx-g++ -r  
+\footnote{Em ambiente Mac OS Yosemite este projeto não foi possível compilar
+ utilizando o front-end clang, foi necessário utilizar o g++.} &  qmake -r  \\ \midrule
+\textbf{compilar} & \multicolumn{3}{c}{make } \\ \midrule
+\textbf{flags para gerar makefile com ccache} &  make CC="ccache gcc" CXX="ccache g++" \\ \midrule
+\textbf{gerar makefile com gold} & make  CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold" \\ \midrule
+\textbf{remover binários} & \multicolumn{3}{c}{make clean} \\ \bottomrule
+\end{tabular} 
+\caption{Comandos para compilação do projeto Qcad}
+\label{t_compilacao_qcad}
+\end{table}
+
+\end{itemize}
+
+
+\section{Montagem de Scripts}
+
+
+Os scripts foram elaborados utilizando a linguagem de programação python,
+ e estão sendo armazenados no github
+\footnote{\url{https://github.com/macartur-tcc/tcc_scripts}}.
+
+
+\subsection{Script 1}\label{script_1}
 
 Para a realização de experimentos com Inclusão de Guarda foram elaborados
  em scripts Python que criam projetos simples com a inclusão de cabeçalhos
@@ -309,72 +825,16 @@ A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dad
 \end{tiny}
 \end{table}
 
-\subsection{Experimento 2}
 
-O segundo experimento utilizou o projeto Jack, the Janitor, no qual foi
- realizada uma refatoração dos cabeçalhos: foram incluídas forward
- declarations, os headers transferidos para o arquivo de
- implementação. Após estas modificações foi feito testes com o comando
- time e o makefile do projeto. Os valores obtidos foram armazenados no
- modelo mostrado na Tabela \ref{tab:modelo_forward_declaration}.
+\subsection{Script 2}
 
-\begin{table}[!ht]
-\centering
-\caption{Template para amostras com Forward Declaration}
-\label{tab:modelo_forward_declaration}
-\begin{tabular}{lp{3cm}p{3cm}p{3cm}}
-\toprule
-\textbf{Tipo} & \multicolumn{3}{l}{Forward Declaration}\\ \midrule
-\textbf{Tempo}& \multicolumn{3}{l}{Em segundos}    \\ \midrule
-\textbf{Repetições} & \textbf{Sem forward Declaration(SFD)} & \textbf{Com Forward Declaration (CFD)} & \textbf{Fator de Redução (SFD/CFD)} \\ \midrule
-1      &   &  &  \\ \midrule
-2      &   &  &  \\ \midrule
-3      &   &  &  \\ \midrule
-4      &   &  &  \\ \midrule
-5      &   &  &  \\ \midrule
-6      &   &  &  \\ \midrule
-7      &   &  &  \\ \midrule
-8      &   &  &  \\ \midrule
-9      &   &  &  \\ \midrule
-10     &   &  &  \\ \midrule
-Média  &   &  &  \\ \bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Experimento 3}\label{experimento_03}
-
-Realizar um estudo da redução do tempo de compilação utilizando o comando
- mostrado no Código \ref{codigo_29} que permite a compilação em
- múltiplas threads.
+Para realizar as compilações dos projetos foi criado um script de recompilação que segue no código \ref{script_recompilacoes},
+ com este é possível alterar entre  branch para compilar as alterações de código dos projetos,
+ executar comandos antes e depois de cada compilação. Para receber todos estes comandos foi
+ necessário a leitura de um arquivo de configuração de cada projeto,
+ a localização do projeto, localização do makefile, comandos que serão executados antes e depois
+ da compilação. Este arquivo foi escrito em yaml e seguindo o template do código \ref{template_para_script_recompilacoes}.
+Para a contagem do tempo de compilação foi utilizado o módulo datetime do python,
+ realizando a diferença do tempo inicial e final do tempo de compilação.
 
 
-\begin{lstlisting}[language=C++,caption={
-							Execução de make utilizando jobs},
-                                   			 label=codigo_29]
-        $ time make -j N
-\end{lstlisting}
-
-Os valores foram colocados no modelo mostrado na Tabela \ref{tab:makefile},
- com o tempo em segundos.
-
-\begin{table}[h]
-\centering
-\caption{Template para amostras de Makefile}
-\label{tab:makefile}
-\begin{tabular}{cccccccccc}
-\toprule
-\textbf{Repetições} & \multicolumn{9}{c}{\textbf{Número de threads}} \\ \midrule
-- & 1 & 2 & 4 & 6 & 8 & 10 & 12 & 14 & 16 \\ 
-1 &   &   &   &   &   &    &    &    &  \\ 
-2 &   &   &   &   &   &    &    &    &   \\ 
-3 &   &   &   &   &   &    &    &    &  \\ 
-4 &   &   &   &   &   &    &    &    &  \\ 
-5 &   &   &   &   &   &    &    &    &  \\ 
-6 &   &   &   &   &   &    &    &    &  \\ 
-7 &   &   &   &   &   &    &    &    &  \\ 
-8 &   &   &   &   &   &    &    &    &  \\ 
-9 &   &   &   &   &   &    &    &    &  \\ 
-10 &  &   &   &   &   &    &    &    & \\ \midrule
-Média & & &   &   &   &    &    &    & \\ \bottomrule
-\end{tabular}
-\end{table}

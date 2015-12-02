@@ -48,7 +48,7 @@ $(TARGET): $(MAIN_FILE) $(SOURCES) bibliografia.bib
 	@cp $(PDF_FILE) $(TARGET)
 
 clean:
-	rm -f *~ *.dvi *.ps *.backup *.aux *.log
+	rm -f *~ *.dvi *.ps *.backup *.aux *.log *.lol
 	rm -f *.lof *.lot *.bbl *.blg *.brf *.toc *.idx
 	rm -f *.pdf
 	
