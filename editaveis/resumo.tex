@@ -1,19 +1,17 @@
 \begin{resumo}
 Neste trabalho serão analisados métodos e ferramentas
- que proporcionem redução do tempo de compilação
+ que proporcionam redução do tempo de compilação
  de programas escritos em C++, a fim de obter respostas mais
  rápidas às modificações no código e reduzir os gastos com recursos
  (humanos, de hardware e de tempo) utilizados no processo
- de compilação. Assim este trabalho consiste em uma
- análise preliminar de métodos e ferramentas que possam
- ser utilizadas em conjunto com o compilador g++ 
- nesta redução do tempo de compilação. Os métodos utilizados
- neste trabalho preliminar foram as guardas de inclusão,
- a declaração implícita de estruturas (\textit{forward declaration})
- e processamento paralelo através do comando make.
- Os métodos analisados resultaram em uma redução média 
- do tempo de compilação em torno de 20\% e 40\%.
-
+ de compilação. Assim este trabalho consiste em uma análise de
+ métodos e ferramentas que possa ser utilizado com o compilador
+  na redução do tempo de compilação. Os métodos utilizados neste
+ trabalho foram guardas de inclusão, declaração implícita de estruturas,
+ (\textit{forward declaration}), processamento paralelo com a ferramenta make,
+ controle da ativação de flags de otimização, e ferramentas de auxílio
+ a compilação(gold e ccache). Estes estudos foram aplicados em 3
+ sistemas operacionais distintos.
  \vspace{\onelineskip}
     
  \noindent

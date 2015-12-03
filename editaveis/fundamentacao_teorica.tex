@@ -72,7 +72,7 @@ entrada \cite[pág. 17]{ref6}.
 Mesmo que uma linguagem seja feita para ser compilada é possível que exista 
 interpretadores para estas linguagens, como é o caso do CINT\footnote{
 Interpretador de código C/C++ encontrado em \url{https://root.cern.ch/cint}.}
- e CLING\footnote{Interpretador de código C/C++ com backend clang encontrado em
+ e CLING\footnote{Interpretador de código C/C++ com back-end clang encontrado em
   \url{https://root.cern.ch/cling}.}.Estes interpretadores podem ajudar no 
   processo de desenvolvimento como descrito acima, no entanto existem 
   limitações para estes como no caso do CINT\footnote{
@@ -81,8 +81,8 @@ Interpretador de código C/C++ encontrado em \url{https://root.cern.ch/cint}.}
 \begin{itemize}
 	\item não é possível definir um novo tipo de estrutura dentro de uma função;
     \item não aceita \textit{unsigned long long}, utiliza este como long long;
-    \item o proprio \textbf{CINT} contem a definição do tipo bool, e carrega o mesmo na execução do programa;
-    \item na declaração de ponteiro é necessario espaço antes e depois do '*'; 
+    \item o próprio \textbf{CINT} contém a definição do tipo bool, e carrega o mesmo na execução do programa;
+    \item na declaração de ponteiro é necessário espaço antes e depois do '*'; 
     \item não aceita o operador de sequenciamento ‘,’; 
     \item um dos maiores problemas do \textbf{CINT} é a definição de macros, este somente aceita macros simples.
 \end{itemize}
@@ -155,7 +155,7 @@ Dentre as possíveis tarefas e características comuns a um preprocessador,
     marcação para sua inclusão \cite[pág. 8]{ref2};
 
 \item \textit{Preprocessadores “racionais”}: este tipo de preprocessador é responsável 
-    por permitir a construção de macros utilizando condicionais while ou if mesmo
+    por permitir a construção de macros utilizando condicionais \textit{while} ou \textit{if} mesmo
      em linguagens que não suportem tais estruturas \cite[pág. 8]{ref2};
 
 \item \textit{Extensões de linguagens}: são formas de conferir maior poder as linguagens
@@ -198,11 +198,11 @@ código alvo, otimização de código  para o alvo específico \cite[pág. 36]{r
 
 \subsection{Analise Léxica}
     
-A analise léxica é a primeira fase a ser executada pelo compilador \cite[pg. 59]{ref15}. 
+A analise léxica é a primeira fase a ser executada pelo compilador \cite[pág. 59]{ref15}. 
 A função do analisador léxico, também denominado scanner, é ler o código fonte, 
 caractere a caractere, buscando a separação e  a identificação dos elementos do 
-programa, denominados símbolos léxicos ou tokens \cite[pg. 195]{ref16}. Assim, é 
-produzida uma sequência de tokens que será utilizada na análise sintática \cite[pg. 38]{ref3}. 
+programa, denominados símbolos léxicos ou tokens \cite[pág. 195]{ref16}. Assim, é 
+produzida uma sequência de tokens que será utilizada na análise sintática \cite[pág. 38]{ref3}. 
 
 Esta fase também tem a importância de realizar a remoção de elementos 
 “decorativos” do programa, tais como espaços, tabulações, caracteres de 
@@ -223,7 +223,7 @@ A maioria dos métodos de analise sintática são de dois tipos, denominados
 seus nomes, os analisadores sintáticos \textit{top-down} constroem árvores 
 do topo para as folhas, enquanto o analisadores \textit{bottom-up} começam das 
 folhas e constroem a árvore de baixo para cima até chegar na raiz. Em ambos os
- casos  estas árvores  elas são percorridas da esquerda para a direita, 
+ casos são percorridas da esquerda para a direita, 
 símbolo a símbolo. Estes dois tipos são utilizados devido seu potencial 
 expressivo para descrever a maioria das construções sintáticas das linguagens 
 de programação \cite[pág. 38]{ref20}. Para auxiliar na criação de analisadores sintáticos 
@@ -514,7 +514,7 @@ Diretivas \texttt{include} normalmente são utilizadas várias vezes em um proje
 \begin{figure}[h]
     \centering
         \includegraphics[keepaspectratio=true,scale=0.55]{figuras/multi_include.eps}
-    \caption{Includes redundânte \cite[pág.  80]{ref42}, com adaptações.}
+    \caption{Includes redundante \cite[pág.  80]{ref42}, com adaptações.}
     \label{fig07}
 \end{figure}
 
@@ -652,7 +652,7 @@ externa é mostrado nos Código \ref{codigo_07}, \ref{codigo_08} e
 Consiste em utilizar, simultaneamente, as guardas de inclusão internas e 
 externas. 
 
-Segundo John Lakos, está guarda de inclusão é a mais trabalhosa de ser mantida
+Segundo John Lakos\cite[pág. 82]{ref42}, esta guarda de inclusão é a mais trabalhosa de ser mantida
  mas, no entanto, é a que mais reduz o tempo de compilação de um projeto. Ele
  realizou um experimento utilizando guardas de inclusão com e sem redundância,
  e obteve os resultados mostrados nas Tabelas \ref{tab:tabela_01} e 
@@ -1085,7 +1085,7 @@ Make é uma ferramenta utilizada para determinar automaticamente quais
  é disponibilizado no portal GNU \cite{ref45}.
 
 Para utilizar a ferramenta make é necessário a criação de um arquivo chamado
- \texttt{makefile}, que contem as descrições de relações entre os arquivos em um projeto
+ \texttt{makefile}, que contém as descrições de relações entre os arquivos em um projeto
  e comandos necessários para realizar as atualizações em cada arquivo \cite{Lasca2}.
  Depois de definir o arquivo \texttt{makefile}, utiliza a chamada de sistema apresentada 
 no Código \ref{codigo_20}.
@@ -1411,7 +1411,7 @@ Como visto no capitulo sobre Compilação \ref{Compilação} é possível otimiz
  o código para gerar objetos e executável menores e com tempo de
  execução mais rápida, no entanto ao executar este processo o compilador perde
  tempo nestas otimizações isto faz com que o tempo de compilação aumente.
- Para controlar estas os compiladores recebem como flags (parâmetros) que
+ Para controlar estas, os compiladores recebem como flags (parâmetros) que
  indicam qual tipo de otimização pode ser aplicadas pelo compilador.
  Estas flags que aplicam outro conjunto de flags de otimização.\footnote{\url{https://gcc.gnu.org}}
 
@@ -1424,7 +1424,7 @@ No gcc/g++
 \begin{itemize}
 	\item -O0 : reduz o tempo de compilação e faz a depuração produzir os
  resultados esperados, este é o padrão caso nenhuma flag seja passada;
-    \item -Ofast : discarta estritas conformidades com padrões;
+    \item -Ofast : descarta estritas conformidades com padrões;
     \item -O  : realiza otimização do tamanho do código e do tempo de execução do programa ,
  no entanto não realiza otimizações que tenha grande perda no tempo de compilação;
     \item -O1 :  aplica uma otimização moderadamente, mas não degrada significativamente
@@ -1456,11 +1456,11 @@ guardando os resultados e detectando quando os mesmos serão executados,
  Possui as vantagens de : gerenciamento do tamanho de cache,
  armazena compilações que contém avisos (warnings), baixa sobrecarga,
  opcionalmente utiliza “hard link” para evitar copias e comprime arquivos para
- reduzir o tamanho do disco. Apesar destas vantagens, esta ferramenta pode apenas
+ reduzir o tamanho do disco. Apesar de suas vantagens, esta ferramenta pode apenas
  compilar um único arquivo ou link simbólico, somente funciona com compiladores gcc/g++
  ou similares e algumas flags de otimização não são suportadas.
 
-	\subitem Para utilizar o ccache é necessario adicionar a palavra ccache antes de cada
+	\subitem Para utilizar o ccache é necessário adicionar a palavra ccache antes de cada
  comando de compilação. Para remover cache de compilação anterior será utilizado
  ccache -c ativar o limpador de ccache e ccache -C para remover a cache completamente.
 
@@ -1470,12 +1470,12 @@ guardando os resultados e detectando quando os mesmos serão executados,
  ld. Esta foi desenvolvido apenas para realizar lincagem de arquivos do tipo ELF sem utilizar
  a biblioteca BFD (Binary File Descriptor library) que possui suporte a manipulação de vários
  formatos de arquivos binários. Esta ferramenta foi desenvolvida pelo pesquisador da google,
- Ian Lance Taylor, que realizou a remoção da bliblioteca e utilização de menos camadas de abstrações.
+ Ian Lance Taylor, que realizou a remoção da biblioteca e utilização de menos camadas de abstrações.
 
 	\subitem O linker gold vem por padrão nos pacotes do GNU e pode ser utilizado no gcc/g++ passando a flag
  -Wl,-fuse-ld=gold\footnote{\url{https://gcc.gnu.org/onlinedocs/gcc/Link-Options.html}},
  caso nenhuma flag seja passada ira utilizar o linker padrão ld que utiliza
- a bliblioteca BFD. O linker gold para ser utilizado em sistemas com back-end llvm é necessario
+ a biblioteca BFD. O linker gold para ser utilizado em sistemas com back-end llvm é necessário
  instalar o plugin llvm-gold-plugin\footnote{\url{http://llvm.org/docs/GoldPlugin.html}}.
 
 	\subitem Para sistemas operacionais como um Mac OS ou Windows esta ferramenta não é suportada, uma vez que
