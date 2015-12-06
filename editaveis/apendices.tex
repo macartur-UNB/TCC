@@ -2,10 +2,11 @@
 
 \partapendices
 
-\chapter{Script Geração de Projetos}
+\chapter{Script Aplicado ao Ambiente}
 
-\section{Gerador de Código para testes de Inclusão de Guarda}
+\section{Gerador de Codigo para Benchmark}
 
+\subsection{Guardas de Inclusão Externa mais Pragma Once}
 \begin{lstlisting}[language=Python, caption={
      Script Guardas de Inclusão Externa mais pragma once},
                   label=script_external_pragma_include]
@@ -82,9 +83,12 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
+\subsection{Guardas de Inclusão Externa}
 \begin{lstlisting}[language=Python,caption={
             Script Guardas de Inclusão Externa },
                    label=script_external_include]
+                   
+                   
 # external.py
 from os import mkdir
 from os import path
@@ -158,9 +162,11 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
+\subsection{Guardas de Inclusão Interna}
 \begin{lstlisting}[language=Python,caption={
               Script Guardas de Inclusão Interna},
                      label=script_intenal_include]
+                     
 # guard_only.py
 from os import mkdir
 from os import path
@@ -234,9 +240,11 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
+\subsection{Guardas de Inclusão Interna primeiro que o Pragma Once}
 \begin{lstlisting}[language=Python, caption={
 Script Guardas de Inclusão Interna primeiro que \textit{Pragma Once}},
                    label=script_guards_pragma_include]
+                   
 # guards_pragma.py
 from os import mkdir
 from os import path
@@ -310,8 +318,10 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
+\subsection{Guardas de Inclusão com Pragma Once primeiro que Inclusão Interna}
 \begin{lstlisting}[language=Python, caption={
     Script \textit{Pragma Once} primeiro que Guardas de Inclusão Interna},label=script_pragma_guards_include]
+    
 # pragma_guards.py
 from os import mkdir
 from os import path
@@ -384,9 +394,11 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
+\subsection{Guardas Inclusão com Pragma Once}
 \begin{lstlisting}[language=Python, caption={
                      Script Pragma Once},
              label=script_pragma_once_include]
+             
 # pragma_only.py
 from os import mkdir
 from os import path
@@ -457,9 +469,11 @@ if __name__ == "__main__":
     main()
 \end{lstlisting}
 
+\subsection{Guardas de Inclusão com Redundância}
 \begin{lstlisting}[language=Python,caption={
-     Script Redundancia de Guardas de Inclusão},
+     Script Redundância de Guardas de Inclusão},
                  label=script_redundante_include]
+                 
 # redundante.py
 from os import mkdir
 from os import path
@@ -533,9 +547,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 \end{lstlisting}
 
-\begin{lstlisting}[language=python, caption={Script de Recompilações},
+
+\chapter{Script Aplicado a Projeto}
+\section{Recompilação de Projetos}
+\begin{lstlisting}[language=Python, caption={Script de Recompilações},
                   label=script_recompilacoes]
 
         # *-* encoding: utf8 *-*
@@ -652,10 +670,7 @@ if __name__ == "__main__":
             print("Finished the result was saved in output folder")
 \end{lstlisting}
 
-
-
-
-
+\subsection{Template yaml para compilação de projetos}
 \begin{lstlisting}[language=ruby, caption={Template para execução do Script de Recompilações},
                   label=template_para_script_recompilacoes]
     <project name>:

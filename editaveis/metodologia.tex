@@ -26,8 +26,8 @@ A revisão bibliográfica foi a primeira atividade realizada para a construção
 Para seleção de métodos foi realizada uma priorização dos métodos, técnicas e
  ferramentas encontradas durante a revisão bibliográfica. A priorização levou
  em conta o esforço da implementação/execução dos métodos, o tempo para a
- montagem de experimentos e o recurso computacional necessário para a criação
- destes experimentos.
+ montagem de caso e o recurso computacional necessário para a criação
+ destes.
 
 Os métodos selecionados foram:
 
@@ -84,7 +84,7 @@ A pesquisa avançada foi realizada no dia 27 de agosto de 2015, e foi utilizada
  como padrão o compilador clang e gcc/g++ como front-end  e como back-end possui o LLVM.
         \subitem \textbf{windows} - esta palavra foi selecionada para encontrar 
  que possui compatibilidade para instalar os compiladores gcc/g++.
-\footnote{Para instalar um compilador é necessário utilizar uma ferramenta de criação de ambiente de desenvolvimento como \textit{cygwin}, \textit{mingw}, \textit{visual studio}, entre outros}.
+\footnote{Para instalar um compilador é necessário utilizar uma ferramenta de criação de ambiente de desenvolvimento como \textit{cygwin}, \textit{mingw}, \textit{visual studio}, entre outros.}
         \subitem \textbf{linux} - esta palavra foi selecionada para encontrar projetos
  que seja possível compilar em um sistema operacional linux. Este vem por padrão com
  o compilador g++/gcc.
@@ -212,7 +212,7 @@ Este é um software livre e sobre a licença GPV v3 e pode ser encontrado no \te
 \section{Ambiente}
 
 \subsection{Ambiente Físico}
-Para a realização dos experimentos foi utilizado uma máquina com as
+Para a realização dos estudos foi utilizado uma máquina com as
  especificações listada na tabela \ref{configuracoes_ambiente_fisico}
 
 \begin{table}[h]
@@ -464,8 +464,8 @@ respectivamente.
     Em ambiente \textit{mingw} ou \textit{cygwin} não possui suporte
  a biblioteca glibc\footnote{
 \url{https://www.gnu.org/software/gnulib/manual/html\_node/execinfo\_002eh.html}},
- isto fez com que o projeto Qcad que necessita do header exec\_info.h e
- está contido apenas no glibc.
+ isto fez com que o projeto Qcad que necessita do header exec\_info.h não possa ser compilado.
+
     Para alguns projetos foi necessário realizar modificações para a compilação
  dos mesmos nos diferentes sistemas operacionais,
 estas alterações foram colocadas na branch master do repositório modificado,
@@ -473,14 +473,55 @@ utilizando um \textit{fork} do github
 \footnote{\url{https://github.com/macartur-tcc/}} que contém todos os projetos.
  Esta restrição não impedindo a compilação dos projetos nos diferentes ambientes.
 
-
-
-
 \section {Estudo de Caso}
+
+\subsection{Aplicado ao Ambiente}
+
+Os casos de guardas de inclusão foram realizados utilizando script de benchmark,
+ na qual os métodos detalhados na seção \ref{include_guards_section} foram
+ aplicados a 10 mil arquivos com uma pequena quantidade de código
+ \ref{codigo_27} e incluidos 3 vezes ao arquivo \textbf{main.cpp} utilizando
+ \ref{codigo_28}. Cada um destes foram aplicados aos diferentes ambientes de
+ desenvolvimento.
+
+\begin{lstlisting}[language=C++,caption={Template de arquivo .hpp utilizado no benchmark},
+                                                   label=codigo_27]
+
+  // <NUMERO>.hpp
+
+  const int int<NUMERO> = <NUMERO>;
+
+\end{lstlisting}
+
+\begin{lstlisting}[language=C++,caption={Template de arquivo main.cpp utilizado no benchmark},
+                                                          label=codigo_28]
+
+    // main.cpp
+
+    /* headers a serem incluidos   */
+
+    ...
+
+    int main(){return 0;}
+\end{lstlisting}
+
+Os scripts abordam os métodos:
+
+\begin{itemize}
+	\item guarda de Inclusão Externa;
+	\item guarda de Inclusão Interna;
+	\item \textit{pragma once};
+	\item guarda de Inclusão Interna primeiro que \textit{pragma once};
+	\item \textit{pragma once} primeiro que  Guarda de Inclusão Interna;
+	\item guarda de Inclusão Externa + \textit{pragma once};
+	\item redundância de Guarda de Inclusão.
+\end{itemize}
+
+\subsection{Aplicado a Projeto}
 
 Antes da realização do estudo de caso foi necessário identificar quais
  as técnicas que poderiam ser aplicadas em cada um dos projetos.
- A tabela \ref{tecnicas_nos_projetos} mostra esta analise em cada projeto.
+ A tabela \ref{tecnicas_que_podem_ser_aplicadas} mostra esta analise em cada projeto.
 
 
 \begin{table}[h]
@@ -501,8 +542,6 @@ Qcad &  SIM & NÃO & NÃO & SIM & SIM & SIM & SIM \\ \bottomrule
 \label{tecnicas_que_podem_ser_aplicadas}
 \end{table}
 
-
-
 \begin{itemize}
     \item Alteração de Código
     \subitem
@@ -518,13 +557,13 @@ Estas alterações estão na branch “\textit{pragma\_once}” dos projetos que
         \item Forward Declaration
         \subitem Neste estudo de caso os headers foram alterados para reduzir
  a quantidade de headers de todos os cabeçalhos e das implementação.
- Para isso foram removidos headers redundantes e removido headers que referenciava
+ Para isso foram removidos headers redundantes e que referenciava
  ponteiros e referências de endereço.
 Estas alterações estão na branch "\textit{forward\_declaration}" dos projetos que foi possível aplicar.
         \item Técnicas de Pimpl Idiom
         \subitem Neste estudo de caso atributos e métodos privados foram removidos do cabeçalho
  e incluídos nos arquivos de implementação, como no exemplo de código \ref{exemplo_implementacao_pimpl}
- da seção \ref{Pimpl Idiom - Implementação privada}
+ da seção \ref{Pimpl_Idiom}
  que demostra como aplicar a técnica.
 Estas alterações estão na branch "\textit{pimpl}" dos projetos que foi possível aplicar.
     \end{enumerate}
@@ -618,14 +657,11 @@ Depois de gerado a compilação pode ser feita utilizando
 \label{t_compilacao_sudoku}
 \end{table}
 
-
-
     \subitem \textbf{Pencil}
     \subitem Após realizar o clone do projeto do github
 \ref{clonando_pencil} é necessário  gerar os Makefile,
- para isso utiliza-se o comando de geração de makefile na tabela \ref{t_compilado_pencil}.
-Depois de gerado  a compilação pode ser feita utilizando
- os comandos da tabela \ref{t_compilando_pencil}.
+ para isso utiliza-se o comando de geração de makefile na tabela \ref{t_compilacao_pencil}.
+Após a geração dos makefiles a tabela apresenta os comandos utilizados para compilar o projeto.
 
 \begin{lstlisting}[language=bash, caption={Clonado Projeto Pencil},
                   label=clonando_pencil]
@@ -651,14 +687,11 @@ Depois de gerado  a compilação pode ser feita utilizando
 \label{t_compilacao_pencil}
 \end{table}
 
-
-
     \subitem \textbf{Aseprite}
     \subitem Após realizar o clone do projeto do github
 \ref{clonando_aseprite} é necessário  gerar os Makefile,
  para isso utiliza-se o comando de geração de makefile na tabela 
-\ref{t_compilando_aseprite}.Depois de gerado a compilação pode
- ser feita utilizando os comandos da tabela \ref{t_compilacao_aseprite}.
+\ref{t_compilacao_aseprite}.
 
 \begin{lstlisting}[language=bash, caption={Clonado Projeto Aseprite e criando diretório de Compilação},
                   label=clonando_aseprite]
@@ -733,63 +766,10 @@ Os scripts foram elaborados utilizando a linguagem de programação python,
 \footnote{\url{https://github.com/macartur-tcc/tcc_scripts}}.
 
 
-\subsection{Script 1}\label{script_1}
+\subsection{Aplicado ao Ambiente}\label{Amplicação ao Ambiente}
 
-Para a realização de experimentos com Inclusão de Guarda foram elaborados
- em scripts Python que criam projetos simples com a inclusão de cabeçalhos
- três vez e com diferentes tipos de inclusão, como mostrado na  Seção
- \ref{include_guards_section}.
- No apêndice geração de projetos é apresentado estes scripts.
-
-O script cria uma pasta chamada include e, dentro dela, arquivos com o padrão
- \texttt{<NUMERO>.hpp}, que representa o nome do cabeçalho a serem incluídos no arquivo 
-\texttt{main.cpp}.
- Foram criados 10 mil arquivos. Os Códigos \ref{codigo_27} e  \ref{codigo_28}
- referenciam estes modelos.
-
-
-
-\begin{lstlisting}[language=C++,caption={Arquivo .hpp gerado pelos scripts de guardas de inclusão},
-                                                   label=codigo_27]
-
-  // <NUMERO>.hpp
-
-  const int int<NUMERO> = <NUMERO>;
-
-\end{lstlisting}
-
-
-
-\begin{lstlisting}[language=C++,caption={
-  Arquivo main.cpp criado pelos scripts de guardas de inclusão},
-                                                          label=codigo_28]
-
-    // main.cpp
-
-    /* headers a serem incluidos   */
-
-    ...
-
-
-    int main(){return 0;}
-
-\end{lstlisting}
-
-
-
-
-Os scripts abordam os métodos:
-
-\begin{itemize}
-	\item guarda de Inclusão Externa;
-	\item guarda de Inclusão Interna;
-	\item \textit{pragma once};
-	\item guarda de Inclusão Interna primeiro que \textit{pragma once};
-	\item \textit{pragma once} primeiro que  Guarda de Inclusão Interna;
-	\item guarda de Inclusão Externa + \textit{pragma once};
-	\item redundância de Guarda de Inclusão.
-\end{itemize}
-
+Para o estudo aplicado ao ambiente foi criado um script de benchmark utilizando
+ a linguagem python, e foi detalhado no apêndice na seção Benchmark \ref{script_bench_mark}.
 
 A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dados,
  contendo Guarda de Inclusão Externa(GIE), Guarda de Inclusão Interna(GGI),
@@ -825,15 +805,104 @@ A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dad
 \end{table}
 
 
-\subsection{Script 2}
+\subsection{Aplicado a Projeto}
 
-Para realizar as compilações dos projetos foi criado um script de recompilação que segue no código \ref{script_recompilacoes},
- com este é possível alterar entre  branch para compilar as alterações de código dos projetos,
- executar comandos antes e depois de cada compilação. Para receber todos estes comandos foi
- necessário a leitura de um arquivo de configuração de cada projeto,
- a localização do projeto, localização do makefile, comandos que serão executados antes e depois
- da compilação. Este arquivo foi escrito em yaml e seguindo o template do código \ref{template_para_script_recompilacoes}.
+Para realizar as compilações dos projetos foi criado um script de recompilação que
+ segue no código \ref{script_recompilacoes}, com este é possível alterar entre
+ branch para compilar as alterações de código dos projetos,
+ executar comandos antes e depois de cada compilação.
+ Para receber todos estes comandos foi necessário a leitura de um arquivo de
+ configuração de cada projeto contendo a localização do projeto,
+ localização do makefile, comandos que serão executados antes e depois
+ da compilação.
+ Este arquivo foi escrito em yaml e seguindo o template do código
+ \ref{template_para_script_recompilacoes}.
 Para a contagem do tempo de compilação foi utilizado o módulo datetime do python,
  realizando a diferença do tempo inicial e final do tempo de compilação.
 
+Após a execução do script será preenchida as tabelas abaixo, e gerado gráficos para melhor
+analisar os resultados. 
 
+\begin{table}[h]
+\centering
+\caption{Modelo Tabela Flags de Otimização}
+\label{my-label}
+\begin{tabular}{lllllll}
+\hline
+\textbf{<Nome do Projeto>} & \textbf{-O} & \textbf{-O0} & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} \\ \toprule
+1                                    &    &     &     &     &     &        \\ \midrule
+2                                    &    &     &     &     &     &        \\ \midrule
+3                                    &    &     &     &     &     &        \\ \midrule
+4                                    &    &     &     &     &     &        \\ \midrule
+5                                    &    &     &     &     &     &        \\ \midrule
+6                                    &    &     &     &     &     &        \\ \midrule
+7                                    &    &     &     &     &     &        \\ \midrule
+8                                    &    &     &     &     &     &        \\ \midrule
+9                                    &    &     &     &     &     &        \\ \midrule
+10                                   &    &     &     &     &     &        \\ \midrule
+Média                                &    &     &     &     &     &        \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Modelo Tabela Flags de Processamento Paralelo}
+\label{my-label}
+\begin{tabular}{llllll}
+\hline
+\textbf{<Nome do Projeto>} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
+1                                    &    &     &     &     &        \\ \midrule
+2                                    &    &     &     &     &        \\ \midrule
+3                                    &    &     &     &     &        \\ \midrule
+4                                    &    &     &     &     &        \\ \midrule
+5                                    &    &     &     &     &        \\ \midrule
+6                                    &    &     &     &     &        \\ \midrule
+7                                    &    &     &     &     &        \\ \midrule
+8                                    &    &     &     &     &        \\ \midrule
+9                                    &    &     &     &     &        \\ \midrule
+10                                   &    &     &     &     &        \\ \midrule
+Média                                &    &     &     &     &        \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Modelo Tabela Ferramentas Auxiliares}
+\label{my-label}
+\begin{tabular}{lll}
+\hline
+\textbf{<Nome do Projeto>} & \textbf{gold} & \textbf{ccache}   \\ \toprule
+1                                    &     &        \\ \midrule
+2                                    &     &        \\ \midrule
+3                                    &     &        \\ \midrule
+4                                    &     &        \\ \midrule
+5                                    &     &        \\ \midrule
+6                                    &     &        \\ \midrule
+7                                    &     &        \\ \midrule
+8                                    &     &        \\ \midrule
+9                                    &     &        \\ \midrule
+10                                   &     &        \\ \midrule
+Média                                &     &        \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Modelo Tabela Alteração de Código}
+\label{my-label}
+\begin{tabular}{llll}
+\hline
+\textbf{<Nome do Projeto>} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                                    &     &     &        \\ \midrule
+2                                    &     &     &        \\ \midrule
+3                                    &     &     &        \\ \midrule
+4                                    &     &     &        \\ \midrule
+5                                    &     &     &        \\ \midrule
+6                                    &     &     &        \\ \midrule
+7                                    &     &     &        \\ \midrule
+8                                    &     &     &        \\ \midrule
+9                                    &     &     &        \\ \midrule
+10                                   &     &     &        \\ \midrule
+Média                                &     &     &        \\ \bottomrule
+\end{tabular}
+\end{table}
