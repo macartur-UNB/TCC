@@ -156,7 +156,7 @@ iRecoveryplusplus & C++ & 17 & 11 & 84.7\%  \\ \bottomrule
         \label{ferramenta_aseprite}
     \end{figure}
 
-    \item \textbf{Pencil2D}
+    \item \textbf{}
 \footnote{\url{http://www.pencil2d.org/pencil2d/}} é uma ferramenta para
  desenho e animação desenhada a mão, e utilizando desenhos em formato bitmap ou gráfico vetoriais. 
 Esta ferramenta é gratuita  e open source, podendo ser encontrada em no \textit{github}
@@ -166,7 +166,7 @@ Esta ferramenta é gratuita  e open source, podendo ser encontrada em no \textit
     \begin{figure}[h]
         \centering
             \includegraphics[scale=0.3]{figuras/pencil2D.eps}
-        \caption{Imagem da ferramenta Pencil2D}
+        \caption{Imagem da ferramenta }
         \label{ferramenta_pencil2D}
     \end{figure}
 
@@ -212,6 +212,7 @@ Este é um software livre e sobre a licença GPV v3 e pode ser encontrado no \te
 \section{Ambiente}
 
 \subsection{Ambiente Físico}
+
 Para a realização dos estudos foi utilizado uma máquina com as
  especificações listada na tabela \ref{configuracoes_ambiente_fisico}
 
@@ -526,28 +527,28 @@ Antes da realização do estudo de caso foi necessário identificar quais
 
 \begin{table}[h]
 \tiny
-\begin{tabular}{p{1cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
-\toprule
+\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
+
 \textbf{Projeto} & \multicolumn{7}{c}{técnicas que podem ser aplicadas} \\ 
- & \multicolumn{3}{c}{Alteração de Código} & \multicolumn{2}{c}{Alteração de Flags} & \multicolumn{2}{c}{ferramentas auxiliares}  \\ \midrule 
+ & \multicolumn{3}{c}{Alteração de Código} & \multicolumn{2}{c}{Alteração de Flags} & \multicolumn{2}{c}{ferramentas auxiliares}  \\ \toprule
 & \textbf{pragma once} & \textbf{Forward Declaration} & \textbf{Pimpl Idiom} & \textbf{Makafile} &
- \textbf{Otimização de Baixo Nível} & \textbf{Ccache} & \textbf{Gold} \\ \midrule
-iRecovery++ & SIM & SIM & SIM &  SIM & SIM & SIM & SIM \\ \midrule
-Sudoku &  SIM & SIM & SIM & SIM & SIM & SIM & SIM \\ \midrule
-Pencil & SIM & NÃO &  SIM & SIM & SIM & SIM & SIM \\ \midrule
-Aseprite &  SIM & NÃO & NÃO & SIM & SIM & SIM & SIM \\ \midrule
+ \textbf{Otimização de Baixo Nível} & \textbf{Ccache} & \textbf{Gold} \\ 
+iRecoveryplusplus & SIM & SIM & SIM &  SIM & SIM & SIM & SIM \\ 
+Sudoku &  SIM & SIM & SIM & SIM & SIM & SIM & SIM \\ 
+Pencil & SIM & NÃO &  SIM & SIM & SIM & SIM & SIM \\ 
+Aseprite &  SIM & NÃO & NÃO & SIM & SIM & SIM & SIM \\ 
 Qcad &  SIM & NÃO & NÃO & SIM & SIM & SIM & SIM \\ \bottomrule
 \end{tabular} 
 \caption{Técnicas que podem ser aplicadas}
 \label{tecnicas_que_podem_ser_aplicadas}
 \end{table}
 
-\begin{itemize}
-    \item Alteração de Código
-    \subitem
+\subsubsection{Alteração de Código}
+
  Para as alterações de código, cada caso foi criado
  uma branch com suas modificações e estas estão no repositório
  destinado ao TCC\footnote{\url{https://github.com/macartur-tcc/}}.
+
     \begin{enumerate}
         \item Pragma Once
         \subitem Neste estudo de caso os arquivos de header foram alterados
@@ -568,8 +569,8 @@ Estas alterações estão na branch "\textit{forward\_declaration}" dos projetos
 Estas alterações estão na branch "\textit{pimpl}" dos projetos que foi possível aplicar.
     \end{enumerate}
 
-    \item Alteração de flags de Compilação
-    \subitem 
+\subsubsection{Alteração de flags de Compilação}
+
         \begin{enumerate}
             \item makefile
                 \subitem Neste estudo de casos no momento da utilização do makefile
@@ -581,7 +582,9 @@ a compilação e a quantidade de \textit{jobs}(\textit{threads}).
  Com estes resultados será possível verificar a relação do tempo gasto com
  o tempo de otimização do compilador.
         \end{enumerate}
-    \item Ferramentas Auxiliares
+
+\subsubsection{Ferramentas Auxiliares}
+
         \begin{enumerate}
                \item CCache
                     \subitem Neste estudo de caso em cada projeto será adicionado
@@ -595,10 +598,11 @@ a compilação e a quantidade de \textit{jobs}(\textit{threads}).
  otimizado para sistema ELF.
         \end{enumerate}
 
-    \item  Passos de Compilação dos projetos
+\subsubsection{Passos de Compilação dos projetos}
 
-        \subitem \textbf{iRecovery++}
-        \subitem Para compilar o projeto é necessário realizar o clone do projeto
+\begin{itemize}
+       \item {iRecoveryplusplus}
+		\subitem Para compilar o projeto é necessário realizar o clone do projeto
  com o comando \ref{clonando_irecoveryplusplus}, e compilar o projeto
  segundo a tabela \ref{tecnicas_que_podem_ser_aplicadas}.
  Para remover os arquivos binários ou compilar utilizando o comando ccache
@@ -625,7 +629,7 @@ a compilação e a quantidade de \textit{jobs}(\textit{threads}).
 \label{t_compilacao_irecoveryplusplus}
 \end{table}
 
-    \subitem \textbf{Sudoku}
+    \item \textbf{Sudoku}
     \subitem Após realizar o clone do projeto do github
  \ref{clonando_sudoku} é necessário  gerar os Makefile,
  para isso utiliza-se o comando de geração de makefile na tabela .
@@ -657,7 +661,7 @@ Depois de gerado a compilação pode ser feita utilizando
 \label{t_compilacao_sudoku}
 \end{table}
 
-    \subitem \textbf{Pencil}
+    \item \textbf{Pencil}
     \subitem Após realizar o clone do projeto do github
 \ref{clonando_pencil} é necessário  gerar os Makefile,
  para isso utiliza-se o comando de geração de makefile na tabela \ref{t_compilacao_pencil}.
@@ -687,7 +691,7 @@ Após a geração dos makefiles a tabela apresenta os comandos utilizados para c
 \label{t_compilacao_pencil}
 \end{table}
 
-    \subitem \textbf{Aseprite}
+    \item \textbf{Aseprite}
     \subitem Após realizar o clone do projeto do github
 \ref{clonando_aseprite} é necessário  gerar os Makefile,
  para isso utiliza-se o comando de geração de makefile na tabela 
@@ -724,8 +728,8 @@ CC="gcc  -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold" cmake .. -G "Unix Makefi
 \end{table}
 
 
-    \subitem \textbf{Qcad}
-       \subitem Após realizar o clone do projeto do github\ref{clonando_qcad}
+    \item \textbf{Qcad}
+    \subitem Após realizar o clone do projeto do github\ref{clonando_qcad}
  é necessário  gerar os Makefile, para isso utiliza-se o comando de geração de
  makefile na tabela \ref{t_compilacao_qcad}. Depois de gerado a compilação pode ser feita
  utilizando os comandos da tabela \ref{t_compilacao_qcad}.
@@ -784,22 +788,22 @@ A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dad
 \label{tab:modelo_guards}
 \begin{tiny}
 \begin{tabular}{lp{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}}
-\toprule
+
 \textbf{Tipo} & \multicolumn{7}{l}{Utilização de Guarda de Inclusão} \\
 \textbf{Medida} & \multicolumn{7}{l}{Tempos em segundos } \\
 \textbf{Amostras} & \textbf{GIE} & \textbf{GII} & \textbf{PO} & 
-\textbf{GIIPPO} & \textbf{POPGII} & \textbf{GIEPO} & \textbf{RGI} \\ \midrule
- 1  &  &  &   &   &   &   &  \\ \midrule
- 2  &  &  &   &   &   &   &  \\ \midrule
- 3  &  &  &   &   &   &   &  \\ \midrule
- 4  &  &  &   &   &   &   &  \\ \midrule
- 5  &  &  &   &   &   &   &  \\ \midrule
- 6  &  &  &   &   &   &   &  \\ \midrule
- 7  &  &  &   &   &   &   &  \\ \midrule 
- 8  &  &  &   &   &   &   &  \\ \midrule
- 9  &  &  &   &   &   &   &  \\ \midrule
- 10 &  &  &   &   &   &   &  \\ \midrule
- Média: & & & & &   &   &    \\ \bottomrule
+\textbf{GIIPPO} & \textbf{POPGII} & \textbf{GIEPO} & \textbf{RGI} \\ \toprule
+ 1  &  &  &   &   &   &   &  \\ 
+ 2  &  &  &   &   &   &   &  \\ 
+ 3  &  &  &   &   &   &   &  \\ 
+ 4  &  &  &   &   &   &   &  \\ 
+ 5  &  &  &   &   &   &   &  \\ 
+ 6  &  &  &   &   &   &   &  \\ 
+ 7  &  &  &   &   &   &   &  \\ 
+ 8  &  &  &   &   &   &   &  \\ 
+ 9  &  &  &   &   &   &   &  \\ 
+ 10 &  &  &   &   &   &   &  \\ \bottomrule
+ Média: & & & & &   &   &    \\ 
 \end{tabular}
 \end{tiny}
 \end{table}
@@ -823,86 +827,84 @@ Para a contagem do tempo de compilação foi utilizado o módulo datetime do pyt
 Após a execução do script será preenchida as tabelas abaixo, e gerado gráficos para melhor
 analisar os resultados. 
 
-\begin{table}[h]
-\centering
-\caption{Modelo Tabela Flags de Otimização}
-\label{my-label}
-\begin{tabular}{lllllll}
-\hline
-\textbf{<Nome do Projeto>} & \textbf{-O} & \textbf{-O0} & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} \\ \toprule
-1                                    &    &     &     &     &     &        \\ \midrule
-2                                    &    &     &     &     &     &        \\ \midrule
-3                                    &    &     &     &     &     &        \\ \midrule
-4                                    &    &     &     &     &     &        \\ \midrule
-5                                    &    &     &     &     &     &        \\ \midrule
-6                                    &    &     &     &     &     &        \\ \midrule
-7                                    &    &     &     &     &     &        \\ \midrule
-8                                    &    &     &     &     &     &        \\ \midrule
-9                                    &    &     &     &     &     &        \\ \midrule
-10                                   &    &     &     &     &     &        \\ \midrule
-Média                                &    &     &     &     &     &        \\ \bottomrule
-\end{tabular}
-\end{table}
 
-\begin{table}[h]
+\begin{table}[!ht]
 \centering
-\caption{Modelo Tabela Flags de Processamento Paralelo}
-\label{my-label}
-\begin{tabular}{llllll}
-\hline
-\textbf{<Nome do Projeto>} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
-1                                    &    &     &     &     &        \\ \midrule
-2                                    &    &     &     &     &        \\ \midrule
-3                                    &    &     &     &     &        \\ \midrule
-4                                    &    &     &     &     &        \\ \midrule
-5                                    &    &     &     &     &        \\ \midrule
-6                                    &    &     &     &     &        \\ \midrule
-7                                    &    &     &     &     &        \\ \midrule
-8                                    &    &     &     &     &        \\ \midrule
-9                                    &    &     &     &     &        \\ \midrule
-10                                   &    &     &     &     &        \\ \midrule
-Média                                &    &     &     &     &        \\ \bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[h]
-\centering
-\caption{Modelo Tabela Ferramentas Auxiliares}
-\label{my-label}
-\begin{tabular}{lll}
-\hline
-\textbf{<Nome do Projeto>} & \textbf{gold} & \textbf{ccache}   \\ \toprule
-1                                    &     &        \\ \midrule
-2                                    &     &        \\ \midrule
-3                                    &     &        \\ \midrule
-4                                    &     &        \\ \midrule
-5                                    &     &        \\ \midrule
-6                                    &     &        \\ \midrule
-7                                    &     &        \\ \midrule
-8                                    &     &        \\ \midrule
-9                                    &     &        \\ \midrule
-10                                   &     &        \\ \midrule
-Média                                &     &        \\ \bottomrule
-\end{tabular}
-\end{table}
-
-\begin{table}[]
-\centering
-\caption{Modelo Tabela Alteração de Código}
-\label{my-label}
+\caption{Modelo Alteração de Código}
+\label{tab:modelo_alteracao_de_codigo}
 \begin{tabular}{llll}
-\hline
 \textbf{<Nome do Projeto>} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    &     &     &        \\ \midrule
-2                                    &     &     &        \\ \midrule
-3                                    &     &     &        \\ \midrule
-4                                    &     &     &        \\ \midrule
-5                                    &     &     &        \\ \midrule
-6                                    &     &     &        \\ \midrule
-7                                    &     &     &        \\ \midrule
-8                                    &     &     &        \\ \midrule
-9                                    &     &     &        \\ \midrule
-10                                   &     &     &        \\ \midrule
-Média                                &     &     &        \\ \bottomrule
+1                                    &     &     &        \\ 
+2                                    &     &     &        \\ 
+3                                    &     &     &        \\ 
+4                                    &     &     &        \\ 
+5                                    &     &     &        \\ 
+6                                    &     &     &        \\ 
+7                                    &     &     &        \\ 
+8                                    &     &     &        \\ 
+9                                    &     &     &        \\ 
+10                                   &     &     &        \\ \bottomrule
+Média                                &     &     &        \\ 
+\end{tabular}
+\end{table}
+
+
+\begin{table}[!ht]
+\centering
+\caption{Modelo Flags de Otimização da Compilação}
+\label{tab:modelo_otimizacao_compilacao}
+\begin{tabular}{llllllll}
+\textbf{<Nome do Projeto>} & \textbf{-O} & \textbf{-O0} & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
+1                          &             &              &              &              &              &                 &        \\ 
+2                          &             &              &              &              &              &                 &        \\ 
+3                          &             &              &              &              &              &                 &        \\ 
+4                          &             &              &              &              &              &                 &        \\ 
+5                          &             &              &              &              &              &                 &        \\ 
+6                          &             &              &              &              &              &                 &        \\ 
+7                          &             &              &              &              &              &                 &        \\ 
+8                          &             &              &              &              &              &                 &        \\ 
+9                          &             &              &              &              &              &                 &        \\ 
+10                         &             &              &              &              &              &                 &        \\ \bottomrule
+Média                      &             &              &              &              &              &                 &        \\ 
+\end{tabular}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\caption{Modelo Flags de Processamento Paralelo}
+\label{tab:modelo_flag_processamento_paralelo}
+\begin{tabular}{llllll}
+\textbf{<Nome do Projeto>} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
+1                                    &    &     &     &     &        \\ 
+2                                    &    &     &     &     &        \\ 
+3                                    &    &     &     &     &        \\ 
+4                                    &    &     &     &     &        \\ 
+5                                    &    &     &     &     &        \\ 
+6                                    &    &     &     &     &        \\ 
+7                                    &    &     &     &     &        \\ 
+8                                    &    &     &     &     &        \\ 
+9                                    &    &     &     &     &        \\ 
+10                                   &    &     &     &     &        \\ \bottomrule
+Média                                &    &     &     &     &        \\ 
+\end{tabular}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\caption{Modelo Ferramentas Auxiliares}
+\label{tab:modelo_ferramentas_auxliares}
+\begin{tabular}{lll}
+\textbf{<Nome do Projeto>} & \textbf{gold} & \textbf{ccache}   \\ \toprule
+1                                    &     &        \\ 
+2                                    &     &        \\ 
+3                                    &     &        \\ 
+4                                    &     &        \\ 
+5                                    &     &        \\ 
+6                                    &     &        \\ 
+7                                    &     &        \\ 
+8                                    &     &        \\ 
+9                                    &     &        \\ 
+10                                   &     &        \\ \bottomrule
+Média                                &     &        \\ 
 \end{tabular}
 \end{table}
