@@ -2,7 +2,38 @@
 
 \chapter[Considerações Finais]{Considerações Finais}
 
-\section{Conclusões}
-
 \section{Trabalhos Futuros}
+	Como trabalho futuro é possível tentar verificar o comportamento do método de implementação
+ privada de classe, utilizando recompilações com alterações em partes de um projeto e sem
+ realizar remoção dos arquivos objetos já gerados.
+	Outra abordagem que pode ser explorada é um melhor estudo das ferramentas de redução do
+ tempo de compilação, uma vez que neste trabalho a ferramenta foi utilizada com as configurações
+ padrão da instalação da ferramenta, sendo possível por exemplo aumentar a quantidade de cache
+ da ferramenta ccache.
 
+\section{Conclusões}
+	Durante este trabalho foram pesquisadas e analisadas métodos e ferramentas que reduzem
+ o tempo de compilação de projetos escritos em C++. Foram elas Guardas de inclusão,
+ declaração implicita de estrutura e implementação privada de uma classe,  utilização das
+ ferramentas gold e ccache e acionamento de flags de flags de otimização providas pelos
+ compiladores de c++ padrão dos 3  diferentes sistemas operacionais e flags o controle de
+ flags de otimização de código do compilador.
+	Os três sistemas operacionais foram Windows 7, Mac OS Yosemite e Ubuntu(Linux).O ambiente
+ linux com a utilização dos métodos e ferramentas de compilação foi o ambiente com maior
+ tempo de compilação, utilizando o ambiente de desenvolvimento (cygwin). O melhores tempos de
+ compilação utilizando os métodos e as ferramentas aqui analisados foram encontrados no
+ Mac OS Yosemite devido ao mesmo utilizar como padrão o compilador clang++ que foi
+ contruído com o objetivo de ser mais rapido que o compilador padrão do gnu o g++, que vem
+ como default no Ubuntu.
+    Com a coleta dos dados e analise de cada estudo de caso nos projetos aqui analisados,
+ os métodos de alteração de código não foi obtido valores satisfatórios pois a redução do
+ tempo de compilação. Para as flags de processamento paralelo utilizando o programa make
+ obteve resultados resultados consideraveis uma vez que com elas é possivel reduzir mais
+ de 30\% do tempo de compilação de um projeto. Analisando as ferramentas o programa gold
+ não foi encontrado uma redução satisfatória, uma vez que a redução é muito baixo, ao
+ contrário da ferramenta ccache que conseguiu produzir resultados em que reduziu mais
+ de 50\% do tempo de compilação de um projeto.
+	Após os estudos o objetivo principal destes trabalho foi alcançado pois foram
+ analisadas as ferramentas aqui propostas em projetos de software livres escritos em C++ 
+em diferentes ambientes e analisados e selecionados os melhores métodos dentre os que possuem
+um impacto de no mínimo 30\% na redução dos projetos.

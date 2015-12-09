@@ -776,10 +776,10 @@ Para o estudo aplicado ao ambiente foi criado um script de benchmark utilizando
  a linguagem python, e foi detalhado no apêndice na seção Benchmark \ref{script_bench_mark}.
 
 A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dados,
- contendo Guarda de Inclusão Externa(GIE), Guarda de Inclusão Interna(GGI),
+ contendo Guarda de Inclusão Externa(GIE), Guarda de Inclusão Interna(GII),
  Pragma Once(PO), Guarda de Inclusão Interna Primeiro que Pragma Once(GIIPPO),
  Pragma Once Primeiro que Guarda de Inclusão Interna (POPGII),
- Guarda de Inclusão Externa e Pragma Once (GIEPO) e
+ Guarda de Inclusão Externa e Pragma Once (GIEPPO) e
  Redundância de Guarda de Inclusão(RGI).
 
 \begin{table}[!ht]
@@ -792,7 +792,7 @@ A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dad
 \textbf{Tipo} & \multicolumn{7}{l}{Utilização de Guarda de Inclusão} \\
 \textbf{Medida} & \multicolumn{7}{l}{Tempos em segundos } \\
 \textbf{Amostras} & \textbf{GIE} & \textbf{GII} & \textbf{PO} & 
-\textbf{GIIPPO} & \textbf{POPGII} & \textbf{GIEPO} & \textbf{RGI} \\ \toprule
+\textbf{GIIPPO} & \textbf{POPGII} & \textbf{GIEPPO} & \textbf{RGI} \\ \toprule
  1  &  &  &   &   &   &   &  \\ 
  2  &  &  &   &   &   &   &  \\ 
  3  &  &  &   &   &   &   &  \\ 
@@ -832,19 +832,19 @@ analisar os resultados.
 \centering
 \caption{Modelo Alteração de Código}
 \label{tab:modelo_alteracao_de_codigo}
-\begin{tabular}{llll}
-\textbf{<Nome do Projeto>} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    &     &     &        \\ 
-2                                    &     &     &        \\ 
-3                                    &     &     &        \\ 
-4                                    &     &     &        \\ 
-5                                    &     &     &        \\ 
-6                                    &     &     &        \\ 
-7                                    &     &     &        \\ 
-8                                    &     &     &        \\ 
-9                                    &     &     &        \\ 
-10                                   &     &     &        \\ \bottomrule
-Média                                &     &     &        \\ 
+\begin{tabular}{lllll}
+\textbf{<Nome do Projeto>} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                             &      &     &     &        \\ 
+2                             &      &     &     &        \\ 
+3                             &      &     &     &        \\ 
+4                             &      &     &     &        \\ 
+5                             &      &     &     &        \\ 
+6                             &      &     &     &        \\ 
+7                             &      &     &     &        \\ 
+8                             &      &     &     &        \\ 
+9                             &      &     &     &        \\ 
+10                            &      &     &     &        \\ \bottomrule
+Média                         &      &     &     &        \\ 
 \end{tabular}
 \end{table}
 

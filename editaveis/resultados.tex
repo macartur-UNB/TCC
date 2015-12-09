@@ -5,9 +5,8 @@
 
 \section{Aplicação ao Ambiente}
 
-Com a utilização dos scripts a tabela \ref{tab:modelo_guards}
- foi preenchida utilizando os dados coletados.
-
+\begin{itemize}
+    \item Tabelas e Gráficos
 
 \begin{table}[!ht]
 \centering
@@ -84,29 +83,54 @@ Com a utilização dos scripts a tabela \ref{tab:modelo_guards}
 \end{tiny}
 \end{table}
 
+\begin{figure}[!h]
+    \centering
+        \includegraphics{figuras/graficos/benchmark.eps}
+    \caption{Dados coletados dos scripts de Guardas de Inclusão}
+    \label{benchmark_guardas_de_inclusao}
+\end{figure}
+
+\begin{itemize}
+     \item Analise
+
+    Com base nos dados coletados e o gráfico gerado é possível inferir:
+    \begin{enumerate}
+        \item Todos os métodos que incluem \textbf{pragma once} atigiram tempo de compilação maior que os métodos que não possuem, independente do sistema operacional.
+        \item  Dos métodos que não possuem pragma once o método redundante foi o que atingiu o menor tempo de compilação.
+        \item  Em sistema operacional Mac OS Yosemite o tempo de compilação entre os métodos possui a menor variação.
+        \item  Em ambiente Windows 7 o tempo de compilação dos métodos é entre 3 e 4 vezes maior que nos sistemas. 
+    \end{enumerate}
+\end{itemize}
+
+\clearpage
 \section{Aplicação a Projeto}
 
 \subsection{Alteração de Código}\label{resultados_alteracao_de_codigo}
 
+\begin{itemize}
+    \item Tabelas e Gráficos
+\end{itemize}
+
 \subsubsection*{Aseprite}
 %  PROJETO ASEPRITE TABELAS
+
 \begin{table}[!h]
 \centering
 \caption{Aseprite - Alteração de Código no Linux }
 \label{tab:alteracao_de_codigo:linux:aseprite}
-\begin{tabular}{llll}
-\textbf{Aseprite} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    &  2418.7051   &  -   &  -   \\ 
-2                                    &  2370.1243   &  -   &  -   \\ 
-3                                    &  2358.9848   &  -   &  -   \\ 
-4                                    &  2346.8402   &  -   &  -   \\ 
-5                                    &  2347.7365   &  -   &  -   \\ 
-6                                    &  2367.7181   &  -   &  -   \\ 
-7                                    &  2347.5773   &  -   &  -   \\ 
-8                                    &  2364.5381   &  -   &  -   \\ 
-9                                    &  2352.7533   &  -   &  -   \\ 
-10                                   &  2351.9232   &  -   &  -   \\ \bottomrule
-Média                                &  2362.6901   &  -   &  -   \\ 
+\begin{tabular}{lllll}
+\textbf{Aseprite} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                      &    2514.9207         &  2418.7051   &  -   &  -   \\ 
+2                      &    2333.7905         &  2370.1243   &  -   &  -   \\ 
+3                      &    2352.6054         &  2358.9848   &  -   &  -   \\ 
+4                      &    2341.8494         &  2346.8402   &  -   &  -   \\ 
+5                      &    2326.8056         &  2347.7365   &  -   &  -   \\ 
+6                      &    2342.5205         &  2367.7181   &  -   &  -   \\ 
+7                      &    2339.0471         &  2347.5773   &  -   &  -   \\ 
+8                      &    2335.0176         &  2364.5381   &  -   &  -   \\ 
+9                      &    2344.1943         &  2352.7533   &  -   &  -   \\ 
+10                     &    2347.9277         &  2351.9232   &  -   &  -   \\ \bottomrule
+Média                  &    2357.8679         &  2362.6901   &  -   &  -   \\ 
 \end{tabular}
 \end{table}
 
@@ -114,19 +138,19 @@ Média                                &  2362.6901   &  -   &  -   \\
 \centering
 \caption{Aseprite - Alteração de Código no Mac OS Yosemite }
 \label{tab:alteracao_de_codigo:mac:aseprite}
-\begin{tabular}{llll}
-\textbf{Aseprite} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    &793.1793 &  -   &  -   \\ 
-2                                    &778.4403 &  -   &  -   \\ 
-3                                    &769.6590 &  -   &  -   \\ 
-4                                    &772.5233 &  -   &  -   \\ 
-5                                    &771.1125 &  -   &  -   \\ 
-6                                    &767.2010 &  -   &  -   \\ 
-7                                    &768.7916 &  -   &  -   \\ 
-8                                    &768.6012 &  -   &  -   \\ 
-9                                    &765.9876 &  -   &  -   \\ 
-10                                   &769.1677 &  -   &  -   \\ \bottomrule
-Média                                &772.4663 &  -   &  -   \\ 
+\begin{tabular}{lllll}
+\textbf{Aseprite} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                       & 788.2866           &793.1793 &  -   &  -   \\ 
+2                       & 767.4185           &778.4403 &  -   &  -   \\ 
+3                       & 764.6951           &769.6590 &  -   &  -   \\ 
+4                       & 764.9236           &772.5233 &  -   &  -   \\ 
+5                       & 779.1553           &771.1125 &  -   &  -   \\ 
+6                       & 763.0460           &767.2010 &  -   &  -   \\ 
+7                       & 764.7422           &768.7916 &  -   &  -   \\ 
+8                       & 768.9518           &768.6012 &  -   &  -   \\ 
+9                       & 764.8288           &765.9876 &  -   &  -   \\ 
+10                      & 765.5380           &769.1677 &  -   &  -   \\ \bottomrule
+Média                   & 769.1586           &772.4663 &  -   &  -   \\ 
 \end{tabular}
 \end{table}
 
@@ -134,21 +158,22 @@ Média                                &772.4663 &  -   &  -   \\
 \centering
 \caption{Aseprite - Alteração de Código no Windows 7}
 \label{tab:alteracao_de_codigo:windows:aseprite}
-\begin{tabular}{llll}
-\textbf{Aseprite} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    & 2348.2715  &  -   &  -   \\ 
-2                                    & 2320.0910  &  -   &  -   \\ 
-3                                    & 2316.0552  &  -   &  -   \\ 
-4                                    & 2322.7848  &  -   &  -   \\ 
-5                                    & 2313.0809  &  -   &  -   \\ 
-6                                    & 2311.7142  &  -   &  -   \\ 
-7                                    & 2310.8516  &  -   &  -   \\ 
-8                                    & 2310.6613  &  -   &  -   \\ 
-9                                    & 2307.9774  &  -   &  -   \\ 
-10                                   & 2310.4009  &  -   &  -   \\ \bottomrule
-Média                                & 2317.1889  &  -   &  -   \\ 
+\begin{tabular}{lllll}
+\textbf{Aseprite} & \textbf{master}  & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                     &    2504.0313          & 2348.2715  &  -   &  -   \\ 
+2                     &    2462.2656          & 2320.0910  &  -   &  -   \\ 
+3                     &    2429.9063          & 2316.0552  &  -   &  -   \\ 
+4                     &    2419.6250          & 2322.7848  &  -   &  -   \\ 
+5                     &    2436.5938          & 2313.0809  &  -   &  -   \\ 
+6                     &    2413.1406          & 2311.7142  &  -   &  -   \\ 
+7                     &    2444.6719          & 2310.8516  &  -   &  -   \\ 
+8                     &    2437.4375          & 2310.6613  &  -   &  -   \\ 
+9                     &    2437.3125          & 2307.9774  &  -   &  -   \\ 
+10                    &    2428.8438          & 2310.4009  &  -   &  -   \\ \bottomrule
+Média                 &    2441.3828          & 2317.1889  &  -   &  -   \\ 
 \end{tabular}
 \end{table}
+
 
 \clearpage
 %  PROJETO IRECOVERYPLUSPLUS TABELAS
@@ -158,19 +183,19 @@ Média                                & 2317.1889  &  -   &  -   \\
 \centering
 \caption{iRecoveryplusplus - Alteração de Código no Linux}
 \label{tab:alteracao_de_codigo:linux:irecovery}
-\begin{tabular}{llll}
-\textbf{iRecoveryplusplus} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    & 0.8880   & 1.0075   &  0.8692     \\ 
-2                                    & 0.8912   & 0.9056   &  0.8717     \\ 
-3                                    & 0.8359   & 0.8436   &  0.9154     \\ 
-4                                    & 0.8506   & 0.8626   &  0.8796     \\ 
-5                                    & 0.8314   & 0.9103   &  0.8760     \\ 
-6                                    & 0.8658   & 0.8285   &  0.8405     \\ 
-7                                    & 0.8921   & 0.9060   &  0.9267     \\ 
-8                                    & 0.7975   & 0.9121   &  1.0221     \\ 
-9                                    & 0.8991   & 0.8943   &  0.9513     \\ 
-10                                   & 0.8476   & 0.9039   &  0.9898     \\ \bottomrule
-Média                                & 0.8599   & 0.8975   &  0.9142     \\ 
+\begin{tabular}{lllll}
+\textbf{iRecoveryplusplus} & \textbf{master}   & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                     &   1.1434           & 0.8880   & 1.0075   &  0.8692     \\ 
+2                     &   1.0827           & 0.8912   & 0.9056   &  0.8717     \\ 
+3                     &   1.1257           & 0.8359   & 0.8436   &  0.9154     \\ 
+4                     &   1.0751           & 0.8506   & 0.8626   &  0.8796     \\ 
+5                     &   1.0623           & 0.8314   & 0.9103   &  0.8760     \\ 
+6                     &   1.1633           & 0.8658   & 0.8285   &  0.8405     \\ 
+7                     &   1.0963           & 0.8921   & 0.9060   &  0.9267     \\ 
+8                     &   1.4273           & 0.7975   & 0.9121   &  1.0221     \\ 
+9                     &   1.0871           & 0.8991   & 0.8943   &  0.9513     \\ 
+10                    &   1.4181           & 0.8476   & 0.9039   &  0.9898     \\ \bottomrule
+Média                 &   1.1681           & 0.8599   & 0.8975   &  0.9142     \\ 
 \end{tabular}
 \end{table}
 
@@ -178,19 +203,19 @@ Média                                & 0.8599   & 0.8975   &  0.9142     \\
 \centering
 \caption{iRecoveryplusplus - Alteração de Código no Mac OS Yosemite}
 \label{tab:alteracao_de_codigo:mac:irecovery}
-\begin{tabular}{llll}
-\textbf{iRecoveryplusplus} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    & 2.7420 & 2.6686 & 2.6628 \\ 
-2                                    & 2.6853 & 2.6563 & 2.5578 \\ 
-3                                    & 2.6057 & 2.7956 & 2.7908 \\ 
-4                                    & 2.8325 & 2.6673 & 2.7269 \\ 
-5                                    & 2.8229 & 2.7536 & 2.7051 \\ 
-6                                    & 3.0290 & 2.7412 & 2.6424 \\ 
-7                                    & 3.1176 & 2.6894 & 2.6555 \\ 
-8                                    & 3.1709 & 2.6639 & 2.8007 \\ 
-9                                    & 3.1759 & 2.6337 & 2.6727 \\ 
-10                                   & 3.0473 & 2.6510 & 2.7748 \\ \bottomrule
-Média                                & 2.9229 & 2.6921 & 2.6990 \\ 
+\begin{tabular}{lllll}
+\textbf{iRecoveryplusplus} & \textbf{master}  & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                   &  2.7747              & 2.7420 & 2.6686 & 2.6628 \\ 
+2                   &  2.9096              & 2.6853 & 2.6563 & 2.5578 \\ 
+3                   &  2.8155              & 2.6057 & 2.7956 & 2.7908 \\ 
+4                   &  2.8629              & 2.8325 & 2.6673 & 2.7269 \\ 
+5                   &  2.8847              & 2.8229 & 2.7536 & 2.7051 \\ 
+6                   &  2.8877              & 3.0290 & 2.7412 & 2.6424 \\ 
+7                   &  2.8877              & 3.1176 & 2.6894 & 2.6555 \\ 
+8                   &  2.8634              & 3.1709 & 2.6639 & 2.8007 \\ 
+9                   &  2.7734              & 3.1759 & 2.6337 & 2.6727 \\ 
+10                  &  2.8015              & 3.0473 & 2.6510 & 2.7748 \\ \bottomrule
+Média               &  2.8461              & 2.9229 & 2.6921 & 2.6990 \\ 
 \end{tabular}
 \end{table}
 
@@ -198,19 +223,19 @@ Média                                & 2.9229 & 2.6921 & 2.6990 \\
 \centering
 \caption{iRecoveryplusplus - Alteração de Código no Windows 7}
 \label{tab:alteracao_de_codigo:windows:irecovery}
-\begin{tabular}{llll}
-\textbf{iRecoveryplusplus} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    & 5.0447  & 4.2836  & 4.8445 \\ 
-2                                    & 4.9847  & 4.2937  & 4.8344 \\ 
-3                                    & 4.9947  & 4.3037  & 4.8344 \\ 
-4                                    & 5.0047  & 4.2836  & 4.7944 \\ 
-5                                    & 4.9847  & 4.2536  & 4.8344 \\ 
-6                                    & 4.9947  & 4.3437  & 4.8344 \\ 
-7                                    & 5.0347  & 4.2836  & 4.8244 \\ 
-8                                    & 5.0648  & 4.3437  & 4.8545 \\ 
-9                                    & 5.0447  & 4.3037  & 4.8545 \\ 
-10                                   & 5.0347  & 4.3037  & 4.8244 \\ \bottomrule
-Média                                & 5.0187  & 4.2997  & 4.8334 \\ 
+\begin{tabular}{lllll}
+\textbf{iRecoveryplusplus} &  \textbf{master}  & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                            &  4.4375     & 5.0447  & 4.2836  & 4.8445 \\ 
+2                            &  4.7969     & 4.9847  & 4.2937  & 4.8344 \\ 
+3                            &  4.7969     & 4.9947  & 4.3037  & 4.8344 \\ 
+4                            &  4.8438     & 5.0047  & 4.2836  & 4.7944 \\ 
+5                            &  5.1094     & 4.9847  & 4.2536  & 4.8344 \\ 
+6                            &  5.6875     & 4.9947  & 4.3437  & 4.8344 \\ 
+7                            &  5.0625     & 5.0347  & 4.2836  & 4.8244 \\ 
+8                            &  5.1719     & 5.0648  & 4.3437  & 4.8545 \\ 
+9                            &  5.0156     & 5.0447  & 4.3037  & 4.8545 \\ 
+10                           &  4.7656     & 5.0347  & 4.3037  & 4.8244 \\ \bottomrule
+Média                        &  4.9688     & 5.0187  & 4.2997  & 4.8334 \\ 
 \end{tabular}
 \end{table}
 
@@ -222,19 +247,19 @@ Média                                & 5.0187  & 4.2997  & 4.8334 \\
 \centering
 \caption{Pencil - Alteração de Código no Linux}
 \label{tab:alteracao_de_codigo:linux:pencil}
-\begin{tabular}{llll}
-\textbf{Pencil} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    &  459.8221  &  -   & 455.7540      \\ 
-2                                    &  457.9709  &  -   & 453.2132      \\ 
-3                                    &  458.2263  &  -   & 455.5010      \\ 
-4                                    &  458.2057  &  -   & 454.1596      \\ 
-5                                    &  456.9206  &  -   & 451.7834      \\ 
-6                                    &  458.6638  &  -   & 451.9862      \\ 
-7                                    &  461.7113  &  -   & 454.3775      \\ 
-8                                    &  461.1395  &  -   & 453.9680      \\ 
-9                                    &  456.5944  &  -   & 454.3351      \\ 
-10                                   &  463.0633  &  -   & 453.5500      \\ \bottomrule 
-Média                                &  459.2318  &  -   & 453.8628      \\
+\begin{tabular}{lllll}
+\textbf{Pencil} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                        &   455.6515         &  459.8221  &  -   & 455.7540      \\ 
+2                        &   458.6480         &  457.9709  &  -   & 453.2132      \\ 
+3                        &   453.9845         &  458.2263  &  -   & 455.5010      \\ 
+4                        &   452.3321         &  458.2057  &  -   & 454.1596      \\ 
+5                        &   456.3933         &  456.9206  &  -   & 451.7834      \\ 
+6                        &   452.3841         &  458.6638  &  -   & 451.9862      \\ 
+7                        &   455.8518         &  461.7113  &  -   & 454.3775      \\ 
+8                        &   454.1806         &  461.1395  &  -   & 453.9680      \\ 
+9                        &   455.4113         &  456.5944  &  -   & 454.3351      \\ 
+10                       &   455.8023         &  463.0633  &  -   & 453.5500      \\ \bottomrule 
+Média                    &   455.0640         &  459.2318  &  -   & 453.8628      \\
 \end{tabular}
 \end{table}
 
@@ -242,19 +267,19 @@ Média                                &  459.2318  &  -   & 453.8628      \\
 \centering
 \caption{Pencil - Alteração de Código no Mac OS Yosemite}
 \label{tab:alteracao_de_codigo:mac:pencil}
-\begin{tabular}{llll}
-\textbf{Pencil} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    & 345.0807  &  -   & 355.7133  \\ 
-2                                    & 345.0180  &  -   & 354.2093  \\ 
-3                                    & 346.0400  &  -   & 352.3386  \\ 
-4                                    & 344.8880  &  -   & 352.3613  \\ 
-5                                    & 343.9720  &  -   & 352.1329  \\ 
-6                                    & 348.2278  &  -   & 352.0875  \\ 
-7                                    & 345.0131  &  -   & 351.9197  \\ 
-8                                    & 346.0316  &  -   & 352.4711  \\ 
-9                                    & 343.7028  &  -   & 351.6541  \\ 
-10                                   & 354.0800  &  -   & 352.8941  \\ \bottomrule 
-Média                                & 346.2054  &  -   & 352.7782  \\
+\begin{tabular}{lllll}
+\textbf{Pencil} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                         &  355.0881         & 345.0807  &  -   & 355.7133  \\ 
+2                         &  352.3484         & 345.0180  &  -   & 354.2093  \\ 
+3                         &  353.0415         & 346.0400  &  -   & 352.3386  \\ 
+4                         &  352.9057         & 344.8880  &  -   & 352.3613  \\ 
+5                         &  352.1713         & 343.9720  &  -   & 352.1329  \\ 
+6                         &  352.2540         & 348.2278  &  -   & 352.0875  \\ 
+7                         &  352.2950         & 345.0131  &  -   & 351.9197  \\ 
+8                         &  352.9621         & 346.0316  &  -   & 352.4711  \\ 
+9                         &  353.0637         & 343.7028  &  -   & 351.6541  \\ 
+10                        &  354.2621         & 354.0800  &  -   & 352.8941  \\ \bottomrule 
+Média                     &  353.0392         & 346.2054  &  -   & 352.7782  \\
 \end{tabular}
 \end{table}
 
@@ -262,19 +287,19 @@ Média                                & 346.2054  &  -   & 352.7782  \\
 \centering
 \caption{Pencil - Alteração de Código no Windows 7}
 \label{tab:alteracao_de_codigo:windows:pencil}
-\begin{tabular}{llll}
-\textbf{Pencil} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    & 534.8552 &  -   & 520.8307 \\ 
-2                                    & 525.2313 &  -   & 519.9795 \\ 
-3                                    & 524.4802 &  -   & 519.9094 \\ 
-4                                    & 524.3200 &  -   & 520.3501 \\ 
-5                                    & 526.0625 &  -   & 524.8165 \\ 
-6                                    & 530.8694 &  -   & 521.4516 \\ 
-7                                    & 535.8866 &  -   & 519.6390 \\ 
-8                                    & 539.3316 &  -   & 519.1383 \\ 
-9                                    & 527.6548 &  -   & 518.9781 \\ 
-10                                   & 526.1026 &  -   & 517.6862 \\ \bottomrule 
-Média                                & 529.4794 &  -   & 520.2780 \\
+\begin{tabular}{lllll}
+\textbf{Pencil} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                            &  538.3750      & 534.8552 &  -   & 520.8307 \\ 
+2                            &  521.5781      & 525.2313 &  -   & 519.9795 \\ 
+3                            &  532.3281      & 524.4802 &  -   & 519.9094 \\ 
+4                            &  528.8750      & 524.3200 &  -   & 520.3501 \\ 
+5                            &  533.0938      & 526.0625 &  -   & 524.8165 \\ 
+6                            &  530.6719      & 530.8694 &  -   & 521.4516 \\ 
+7                            &  531.1250      & 535.8866 &  -   & 519.6390 \\ 
+8                            &  538.9375      & 539.3316 &  -   & 519.1383 \\ 
+9                            &  528.5156      & 527.6548 &  -   & 518.9781 \\ 
+10                           &  524.0313      & 526.1026 &  -   & 517.6862 \\ \bottomrule 
+Média                        &  530.7531      & 529.4794 &  -   & 520.2780 \\
 \end{tabular}
 \end{table}
 
@@ -287,19 +312,19 @@ Média                                & 529.4794 &  -   & 520.2780 \\
 \centering
 \caption{Sudoku - Alteração de Código no Linux}
 \label{tab:alteracao_de_codigo:linux:sudoku}
-\begin{tabular}{llll}
-\textbf{Sudoku} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    &  21.8947  & 20.8328   & 21.2337   \\ 
-2                                    &  22.0322  & 20.5527   & 21.2164   \\ 
-3                                    &  22.1801  & 20.7811   & 21.4096   \\ 
-4                                    &  22.3197  & 20.7530   & 21.4550   \\ 
-5                                    &  22.2421  & 20.9125   & 21.5492   \\ 
-6                                    &  22.3303  & 20.5124   & 21.5999   \\ 
-7                                    &  21.7905  & 20.6614   & 21.2639   \\ 
-8                                    &  22.1720  & 20.3108   & 21.3969   \\ 
-9                                    &  22.1463  & 20.4342   & 21.3289   \\ 
-10                                   &  22.1263  & 20.5389   & 21.4003   \\ \bottomrule
-Média                                &  22.1234  & 20.6290   & 21.3854   \\ 
+\begin{tabular}{lllll}
+\textbf{Sudoku} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                     &      22.1422         &  21.8947  & 20.8328   & 21.2337   \\ 
+2                     &      22.0332         &  22.0322  & 20.5527   & 21.2164   \\ 
+3                     &      21.7976         &  22.1801  & 20.7811   & 21.4096   \\ 
+4                     &      22.0241         &  22.3197  & 20.7530   & 21.4550   \\ 
+5                     &      25.4559         &  22.2421  & 20.9125   & 21.5492   \\ 
+6                     &      21.8995         &  22.3303  & 20.5124   & 21.5999   \\ 
+7                     &      21.9687         &  21.7905  & 20.6614   & 21.2639   \\ 
+8                     &      21.4932         &  22.1720  & 20.3108   & 21.3969   \\ 
+9                     &      21.5503         &  22.1463  & 20.4342   & 21.3289   \\ 
+10                    &      21.7469         &  22.1263  & 20.5389   & 21.4003   \\ \bottomrule
+Média                 &      22.2112         &  22.1234  & 20.6290   & 21.3854   \\ 
 \end{tabular}
 \end{table}
 
@@ -307,40 +332,39 @@ Média                                &  22.1234  & 20.6290   & 21.3854   \\
 \centering
 \caption{Sudoku - Alteração de Código no Mac OS Yosemite}
 \label{tab:alteracao_de_codigo:mac:sudoku}
-\begin{tabular}{llll}
-\textbf{Sudoku} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    & 39.1759  & 36.0855  & 38.0805  \\ 
-2                                    & 38.7198  & 36.0266  & 37.7686  \\ 
-3                                    & 38.5172  & 36.1797  & 37.8116  \\ 
-4                                    & 38.7191  & 36.3029  & 37.9859  \\ 
-5                                    & 38.5743  & 36.5839  & 37.7072  \\ 
-6                                    & 38.6160  & 36.3866  & 37.8561  \\ 
-7                                    & 38.5843  & 36.3129  & 37.6857  \\ 
-8                                    & 39.0266  & 36.2605  & 37.7838  \\ 
-9                                    & 39.0707  & 36.1961  & 37.8776  \\ 
-10                                   & 38.8849  & 36.2704  & 37.6040  \\ \bottomrule
-Média                                & 38.7889  & 36.2605  & 37.8161  \\ 
+\begin{tabular}{lllll}
+\textbf{Sudoku} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                          &   38.2454      & 39.1759  & 36.0855  & 38.0805  \\ 
+2                          &   38.3764      & 38.7198  & 36.0266  & 37.7686  \\ 
+3                          &   38.6331      & 38.5172  & 36.1797  & 37.8116  \\ 
+4                          &   38.4525      & 38.7191  & 36.3029  & 37.9859  \\ 
+5                          &   38.6316      & 38.5743  & 36.5839  & 37.7072  \\ 
+6                          &   38.2802      & 38.6160  & 36.3866  & 37.8561  \\ 
+7                          &   38.0891      & 38.5843  & 36.3129  & 37.6857  \\ 
+8                          &   38.0895      & 39.0266  & 36.2605  & 37.7838  \\ 
+9                          &   38.7379      & 39.0707  & 36.1961  & 37.8776  \\ 
+10                         &   38.6165      & 38.8849  & 36.2704  & 37.6040  \\ \bottomrule
+Média                      &   38.4152      & 38.7889  & 36.2605  & 37.8161  \\ 
 \end{tabular}
 \end{table}
-
 
 \begin{table}[!h]
 \centering
 \caption{Sudoku - Alteração de Código no Windows 7}
 \label{tab:alteracao_de_codigo:windows:sudoku}
-\begin{tabular}{llll}
-\textbf{Sudoku} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    & 29.4080 & 27.7256 & 28.7771  \\ 
-2                                    & 29.2778 & 27.8658 & 28.6869  \\ 
-3                                    & 29.4681 & 28.0060 & 28.6469  \\ 
-4                                    & 29.4681 & 28.5668 & 28.8772  \\ 
-5                                    & 29.3279 & 28.0460 & 28.8071  \\ 
-6                                    & 29.4380 & 27.8658 & 28.8872  \\ 
-7                                    & 29.3779 & 27.9459 & 28.6268  \\ 
-8                                    & 29.4180 & 27.9559 & 28.9073  \\ 
-9                                    & 29.4380 & 27.8557 & 28.8372  \\ 
-10                                   & 29.3579 & 27.8658 & 28.7671  \\ \bottomrule
-Média                                & 29.3980 & 27.9699 & 28.7821  \\ 
+\begin{tabular}{lllll}
+\textbf{Sudoku} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                   &       33.1406         & 29.4080 & 27.7256 & 28.7771  \\ 
+2                   &       31.2969         & 29.2778 & 27.8658 & 28.6869  \\ 
+3                   &       33.1406         & 29.4681 & 28.0060 & 28.6469  \\ 
+4                   &       32.0938         & 29.4681 & 28.5668 & 28.8772  \\ 
+5                   &       32.7500         & 29.3279 & 28.0460 & 28.8071  \\ 
+6                   &       32.3906         & 29.4380 & 27.8658 & 28.8872  \\ 
+7                   &       33.4063         & 29.3779 & 27.9459 & 28.6268  \\ 
+8                   &       33.5938         & 29.4180 & 27.9559 & 28.9073  \\ 
+9                   &       33.2969         & 29.4380 & 27.8557 & 28.8372  \\ 
+10                  &       32.1250         & 29.3579 & 27.8658 & 28.7671  \\ \bottomrule
+Média               &       32.7234         & 29.3980 & 27.9699 & 28.7821  \\ 
 \end{tabular}
 \end{table}
 
@@ -352,19 +376,19 @@ Média                                & 29.3980 & 27.9699 & 28.7821  \\
 \centering
 \caption{Qcad - Alteração de Código no Linux}
 \label{tab:alteracao_de_codigo:linux:qcad}
-\begin{tabular}{llll}
-\textbf{Qcad} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    &  3841.8362  &  -   & - \\ 
-2                                    &  3847.9879  &  -   & - \\ 
-3                                    &  3842.2957  &  -   & - \\ 
-4                                    &  3836.0845  &  -   & - \\ 
-5                                    &  3829.0011  &  -   & - \\ 
-6                                    &  3844.4143  &  -   & - \\ 
-7                                    &  3842.4034  &  -   & - \\ 
-8                                    &  3835.4759  &  -   & - \\ 
-9                                    &  3841.4799  &  -   & - \\ 
-10                                   &  3851.2170  &  -   & - \\ \bottomrule
-Média                                &  3841.2196  &  -   & - \\ 
+\begin{tabular}{lllll}
+\textbf{Qcad} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                           &  3922.6279      &  3841.8362  &  -   & - \\ 
+2                           &  3924.2405      &  3847.9879  &  -   & - \\ 
+3                           &  3918.2415      &  3842.2957  &  -   & - \\ 
+4                           &  3927.2388      &  3836.0845  &  -   & - \\ 
+5                           &  3909.7712      &  3829.0011  &  -   & - \\ 
+6                           &  3922.4313      &  3844.4143  &  -   & - \\ 
+7                           &  3915.6719      &  3842.4034  &  -   & - \\ 
+8                           &  3934.1575      &  3835.4759  &  -   & - \\ 
+9                           &  3929.0349      &  3841.4799  &  -   & - \\ 
+10                          &  3927.5069      &  3851.2170  &  -   & - \\ \bottomrule
+Média                       &  3923.0922      &  3841.2196  &  -   & - \\ 
 \end{tabular}
 \end{table}
 
@@ -372,24 +396,69 @@ Média                                &  3841.2196  &  -   & - \\
 \centering
 \caption{Qcad - Alteração de Código no Mac OS Yosemite}
 \label{tab:alteracao_de_codigo:mac:qcad}
-\begin{tabular}{llll}
-\textbf{Qcad} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
-1                                    &    &  -   & - \\ 
-2                                    &    &  -   & - \\ 
-3                                    &    &  -   & - \\ 
-4                                    &    &  -   & - \\ 
-5                                    &    &  -   & - \\ 
-6                                    &    &  -   & - \\ 
-7                                    &    &  -   & - \\ 
-8                                    &    &  -   & - \\ 
-9                                    &    &  -   & - \\ 
-10                                   &    &  -   & - \\ \bottomrule
-Média                                &    &  -   & - \\ 
+\begin{tabular}{lllll}
+\textbf{Qcad} & \textbf{master} & \textbf{pragma once}  & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                        &   3738.2187      &  3361.4522 &  -   & - \\ 
+2                        &   3748.0250      &  3291.7415 &  -   & - \\ 
+3                        &   3727.1546      &  3277.3348 &  -   & - \\ 
+4                        &   3722.7333      &  3278.2429 &  -   & - \\ 
+5                        &   3722.3808      &  3287.2635  &  -   & - \\ 
+6                        &   3727.3305      &  3283.6126 &  -   & - \\ 
+7                        &   3729.9403      &  3282.5581 &  -   & - \\ 
+8                        &   3722.0891      &  3281.0293  &  -   & - \\ 
+9                        &   3731.7932      &  3278.8484 &  -   & - \\ 
+10                       &   3728.2715      &  3282.1175 &  -   & - \\ \bottomrule
+Média                    &   3729.7937      &  3290.4201 &  -   & - \\ 
 \end{tabular}
 \end{table}
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/linux_alteracao_codigo.eps}
+            \caption{Dados Coletados - Alteração de Código no Linux}
+            \label{benchmark_guardas_de_inclusao}
+        \end{figure}
+
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/mac_os_alteracao_codigo.eps}
+            \caption{Dados Coletados - Alteração de Código no Mac OS Yosemite}
+            \label{benchmark_guardas_de_inclusao}
+        \end{figure}
+
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/windows_alteracao_codigo.eps}
+            \caption{Dados Coletados - Alteração de Código no Windows 7}
+            \label{benchmark_guardas_de_inclusao}
+        \end{figure}
+
+\begin{itemize}
+    \item Analise
+Depois da coleta de dados e fazendo simples calculos é possível inferir::
+
+    \begin{enumerate}
+       \item Em projetos a utilização do pragma once não possui interferência
+ significativa no tempo de compilação dos projetos, uma vez que no maior
+ projeto(QCAD) o tempo de compilação foi reduzido em 11.77\% e a remoção
+ do pragma once no projeto aseprite resultou em uma redução de 5\% nos
+ melhores casos. 
+        \item Como a aplicação do método forward declaration foi feita em projetos 
+com tempo de compilação baixo, a diferença foi pouco perceptivel,
+ com um valor maximo de 5\% na redução, no entanto nestes casos sempre foi reduzida. 
+        \item A aplicação do método pimpl não possui uma interferência direta
+ no tempo de compilação, uma vez que este método possui efeito na modularização
+ e promover a interdependência entre os headers, o que melhora a recompilação de
+ um projeto, caso os objetos intermediários da compilação não sejam apagados.
+    \end{enumerate}
+\end{itemize}
 
 \clearpage
 \subsection{Alteração de flags de Otimização}
+
+
+\begin{itemize}
+    \item Tabelas e Gráficos
+\end{itemize}
 
 \subsubsection*{Aseprite}
 
@@ -487,14 +556,14 @@ Média                      & 1.0429       &   0.8906       &  1.1681      &   1
 1                          & 3.3391       &   2.7805       &  2.7747      &  2.8193      &  2.8152      &   2.8780        &  -           \\ 
 2                          & 2.8881       &   2.8706       &  2.9096      &  2.8318      &  3.1142      &   2.8373        &  -           \\ 
 3                          & 2.8863       &   2.7529       &  2.8155      &  2.8035      &  2.6651      &   2.8276        &  -           \\ 
-4                          & 2.7618       &   4.2722       &  2.8629      &  2.9031      &  2.6988      &   2.8334        &  -           \\ 
-5                          & 2.9073       &   18.3670      &  2.8847      &  2.8012      &  3.1920      &   2.8224        &  -           \\ 
-6                          & 2.8206       &   18.9688      &  2.8877      &  2.8034      &  2.7669      &   2.8981        &  -           \\ 
-7                          & 2.8961       &   19.7507      &  2.8877      &  2.8764      &  2.5998      &   2.8582        &  -           \\ 
-8                          & 2.8205       &   16.7768      &  2.8634      &  2.8438      &  2.6642      &   2.8989        &  -           \\ 
-9                          & 2.8858       &   22.1318      &  2.7734      &  2.7415      &  2.6096      &   2.8480        &  -           \\ 
-10                         & 2.7613       &   19.0424      &  2.8015      &  2.9054      &  2.5198      &   2.9179        &  -           \\ \bottomrule
-Média                      & 2.8967       &   12.7714      &  2.8461      &  2.8329      &  2.7646      &   2.8620        &  -           \\ 
+4                          & 2.7618       &   2.2722       &  2.8629      &  2.9031      &  2.6988      &   2.8334        &  -           \\ 
+5                          & 2.9073       &   2.3670      &  2.8847      &  2.8012      &  3.1920      &   2.8224        &  -           \\ 
+6                          & 2.8206       &   2.9688      &  2.8877      &  2.8034      &  2.7669      &   2.8981        &  -           \\ 
+7                          & 2.8961       &   2.7507      &  2.8877      &  2.8764      &  2.5998      &   2.8582        &  -           \\ 
+8                          & 2.8205       &   2.7768      &  2.8634      &  2.8438      &  2.6642      &   2.8989        &  -           \\ 
+9                          & 2.8858       &   2.1318      &  2.7734      &  2.7415      &  2.6096      &   2.8480        &  -           \\ 
+10                         & 2.7613       &   2.0424      &  2.8015      &  2.9054      &  2.5198      &   2.9179        &  -           \\ \bottomrule
+Média                      & 2.8967       &   2.5714      &  2.8461      &  2.8329      &  2.7646      &   2.8620        &  -           \\ 
 \end{tabular}
 \end{table}
 
@@ -693,8 +762,58 @@ Média                 & 3795.9526    &   3079.1739    &   3729.7937  &   3737.8
 \end{tabular}
 \end{table}
 
+
+\begin{itemize}
+    \item  Gráficos
+        
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/linux_otimizacao.eps}
+            \caption{Dados Coletados - Utilização de Flags de Otmização no Linux}
+            \label{flags_de_otimizacao_linux}
+        \end{figure}
+
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/mac_os_otimizacao.eps}
+            \caption{Dados Coletados - Utilização de Flags de Otmização no Mac OS Yosemite}
+            \label{flags_de_otimizacao_mac_os}
+        \end{figure}
+
+
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/windows_otimizacao.eps}
+            \caption{Dados Coletados - Utilização de Flags de Otmização no Windows 7}
+            \label{flags_de_otimizacao_windows}
+        \end{figure}
+
+    \item Analise
+
+        Com a coleta de dados e a analise dos graficos é possivel inferir:
+
+        \begin{enumerate}
+            \item Analisando os projetos que utilizão qmake como gerador de makefile
+ as flags de otimização não tiveram uma grande impacto no tempo de otmização, analisando os gráficos 
+o tempo foi linear. 
+            \item Analisando o projeto que possui como gerador de makefile como cmake a flag
+ \textbf{-Ofast} obteve o menor tempo de redução, com um impacto significativo de aproximadamente de 
+70\% a 75\% em todos os ambientes.
+            \item  Analisando o maior projeto, o tempo de compilação foi reduzido utilizando-se a
+ flag -O0, no entanto este fato ocorreu apenas em ambiente Mac OS Yosemite, no ambiente linux independente
+ da flag de otimização o tempo de compilação variou linearmente com variação quase imperceptível.
+        \end{enumerate}
+\end{itemize}
+
+
+
 \clearpage
 \subsection{Alteração de flags de processamento paralelo}
+
+\begin{itemize}
+    \item Tabelas e Gráficos
+\end{itemize}
+
 
 \subsubsection*{Aseprite}
 %PROJETO ASEPRITE TABELAS 
@@ -997,9 +1116,49 @@ Média        & 3596.1113  &  3685.4563 &   3745.4151 &   3422.6263 &   3103.997
 \end{tabular}
 \end{table}
 
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/linux_processamento_paralelo.eps}
+            \caption{Gráfico flags de processamento paralelo no Linux}
+            \label{flags_de_processamento_paralelo_linux}
+        \end{figure}
+
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/mac_os_processamento_paralelo.eps}
+            \caption{Gráfico flags de processamento paralelo Mac OS Yosemite}
+            \label{flags_de_processamento_paralelo_mac_os}
+        \end{figure}
+
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/windows_processamento_paralelo.eps}
+            \caption{Gráfico flags de processamento paralelo no Windows 7}
+            \label{flags_de_processamento_paralelo_windows}
+        \end{figure}
+
+    \item Analise
+
+    Com a coleta de dados e a geração dos gráficos é possível inferir:
+    
+    \begin{enumerate}
+        \item Independente do sistema operacional com a utilização da flags -j
+ o tempo de compilação mais perceptível em projetos com o tempo de compilação
+ com mais de 8 minutos, com redução de até 50\% com 2 threads.
+        \item Independente do sistema operacional não necessáriamente o aumento
+ da quantidade de threads aumenta o tempo de compilação, uma vez que analisando
+ como exemplo o projeto aseprite ou o qcad do -j6 para o -j8 o tempo de compilação
+ aumenta para o projeto aseprite e reduz para o projeto qcad, e em outros
+ momentos ocorre o inverso.
+    \end{enumerate}
+\end{itemize}
 
 \clearpage
 \subsection{Ferramentas Auxiliares}
+
+\begin{itemize}
+    \item Tabelas e Gráficos
+\end{itemize}
 
 \subsubsection*{Aseprite}
 %PROJETO ASEPRITE TABELAS 
@@ -1302,3 +1461,63 @@ Média  & 1823.5766 &   3847.3672 \\
 Média& 664.3560  &  -    \\ 
 \end{tabular}
 \end{table}
+
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/linux_ccache.eps}
+            \caption{Gráfico dados ferramenta ccache no Linux}
+            \label{grafico_ccache_linux}
+        \end{figure}
+
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/mac_os_ccache.eps}
+            \caption{Gráfico dados ferramenta ccache no Mac OS Yosemite}
+            \label{grafico_ccache_mac_os}
+        \end{figure}
+
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/windows_ccache.eps}
+            \caption{Gráfico dados ferramenta ccache no Windows 7}
+            \label{grafico_cache_windows}
+        \end{figure}
+        \begin{figure}[!h]
+            \centering
+                \includegraphics{figuras/graficos/linux_gold.eps}
+            \caption{Gráfico dados ferramenta gold no Linux}
+            \label{grafico_cache_windows}
+        \end{figure}
+
+
+\begin{itemize}
+    \item Analise
+
+    Com os dados coletados e os gráficos gerados é possivel inferir:
+
+    \begin{enumerate}
+        \item Em todos os sistemas operacionais todos os projetos
+ analisados sofrerão redução de mais de 65\% na redução do tempo de
+ compilação dos projetos depois da primeira compilação.
+        \item Analisando os graficos em todos os ambientes o primeiro
+ caso na compilação utilizando a ferramenta ccache o tempo de compilação é o maior,
+ devido a efetivar uma compilação completa do projeto, nos demais casos o tempo de compilação
+ é reduzido drasticamente pois a ferramenta utiliza um sistema de cache dos arquivos, assim ao
+ verificar que um arquivo já foi compilado ele não compila novamente e apenas utiliza o que foi
+ compilado na primeira vez.
+        \item Com a utilização da ferramenta gold o tempo de compilação
+ dos projetos ocorre uma redução pouco significativa, que obteve no maximo 12\% de
+ redução do tempo de compilação dos projetos. 
+        \item A utilização da ferramenta gold teve maior impacto no projeto aseprite, que utiliza
+ como gerador de makefile o cmake.
+    \end{enumerate}
+\end{itemize}
+
+\clearpage
+\subsection{Analise Geral}
+    Após a analise de todos os dados coletados pode-se perceber dependendo do sistema operacional o
+ tempo de compilação dos projetos é alterado, sendo que o tempo é maior para o sistema operacional Windows 7,
+ devido ao mesmo ser compilado utilizando um ambiente de desenvolvimento virtual.
+    Para o sistema operacional Mac OS Yosemite os menores tempos de compilação foram encontrados neste
+ sistema operacional uma vez que este utiliza como backend um conjunto de codigo modularizado e reutilizavel
+ que proporcional maior performace, que é proposto pelo LLVM.
