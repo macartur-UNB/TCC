@@ -3,10 +3,11 @@
 % palavras chaves para pesquisa
 %PROJETO ASEPRITE TABELAS 
 
-\section{Aplicação ao Ambiente}
+\section{Aplicado no Ambiente}
 
 \begin{itemize}
     \item Tabelas e Gráficos
+\end{itemize}
 
 \begin{table}[!ht]
 \centering
@@ -93,22 +94,23 @@
 \begin{itemize}
      \item Analise
 
-    Com base nos dados coletados e o gráfico gerado é possível inferir:
+    Com base nos dados coletados e o gráfico gerado é possível concluir :
     \begin{enumerate}
-        \item Todos os métodos que incluem \textbf{pragma once} atigiram tempo de compilação maior que os métodos que não possuem, independente do sistema operacional.
-        \item  Dos métodos que não possuem pragma once o método redundante foi o que atingiu o menor tempo de compilação.
-        \item  Em sistema operacional Mac OS Yosemite o tempo de compilação entre os métodos possui a menor variação.
-        \item  Em ambiente Windows 7 o tempo de compilação dos métodos é entre 3 e 4 vezes maior que nos sistemas. 
+        \item Todos os métodos que incluem \texttt{pragma once} atigiram tempo de compilação maior que os métodos que não possuem, independente do sistema operacional;
+        \item Dos métodos que não possuem \texttt{\#pragma once} o método redundante foi o que atingiu o menor tempo de compilação;
+        \item Em sistema operacional Mac OS Yosemite o tempo de compilação entre os métodos possui a menor variação.
+        \item Em ambiente Windows 7 o tempo de compilação dos métodos é entre 3 e 4 vezes maior que nos outros sistemas operacionais. 
     \end{enumerate}
 \end{itemize}
 
 \clearpage
-\section{Aplicação a Projeto}
+\section{Aplicado no Projeto}
 
-\subsection{Alteração de Código}\label{resultados_alteracao_de_codigo}
+\subsection{Alteração no Código}\label{resultados_alteracao_de_codigo}
 
 \begin{itemize}
     \item Tabelas e Gráficos
+
 \end{itemize}
 
 \subsubsection*{Aseprite}
@@ -411,50 +413,50 @@ Média                       &  3923.0922      &  3841.2196  &  -   & - \\
 Média                    &   3729.7937      &  3290.4201 &  -   & - \\ 
 \end{tabular}
 \end{table}
-        \begin{figure}[!h]
-            \centering
-                \includegraphics{figuras/graficos/linux_alteracao_codigo.eps}
-            \caption{Dados Coletados - Alteração de Código no Linux}
-            \label{benchmark_guardas_de_inclusao}
-        \end{figure}
 
-        \begin{figure}[!h]
-            \centering
-                \includegraphics{figuras/graficos/mac_os_alteracao_codigo.eps}
-            \caption{Dados Coletados - Alteração de Código no Mac OS Yosemite}
-            \label{benchmark_guardas_de_inclusao}
-        \end{figure}
+\begin{figure}[b]
+    \centering
+        \includegraphics{figuras/graficos/linux_alteracao_codigo.eps}
+    \caption{Dados Coletados - Alteração de Código no Linux}
+    \label{benchmark_guardas_de_inclusao}
+\end{figure}
 
-        \begin{figure}[!h]
-            \centering
-                \includegraphics{figuras/graficos/windows_alteracao_codigo.eps}
-            \caption{Dados Coletados - Alteração de Código no Windows 7}
-            \label{benchmark_guardas_de_inclusao}
-        \end{figure}
+\begin{figure}[b]
+    \centering
+        \includegraphics{figuras/graficos/mac_os_alteracao_codigo.eps}
+    \caption{Dados Coletados - Alteração de Código no Mac OS Yosemite}
+    \label{benchmark_guardas_de_inclusao}
+\end{figure}
+
+\begin{figure}[b]
+    \centering
+        \includegraphics{figuras/graficos/windows_alteracao_codigo.eps}
+    \caption{Dados Coletados - Alteração de Código no Windows 7}
+    \label{benchmark_guardas_de_inclusao}
+\end{figure}
+
 
 \begin{itemize}
     \item Analise
-Depois da coleta de dados e fazendo simples calculos é possível inferir::
+    \subitem Depois da coleta de dados e fazendo simples calculos conclui-se que:
 
     \begin{enumerate}
-       \item Em projetos a utilização do pragma once não possui interferência
+       \item Em projetos a utilização do \texttt{\#pragma once} não possui interferência
  significativa no tempo de compilação dos projetos, uma vez que no maior
  projeto(QCAD) o tempo de compilação foi reduzido em 11.77\% e a remoção
- do pragma once no projeto aseprite resultou em uma redução de 5\% nos
- melhores casos. 
-        \item Como a aplicação do método forward declaration foi feita em projetos 
+ do \texttt{\#pragma once} no projeto aseprite resultou em uma redução de 5\%;
+        \item Como a aplicação do método \textit{forward declaration} foi feita em projetos 
 com tempo de compilação baixo, a diferença foi pouco perceptivel,
- com um valor maximo de 5\% na redução, no entanto nestes casos sempre foi reduzida. 
-        \item A aplicação do método pimpl não possui uma interferência direta
+ com um valor máximo de 5\% na redução, no entanto ocorreu uma redução em todos os casos;
+        \item A aplicação do método \textit{pimpl} não possui uma interferência direta
  no tempo de compilação, uma vez que este método possui efeito na modularização
  e promover a interdependência entre os headers, o que melhora a recompilação de
- um projeto, caso os objetos intermediários da compilação não sejam apagados.
+ um projeto, caso os objetos intermediários da compilação não sejam removidos.
     \end{enumerate}
 \end{itemize}
 
 \clearpage
 \subsection{Alteração de flags de Otimização}
-
 
 \begin{itemize}
     \item Tabelas e Gráficos
@@ -763,42 +765,41 @@ Média                 & 3795.9526    &   3079.1739    &   3729.7937  &   3737.8
 \end{table}
 
 
-\begin{itemize}
-    \item  Gráficos
         
-        \begin{figure}[!h]
-            \centering
-                \includegraphics{figuras/graficos/linux_otimizacao.eps}
-            \caption{Dados Coletados - Utilização de Flags de Otmização no Linux}
-            \label{flags_de_otimizacao_linux}
-        \end{figure}
+\begin{figure}[!h]
+    \centering
+        \includegraphics{figuras/graficos/linux_otimizacao.eps}
+    \caption{Dados Coletados - Utilização de Flags de Otmização no Linux}
+    \label{flags_de_otimizacao_linux}
+\end{figure}
 
-        \begin{figure}[!h]
-            \centering
-                \includegraphics{figuras/graficos/mac_os_otimizacao.eps}
-            \caption{Dados Coletados - Utilização de Flags de Otmização no Mac OS Yosemite}
-            \label{flags_de_otimizacao_mac_os}
-        \end{figure}
+\begin{figure}[!h]
+    \centering
+        \includegraphics{figuras/graficos/mac_os_otimizacao.eps}
+    \caption{Dados Coletados - Utilização de Flags de Otmização no Mac OS Yosemite}
+    \label{flags_de_otimizacao_mac_os}
+\end{figure}
 
 
-        \begin{figure}[!h]
-            \centering
-                \includegraphics{figuras/graficos/windows_otimizacao.eps}
-            \caption{Dados Coletados - Utilização de Flags de Otmização no Windows 7}
-            \label{flags_de_otimizacao_windows}
-        \end{figure}
+\begin{figure}[!h]
+    \centering
+        \includegraphics{figuras/graficos/windows_otimizacao.eps}
+    \caption{Dados Coletados - Utilização de Flags de Otmização no Windows 7}
+    \label{flags_de_otimizacao_windows}
+\end{figure}
 
+\begin{itemize}
     \item Analise
 
-        Com a coleta de dados e a analise dos graficos é possivel inferir:
+        Com a coleta de dados e a analise dos gráficos conclue-se:
 
         \begin{enumerate}
-            \item Analisando os projetos que utilizão qmake como gerador de makefile
- as flags de otimização não tiveram uma grande impacto no tempo de otmização, analisando os gráficos 
+            \item Analisando os projetos que utilizão qmake como gerador de \textit{makefile}
+ as flags de otimização não tiveram uma grande impacto no tempo de otmização, como mostrado nos gráficos 
 o tempo foi linear. 
-            \item Analisando o projeto que possui como gerador de makefile como cmake a flag
- \textbf{-Ofast} obteve o menor tempo de redução, com um impacto significativo de aproximadamente de 
-70\% a 75\% em todos os ambientes.
+            \item Analisando o projeto que possui como gerador de \textit{makefile} como
+ \textit{cmake} a \textit{flag} \textbf{-Ofast} obteve o menor tempo de redução, com um impacto
+ significativo de aproximadamente de 70\% a 75\% em todos os ambientes.
             \item  Analisando o maior projeto, o tempo de compilação foi reduzido utilizando-se a
  flag -O0, no entanto este fato ocorreu apenas em ambiente Mac OS Yosemite, no ambiente linux independente
  da flag de otimização o tempo de compilação variou linearmente com variação quase imperceptível.
@@ -1137,17 +1138,18 @@ Média        & 3596.1113  &  3685.4563 &   3745.4151 &   3422.6263 &   3103.997
             \label{flags_de_processamento_paralelo_windows}
         \end{figure}
 
+\begin{itemize}
     \item Analise
 
-    Com a coleta de dados e a geração dos gráficos é possível inferir:
+    Com a coleta de dados e a geração dos gráficos conclue-se:
     
     \begin{enumerate}
-        \item Independente do sistema operacional com a utilização da flags -j
- o tempo de compilação mais perceptível em projetos com o tempo de compilação
- com mais de 8 minutos, com redução de até 50\% com 2 threads.
+        \item Independente do sistema operacional com a utilização da \textit{flags -j}
+ o tempo de compilação mais perceptível em projetos que demoram mais de 8 minutos para compilar,
+ gerando uma redução de até 50\% com 2 threads.
         \item Independente do sistema operacional não necessáriamente o aumento
  da quantidade de threads aumenta o tempo de compilação, uma vez que analisando
- como exemplo o projeto aseprite ou o qcad do -j6 para o -j8 o tempo de compilação
+ como exemplo o projeto aseprite ou o qcad do \texttt{-j6} para o \texttt{-j8} o tempo de compilação
  aumenta para o projeto aseprite e reduz para o projeto qcad, e em outros
  momentos ocorre o inverso.
     \end{enumerate}
@@ -1493,31 +1495,46 @@ Média& 664.3560  &  -    \\
 \begin{itemize}
     \item Analise
 
-    Com os dados coletados e os gráficos gerados é possivel inferir:
+    Com os dados coletados e os gráficos gerados conclue-se:
 
     \begin{enumerate}
         \item Em todos os sistemas operacionais todos os projetos
- analisados sofrerão redução de mais de 65\% na redução do tempo de
- compilação dos projetos depois da primeira compilação.
-        \item Analisando os graficos em todos os ambientes o primeiro
- caso na compilação utilizando a ferramenta ccache o tempo de compilação é o maior,
+ analisados sofrerão redução de mais de 65\%  depois da primeira compilação.
+        \item Analisando os gráficos em todos os ambientes o primeiro
+ caso na compilação utilizando a ferramenta \textit{ccache} o tempo de compilação é o maior,
  devido a efetivar uma compilação completa do projeto, nos demais casos o tempo de compilação
  é reduzido drasticamente pois a ferramenta utiliza um sistema de cache dos arquivos, assim ao
  verificar que um arquivo já foi compilado ele não compila novamente e apenas utiliza o que foi
  compilado na primeira vez.
-        \item Com a utilização da ferramenta gold o tempo de compilação
+        \item Com a utilização da ferramenta \textit{gold} o tempo de compilação
  dos projetos ocorre uma redução pouco significativa, que obteve no maximo 12\% de
  redução do tempo de compilação dos projetos. 
-        \item A utilização da ferramenta gold teve maior impacto no projeto aseprite, que utiliza
+        \item A utilização da ferramenta \textit{gold} teve maior impacto no projeto aseprite, que utiliza
  como gerador de makefile o cmake.
     \end{enumerate}
 \end{itemize}
 
 \clearpage
 \subsection{Analise Geral}
-    Após a analise de todos os dados coletados pode-se perceber dependendo do sistema operacional o
+    Com a analise de todos os dados coletados conclue-se que dependendo do sistema operacional o
  tempo de compilação dos projetos é alterado, sendo que o tempo é maior para o sistema operacional Windows 7,
  devido ao mesmo ser compilado utilizando um ambiente de desenvolvimento virtual.
+
     Para o sistema operacional Mac OS Yosemite os menores tempos de compilação foram encontrados neste
  sistema operacional uma vez que este utiliza como backend um conjunto de codigo modularizado e reutilizavel
  que proporcional maior performace, que é proposto pelo LLVM.
+
+    Métodos que realizam alteração de código utilizando  não tiveram impactos relevantes, pois as alterações
+ reduziram no maximo 12\% do tempo de compilação.
+
+    Para a alteração de flags no processo de compilação a flags \texttt{-Ofast} foi a mais eficiente,
+ no entanto foi póssivel visualizar este resultado apenas no projeto Aseprite, que possui o
+ \textit{cmake} gerador de \textit{makefile},todos os outros projetos que utilizam o qmake
+ como gerador de makefile foram ineficientes.
+
+    No processo de compilação utilizando threads os resultados são bons uma vez que
+ ao utilizar 2 \textit{threads}, o tempo de compilação foi reduzido pela métade.
+
+    Na analise das ferramentas o \textit{gold} não foi póssivel identificar nenhuma redução significativa,
+ no entanto a ferramenta \textit{ccache} a redução é significativa pois na primeira compilação o tempo o máximo
+ e na segunda em diante o tempo é reduzido em mais 65\%.

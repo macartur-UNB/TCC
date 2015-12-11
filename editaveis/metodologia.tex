@@ -26,23 +26,23 @@ A revisão bibliográfica foi a primeira atividade realizada para a construção
 Para seleção de métodos foi realizada uma priorização dos métodos, técnicas e
  ferramentas encontradas durante a revisão bibliográfica. A priorização levou
  em conta o esforço da implementação/execução dos métodos, o tempo para a
- montagem de caso e o recurso computacional necessário para a criação
+ montagem de cada caso e o recurso computacional necessário para a criação
  destes.
 
 Os métodos selecionados foram:
 
 \begin{itemize}
-	\item \textit{Include Guards}, descrito na seção
+	\item \textit{Include Guards}, descrito na Seção
  \ref{include_guards_section};
-	\item \textit{Forward Declaration}, descrito na seção
+	\item \textit{Forward Declaration}, descrito na Seção
  \ref{forward_declaration_section};
-	\item Makefile, descrito na seção
+	\item Makefile, descrito na Seção
  \ref{Makefile_section};
-	\item Otimização de baixo nível descrito na seção
+	\item Otimização de baixo nível descrito na Seção
  \ref{Otimizacao_de_baixo_nivel};
-	\item \textit{Pimpl Idiom} descrito na seção
+	\item \textit{Pimpl Idiom} descrito na Seção
  \ref{Pimpl_Idiom};
-	\item Ferramentas de otimização descritas na seção
+	\item As ferramentas de otimização descritas na Seção
  \ref{ferramentas_de_otimizacao};
 \end{itemize}
 
@@ -54,34 +54,33 @@ Para a seleção dos projetos foram analisadas 3 plataformas de controle de info
 de software livre: \textit{Openhub}, \textit{Github}, \textit{Gitlab}.
 
 \textit{Openhub}, conhecido como Black Duck Open Hubi, é uma plataforma que busca dados através
- dos sistemas de versionamento (tais como CVS, Git ,Subversion,Bazaar e Mercurial),
+ dos sistemas de versionamento (tais como CVS, Git, Subversion, Bazaar e Mercurial),
  exibindo estatísticas sobre o histórico de um projeto e métricas do software.
- Esta plataforma não foi selecionada devido a possuir um sistema de busca baseada em tags,
- isso dificulta encontrar projetos específicos, pois o desenvolvedor que deve prover
+ Esta plataforma não foi selecionada devido a possuir um sistema de busca baseada em \textit{tags},
+ o que dificultava encontrar projetos específicos, pois o desenvolvedor que deve prover
  informações do projeto, e em alguns casos estas informações estão incoerentes e ou
- redundantes. Além deste não possuir um sistema de busca avançado.
+ redundantes. Além disso não havia sistema de busca avançado.
 
-\textit{Gitlab} é uma plataforma de gerenciamento de software, que permite os
- desenvolvedores criarem uma instância própria da ferramenta, para o armazenamento
+\textit{Gitlab} é uma plataforma de gerenciamento de software que permite os
+ desenvolvedores criarem uma instância própria da ferramenta para o armazenamento
  de um projeto de software em uma infraestrutura própria. Esta ferramenta foi
- descartada pois também possui sistema de tags para encontrar projetos de uma linguagem,
-não permite selecionar múltiplas tags e não possui outro filtro de pesquisa avançada.
+ descartada pois também possui sistema de \textit{tags} para localizar projetos de uma linguagem,
+não permite selecionar múltiplas tags e não possui filtro de pesquisa avançada.
 
 \textit{Github} é uma plataforma de gerenciamento de projetos de software que
-utiliza o sistema de versionamento git. Esta plataforma foi selecionada devido a
- possibilidade de fazer pesquisa avançada utilizando tags, selecionar quantidade de forks,
+utiliza o sistema de versionamento \textit{git}. Esta plataforma foi selecionada devido a
+ possibilidade de fazer pesquisa avançada utilizando \textit{tags}, selecionar quantidade de \textit{forks},
  linguagem principal do projeto, conteúdo de texto dentro da descrição de um projeto e
  quantidade de estrelas dadas para um projeto.
 
 
-A pesquisa avançada foi realizada no dia 27 de agosto de 2015, e foi utilizada
- com os seguintes critérios:
+A pesquisa avançada foi realizada no dia 27 de agosto de 2015, utilizando os seguintes critérios:
 
 \begin{itemize}
     \item \textbf{Busca por palavra chave nas informações dos projetos}
         \subitem \textbf{mac os} - esta palavra foi selecionada para encontrar projetos
- que seja possível ser compilado em um sistema operacional da Apple. Este sistema tem
- como padrão o compilador clang e gcc/g++ como front-end  e como back-end possui o LLVM.
+ que poderiam ser compilados em um sistema operacional da Apple. Este sistema tem
+ como padrão o compilador clang e gcc/g++ como \textit{front-end}  e como \textit{back-end} possui o LLVM.
         \subitem \textbf{windows} - esta palavra foi selecionada para encontrar 
  que possui compatibilidade para instalar os compiladores gcc/g++.
 \footnote{Para instalar um compilador é necessário utilizar uma ferramenta de criação de ambiente de desenvolvimento como \textit{cygwin}, \textit{mingw}, \textit{visual studio}, entre outros.}
@@ -125,15 +124,17 @@ Após esta pesquisa avançada foi selecionado os 5 primeiros projetos.
 
 \begin{table}[h]
 \centering
-\begin{tabular}{lllll}
-\textbf{Projeto} & \textbf{Linguagem} & \textbf{Estrelas} & \textbf{Forks} & \textbf{Porcentagem em C++} \\ \toprule
-Aseprite & C++ & 437  & 77  & 62.1\% \\ \midrule 
-Pencil & C++ &  161 & 22  & 54.6\% \\ \midrule
-Qcad & C++ & 110 & 51 & 80.8\% \\ \midrule 
-Sudoku & C++ &  44  & 24 & 94.9\% \\ \midrule
-iRecoveryplusplus & C++ & 17 & 11 & 84.7\%  \\ \bottomrule
+\tiny
+\begin{tabular}{llllll}
+\textbf{Projeto} & \textbf{Linguagem} & \textbf{Estrelas} & \textbf{Forks} & \textbf{Porcentagem em C++} & \textbf{Gerador de Makefile}\\ \toprule
+Aseprite & C++ & 437  & 77  & 62.1\% & CMake \\ \midrule 
+Pencil & C++ &  161 & 22  & 54.6\%   & QMake \\ \midrule
+Qcad & C++ & 110 & 51 & 80.8\%       & QMake \\ \midrule 
+Sudoku & C++ &  44  & 24 & 94.9\%    & Qmake \\ \midrule
+iRecoveryplusplus & C++ & 17 & 11 & 84.7\% & -  \\ \bottomrule
 \end{tabular} 
 \caption{Projetos Selecionados}
+\tiny
 \label{projetos_selecionados}
 \end{table}
 
@@ -476,7 +477,7 @@ utilizando um \textit{fork} do github
 
 \section {Estudo de Caso}
 
-\subsection{Aplicado ao Ambiente}
+\subsection{Aplicado no Ambiente}
 
 Os casos de guardas de inclusão foram realizados utilizando script de benchmark,
  na qual os métodos detalhados na seção \ref{include_guards_section} foram
@@ -518,30 +519,56 @@ Os scripts abordam os métodos:
 	\item redundância de Guarda de Inclusão.
 \end{itemize}
 
-\subsection{Aplicado a Projeto}
+\subsection{Aplicado no Projeto}
 
 Antes da realização do estudo de caso foi necessário identificar quais
  as técnicas que poderiam ser aplicadas em cada um dos projetos.
- A tabela \ref{tecnicas_que_podem_ser_aplicadas} mostra esta analise em cada projeto.
+ As tabelas \ref{tecnicas_que_podem_ser_aplicadas_codigo}, \ref{tecnicas_que_podem_ser_aplicadas_flag} e 
+\ref{tecnicas_que_podem_ser_aplicadas_ferramenta} mostram esta analise.
 
 
 \begin{table}[h]
-\tiny
-\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}p{2cm}}
-
-\textbf{Projeto} & \multicolumn{7}{c}{técnicas que podem ser aplicadas} \\ 
- & \multicolumn{3}{c}{Alteração de Código} & \multicolumn{2}{c}{Alteração de Flags} & \multicolumn{2}{c}{ferramentas auxiliares}  \\ \toprule
-& \textbf{pragma once} & \textbf{Forward Declaration} & \textbf{Pimpl Idiom} & \textbf{Makafile} &
- \textbf{Otimização de Baixo Nível} & \textbf{Ccache} & \textbf{Gold} \\ 
-iRecoveryplusplus & SIM & SIM & SIM &  SIM & SIM & SIM & SIM \\ 
-Sudoku &  SIM & SIM & SIM & SIM & SIM & SIM & SIM \\ 
-Pencil & SIM & NÃO &  SIM & SIM & SIM & SIM & SIM \\ 
-Aseprite &  SIM & NÃO & NÃO & SIM & SIM & SIM & SIM \\ 
-Qcad &  SIM & NÃO & NÃO & SIM & SIM & SIM & SIM \\ \bottomrule
+\centering
+\begin{tabular}{llll}
+\textbf{Projeto} & \textbf{pragma once} & \textbf{Forward Declaration} & \textbf{Pimpl Idiom}  \\ \toprule 
+iRecoveryplusplus & SIM & SIM & SIM  \\ 
+Sudoku &  SIM & SIM & SIM  \\ 
+Pencil & SIM & NÃO &  SIM \\ 
+Aseprite &  SIM & NÃO & NÃO  \\ 
+Qcad &  SIM & NÃO & NÃO  \\ \bottomrule
 \end{tabular} 
-\caption{Técnicas que podem ser aplicadas}
-\label{tecnicas_que_podem_ser_aplicadas}
+\caption{Técnicas que podem ser aplicadas ao código}
+\label{tecnicas_que_podem_ser_aplicadas_codigo}
 \end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\textbf{Projeto} & \textbf{Makafile} &  \textbf{Otimização de Baixo Nível} \\ \toprule
+iRecoveryplusplus & SIM & SIM\\ 
+Sudoku &  SIM & SIM  \\ 
+Pencil &  SIM & SIM  \\ 
+Aseprite & SIM & SIM  \\ 
+Qcad &   SIM & SIM\\ \bottomrule
+\end{tabular} 
+\caption{\textit{Flags} que podem ser utilizadas}
+\label{tecnicas_que_podem_ser_aplicadas_flag}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\textbf{Projeto} &  \textbf{Ccache} & \textbf{Gold} \\ \toprule 
+iRecoveryplusplus &  SIM & SIM \\ 
+Sudoku            &  SIM & SIM \\ 
+Pencil            &  SIM & SIM \\ 
+Aseprite          &  SIM & SIM \\ 
+Qcad              &  SIM & SIM \\ \bottomrule
+\end{tabular} 
+\caption{Ferramentas que podem ser utilizadas}
+\label{tecnicas_que_podem_ser_aplicadas_ferramenta}
+\end{table}
+
 
 \subsubsection{Alteração de Código}
 
@@ -602,163 +629,157 @@ a compilação e a quantidade de \textit{jobs}(\textit{threads}).
 
 \begin{itemize}
        \item {iRecoveryplusplus}
-		\subitem Para compilar o projeto é necessário realizar o clone do projeto
- com o comando \ref{clonando_irecoveryplusplus}, e compilar o projeto
- segundo a tabela \ref{tecnicas_que_podem_ser_aplicadas}.
- Para remover os arquivos binários ou compilar utilizando o comando ccache
- ou gold deve-se utilizar a linha de comando da tabela \ref{t_compilacao_irecoveryplusplus}.
+        \subitem Para compilar o projeto iRecoveryplusplus é necessário
+ realizar o clone do projeto no github, e compilar utilizando os comandos no Código 
+\ref{clonando_irecoveryplusplus}.
 
-\begin{lstlisting}[language=bash, caption={Clonado Projeto iRecoveryplusplus},
+
+\begin{lstlisting}[language=bash, caption={Clonado e compilando o projeto iRecoveryplusplus},
                   label=clonando_irecoveryplusplus]
+
+    # clonando o projeto
     $ git clone https://github.com/macartur-tcc/iRecoveryplusplus.git 
     $ cd iRecoveryplusplus
+
+    # compilando no Linux, Mac OS Yosemite ou Windows 7
+    $ make linux 
+    
+    # compilar utilizando o linker gold no Linux
+    $ make linux  CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold"
+
+    # compilar utilizando a ferramenta ccache
+    $ make linux CC="ccache gcc" CXX="ccache g++"
+
+    # removendo arquivos binarios gerados
+    rm bin/*
 \end{lstlisting}
-
-
-\begin{table}[h]
-\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}}
-\toprule
- & \multicolumn{3}{c}{Sistema Operacional} \\ \toprule 
-\textbf{Atividade} & \textbf{Linux} & \textbf{Mac OS Yosemite} & \textbf{Windows 7}  \\ \midrule 
-\textbf{compilar} & \multicolumn{3}{c}{make linux} \\ \midrule
-\textbf{ccache} & \multicolumn{3}{c}{make linux CC="ccache gcc" CXX="ccache g++"} \\ \midrule
-\textbf{gold} & \multicolumn{3}{c}{make linux  CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold"} \\ \midrule
-\textbf{remover binários} & \multicolumn{3}{c}{rm bin/*} \\ \bottomrule
-\end{tabular} 
-\caption{Comandos para compilação do projeto iRecoveryPlusPlus}
-\label{t_compilacao_irecoveryplusplus}
-\end{table}
 
     \item \textbf{Sudoku}
-    \subitem Após realizar o clone do projeto do github
- \ref{clonando_sudoku} é necessário  gerar os Makefile,
- para isso utiliza-se o comando de geração de makefile na tabela .
-Depois de gerado a compilação pode ser feita utilizando
- os comandos da tabela \ref{t_compilacao_sudoku}.
+    \subitem Para compilar o projeto Sudoku é necessário realizar o clone do projeto
+no github utilizando os comandos no Cógido \ref{clonando_sudoku}.
+\footnote{Neste projeto e necessário remover a flag -archi386 do arquivo Makefile gerado na raiz, pois em sistemas Mac OS esta flag causa erro.}
 
-    
-\begin{lstlisting}[language=bash, caption={Clonado Projeto iRecoveryplusplus},
+\begin{lstlisting}[language=bash, caption={Clonado e compilando o Projeto Sudoku},
                   label=clonando_sudoku]
+
+    # clonando projeto do github 
     $ git clone https://github.com/macartur-tcc/sudoku.git 
     $ cd sudoku/src
+
+    # gerando makefile
+    $ qmake Sudoku_release.pro
+
+    # compilando no Linux, Mac OS ou Windows 7
+    $ make
+
+    # compilar no Linux utiizando o linker gold
+    $ make  CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold"
+
+    # compilando utilizando a ferramenta ccache
+    $ make CC="ccache gcc" CXX="ccache g++"
+
+    # remover arquivos binarios gerados
+    $ make clean
+    
 \end{lstlisting}
 
-
-\begin{table}[h]
-\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}}
-\toprule
- & \multicolumn{3}{c}{Sistema Operacional} \\ \toprule 
-\textbf{Atividade} & \textbf{Linux} & \textbf{Mac OS Yosemite} & \textbf{Windows 7}  \\ \midrule 
-\textbf{gerar makefile}
-\footnote{Neste projeto e necessário remover a flag -archi386 do arquivo Makefile gerado na raiz, pois em sistemas Mac OS esta flag causa erro.}
- & \multicolumn{3}{c}{qmake Sudoku\_release.pro} \\ \midrule
-\textbf{compilar} & \multicolumn{3}{c}{make } \\ \midrule
-\textbf{ccache} & \multicolumn{3}{c}{make CC="ccache gcc" CXX="ccache g++"} \\ \midrule
-\textbf{gold} & \multicolumn{3}{c}{make  CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold"} \\ \midrule
-\textbf{remover binários} & \multicolumn{3}{c}{make clean} \\ \bottomrule
-\end{tabular} 
-\caption{Comandos para compilação do projeto Sudoku}
-\label{t_compilacao_sudoku}
-\end{table}
-
     \item \textbf{Pencil}
-    \subitem Após realizar o clone do projeto do github
-\ref{clonando_pencil} é necessário  gerar os Makefile,
- para isso utiliza-se o comando de geração de makefile na tabela \ref{t_compilacao_pencil}.
-Após a geração dos makefiles a tabela apresenta os comandos utilizados para compilar o projeto.
+    \subitem Para compilar o projeto Pencil é necessário realizar
+ o clone do projeto no github e executar os comandos mostrados no
+ Código \ref{clonando_pencil} 
 
 \begin{lstlisting}[language=bash, caption={Clonado Projeto Pencil},
                   label=clonando_pencil]
+    #clonando o projeto do github
     $ git clone https://github.com/macartur-tcc/pencil.git
     $ cd pencil
+
+    # gerando makefile para ambiente Linux e Windows 7
+    $ qmake -r
+
+    # gerando makefile para ambiente Mac OS Yosemite
+    $ qmake -r RESOURCES=./pencil.qrc  
+    
+    # compilando 
+    $ make
+
+    # compilando utilizando a ferramenta ccache
+    $ make CC="ccache gcc" CXX="ccache g++"
+
+    # compilando utilizando gold
+    make CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold"
+
+    # removendo arquivos binarios gerados
+    $ make clean
+
 \end{lstlisting}
 
-
-\begin{table}[h]
-\begin{tabular}{p{2cm}p{2cm}p{2cm}p{2cm}}
-\toprule
- & \multicolumn{3}{c}{Sistema Operacional} \\ \toprule 
-\textbf{Atividade} & \textbf{Linux} & \textbf{Mac OS Yosemite} & \textbf{Windows 7}  \\ \midrule 
-\textbf{gerar makefile}
-\footnote{Em ambiente Mac OS Yosemite é necessário passar o arquivo de traduções do projeto, este arquivo não é reconhecido automaticamente neste projeto.}
- & qmake -r & qmake -r RESOURCES=./pencil.qrc  & qmake -r \\ \midrule
-\textbf{compilar} & \multicolumn{3}{c}{make } \\ \midrule
-\textbf{ccache} & \multicolumn{3}{c}{make CC="ccache gcc" CXX="ccache g++"} \\ \midrule
-\textbf{gold} & \multicolumn{3}{c}{make CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold"} \\ \midrule
-\textbf{remover binários} & \multicolumn{3}{c}{make clean} \\ \bottomrule
-\end{tabular} 
-\caption{Comandos para compilação do projeto Pencil}
-\label{t_compilacao_pencil}
-\end{table}
-
     \item \textbf{Aseprite}
-    \subitem Após realizar o clone do projeto do github
-\ref{clonando_aseprite} é necessário  gerar os Makefile,
- para isso utiliza-se o comando de geração de makefile na tabela 
-\ref{t_compilacao_aseprite}.
+    \subitem Para compilar o projeto Aseprite é necessário fazer o clone do projeto,
+ gerar os arquivos makefile seguindo os comandos no Código \ref{clonando_aseprite}.
 
 \begin{lstlisting}[language=bash, caption={Clonado Projeto Aseprite e criando diretório de Compilação},
                   label=clonando_aseprite]
+    # clonado projeto do github
     $ git clone https://github.com/macartur-tcc/aseprite.git
     $ cd aseprite
+
+    # criando diretorio para compilar o projeto
     $ mkdir build
     $ cd build
+
+    # gerando makefile do projeto no Linux e Windows 7
+    $ cmake -G .. "Unix Makefiles"
+
+    # gerando makefile no Mac OS Yosemite
+    $ cmake -G ... "Unix Makefiles" -DCMAKE_OSX_ARCHITECTURES:STRING=i386  -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=10.4  -DCMAKE_OSX_SYSROOT:STRING=/SDKs/MacOSX10.4u.sdk
+    
+    # compilando o projeto com ccache no Linux Windows 7
+    $ cmake -G .. "Unix Makefiles"  -DCMAKE_CXX_COMPILER="ccache"  -DCMAKE_CXX_COMPILER_ARG1="g++" -DCMAKE_C_COMPILER="ccache" -DCMAKE_C_COMPILER_ARG1="gcc"
+
+    # compilando projeto com ccache no Mac OS Yosemite
+    $ cmake -G .. "Unix Makefiles"  -DCMAKE_CXX_COMPILER="ccache"  -DCMAKE_CXX_COMPILER_ARG1="g++" -DCMAKE_C_COMPILER="ccache" -DCMAKE_C_COMPILER_ARG1="gcc"  -DCMAKE_OSX_ARCHITECTURES:STRING=i386  -DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=10.4  -DCMAKE_OSX_SYSROOT:STRING=/SDKs/MacOSX10.4u.sdk
+
+    # compilando com o linker gold no Linux
+    $ CC="gcc  -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold" cmake .. -G "Unix Makefiles"
+
+    # removendo arquivos binarios
+    $ make clean
+
 \end{lstlisting}
-
-
-\begin{table}[h]
-\begin{tabular}{p{3cm}p{5cm}p{5cm}p{5cm}}
-\toprule
- & \multicolumn{3}{c}{Sistema Operacional} \\ \toprule 
-\textbf{Atividade} & \textbf{Linux} & \textbf{Mac OS Yosemite} & \textbf{Windows 7}  \\ \midrule 
-\textbf{gerar makefile} 
-\footnote{Para gerar o makefile em sistemas Mac OS é necessário utilizar as flags:
- -DCMAKE\_OSX\_ARCHITECTURES:STRING=i386  -DCMAKE\_OSX\_DEPLOYMENT\_TARGET:STRING=10.4  -DCMAKE\_OSX\_SYSROOT:STRING=/SDKs/MacOSX10.4u.sdk
-\url{https://github.com/macartur-tcc/aseprite/blob/master/INSTALL.md}}
- &  \multicolumn{3}{c}{cmake .. -G "Unix Makefiles"} \\ \midrule
-\textbf{compilar} & \multicolumn{3}{c}{make } \\ \midrule
-\textbf{flags para gerar makefile com ccache} & -DCMAKE\_CXX\_COMPILER="ccache"  
--DCMAKE\_CXX\_COMPILER\_ARG1="g++" -DCMAKE\_C\_COMPILER="ccache" -DCMAKE\_C\_COMPILER\_ARG1="gcc"  \\ \midrule
-\textbf{gerar makefile com gold} & 
-CC="gcc  -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold" cmake .. -G "Unix Makefiles" \\ \midrule
-\textbf{remover binários} & \multicolumn{3}{c}{make clean} \\ \bottomrule
-\end{tabular} 
-\caption{Comandos para compilação do projeto Aseprite}
-\label{t_compilacao_aseprite}
-\end{table}
 
 
     \item \textbf{Qcad}
-    \subitem Após realizar o clone do projeto do github\ref{clonando_qcad}
- é necessário  gerar os Makefile, para isso utiliza-se o comando de geração de
- makefile na tabela \ref{t_compilacao_qcad}. Depois de gerado a compilação pode ser feita
- utilizando os comandos da tabela \ref{t_compilacao_qcad}.
-
+    \subitem Para compilar o projeto Qcad é necessário clonar o
+ projeto no github, gerar os arquivos makefile e compilar
+ utilizando os comandos descritos no Código \ref{clonando_qcad}.
 
 \begin{lstlisting}[language=bash, caption={Clonado Projeto Qcad},
                   label=clonando_qcad]
+
+    #clonando projeto do github
     $ git clone https://github.com/macartur-tcc/qcad.git
     $ cd qcad
+
+    # compilando no Linux e Windows 7
+    $ qmake -r
+    
+    # compilando no Mac OS Yosemite
+    qmake -spec macx-g++ -r
+
+    # compilando no Linux, Windows7 e Mac OS Yosemite
+    $ make
+
+    # compilando com a ferramenta ccache
+    $ make CC="ccache gcc" CXX="ccache g++"
+
+    # compilando com o linker gold
+    $ make  CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold"
+
+    # removendo arquivos binarios gerados
+    $ make clean
+
 \end{lstlisting}
-
-
-\begin{table}[h]
-\begin{tabular}{p{3cm}p{5cm}p{5cm}p{5cm}}
-\toprule
- & \multicolumn{3}{c}{Sistema Operacional} \\ \toprule 
-\textbf{Atividade} & \textbf{Linux} & \textbf{Mac OS Yosemite} & \textbf{Windows 7}  \\ \midrule 
-\textbf{gerar makefile} & qmake -r & qmake -spec macx-g++ -r  
-\footnote{Em ambiente Mac OS Yosemite este projeto não foi possível compilar
- utilizando o front-end clang, foi necessário utilizar o g++.} &  qmake -r  \\ \midrule
-\textbf{compilar} & \multicolumn{3}{c}{make } \\ \midrule
-\textbf{flags para gerar makefile com ccache} &  make CC="ccache gcc" CXX="ccache g++" \\ \midrule
-\textbf{gerar makefile com gold} & make  CC="gcc -Wl,-fuse-ld=gold" CXX="g++ -Wl,-fuse-ld=gold" \\ \midrule
-\textbf{remover binários} & \multicolumn{3}{c}{make clean} \\ \bottomrule
-\end{tabular} 
-\caption{Comandos para compilação do projeto Qcad}
-\label{t_compilacao_qcad}
-\end{table}
-
 \end{itemize}
 
 
