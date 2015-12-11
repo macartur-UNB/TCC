@@ -2,7 +2,12 @@
 
 \chapter[Fundamentação Teórica]{Fundamentação Teórica}
 
-\section{Linguagens compiladas vs interpretadas}
+Este capitulo descreve os principais conceitos abordados neste trabalho,
+ descrevendo a diferença entre linguagens compiladas e linguagens interpretadas,
+ o modelo de execução \textit{just in time}, máquinas virtuais,
+ o processo de compilação e sobre os métodos aqui trabalhados.
+ 
+\section{Linguagens compiladas e linguagem interpretadas}
 
 Uma linguagem de programação é um método padronizado que possui
  um conjunto de instruções para comunicação entre o homem
@@ -11,11 +16,11 @@ Uma linguagem de programação é um método padronizado que possui
  Com uma linguagem
  de programação é possível especificar precisamente um conjunto de regras
  sobre  as quais dados serão armazenados ou transmitidos e criar algoritmos
- que facilitem operações ou resolvam problemas.
+ que representam operações ou resolvam problemas.
     
 Para que um algoritmo escrito em uma linguagem de programação seja executado 
 por um computador é necessário a criação de um arquivo de texto contendo um 
-conjunto de palavras ou símbolos escritas de forma ordenada  e de maneira 
+conjunto de palavras ou símbolos escritos de forma ordenada  e de maneira 
 lógica \cite[pág. 3]{ref3}. Este arquivo é chamado de código fonte.
     
 Antes da execução, a linguagem de programação escrita no código fonte deve
@@ -32,21 +37,21 @@ No processo de compilação a linguagem de programação contida no código font
 
 O processo de compilação requer a utilização de um compilador, o qual consiste
  em um programa ou conjunto de programas  que tem como entrada o código fonte 
-escrito em uma linguagem de programação e cria um programa sematicamente 
+escrito em uma linguagem de programação e como saída, cria um programa sematicamente 
 equivalente uma outra linguagem, chamado de código objeto \cite[pág. 2]{ref4}.
 
-Após a compilação, a execução do código objeto criado a partir do algoritmo do
- código fonte de entrada é requisitado pelo usuário para que o processador 
+Após a compilação, a execução do código objeto criado a partir do
+ código fonte de entrada deve ser requisitado pelo usuário para que o processador 
 execute as instruções de máquina \cite[pág. 17]{ref6}.
 
-As linguagens que, em geral, são compiladas, lideram em performance em relação
+As linguagens que, em geral, são compiladas, tem melhor performance em relação
  as linguagens que, em geral, são interpretadas. Isso porque as decisões que são
- tomadas em tempo de compilação não são necessários no tempo de execução \cite[pág. 2]{ref3}.
-Por exemplo, se um compilador garantir que uma variável \texttt{x} seja sempre alocada 
-em uma  mesma posição na memória,  ele pode gerar instruções de máquina que 
+ tomadas em tempo de compilação não são necessárias no tempo de execução \cite[pág. 2]{ref3}.
+Por exemplo, se um compilador garantir que em uma variável \texttt{x} seja sempre alocada 
+em uma mesma posição na memória,  ele pode gerar instruções de máquina que 
 acesse esta localização sempre que se referenciar a variável \texttt{x}. 
-Por outro lado, um interpretador precisa procurar  por \texttt{x} em uma tabela a cada 
-acesso, a fim de achar sua localização \cite[pág. 167]{ref2}.
+Por outro lado, um interpretador precisa procurar por \texttt{x} em uma tabela a cada 
+acesso, a fim de determinar sua localização \cite[pág. 167]{ref2}.
 
 Como exemplos de linguagens que, em geral, são compilada, temos Ada, ALGOL, 
 BASIC, C, C++, COBOL, Cobra, Common Lisp, D, Delphi, Eiffel, Fortran, 
@@ -58,7 +63,7 @@ No processo de interpretação, o código fonte é passado para um programa cham
  interpretador, o qual é responsável pela leitura do código e pela tradução, 
 em tempo real, deste código em instruções a serem executadas pelo sistema 
 operacional ou  pelo processador \cite{ref2}. No caso de linguagens que são, em geral, 
-interpretadas, costuma-se nomear os códigos-fonte como scripts, embora não seja 
+interpretadas, costuma-se nomear os códigos-fonte como scripts, embora esta não seja 
 uma regra geral.
 
 Ao contrário do compilador, o interpretador faz a leitura do código fonte e 
@@ -69,22 +74,23 @@ melhor com linguagens de programação nas quais características fundamentais,
 tais como  o tamanho e  o tipo das variáveis, podem depender dos dados de 
 entrada \cite[pág. 17]{ref6}.
 
-Mesmo que uma linguagem seja feita para ser compilada é possível que exista 
+Mesmo que uma linguagem seja projetada inicialmente para ser compilada é possível que exista 
 interpretadores para estas linguagens, como é o caso do CINT\footnote{
 Interpretador de código C/C++ encontrado em \url{https://root.cern.ch/cint}.}
  e CLING\footnote{Interpretador de código C/C++ com back-end clang encontrado em
   \url{https://root.cern.ch/cling}.}.Estes interpretadores podem ajudar no 
   processo de desenvolvimento como descrito acima, no entanto existem 
-  limitações para estes como no caso do CINT\footnote{
+  limitações, como no caso do CINT\footnote{
   \url{https://root.cern.ch/viewvc/branches/v5-34-00-patches/cint/doc/limitati.txt }}:
 
 \begin{itemize}
-	\item não é possível definir um novo tipo de estrutura dentro de uma função;
-    \item não aceita \textit{unsigned long long}, utiliza este como long long;
+	\item não é possível definir um novo tipo de dado baseado em estrutura(\textit{struct}) dentro de uma função;
+    \item não suporta o tipo \textit{unsigned long long}, interpretando-o como long long;
     \item o próprio \textbf{CINT} contém a definição do tipo bool, e carrega o mesmo na execução do programa;
-    \item na declaração de ponteiro é necessário espaço antes e depois do '*'; 
+    \item na declaração de ponteiro é necessário um espaço em branco antes e depois do '*'; 
     \item não aceita o operador de sequenciamento ‘,’; 
-    \item um dos maiores problemas do \textbf{CINT} é a definição de macros, este somente aceita macros simples.
+    \item um dos maiores problemas do \textbf{CINT} é a definição de macros:
+ ele suporta apenas macros simples.
 \end{itemize}
 
 Sem  o recurso da interpretação, seria uma tarefa deveras complexa implementar 
@@ -108,13 +114,13 @@ Esta estratégia mista de pré-compilar o código para uma linguagem
 intermediária e interpretá-la em uma máquina virtual é denominada 
 estratégia híbrida. 
 
-Como exemplo de linguagens que utilizam, em geral, a estrategia híbrida, temos 
+Como exemplo de linguagens que utilizam, em geral, a estratégia híbrida, temos 
  Java, Python, JRuby, Oxygene, Rhino, Nashorn, JGNAT, Jython, Rakudo Perl 6.
 
 \subsection{Just In Time}
 
 O termo \textit{Just In Time} -- JIT -- veio de um novo modelo de  negócio da
- indústria manufatureira: uma estratégia de negócio onde a produção 
+ indústria manufatureira: uma estratégia onde a produção 
 ou compra era feita sobre demanda, ao invés da utilização de estoques
  \cite[pág. 177]{ref10}. 
 Este modelo tem como vantagens menores custos com armazenamento, 
@@ -182,24 +188,23 @@ principais: análise e síntese \cite[pág. 26]{ref6}. A Figura \ref{fig01}
     \label{fig01}
 \end{figure}
 
-A fase de analise (ou \textit{front-end}) de um compilador é a fase que 
+A fase de análise (ou \textit{front-end}) de um compilador é a fase que 
 tem como objetivo entender o código fonte e  representá-lo em uma 
 estrutura intermediária que facilite sua manipulação posterior. 
-Esta fase é subdividida em analise léxica, analise sintática, 
-analise semântica e geração de código intermediário \cite[pág. 36]{ref6}.
+Esta fase é subdividida em análise léxica, análise sintática, 
+análise semântica e geração de código intermediário \cite[pág. 36]{ref6}.
 
 A fase de síntese (ou \textit{back-end}) de um compilador é a fase que tem 
-como objetivo realizar a geração de código final otimizando o código 
-analisado na fase de sintase, gerando um código sematicamente igual ao 
+como objetivo realizar a geração de código final, otimizando o código 
+analisado na fase de sintase e gerando um código sematicamente igual ao 
 código fonte e com melhorias de performance e espaço. Esta fase é 
 subdividida em otimização de código independente do alvo, geração de 
-código alvo, otimização de código  para o alvo específico \cite[pág. 36]{ref6}.
+código alvo e otimização de código para o alvo específico \cite[pág. 36]{ref6}.
 
-
-\subsection{Analise Léxica}
+\subsection{Análise Léxica}
     
-A analise léxica é a primeira fase a ser executada pelo compilador \cite[pág. 59]{ref15}. 
-A função do analisador léxico, também denominado scanner, é ler o código fonte, 
+A análise léxica é a primeira fase a ser executada pelo compilador \cite[pág. 59]{ref15}. 
+A função do analisador léxico, também denominado \textit{scanner}, é ler o código fonte, 
 caractere a caractere, buscando a separação e  a identificação dos elementos do 
 programa, denominados símbolos léxicos ou tokens \cite[pág. 195]{ref16}. Assim, é 
 produzida uma sequência de tokens que será utilizada na análise sintática \cite[pág. 38]{ref3}. 
@@ -211,14 +216,14 @@ avanço e comentários \cite[pág. 59]{ref15}. Para auxiliar a construção dest
 cujo objetivo é reduzir o esforço de programação deste tipo de ferramenta, 
 especificando-se apenas os tokens a serem reconhecidos \cite[pág. 50]{ref18}.
 
-\subsection{Analise Sintática}
+\subsection{Análise Sintática}
 
-A analise sintática, ou analise gramatical, é o processo de determinar 
+A análise sintática, ou análise gramatical, é o processo de determinar 
 se uma cadeia de símbolos léxicos pode ser gerada por uma gramática pré-definida
  \cite{ref19}. O analisador sintático é o responsável por verificar se os 
 símbolos contidos no código fonte formam um programa válido ou não \cite[pág. 38]{ref20}.
 
-A maioria dos métodos de analise sintática são de dois tipos, denominados 
+A maioria dos métodos de análise sintática são de dois tipos, denominados 
 \textit{top-down} ou \textit{bottom-up} \cite[pág.  227]{ref21}. Como indicado por 
 seus nomes, os analisadores sintáticos \textit{top-down} constroem árvores 
 do topo para as folhas, enquanto o analisadores \textit{bottom-up} começam das 
@@ -233,14 +238,14 @@ o \textit{Bison}\footnote{\url{http://www.gnu.org/software/bison/} Acessado no d
  e o \textit{JavaCC}\footnote{\url{https://javacc.java.net/}. Acessado no dia 20/06/2015.}
  \cite[pág. 30]{ref22}.
 
-\subsection{Analise Semântica}
+\subsection{Análise Semântica}
 
 O analisador semântico tem como função prover métodos para que as estruturas 
 construídas pelo analisador sintático possam ser avaliadas ou executadas \cite[pág. 337]{ref23}. 
 Estas validações são feitas para assegurar que certos tipos de erros de 
 programação sejam detectados e reportados. Os  exemplos de verificação incluem 
 declaração de tipo, declaração de funções, sobrecarga de funções, sobrecarga de 
-operadores, verificação de fluxo de controle, verificação de operações logicas e 
+operadores, verificação de fluxo de controle, verificação de operações lógicas e 
 aritméticas válidas entre variáveis e a verificação de unicidade de variáveis em 
 determinados escopos da linguagem \cite[pág. 147]{ref6}.
 
@@ -248,7 +253,7 @@ determinados escopos da linguagem \cite[pág. 147]{ref6}.
 
 Após produzir uma árvore sintática sematicamente correta, o compilador é capaz de
  produzir uma linguagem de representação intermediária do código fonte. Uma linguagem 
-intermediária está mais próxima de uma linguagem de objeto do que do código fonte. 
+intermediária está mais próxima de uma linguagem de objeto do que da linguagem do código fonte. 
 No entanto, a linguagem  intermediária permite uma manipulação mais fácil do que o 
 código de máquina ou o \textit{Assembly} \cite[pág. 8]{ref25}. 
 
@@ -290,14 +295,14 @@ quantidade de laços, entre outras \cite[pág. 796]{ref30}.
 \subsection{Geração de Código}
 
 Gerador de código é a parte ou componente do compilador responsável por 
-realizar a o mapeamento da linguagem intermediária otimizada para a linguagem 
+realizar o mapeamento da linguagem intermediária otimizada para a linguagem 
 alvo. Caso a linguagem alvo seja um código de máquina,  registradores ou 
 localização de memoria são selecionados para armazenar valores das 
 variáveis usadas no programa. Então, o código intermediário é traduzido em 
 sequência para instruções de máquina que realizarão as operações \cite[pág. 10]{ref3}.
 Mesmo que o código traduzido seja otimizado, após a tradução para a 
-linguagem alvo é  possível que novas otimizações possam ser feitas, de modo 
-que é possível a otimização específica apresentada no Código \ref{otimizacao}.
+linguagem alvo é  possível que novas otimizações sejam feitas, como
+ a otimização específica apresentada no Código \ref{otimizacao}.
 
 
 \begin{lstlisting}[language=C++, caption={Exemplos de otimização específica},
@@ -323,15 +328,15 @@ r3 := r3 x 3
 
 \subsection{Assembly}
 
-Segundo Michael L. Scott, um código de máquina é uma sequência de bits que
+Segundo Michael L. Scott, um código de máquina é uma sequência de \textit{bits} que
  corresponde a uma instrução executada por um processador, realizando 
 operações de adições, comparações, movimento de informação de uma localização
- da memória, entre outros. Detalhar instruções de máquina a nível de bits é 
+ da memória, entre outros. Detalhar instruções de máquina a nível de \textit{bits} é 
 uma tarefa trabalhosa \cite[pág. 5]{ref6}. 
 
 Um programa capaz de realizar o cálculo do máximo divisor comum através do 
 algoritmo de Euclides estendido pode ser representado  em código de máquina 
-usando notação hexadecimal para a representação dos bits, conforme apresentado
+usando notação hexadecimal para a representação dos \textit{bits}, conforme apresentado
  no Código \ref{codigo_02} \cite[pág. 5]{ref6}.
 
 
@@ -343,9 +348,9 @@ usando notação hexadecimal para a representação dos bits, conforme apresenta
  75 f6 89 c1  24 e8 6e 00  00 00 8b 5d  fc c9 c3 29  d8 eb eb 90
 \end{lstlisting}
 
-Para facilitar a comunicação entre uma linguagem composta apenas por bits e 
+Para facilitar a comunicação entre uma linguagem composta apenas por \textit{bits} e 
 uma linguagem entendida por um desenvolvedor foi necessário a criação de uma
- linguagem que permitisse que as operações em bits fossem representadas por 
+ linguagem que permitisse que as operações em \textit{bits} fossem representadas por 
 abreviações ou símbolos que facilitassem o entendimento por parte do programador.
  Assembly é a linguagem escolhida para estas representações, onde cada 
 instrução do processador foi mapeada em um mnemônico, representados geralmente 
@@ -374,8 +379,8 @@ em assembly, conforme ilustrado no Código \ref{codigo_03} \cite[pág. 5]{ref6}.
 
 Para converter um programa de assembly para um código de máquina é necessário
  um montador, denominado Assembler. O montador é um programa que realiza a 
-parametrização das instruções da linguagem Assembly para os bits 
-correspondentes da linguagem de máquina (também chamado de opcode) \cite[pág. 6]{ref6}.
+parametrização das instruções da linguagem Assembly para os \textit{bits} 
+correspondentes da linguagem de máquina (também chamado de \textit{opcode}) \cite[pág. 6]{ref6}.
 
 \subsection{Linking}
 
@@ -390,18 +395,18 @@ correspondentes da linguagem de máquina (também chamado de opcode) \cite[pág.
 Um compilador é capaz de realizar a compilação de partes de programas e gerar
  objetos que podem ser combinados para formar um programa executável. 
 \textit{Linker} (ou Ligador) é um programa capaz de realizar a junção 
-de objetos gerados por um compilador, ligando nomes mais abstratos em nomes
+de objetos gerados por um compilador, ligando nomes abstratos em nomes
  mais concretos, permitindo o desenvolvedor escrever códigos usando nomes 
-mais abstratos \cite{ref36}.
+mais próximos da sua realizade \cite{ref36}.
 
 
  Basicamente o Linker liga um nome ou símbolo escrito por um desenvolvedor e
  referencia a localização do inicio do código que possui a função ou o dado
  estático. Como no exemplo descrito por John Levine, o linker pega um 
-referência escrita como \texttt{getline}  e vincula a “uma localização de 612 bytes 
-no inicio de um código executável do modulo iosys” \cite[pág. 7]{ref36}. 
+referência escrita como \texttt{getline}  e vincula a “uma localização de 612 \textit{bytes}
+no inicio de um código executável do módulo \texttt{iosys}” \cite[pág. 7]{ref36}. 
 
-A fase de link-edição existem dois passos. No primeiro o Linker recebe como 
+A fase de link-edição tem dois passos. No primeiro o Linker recebe como 
 entrada um conjunto de arquivos objetos, bibliotecas e parâmetros e produz
  como resultado um arquivo de saída, como mostrado na Figura \ref{fig03}
  \cite[pág. 13]{ref36}. Neste passo é criada uma tabela com 
@@ -416,7 +421,7 @@ para cada símbolo, determinando o tamanho e a localização dos segmentos no
 
 \subsection{Bibliotecas}
 
-Com o passar do tempo utilizando compiladores e linkers, muitos 
+Após algum tempo utilizando compiladores e linkers, muitos 
 desenvolvedores perceberam que poderiam economizar tempo e esforço 
 reutilizando pedaços de códigos escritos em outros programas. Para evitar a
  cópia de arquivos entre projetos surgiram as chamadas bibliotecas \cite[pág.  227]{ref36}.
@@ -487,8 +492,8 @@ não aumentam o tamanho do código binário do projeto final mas, no entanto,
 
 \subsection{Guardas de Inclusão}\label{include_guards_section}
 
-Em C++ a inclusão de um arquivo de código fonte em outro arquivo fonte é feita
- através da diretiva de pré-processamento chamada \texttt{include}, que pode 
+Em C++, a inclusão de um arquivo de código fonte em outro arquivo fonte é feita
+ através da diretiva de pré-processamento chamada \texttt{\#include}, que pode 
 ser utilizada como mostrado no Código \ref{codigo_04}. 
 
 \begin{lstlisting}[language=C++,caption={Diretiva de 
@@ -505,7 +510,7 @@ ou
 \end{lstlisting}
 
 
-Diretivas \texttt{include} normalmente são utilizadas várias vezes em um projeto.
+Diretivas \texttt{\#include} normalmente são utilizadas várias vezes em um projeto.
  No entanto, o preprocessador não é capaz de verificar se um arquivo já foi
  adicionado, o que pode ocasionar um erro de duplicação de definição de
  estruturas e elementos do código. Um exemplo deste problema é mostrado na
@@ -573,7 +578,7 @@ guarda de inclusão interna ao arquivo \textit{header}.
                                                             label=codigo_05]
 // b.hpp
 #ifndef INCLUDE_B
-#define INCLUDE_C
+#define INCLUDE_B
 
  #include "a.hpp"
 
@@ -599,7 +604,7 @@ guarda de inclusão interna ao arquivo \textit{header}.
 \item Externa ao arquivo de \textit{header}:
  
 Na  guarda de condição externa  são utilizadas as mesmas diretivas da interna,
- sendo a única diferença é a localização das diretivas: elas antecederão o uso
+ sendo a única diferença é a localização das diretivas: elas antecederão cada uso
  da diretiva \texttt{\#include}. Um exemplo da utilização de guarda de condição 
 externa é mostrado nos Código \ref{codigo_07}, \ref{codigo_08} e
  \ref{codigo_09} \cite[pág. 80]{ref42}.
@@ -652,32 +657,32 @@ externa é mostrado nos Código \ref{codigo_07}, \ref{codigo_08} e
 Consiste em utilizar, simultaneamente, as guardas de inclusão internas e 
 externas. 
 
-Segundo John Lakos\cite[pág. 82]{ref42}, esta guarda de inclusão é a mais trabalhosa de ser mantida
+Segundo John Lakos \cite[pág. 82]{ref42}, esta guarda de inclusão é a mais trabalhosa de ser mantida
  mas, no entanto, é a que mais reduz o tempo de compilação de um projeto. Ele
- realizou um experimento utilizando guardas de inclusão com e sem redundância,
+ aplicou a técnica de guardas de inclusão com e sem redundância,
  e obteve os resultados mostrados nas Tabelas \ref{tab:tabela_01} e 
 \ref{tab:tabela_02}.
 
 \begin{table}[!ht]
     \centering
-    \caption {Amostra de Redundância com 10 headers por linha}
+    \caption {Amostra de Redundância com 10 \textit{headers} por linha}
     \label{tab:tabela_01}
     \begin{tiny}
     \begin{tabular}{cccc}
     \toprule
     \textbf{Quantidade de Arquivos} & \textbf{Sem Redundância(SR)} & \textbf{Com Redundância(CR)} &  \textbf{SR/CR} \\
     \midrule
-    1 & 0.2 & 0.2 & 1.0\\
-    2 & 0.2 & 0.2 & 1.0\\
-    4 & 0.3 & 0.3 & 1.0\\
-    8 & 0.5 & 0.3 & 1.67\\
-    16 & 0.7 & 0.4 & 1.75\\
-    32 & 1.5 & 1.1 & 3.0\\
-    64 & 0.2 & 0.2 & 1.0\\
-    128 & 25.9 & 3.5 & 74.0\\
-    256 & 126.5 & 13.6 & 9.3\\
-    512 & 702.3 & 61.6 & 11.4\\
-    1024 & 4378.5 & 306.6 & 14.28\\
+    1 		& 0,2 	 segundos	 & 0,2 	 segundos		& 1,0	 segundos   \\
+    2 		& 0,2 	 segundos	 & 0,2 	 segundos		& 1,0	 segundos   \\
+    4 		& 0,3 	 segundos	 & 0,3 	 segundos		& 1,0	 segundos   \\
+    8 		& 0,5	 segundos	 & 0,3 	 segundos		& 1,67	 segundos   \\
+    16 		& 0,7 	 segundos	 & 0,4 	 segundos		& 1,75	 segundos   \\
+    32 		& 1,5 	 segundos	 & 1,1 	 segundos		& 3,0	 segundos   \\
+    64 		& 0,2 	 segundos	 & 0,2 	 segundos		& 1,0	 segundos   \\
+    128		& 25,9	 segundos	 & 3,5 	 segundos		& 74,0	 segundos   \\
+    256		& 126,5	 segundos	 & 13,6  segundos		& 9,3	 segundos   \\
+    512 	& 702,3	 segundos	 & 61,6  segundos		& 11,4	 segundos   \\
+    1024	& 4378,5 segundos     & 306, segundos6 		& 14,28	 segundos   \\
     \bottomrule
     \end{tabular}
     \end{tiny}
@@ -692,17 +697,17 @@ Segundo John Lakos\cite[pág. 82]{ref42}, esta guarda de inclusão é a mais tra
     \toprule
     \textbf{Quantidade de Arquivos} & \textbf{Sem Redundância(SR)} & \textbf{Com Redundância(CR)} &  \textbf{SR/CR} \\
     \midrule
-    1 & 0.2 & 0.2 & 1.0\\
-    2 & 0.2 & 0.2 & 1.0\\
-    4 & 0.4 & 0.3 & 1.33\\
-    8 & 0.7 & 0.4 & 1.75\\
-    16 & 1.7 & 0.5 & 3.4\\
-    32 & 5.8 & 0.9 & 6.44\\
-    64 & 22.1 & 2.0 & 11.05\\
-    128 & 89.5 & 5.2 & 17.21\\
-    256 & 376.5 & 17.1 & 22.02\\
-    512 & 1697.4 & 68.6 & 24.74\\
-    1024 & 8303.8 & 330.6 & 25.12\\
+    1 			& 0,2 	 segundos		& 0,2  segundos		& 1,0		segundos \\
+    2 			& 0,2 	 segundos		& 0,2  segundos		& 1,0		segundos \\
+    4 			& 0,4 	 segundos		& 0,3  segundos		& 1,33		segundos \\
+    8 			& 0,7 	 segundos		& 0,4  segundos		& 1,75		segundos \\
+    16 			& 1,7 	 segundos		& 0,5  segundos		& 3,4		segundos \\
+    32 			& 5,8 	 segundos		& 0,9  segundos		& 6,44		segundos \\
+    64 			& 22,1 	 segundos		& 2,0  segundos		& 11,05		segundos \\
+    128 		& 89,5 	 segundos		& 5,2  segundos		& 17,21		segundos \\
+    256 		& 376,5  segundos		& 17,1 segundos 	& 22,02		segundos \\
+    512 		& 1697,4 segundos 		& 68,6 segundos 	& 24,74		segundos \\
+    1024 		& 8303,8 segundos 		& 330,6  segundos 	& 25,12		segundos \\
     \bottomrule
     \end{tabular}
     \end{tiny}
@@ -714,7 +719,7 @@ Segundo John Lakos\cite[pág. 82]{ref42}, esta guarda de inclusão é a mais tra
  garantir que um arquivo será lido apenas uma vez: caso uma diretiva 
 \texttt{\#include} seja utilizada novamente e o arquivo já foi incluído anteriormente,
  o mesmo não será aberto. No entanto, esta implementação se tornou obsoleta 
- na implementação do gcc \cite{gccpragmaonce}. Os Códigos \ref{codigo_10}, \ref{codigo_11} e \ref{codigo_12} exemplificam o uso desta diretiva.
+ na implementação no gcc \cite{gccpragmaonce}. Os Códigos \ref{codigo_10}, \ref{codigo_11} e \ref{codigo_12} exemplificam o uso desta diretiva.
 
 
 
@@ -769,7 +774,7 @@ Em C++, todas as entidades (variáveis, funções, classes, estruturas, uniões,
  diferentes referenciam uma a outra, gerando uma referência cíclica
 \cite{ref43}.
 
-Considere um exemplo de duas classes, Doutor e Paciente,apresentadas no 
+Considere um exemplo de duas classes, Doutor e Paciente, apresentadas no 
 Código \ref{codigo_13}. Neste exemplo, a classe Doutor requer a 
 declaração ou definição da classe Paciente, e a classe Paciente necessita 
 de uma declaração ou de uma definição da classe Doutor. Desta forma, a 
@@ -872,7 +877,7 @@ A declaração incompleta (\textit{forward declaration}) de uma classe somente p
  ser utiliza em arquivos na forma de ponteiro (utilizando o operador \texttt{*})
  ou referência (utilizando o operador \texttt{\&}), pois estas não requerem uma
  definição de classe completa porque, em C++, é alocado uma quantidade fixa
- de armazenamento para estes tipos de variáveis \cite[pág. 111]{ref43}.
+ de memória para estes tipos de variáveis \cite[pág. 111]{ref43}.
 
 Um exemplo incorreto de utilização de \textit{forward declaration} seria utilizar
  um construtor da classe Doutor é mostrado no Código \ref{codigo_15}.
@@ -1052,7 +1057,7 @@ O Código \ref{codigo_18} foi feito o uso da diretiva \texttt{\#include
  <bits/stringfwd.h>}. Em C++  existem arquivos-cabeçalhos que possuem a
  implementação de \textit{forward declaration}. A Tabela \ref{tab:tabela_04} lista 
  alguns \textit{forward declaration} que podem ser utilizados em C++ segundo
- a gcc-gnu \cite{gccapi}.
+ o tipo de biblioteca padrão gcc-gnu \cite{gccapi}.
 
 \begin{table}[h]
     \centering
@@ -1074,20 +1079,20 @@ O Código \ref{codigo_18} foi feito o uso da diretiva \texttt{\#include
 \end{table}
 
 
-\subsection{MakeFile}\label{Makefile_section}
+\subsection{Makefile}\label{Makefile_section}
 
 
 Make é uma ferramenta utilizada para determinar automaticamente quais
- os trechos de código de um grande projeto precisam serem recompilados
+ trechos de código de um grande projeto precisam serem recompilados
  após alguma iteração de desenvolvimento. Esta ferramenta foi implementada
- por Richard Stallman e Roland McGrath. Desde a versão 3.76 até os dias de
+ por Richard Stallman e Roland McGrath, desde a versão 3.76 até os dias de
  hoje vem sendo mantida por Paul D.Smith \cite{Lasca2}. O manual de utilização do \texttt{makefile}
  é disponibilizado no portal GNU \cite{ref45}.
 
 Para utilizar a ferramenta make é necessário a criação de um arquivo chamado
  \texttt{makefile}, que contém as descrições de relações entre os arquivos em um projeto
  e comandos necessários para realizar as atualizações em cada arquivo \cite{Lasca2}.
- Depois de definir o arquivo \texttt{makefile}, utiliza a chamada de sistema apresentada 
+ Depois de definir o arquivo \texttt{make}, utiliza a chamada de sistema apresentada 
 no Código \ref{codigo_20}.
 
 \begin{lstlisting}[language=C++,caption={
@@ -1098,7 +1103,7 @@ no Código \ref{codigo_20}.
 
 
 O programa make realiza as devidas verificações nos códigos fontes e
- nos códigos objetos, e caso seja necessário recompilar um arquivo, o
+ nos artefatos, e caso seja necessário recompilar um arquivo, o
  \texttt{makefile} contém as instruções necessárias para o tal procedimento
  \cite[pág. 1]{ref45}.
 
@@ -1149,7 +1154,7 @@ Este bloco pode conter mais de um comando em uma linha, ou  vários comandos em
     \item Regras Implícitas: \
  conjunto de regras que informam quando e como refazer uma classe de arquivos
  baseadas em seus nomes e padrões \cite[pág. 11]{ref45}. Um exemplo de utilização de 
- padrões é apresentado no Código \ref{codigo_22} \cite[pág. 19]{ref45}
+ padrões é apresentado no Código \ref{codigo_22}. \\ \cite[pág. 19]{ref45}
         
     \begin{lstlisting}[language=C++,caption={ 
                                      Utilização de padrões no \texttt{makefile}},
@@ -1171,8 +1176,7 @@ definição de variável.
     \begin{lstlisting}[language=C++,caption={ 
                                      Definição e utilização de variável},
                                                          label=codigo_23]
-objetos = main.o command.o display.o files.o\
-          search.o utils.o
+objetos = main.o command.o display.o files.o search.o utils.o
 
 clean:
     rm $(objetos)
@@ -1217,8 +1221,8 @@ endif
     Toda diretiva condicional condição deve ser terminada com endif \cite[pág. 77]{ref45}.
     \end{itemize}
 
-    \item Definir variáveis com mais de uma linha. Com a utilização da diretiva define
- e  da diretiva endef é possível realizar a definição de uma variável em mais
+    \item Definir variáveis com mais de uma linha. Com a utilização da diretiva \textit{\#define}
+ e  da diretiva \textit{\#endif} é possível realizar a definição de uma variável em mais
  de uma linha \cite[pág. 69]{ref45}. O Código \ref{codigo_25} ilustra esta situação.
 
     \begin{lstlisting}[language=C++,caption={
@@ -1240,7 +1244,7 @@ $(two-lines)
     \item Comentários: \
 Em arquivos Makefile a utilização de caractere \texttt{\#} em uma linha faz com
  que todos o caracteres que o sucederem sejam ignorados. Caso seja necessário
- a utilização deste o caractere basta precedê-lo com o caractere \texttt{\textbackslash\textbackslash} (barra invertida) \cite{ref45}.
+ a utilização deste caractere basta precedê-lo com o caractere \texttt{\textbackslash} (barra invertida) \cite{ref45}.
 
 \end{enumerate}
 
@@ -1263,24 +1267,24 @@ locais adequados, de acordo com as necessidades do projeto;
     \item \textbf{uninstall}: deleta todos os arquivos copiados 
 pelo comando make install;
     \item \textbf{clean}: deleta todos os arquivos e diretórios 
-criados na construção do programa final.
+criados na construção do programa final;
     \item \textbf{distclean}: remover os arquivos que foram gerados
- por algum comando make file, seja na configuração, seja na
- construção de um programa.
-    \item \textbf{info}: gera um arquivo de informações sobre o programa.
-    \item \textbf{dist}: gera um arquivo tar cujo nome contém a versão e
-o nome do projeto e  que inclui  todo o conteúdo do diretório atual.
-    \item \textbf{check}: gera o programa  e realiza testes. 
-    \item \textbf{installcheck}: gera o programa, instala e realiza testes.
+ por algum comando make, seja na configuração, seja na
+ construção de um programa;
+    \item \textbf{info}: gera um arquivo de informações sobre o programa;
+    \item \textbf{dist}: gera um arquivo \texttt{tar} cujo nome contém a versão e
+o nome do projeto e  que inclui  todo o conteúdo do diretório atual;
+    \item \textbf{check}: gera o programa  e realiza testes;
+    \item \textbf{installcheck}: gera o programa, instala e realiza testes;
     \item \textbf{installdirs}: cria  os diretórios onde os arquivos devem ser instalados.
 \end{enumerate}
 
 
-\subsection{Executando o \texttt{makefile}}
+\subsection{Executando o \texttt{make}}
 
 Depois de gerado o arquivo \texttt{makefile} utilizando as regras descritas nas seções anteriores,
- o comando make pode ser utilizado para executar as regras descritas.
-O comando make pode ser utilizado como mostrado no Código \ref{codigo_26} e conforme apresentado na Tabela \ref{tab:tabela_05}.
+ o comando \texttt{make} pode ser utilizado para executar as regras descritas.
+O comando pode ser utilizado como mostrado no Código \ref{codigo_26} e conforme apresentado na Tabela \ref{tab:tabela_05},
 
 
     \begin{lstlisting}[language=C++,caption={ 
@@ -1291,11 +1295,9 @@ O comando make pode ser utilizado como mostrado no Código \ref{codigo_26} e con
     \end{lstlisting}
 
 
-\textbf{Alvo}: é a instrução que será executada pelo \texttt{makefile}. 
-A omissão deste parâmetro leva a execução do alvo \texttt{all}.
-    
-\textbf{Opções}: são flags de controle utilizadas pelo utilitário make.
- Exemplos de flags estão definidas na Tabela \ref{tab:tabela_05}:
+onde \textbf{alvo} é a instrução que será executada pelo \textit{make}(A omissão deste
+parâmetro leva a execução do alvo \textit{all}) e \textbf{opções} são flags de controle
+ utilizadas pelo utilitário make. Exemplos de flags estão definidas na Tabela \ref{tab:tabela_05}:
 
 \begin{table}[h]
     \centering
@@ -1323,19 +1325,20 @@ A omissão deste parâmetro leva a execução do alvo \texttt{all}.
 \end{table}
 
 
-\subsection{Pimpl Idiom - Implementação privada} \label{Pimpl_Idiom}
+\subsection{\textit{Pimpl Idiom} - Implementação privada} \label{Pimpl_Idiom}
 
 Ponteiro de implementação é a técnica utilizada para armazenar a
  implementação privada de uma estrutura em um ponteiro, que será
- declarado nos arquivos de header e implementado nos arquivos de
+ declarado nos arquivos de \textit{header} e implementado nos arquivos de
  implementação, através da utilização da declaração incompleta 
-\textit(Forward Declaration).
+ (\textit{Forward Declaration}).
 
-Esta técnica ao ser utilizada tem como benefício minimizar a
- interdependência entre estruturas e assim consequência diminui o
+Esta técnica, ao ser utilizada, tem como benefício minimizar a
+ interdependência entre estruturas e, por consequência, diminui o
  tempo de recompilação, além de esconder partes que não deveriam
  ser mostradas na declaração de uma classe, pois estas
- deveriam ser privadas.\cite{style_idioms}
+ deveriam ser privadas \cite{style_idioms}. O Código \ref{exemplo_implementacao_pimpl}
+ ilustra esta técnica;
 
 \begin{lstlisting}[language=C++, caption={Exemplo Utilização Pimpl Idiom},
                   label=exemplo_implementacao_pimpl]
@@ -1407,27 +1410,25 @@ Esta técnica ao ser utilizada tem como benefício minimizar a
 
 \subsection{Flags de Otimização de Baixo Nível}
 \label{Otimizacao_de_baixo_nivel}
-Como visto no capitulo sobre Compilação \ref{Compilação} é possível otimizar
+Como visto na Seção \ref{Compilação} é possível otimizar
  o código para gerar objetos e executável menores e com tempo de
- execução mais rápida, no entanto ao executar este processo o compilador perde
- tempo nestas otimizações isto faz com que o tempo de compilação aumente.
- Para controlar estas, os compiladores recebem como flags (parâmetros) que
- indicam qual tipo de otimização pode ser aplicadas pelo compilador.
- Estas flags que aplicam outro conjunto de flags de otimização.\footnote{\url{https://gcc.gnu.org}}
-
+ execução mais rápida, no entanto ao executar este processo, o compilador perde
+ tempo nestas otimizações de modo que o tempo de compilação aumenta.
+ Para controlar estas otimizações, os compiladores recebem como \textit{flags} (parâmetros) que
+ indicam quais tipos de otimização pode ser aplicadas pelo compilador.\footnote{\url{https://gcc.gnu.org}}
 
 No gcc/g++
 \footnote{\url{https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html}}
-\footnote{\url{https://gcc.gnu.org/onlinedocs/gnat\_ugn/Optimization-Levels.html\#Optimization-Levels}}
+\footnote{\url{https://gcc.gnu.org/onlinedocs/gnat\_ugn/Optimization-Levels.html\#Optimization-Levels}},
  as flags de otimizações de compilação podem ser:
 
 \begin{itemize}
 	\item -O0 : reduz o tempo de compilação e faz a depuração produzir os
- resultados esperados, este é o padrão caso nenhuma flag seja passada;
+ resultados esperados. Este é o padrão caso nenhuma \textit{flag} seja passada;
     \item -Ofast : descarta estritas conformidades com padrões;
-    \item -O  : realiza otimização do tamanho do código e do tempo de execução do programa ,
- no entanto não realiza otimizações que tenha grande perda no tempo de compilação;
-    \item -O1 :  aplica uma otimização moderadamente, mas não degrada significativamente
+    \item -O  : realiza otimização do tamanho do código e do tempo de execução do programa.
+No entanto não realiza otimizações que tenham grandes perdas no tempo de compilação;
+    \item -O1 :  aplica uma otimização moderada, mas não degrada significativamente
  o tempo de compilação;
     \item -O2 : realiza otimização total, gerando o código altamente otimizado e com o
  tempo mais lento de compilação;
@@ -1438,8 +1439,8 @@ No gcc/g++
  oferecendo um nível de otimização razoável e  mantendo a compilação rápida.
 \end{itemize}
 
-Caso seja utilizado mais de uma flag de otimização, a ultima que será executada
- e as outras desconsideradas.
+Caso seja utilizado mais de uma \textit{flag} de otimização, a última passada que será executada
+ e as outras serão desconsideradas.
 
 
 \subsection{Ferramentas}  \label{ferramentas_de_otimizacao}
@@ -1447,39 +1448,39 @@ Caso seja utilizado mais de uma flag de otimização, a ultima que será executa
 \begin{itemize}
 	\item \textbf{Ccache} \label{ccache}
 	
-	\subitem Ccache \footnote{\url{https://ccache.samba.org/download.html}} é uma ferramenta utilizada
+	\subitem Ccache\footnote{\url{https://ccache.samba.org/download.html}} é uma ferramenta utilizada
  para armazenar compilações anteriores e 
-guardando os resultados e detectando quando os mesmos serão executados,
+guarda os resultados, detectando quando os mesmos serão necessários
  para reduzir o retrabalho do processo de compilação.
 
-    \subitem Esta ferramenta tem suporte as linguagens C, C++, Objective-C and Objective-C++.
- Possui as vantagens de : gerenciamento do tamanho de cache,
- armazena compilações que contém avisos (warnings), baixa sobrecarga,
- opcionalmente utiliza “hard link” para evitar copias e comprime arquivos para
- reduzir o tamanho do disco. Apesar de suas vantagens, esta ferramenta pode apenas
- compilar um único arquivo ou link simbólico, somente funciona com compiladores gcc/g++
- ou similares e algumas flags de otimização não são suportadas.
+    \subitem Esta ferramenta tem suporte às linguagens C, C++, Objective-C and Objective-C++.
+uPossui as vantagens : gerencia o tamanho de \textit{cache},
+ armazena compilações que contém avisos (\textit{warnings}), baixa sobrecarga,
+ opcionalmente utiliza “\textit{hard link}” para evitar cópias e comprime arquivos para
+ reduzir o tamanho de uso do disco. Apesar de suas vantagens, esta ferramenta pode apenas
+ compilar um único arquivo ou link simbólico, funciona somente com compiladores gcc/g++
+ ou similares e algumas \textit{flags} de otimização não são suportadas.
 
-	\subitem Para utilizar o ccache é necessário adicionar a palavra ccache antes de cada
+	\subitem Para utilizar o \textit{ccache} é necessário adicionar a palavra \textit{ccache} antes de cada
  comando de compilação. Para remover cache de compilação anterior será utilizado
  ccache -c ativar o limpador de ccache e ccache -C para remover a cache completamente.
 
 	\item \textbf{Gold} \label{Gold}
 
-	\subitem Gold é uma ferramenta de lincagem de objetos mais rápida que o lincador padrão do linux,
- ld. Esta foi desenvolvido apenas para realizar lincagem de arquivos do tipo ELF sem utilizar
- a biblioteca BFD (Binary File Descriptor library) que possui suporte a manipulação de vários
- formatos de arquivos binários. Esta ferramenta foi desenvolvida pelo pesquisador da google,
+	\subitem Gold é uma ferramenta de linkagem de objetos mais rápida que o linkador padrão do Linux o
+ ld. Esta ferramenta foi desenvolvida apenas para realizar linkagem de arquivos do tipo ELF sem utilizar
+ a biblioteca BFD (\textit{Binary File Descriptor library}) que possui suporte a manipulação de vários
+ formatos de arquivos binários, pelo pesquisador da Google,
  Ian Lance Taylor, que realizou a remoção da biblioteca e utilização de menos camadas de abstrações.
 
-	\subitem O linker gold vem por padrão nos pacotes do GNU e pode ser utilizado no gcc/g++ passando a flag
+	\subitem O linker \textit{gold} vem por padrão nos pacotes do GNU e pode ser utilizado no gcc/g++ passando a flag
  -Wl,-fuse-ld=gold\footnote{\url{https://gcc.gnu.org/onlinedocs/gcc/Link-Options.html}},
- caso nenhuma flag seja passada ira utilizar o linker padrão ld que utiliza
- a biblioteca BFD. O linker gold para ser utilizado em sistemas com back-end llvm é necessário
- instalar o plugin llvm-gold-plugin\footnote{\url{http://llvm.org/docs/GoldPlugin.html}}.
+ caso nenhuma \textit{flag} seja passada, será utilizado o linker padrão \textit{ld} que utiliza
+ a biblioteca BFD. O linker \textit{gold} para ser utilizado em sistemas com \textit{back-end llvm} é necessário
+ instalar o plugin \textit{llvm-gold-plugin}\footnote{\url{http://llvm.org/docs/GoldPlugin.html}}.
 
-	\subitem Para sistemas operacionais como um Mac OS ou Windows esta ferramenta não é suportada, uma vez que
-estes sistemas possuem formato de arquivo binário diferente do ELF.Windows possui formato PE ou PE32+ e 
+	\subitem Para sistemas operacionais como um Mac OS e Windows esta ferramenta não é suportada, uma vez que
+estes sistemas possuem formato de arquivo binário diferente do ELF. Windows possui os sistemas de arquivo PE ou PE32+, enquanto 
 o Mac OS utiliza PEF ou XCOFF
 \footnote{\url{https://en.wikipedia.org/wiki/Comparison\_of\_executable\_file\_formats\#cite\_note-apple-pef-9}}.
 \end{itemize}

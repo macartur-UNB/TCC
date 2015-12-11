@@ -2,8 +2,8 @@
 
 \chapter*[Introdução]{Introdução}
 
-Na computação os primeiros computadores eletrônicos foram "engenhocas
- monstruosas", ocupavam varias salas, consumiam tanta energia quanto
+Na computação, os primeiros computadores eletrônicos foram \\qengenhocas
+ monstruosas\\q, ocupavam varias salas, consumiam tanta energia quanto
  uma fábrica, e custavam, em 1940, milhares de dólares, com o poder
  computacional de uma calculadora moderna. Para os
  programadores que usavam estas máquinas a hora do computador era
@@ -11,14 +11,14 @@ Na computação os primeiros computadores eletrônicos foram "engenhocas
  máquina \cite[pág.5]{ref6}.
 
 Programadores ou desenvolvedores são pessoas capazes de criar instruções
- que podem ser executados por um computador, escrevendo o código-fonte em
+ que podem ser executadas por um computador, escrevendo o código-fonte em
  alguma linguagem de programação. Finalizado o código-fonte, a construção
- de um programa que seja executado em um computador pode ser feita por um
+ de um programa que será executado em um computador pode ser feita por um
  compilador, programa capaz de fazer a transformação de
  código-fonte escrito na linguagem de programação escolhida para uma linguagem
  entendível pelo computador, que é o código de máquina \cite[pág.5]{ref6}, a qual
- se trata de uma sequência de instruções que serão executadas  pelo
- processador. Esta transformação recebe o nome de compilação \cite[pág.1]{ref5}.
+ se trata de uma sequência de instruções binárias.
+ Esta transformação recebe o nome de compilação \cite[pág.1]{ref5}.
 
 Projetos de médio e grande porte gastam recursos e tempo a cada processo
  de compilação, com perdas que dependem do hardware utilizado e do tamanho
@@ -36,10 +36,9 @@ Projetos de médio e grande porte gastam recursos e tempo a cada processo
 Analisar um conjunto de boas práticas e métodos para a redução do
  tempo de compilação de projetos escritos em C++ em diferentes ambientes,
  avaliando o impacto de cada estratégia.
- Após a analise será selecionado as melhores abordagens
- para os diferentes ambientes de desenvolvimento, e conseguir uma
- redução mínima de 30\% no tempo de compilação dos projetos utilizando
- tecnicas ou ferramentas para redução do tempo de compilação aqui analisadas.
+ Após a analise serão selecionadas as melhores abordagens
+ para os diferentes ambientes de desenvolvimento, tendo como meta conseguir uma
+ redução mínima de 30\% no tempo de compilação dos projetos analisados. 
 
 \subsection*{Objetivos Específicos}
 
@@ -47,16 +46,16 @@ Para conseguir atingir o objetivo geral do trabalho foram listados
  alguns objetivos específicos:
 
 \begin{enumerate}
-    \item Levantamento de métodos em C++ garantir menor acoplamento,
+    \item Levantamento de métodos em C++ que levam a menor acoplamento,
  maior coesão e melhora na redução do tempo de compilação;
     \item Levantamento de ferramentas que podem auxiliar na compilação
- de projetos para a linguagem C++;
+ de projetos escritos em linguagem C++;
     \item Elencar projetos de código livre para análise do tempo de
  compilação;
-    \item Realizar experimentos que permitam avaliar o impacto de cada
+    \item Aplicar cada método aqui trabalhado para avaliar o impacto de cada
  estratégia (método, ferramenta ou ambos) no tempo de compilação de
  cada projeto.
-    \item Elemencar as melhoras abordagems em cada método analisado.
+    \item Elencar as melhores abordagems para cada método analisado.
 \end{enumerate}
 
 
@@ -66,22 +65,21 @@ Para delimitar o escopo e abrangência deste trabalho, e tornar possível
  a análise de projetos reais, será utilizado como referência uma linguagem
  de programação compilada conhecida por ser utilizada em sistemas embarcados,
  sistemas operacionais, sistemas críticos e jogos, dentre outras aplicações,
- que é a C++, criada por Bjarne Stroustroup\cite{BjarneC++}.
+ que é a C++, criada por Bjarne Stroustroup \cite{BjarneC++}.
 
 \subsection*{Organização do Trabalho}
 
-O Capítulo 1 tem por objetivo introduzir o leitor aos conceitos abordados
+O Capítulo 1 tem por objetivo introduzir o leitor nos conceitos abordados
  neste trabalho, descrevendo a diferença entre uma linguagem compilada e
  interpretada, o modelo \textit{just-in-time}, máquinas virtuais, o processo de compilação
  e suas etapas e os métodos a serem trabalhados.
 
 O Capítulo 2 descreve um fluxo de trabalho realizado para a primeira etapa
  deste trabalho, contendo projetos escolhidos, ferramentas utilizadas e
- condução dos experimentos.
+ condução dos método aplicado.
 
-O Capítulo 3 apresenta os resultados alcançados depois da realização dos experimentos,
- bem como uma analise, seleção e dos experimentos que obtiveram melhores resultados
- em cada ambiente de desenvolvimento.
+O Capítulo 3 apresenta os resultados alcançados depois da aplicação dos métodos, coleta de dados,
+ bem como uma analise e seleção dos métodos que obtiveram melhores resultados em cada ambiente.
  
 Por fim o Capítulo 4 aprensenta as considerações finais e quais os trabalhos futuros
  poderiam ser realizados e que não foram abordados neste trabalho.
