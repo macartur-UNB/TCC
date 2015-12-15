@@ -78,29 +78,36 @@ A pesquisa avançada foi realizada no dia 27 de agosto de 2015, utilizando os se
 
 \begin{itemize}
     \item \textbf{Busca por palavra chave nas informações dos projetos}
-        \subitem \textbf{mac os} - esta palavra foi selecionada para encontrar projetos
+        \begin{enumerate}[label=\roman* )]
+        \item \textbf{mac os} - esta palavra foi selecionada para encontrar projetos
  que poderiam ser compilados em um sistema operacional da Apple. Este sistema tem
  como padrão o compilador clang e gcc/g++ como \textit{front-end}  e como \textit{back-end} possui o LLVM.
-        \subitem \textbf{windows} - esta palavra foi selecionada para encontrar 
- que possui compatibilidade para instalar os compiladores gcc/g++.
-\footnote{Para instalar um compilador é necessário utilizar uma ferramenta de criação de ambiente de desenvolvimento como \textit{cygwin}, \textit{mingw}, \textit{visual studio}, entre outros.}
-        \subitem \textbf{linux} - esta palavra foi selecionada para encontrar projetos
- que seja possível compilar em um sistema operacional linux. Este vem por padrão com
+        \item \textbf{windows} - esta palavra foi selecionada para encontrar 
+ que possui compatibilidade com suporte ao compiladores gcc/g++.
+\footnote{Para instalar um compilador é necessário utilizar uma ferramenta de criação de ambiente de desenvolvimento como \textit{cygwin}, \textit{mingw}, \textit{Visual Studio}, entre outros.}
+        \item \textbf{linux} - esta palavra foi selecionada para encontrar projetos
+ que seja possível compilar em um sistema operacional Linux. Este vem por padrão com
  o compilador g++/gcc.
+        \end{enumerate}
     \item \textbf{Linguagem}
-        \subitem \textbf{language c++} - diretriz utilizada para restringir a busca de 
-projetos que utilizam a linguagem c++ na maior parte de seu código.
+        \begin{enumerate}[label=\roman* )]
+            \item \textbf{language: C++} - diretriz utilizada para restringir a busca de 
+projetos que utilizam a linguagem C++ na maior parte de seu código.
+        \end{enumerate}
     \item \textbf{Quantidade de Forks}
-        \subitem \textbf{ > 10 forks} - diretriz para selecionar projetos com
+        \begin{enumerate}[label=\roman* )]
+            \item \textbf{ > 10 forks} - diretriz para selecionar projetos com
  mais de 10 \textit{forks}.
+        \end{enumerate}
     \item \textbf{Quantidade de Estrelas}
-        \subitem \textbf{ < 10000 stars } - diretriz utilizada para projetos com menos
+        \begin{enumerate}[label=\roman* )]
+            \item \textbf{ < 10000 stars } - diretriz utilizada para projetos com menos
  de 10 mil estrelas, indicando que pelo menos 10 mil pessoas gostaram do projeto e este
 é fortemente utilizado. 
+        \end{enumerate}
 \end{itemize}
 
-Após esta pesquisa avançada foi selecionado os 5 primeiros projetos.
-
+Após esta pesquisa avançada foram selecionado os 5 primeiros projetos.
 
 \begin{lstlisting}[language=python, caption={Busca avançada github },
                   label=busca_avanacada_github]
@@ -110,13 +117,13 @@ Após esta pesquisa avançada foi selecionado os 5 primeiros projetos.
 
 \begin{figure}[h]
     \centering
-        \includegraphics[scale=0.3]{figuras/github_search_1.eps}
+        \includegraphics[scale=0.40]{figuras/github_search_1.eps}
     \caption{Pesquisa avançada Github parte 1}
     \label{pesquisa_github}
 \end{figure}
 \begin{figure}[h]
     \centering
-        \includegraphics[scale=0.3]{figuras/github_search_2.eps}
+        \includegraphics[scale=0.40]{figuras/github_search_2.eps}
     \caption{Pesquisa avançada Github parte 2}
     \label{pesquisa_github}
 \end{figure}
@@ -125,17 +132,16 @@ Após esta pesquisa avançada foi selecionado os 5 primeiros projetos.
 \begin{table}[h]
 \centering
 \tiny
+\caption{Projetos Selecionados}
+\label{projetos_selecionados}
 \begin{tabular}{llllll}
 \textbf{Projeto} & \textbf{Linguagem} & \textbf{Estrelas} & \textbf{Forks} & \textbf{Porcentagem em C++} & \textbf{Gerador de Makefile}\\ \toprule
-Aseprite & C++ & 437  & 77  & 62.1\% & CMake \\ \midrule 
-Pencil & C++ &  161 & 22  & 54.6\%   & QMake \\ \midrule
-Qcad & C++ & 110 & 51 & 80.8\%       & QMake \\ \midrule 
-Sudoku & C++ &  44  & 24 & 94.9\%    & Qmake \\ \midrule
-iRecoveryplusplus & C++ & 17 & 11 & 84.7\% & -  \\ \bottomrule
+Aseprite & C++ & 437  & 77  & 62,1\% & CMake \\ \midrule 
+Pencil & C++ &  161 & 22  & 54,6\%   & QMake \\ \midrule
+Qcad & C++ & 110 & 51 & 80,8\%       & QMake \\ \midrule 
+Sudoku & C++ &  44  & 24 & 94,9\%    & Qmake \\ \midrule
+iRecoveryplusplus & C++ & 17 & 11 & 84,7\% & -  \\ \bottomrule
 \end{tabular} 
-\caption{Projetos Selecionados}
-\tiny
-\label{projetos_selecionados}
 \end{table}
 
 
@@ -143,12 +149,12 @@ iRecoveryplusplus & C++ & 17 & 11 & 84.7\% & -  \\ \bottomrule
 
 \begin{itemize}
     \item \textbf{Asepriter}
-\footnote{\url{http://www.aseprite.org/}} é uma ferramenta para criação de sprites,
- compostas por camadas e quadros, suportadas em RGBA, paleta de 256 cores e escala de cinza.
+ \footnote{\url{http://www.aseprite.org/}} é uma ferramenta para criação de \textit{sprites},
+ compostas por camadas e quadros, com suporte a RGBA, paleta de 256 cores e escala de cinza.
  Permite visualizar a animação em tempo real e contém ferramentas para preencher contornos
- e polígonos. Esta ferramenta e open source e livre, e pode ser encontrada no \textit{github}
-\footnote{\url{https://github.com/aseprite/aseprite}} ou no site da ferramenta
-\footnote{\url{http://www.aseprite.org/}}.
+ e polígonos. Esta ferramenta e open source e livre, e pode ser encontrada no \textit{Github}
+ \footnote{\url{https://github.com/aseprite/aseprite}} ou no site da ferramenta
+ \footnote{\url{http://www.aseprite.org/}}.
 
     \begin{figure}[h]
         \centering
@@ -157,12 +163,12 @@ iRecoveryplusplus & C++ & 17 & 11 & 84.7\% & -  \\ \bottomrule
         \label{ferramenta_aseprite}
     \end{figure}
 
-    \item \textbf{}
-\footnote{\url{http://www.pencil2d.org/pencil2d/}} é uma ferramenta para
+    \item \textbf{Pencil}
+ \footnote{\url{http://www.pencil2d.org/pencil2d/}} é uma ferramenta para
  desenho e animação desenhada a mão, e utilizando desenhos em formato bitmap ou gráfico vetoriais. 
-Esta ferramenta é gratuita  e open source, podendo ser encontrada em no \textit{github}
-\footnote{\url{https://github.com/pencil2d/pencil}} ou no site da ferramenta
-\footnote{\url{http://www.pencil2d.org}}.
+Esta ferramenta é gratuita  e open source, podendo ser encontrada em no \textit{Github}
+ \footnote{\url{https://github.com/pencil2d/pencil}} ou no site da ferramenta
+ \footnote{\url{http://www.pencil2d.org}}.
 
     \begin{figure}[h]
         \centering
@@ -172,12 +178,12 @@ Esta ferramenta é gratuita  e open source, podendo ser encontrada em no \textit
     \end{figure}
 
     \item \textbf{Qcad}
-\footnote{\url{http://www.qcad.org/en/}} é um software para desenho
+ \footnote{\url{http://www.qcad.org/en/}} é um software para desenho
  assistido por computador em duas dimensões, permitindo a criação de desenhos técnicos como
  planos para edifícios, interiores, peças mecânicas ou esquemas e diagramas. Esta ferramenta
- e open source  e gratuita e podendo ser encontrada no \textit{github}
-\footnote{\url{https://github.com/qcad/qcad}} ou no site da ferramenta.
-\footnote{\url{http://www.qcad.org/en/}}
+ e open source  e gratuita e podendo ser encontrada no \textit{Github}
+ \footnote{\url{https://github.com/qcad/qcad}} ou no site da ferramenta.
+ \footnote{\url{http://www.qcad.org/en/}}
 
     \begin{figure}[h]
         \centering
@@ -187,10 +193,10 @@ Esta ferramenta é gratuita  e open source, podendo ser encontrada em no \textit
     \end{figure}
 
     \item \textbf{Sudoku}
-\footnote{\url{https://github.com/macartur-tcc/sudoku}} é um software que foi
+ \footnote{\url{https://github.com/macartur-tcc/sudoku}} é um software que foi
  desenvolvido em um curso na universidade de Hasselt na Bélgica, esta foi escrita em c++ e utilizando Qt.
- Este é um software livre e liberado para domínio publico e pode ser encontrado apenas no \textit{github}
-\footnote{\url{https://github.com/macartur-tcc/sudoku}}.
+ Este é um software livre e liberado para domínio publico e pode ser encontrado apenas no \textit{Github}
+ \footnote{\url{https://github.com/macartur-tcc/sudoku}}.
 
     \begin{figure}[h]
         \centering
@@ -200,10 +206,10 @@ Esta ferramenta é gratuita  e open source, podendo ser encontrada em no \textit
     \end{figure}
 
     \item \textbf{iRecoveryplusplus}
-\footnote{\url{https://github.com/GreySyntax/iRecoveryplusplus}} é um programa projetado para
+ \footnote{\url{https://github.com/GreySyntax/iRecoveryplusplus}} é um programa projetado para
  realizar comunicação de iPod, iPhone e iPad iBoot/iBSS  com interface USB. 
 Este é um software livre e sobre a licença GPV v3 e pode ser encontrado no \textit{github}
-\footnote{\url{https://github.com/GreySyntax/iRecoveryplusplus}} e é suportado em Linux, Mac OS e Windows.
+ \footnote{\url{https://github.com/GreySyntax/iRecoveryplusplus}} e é suportado em Linux, Mac OS e Windows.
 
 \end{itemize}
 
@@ -233,12 +239,12 @@ Para a realização dos estudos foi utilizado uma máquina com as
 Nesta máquina foi instalado os programas:
 
 \begin{itemize}
-    \item \textbf{VirtualBox} - 4.0 : é uma ferramenta open source sobre a
+    \item \textbf{VirtualBox} (4.0) : é uma ferramenta open source sobre a
  licença GPL v2 que permite a virtualização de máquinas.
-    \item \textbf{Vagrant} - 1.7.4 : ferramenta de controle de
+    \item \textbf{Vagrant} - (1.7.4) : ferramenta de controle de
  máquina virtual possibilitando fácil acesso, criação, destruição, ligar e 
 desligar máquinas virtuals.
-    \item \textbf{Git} - 2.5.1 : ferramenta de controle de versão descentralizada
+    \item \textbf{Git} (2.5.1) : ferramenta de controle de versão descentralizada
 com o mesmo objetivo do \textit{SubVersion}(\textbf{SVN}).
 \end{itemize}
 
@@ -248,17 +254,16 @@ com o mesmo objetivo do \textit{SubVersion}(\textbf{SVN}).
 
     \item \textbf{Linux}
         \subitem  O ambiente virtual Linux foi criado utilizando a box
- ubuntu/trusty64\footnote{\url{https://atlas.hashicorp.com/ubuntu/boxes/trusty64}},
- com a configuração do Vagrantfile no código \ref{vagrant_linux} e com especificações
- da máquina virtual mostradas na tabela \ref{especificacoes_linux}.
+ ubuntu/trusty64 \footnote{\url{https://atlas.hashicorp.com/ubuntu/boxes/trusty64}},
+ com a configuração do Vagrantfile representada no Código \ref{vagrant_linux} e com especificações
+ da máquina virtual mostradas na Tabela \ref{especificacoes_linux}.
  Depois que construída a máquina virtual foram instalados os pacotes utilizando o
- gerenciador de pacotes apt, e estão listados na tabela \ref{pacotes_instalados_linux}.
+ gerenciador de pacotes apt, e estão listados na Tabela \ref{pacotes_instalados_linux}.
 
-Em ambiente linux o compilador padrão de C++ que vem instalado é o gcc/g++, este foi
- criado pela GNU e contém um conjunto de ferramentas para realizar, pré-processamento,
- compilação, montagem e link-edição. No front-end este compilador inclui as linguagens C,
- C++, Objective-C, Fortran, Java, Ada e Go, bem como bibliotecas
- (stdlibc++, libgcj, entre outras).
+Em ambiente Linux o compilador padrão de C++ que vem instalado é o gcc/g++, este foi
+ criado pela GNU e contém um conjunto de ferramentas para realizar pré-processamento,
+ compilação, montagem e link-edição. No \textit{front-end} este compilador inclui as linguagens C,
+ C++, Objective-C, Fortran, Java, Ada e Go, bem como bibliotecas (stdlibc++, libgcj, entre outras).
 
 
 \begin{lstlisting}[language=ruby, caption={Vagrantfile com configurações da máquina virtual linux},
@@ -278,18 +283,20 @@ Em ambiente linux o compilador padrão de C++ que vem instalado é o gcc/g++, es
 
 \begin{table}[h]
 \centering
+\caption{Configurações do Ambiente Virtual Linux}
+\label{especificacoes_linux}
 \begin{tabular}{ll}
 \textbf{Sistema Operacional} & \textit{Ubuntu} 14.04 x86\_64 \\ \toprule
 \textbf{Kernel} & 3.13.0-45-generic  \\ \midrule 
 \textbf{Processador} & 2 processadores Virtuais \\ \midrule
 \textbf{Memória Ram} & 2GB  \\ \bottomrule 
 \end{tabular} 
-\caption{Configurações do Ambiente Vitual Linux}
-\label{especificacoes_linux}
 \end{table}
 
 \begin{table}[h]
 \centering
+\caption{Pacotes instalados no Ambiente Virtual Linux}
+\label{pacotes_instalados_linux}
 \begin{tabular}{ll}
 \textbf{Pacote} & \textbf{Versão} \\ \toprule
 Qt5-default & 5.5.1 \\ \midrule 
@@ -303,27 +310,25 @@ git & 1.9.1-1 \\ \midrule
 cmake &   2.8.12.2  \\ \midrule 
 ccache & 3.1.9  \\ \bottomrule 
 \end{tabular} 
-\caption{Pacotes instalados no Ambiente Virtual Linux}
-\label{pacotes_instalados_linux}
 \end{table}
 
     \item \textbf{Mac OS Yosemite}
         \subitem Para o ambiente Mac OS foi utilizada uma box com o sistema
  operacional na versão Yosemite 10.10.4
-\footnote{\url{http://files.dryga.com/boxes/osx-yosemite-0.2.1.box}},
- com as configurações do Vagrantfile no código \ref{vagrant_mac_os_x} e com
- especificações da máquina virtual mostradas na tabela \ref{especificicacoes_mac_os_x}.
+ \footnote{\url{http://files.dryga.com/boxes/osx-yosemite-0.2.1.box}},
+ com as configurações do Vagrantfile representada no Código \ref{vagrant_mac_os_x} e com
+ especificações da máquina virtual mostradas na Tabela \ref{especificacoes_mac_os_x}.
  Após a máquina criada foi necessário instalar os pacotes utilizando o gerenciador de
- pacotes brew, e foram listados os pacotes listados na tabela
-\ref{pacotes_instalados_mac_os_x}.
-Além dos listados foi necessário instalar o pacote "\textbf{MacOSX10.4.Universal.pkg}”
-\footnote{\url{https://github.com/macartur-tcc/aseprite/blob/master/INSTALL.md}}
- disponibilizado pela Apple \footnote{\url{https://developer.apple.com/downloads/}}.
+ pacotes brew \footnote{\url{http://brew.sh/}}, e foram listados os pacotes listados na tabela
+ \ref{pacotes_instalados_mac_os_x}.
+Além dos listados foi necessário instalar o pacote " \textbf{MacOSX10.4.Universal.pkg}”
+ \footnote{\url{https://github.com/macartur-tcc/aseprite/blob/master/INSTALL.md}}
+ disponibilizado pela Apple  \footnote{\url{https://developer.apple.com/downloads/}}.
 
         \subitem Em um ambiente Mac OS o LLVM
-\footnote{LLVM: infraestrutura de compilação utilizando o principio de modularização
+ \footnote{LLVM: infraestrutura de compilação utilizando o principio de modularização
  e reuso, propondo otimizar a compilação, execução e link-edição de programas
- escritos em linguagens variadas}é o back-end do compilador e como front-end
+ escritos em linguagens variadas} é o \textit{back-end} do compilador e como \textit{front-end}
  padrão possui o clang/clang++, que foi projetado para ser 3 vezes mais rápido
  que o gcc/g++. As linguagens aceitas pelo clang são Objective-C, Fortran,
  Ada, Haskell, Java, Python, Ruby, ActionScript, GLSL, Julia, entre outras.
@@ -349,19 +354,21 @@ Além dos listados foi necessário instalar o pacote "\textbf{MacOSX10.4.Univers
 
 \begin{table}[h]
 \centering
+\caption{Configurações do Ambiente Virtual Mac OS Yosemite}
+\label{especificacoes_mac_os_x}
 \begin{tabular}{ll}
 \textbf{Sistema Operacional} & \textit{OS X Yosemite} x86\_64  \\ \toprule
 \textbf{Kernel} & Darwin Kernel  14.4.0  \\ \midrule 
 \textbf{Processador} & 2 processadores Virtuais \\ \midrule
 \textbf{Memória Ram} & 2GB  \\ \bottomrule 
 \end{tabular} 
-\caption{Configurações do Ambiente Vitual Mac OS Yosemite}
-\label{especificacoes_mac_os_x}
 \end{table}
 
 
 \begin{table}[h]
 \centering
+\caption{Pacotes instalados no Ambiente Virtual Mac OS Yosemite}
+\label{pacotes_instalados_mac_os_x}
 \begin{tabular}{ll}
 \textbf{Pacote} & \textbf{Versão} \\ \toprule
 qt5 & 5.5.1 \\ \midrule 
@@ -374,21 +381,19 @@ cmake & 3.3.0  \\ \midrule
 binutils & 2.25-4 \\ \midrule
 ccache & 3.2.3 \\ \bottomrule
 \end{tabular} 
-\caption{Pacotes instalados no Ambiente Virtual Mac OS Yosemite}
-\label{pacotes_instalados_mac_os_x}
 \end{table}
 
     \item \textbf{Windows}
         \subitem Para o ambiente virtual Windows foi utilizado uma box com
- o sistema operacional Windows7\footnote{\url{https://vagrantcloud.com/datacastle/boxes/windows7}},
- com as configurações do Vagrantfile mostrada no código \ref{vagrant_windows},
- e com especificações da máquina virtual mostradas na tabela \ref{especificacoes_windows}.
+ o sistema operacional Windows7 \footnote{\url{https://vagrantcloud.com/datacastle/boxes/windows7}},
+ com as configurações do Vagrantfile mostradas no Código \ref{vagrant_windows},
+ e com especificações da máquina virtual mostradas na Tabela \ref{especificacoes_windows}.
  Para a utilização de um ambiente de desenvolvimento no windows é necessário a instalação
- do software \textit{cygwin}\footnote{\url{https://www.cygwin.com/}} que permite a instalação
+ do software \textit{cygwin} \footnote{\url{https://www.cygwin.com/}}, que permite a instalação
 o dos pacotes necessários para a criação do ambiente igual ao Unix.
  Utilizando o \textit{cygwin} é necessário instalar todos os pacotes para o sistema 
-conseguir compilar programas em c++/c, para isto foram instalados os programas 
-que se segue na tabela \ref{pacotes_instalados_windows}.
+conseguir compilar programas em C/C++, para isto foram instalados os programas 
+que estão listadas na tabela \ref{pacotes_instalados_windows}.
 
 \begin{lstlisting}[language=ruby, caption={Vagrantfile com configurações da máquina virtual Windows 7},
                   label=vagrant_windows]
@@ -408,19 +413,21 @@ que se segue na tabela \ref{pacotes_instalados_windows}.
 
 \begin{table}[h]
 \centering
+\caption{Configurações do Ambiente Virtual Windows 7}
+\label{especificacoes_windows}
 \begin{tabular}{ll}
 \textbf{Sistema Operacional} & \textit{Windows 7} x86\\ \toprule
 \textbf{Kernel} & CYGWIN\_NT-6.1  \\ \midrule 
 \textbf{Processador} & 2 processadores Virtuais \\ \midrule
 \textbf{Memória Ram} & 2GB  \\ \bottomrule 
 \end{tabular} 
-\caption{Configurações do Ambiente Vitual Windows 7}
-\label{especificacoes_windows}
 \end{table}
 
 
 \begin{table}[h]
 \centering
+\caption{Pacotes instalados no Ambiente Virtual Windows 7}
+\label{pacotes_instalados_windows}
 \begin{tabular}{ll}
 \textbf{Pacote} & \textbf{Versão} \\ \toprule
 qt5-devel-tools  &  \\ 
@@ -446,47 +453,40 @@ gcc-core & \\ \midrule
 gcc/g++ & 4.9.3-1 \\ 
 make & 4.1-1 \\ \bottomrule
 \end{tabular} 
-\caption{Pacotes instalados no Ambiente Virtual Windows 7}
-\label{pacotes_instalados_windows}
 \end{table}
-
 \end{itemize}
-
-
 
 \section{Restrições de Compilação}
 
 \subsection{Restrição Global}
 
-    A utilização do linker gold não é possível compilar em todos os ambientes,
+    A utilização do linker gold não permite a compilação em todos os ambientes,
  pois é aplicada apenas a sistemas de arquivos binários ELF e nos ambientes
- Windows e Mac OS Yosemite os sistemas de arquivos são PE ou PE32+ e PEF 
-respectivamente.
+ Windows e Mac OS Yosemite os sistemas de arquivos são PE ou PE32+ e PEF, respectivamente.
 
 \subsection{Restrição Especifica}
-    Em ambiente \textit{mingw} ou \textit{cygwin} não possui suporte
- a biblioteca glibc\footnote{
-\url{https://www.gnu.org/software/gnulib/manual/html\_node/execinfo\_002eh.html}},
- isto fez com que o projeto Qcad que necessita do header exec\_info.h não possa ser compilado.
+    Um ambiente \textit{mingw} ou \textit{cygwin} não possui suporte
+ a biblioteca glibc \footnote{\url{https://www.gnu.org/software/gnulib/manual/html\_node/execinfo\_002eh.html}},
+ o que fez com que o projeto Qcad, que necessita do header exec\_info.h não podesse ser compilado.
 
     Para alguns projetos foi necessário realizar modificações para a compilação
- dos mesmos nos diferentes sistemas operacionais, estas alterações foram colocadas
- na branch master do repositório modificado, utilizando um \textit{fork} do github
-\footnote{\url{https://github.com/macartur-tcc/}} que contém todos os projetos.
+ dos mesmos nos diferentes sistemas operacionais. Estas alterações foram colocadas
+ na branch master do repositório modificado, utilizando um \textit{fork} do Github
+  \footnote{\url{https://github.com/macartur-tcc/}} que contém todos os projetos.
  Esta restrição não impediu a compilação dos projetos nos diferentes ambientes.
 
 \section {Estudo de Caso}
 
 \subsection{Aplicado no Ambiente}
 
-Os casos de guardas de inclusão foram realizados utilizando script de benchmark,
- na qual os métodos detalhados na seção \ref{include_guards_section} foram
- aplicados a 10 mil arquivos com uma pequena quantidade de código
+Os casos de guardas de inclusão foram realizados utilizando \textit{script} de \textit{benchmark},
+ na qual os métodos detalhados na Seção \ref{include_guards_section} foram
+ aplicados a 10 mil arquivos com uma pequena quantidade de Código
  \ref{codigo_27} e incluidos 3 vezes ao arquivo \textbf{main.cpp} utilizando
  \ref{codigo_28}. Cada um destes foram aplicados aos diferentes ambientes de
  desenvolvimento.
 
-\begin{lstlisting}[language=C++,caption={Template de arquivo .hpp utilizado no benchmark},
+\begin{lstlisting}[language=C++,caption={Template de arquivo .hpp utilizado no \textit{benchmark}},
                                                    label=codigo_27]
 
   // <NUMERO>.hpp
@@ -495,7 +495,7 @@ Os casos de guardas de inclusão foram realizados utilizando script de benchmark
 
 \end{lstlisting}
 
-\begin{lstlisting}[language=C++,caption={Template de arquivo main.cpp utilizado no benchmark},
+\begin{lstlisting}[language=C++,caption={Template de arquivo main.cpp utilizado no \textit{benchmark}},
                                                           label=codigo_28]
 
     // main.cpp
@@ -529,6 +529,8 @@ Antes da realização do estudo de caso foi necessário identificar quais
 
 \begin{table}[h]
 \centering
+\caption{Técnicas que podem ser aplicadas ao código}
+\label{tecnicas_que_podem_ser_aplicadas_codigo}
 \begin{tabular}{llll}
 \textbf{Projeto} & \textbf{pragma once} & \textbf{Forward Declaration} & \textbf{Pimpl Idiom}  \\ \toprule 
 iRecoveryplusplus & SIM & SIM & SIM  \\ 
@@ -537,12 +539,12 @@ Pencil & SIM & NÃO &  SIM \\
 Aseprite &  SIM & NÃO & NÃO  \\ 
 Qcad &  SIM & NÃO & NÃO  \\ \bottomrule
 \end{tabular} 
-\caption{Técnicas que podem ser aplicadas ao código}
-\label{tecnicas_que_podem_ser_aplicadas_codigo}
 \end{table}
 
 \begin{table}[h]
 \centering
+\caption{\textit{Flags} que podem ser utilizadas}
+\label{tecnicas_que_podem_ser_aplicadas_flag}
 \begin{tabular}{lll}
 \textbf{Projeto} & \textbf{Makafile} &  \textbf{Otimização de Baixo Nível} \\ \toprule
 iRecoveryplusplus & SIM & SIM\\ 
@@ -551,12 +553,12 @@ Pencil &  SIM & SIM  \\
 Aseprite & SIM & SIM  \\ 
 Qcad &   SIM & SIM\\ \bottomrule
 \end{tabular} 
-\caption{\textit{Flags} que podem ser utilizadas}
-\label{tecnicas_que_podem_ser_aplicadas_flag}
 \end{table}
 
 \begin{table}[h]
 \centering
+\caption{Ferramentas que podem ser utilizadas}
+\label{tecnicas_que_podem_ser_aplicadas_ferramenta}
 \begin{tabular}{lll}
 \textbf{Projeto} &  \textbf{Ccache} & \textbf{Gold} \\ \toprule 
 iRecoveryplusplus &  SIM & SIM \\ 
@@ -565,8 +567,6 @@ Pencil            &  SIM & SIM \\
 Aseprite          &  SIM & SIM \\ 
 Qcad              &  SIM & SIM \\ \bottomrule
 \end{tabular} 
-\caption{Ferramentas que podem ser utilizadas}
-\label{tecnicas_que_podem_ser_aplicadas_ferramenta}
 \end{table}
 
 
@@ -580,7 +580,7 @@ Qcad              &  SIM & SIM \\ \bottomrule
         \item Pragma Once
         \subitem Neste estudo de caso os arquivos de header foram alterados
  com a inclusão da diretiva “\#pragma once” no inicio de cada arquivo.
- No projeto aseprite está sendo removido a diretiva, pois todos os arquivos já possuem.
+ No projeto aseprite está sendo removida a diretiva, pois todos os arquivos já possuem.
 Estas alterações estão na branch “\textit{pragma\_once}” dos projetos que foi possível aplicar.
         \item Forward Declaration
         \subitem Neste estudo de caso os headers foram alterados para reduzir
