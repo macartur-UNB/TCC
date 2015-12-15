@@ -583,17 +583,16 @@ Qcad              &  SIM & SIM \\ \bottomrule
  No projeto aseprite está sendo removida a diretiva, pois todos os arquivos já possuem.
 Estas alterações estão na branch “\textit{pragma\_once}” dos projetos que foi possível aplicar.
         \item Forward Declaration
-        \subitem Neste estudo de caso os headers foram alterados para reduzir
- a quantidade de headers de todos os cabeçalhos e das implementação.
- Para isso foram removidos headers redundantes e que referenciava
+        \subitem Neste estudo de caso os \textit{headers} foram alterados para reduzir
+ a quantidade de \textit{headers} de todos os cabeçalhos e das implementação.
+ Para isso foram removidos \textit{headers} redundantes e que referenciava
  ponteiros e referências de endereço.
-Estas alterações estão na branch "\textit{forward\_declaration}" dos projetos que foi possível aplicar.
+Estas alterações estão na branch \lq\lq\textit{forward\_declaration}\rq\rq dos projetos que foram possíveis  aplicar.
         \item Técnicas de Pimpl Idiom
         \subitem Neste estudo de caso atributos e métodos privados foram removidos do cabeçalho
- e incluídos nos arquivos de implementação, como no exemplo de código \ref{exemplo_implementacao_pimpl}
- da seção \ref{Pimpl_Idiom}
+ e incluídos nos arquivos de implementação, como no exemplo de Código \ref{exemplo_implementacao_pimpl} da Seção \ref{Pimpl_Idiom}
  que demostra como aplicar a técnica.
-Estas alterações estão na branch "\textit{pimpl}" dos projetos que foi possível aplicar.
+Estas alterações estão na branch \lq\lq\textit{pimpl}\rq\rq dos projetos que foi possível aplicar.
     \end{enumerate}
 
 \subsubsection{Alteração de flags de Compilação}
@@ -601,8 +600,7 @@ Estas alterações estão na branch "\textit{pimpl}" dos projetos que foi possí
         \begin{enumerate}
             \item makefile
                 \subitem Neste estudo de casos no momento da utilização do makefile
- será utilizado as flags: -j2,-j4,-j6,-j8 e -j10. Com este resultará na relação entre
-a compilação e a quantidade de \textit{jobs}(\textit{threads}).
+ será utilizado as flags: -j2,-j4,-j6,-j8 e -j10. Com esta abordagem será investigada a relação entre a compilação e a quantidade de \textit{jobs} (\textit{threads}).
             \item Otimização de Baixo Nível
                 \subitem Neste estudo de caso todos os arquivos Makefile serão
  alterados para receber a flags: -O, -O0, -O2, -Ofast, -O3, -Os,-Og.
@@ -809,7 +807,6 @@ A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dad
 \label{tab:modelo_guards}
 \begin{tiny}
 \begin{tabular}{lp{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}}
-
 \textbf{Tipo} & \multicolumn{7}{l}{Utilização de Guarda de Inclusão} \\
 \textbf{Medida} & \multicolumn{7}{l}{Tempos em segundos } \\
 \textbf{Amostras} & \textbf{GIE} & \textbf{GII} & \textbf{PO} & 
