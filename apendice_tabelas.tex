@@ -8,29 +8,81 @@ Para melhor organização do trabalho, os resultados serão apresentados em seç
 
 \section{Guardas de Inclusão}
 
-As tabelas que contém o detalhamento das execuções dos experimentos se encontram no Apêndice ZYX. A Tabela \ref{tab:resutados_guards_de_inclusao}
+As tabelas que contém o detalhamento das execuções dos experimentos se encontram no Apêndice ZYX. A Tabela \ref{tab:medias_gi}
 sintetiza as médias destes resultados, e a Figura \ref{benchmark_guardas_de_inclusao} apresenta os mesmos dados, em forma
-visual. Os tempos são dados em segundos, e os métodos aplicados foram abreviados com as seguintes siglas:
-
-\begin{description}
-    \item [GIE:] Guarda de Inclusão Externa
-    \item [GII:] Guarda de Inclusão Externa
-    \item [...:]
-\end{description}
+visual.
 
 \begin{table}[!ht]
 \centering
-\caption{Resultados das Guardas de Inclusão}
-\label{tab:resutados_guards_de_inclusao}
+\caption{Resultados Guardas de Inclusão aplicado no Linux}
+\label{tab:resutados_guards_de_inclusao:linux}
 \begin{tiny}
 \begin{tabular}{lp{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}}
-& \multicolumn{7}{c}{\textbf{Tempo médio de compilação (em segundos)} } \\
-\textbf{Sistema Operacional} & \textbf{GIE} & \textbf{GII} & \textbf{PO} &
+\textbf{Tipo} & \multicolumn{7}{l}{Utilização de Guarda de Inclusão} \\
+\textbf{Medida} & \multicolumn{7}{l}{Tempos em segundos } \\
+\textbf{Amostras} & \textbf{GIE} & \textbf{GII} & \textbf{PO} & 
 \textbf{GIIPPO} & \textbf{POPGII} & \textbf{GIEPO} & \textbf{RGI} \\ \toprule
- Linux & 0,2851     & 0,2851  & 1,2127    & 1,3179    & 1,2311  & 1,2477     & 0,1611 \\
- Mac OS Yosemite & 0,8482 & 0,8149 & 1,0031  & 1,0139  & 0,9511  & 0,9097  & 0,5668  \\ 
- Windows 7 & 2,4015 & 2,3954 & 4,2161 & 4,2611 & 4,3152 & 4,2621  & 2,1471 \\
-\bottomrule
+ 1      & 1.8942     & 0.3631  & 1.2690    & 1.3759    & 1.2709  & 1.2828     & 0.1909 \\
+ 2      & 0.3203     & 0.2732  & 1.2041    & 1.3253    & 1.2378  & 1.2307     & 0.1597 \\
+ 3      & 0.2939     & 0.2691  & 1.2109    & 1.3102    & 1.2394  & 1.2417     & 0.1593 \\
+ 4      & 0.2771     & 0.2784  & 1.1840    & 1.3350    & 1.2084  & 1.2215     & 0.1581 \\
+ 5      & 0.2814     & 0.2752  & 1.1681    & 1.3127    & 1.2051  & 1.2428     & 0.1557 \\
+ 6      & 0.2817     & 0.2771  & 1.2051    & 1.3036    & 1.2358  & 1.2452     & 0.1592 \\
+ 7      & 0.2838     & 0.2791  & 1.2311    & 1.2976    & 1.2503  & 1.2388     & 0.1565 \\
+ 8      & 0.2846     & 0.2729  & 1.2077    & 1.3105    & 1.2225  & 1.2404     & 0.1559 \\
+ 9      & 0.2970     & 0.2797  & 1.2058    & 1.2948    & 1.2335  & 1.2658     & 0.1584  \\
+ 10     & 0.3108     & 0.2829  & 1.2408    & 1.3124    & 1.2077  & 1.2679     & 0.1575  \\ \bottomrule
+ Média: & 0.2851     & 0.2851  & 1.2127    & 1.3179    & 1.2311  & 1.2477     & 0.1611 \\
+\end{tabular}
+\end{tiny}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\caption{Resultados Guardas de Inclusão aplicado no Mac OS Yosemite}
+\label{tab:resutados_guards_de_inclusao:mac}
+\begin{tiny}
+\begin{tabular}{lp{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}}
+\textbf{Tipo} & \multicolumn{7}{l}{Utilização de Guarda de Inclusão} \\
+\textbf{Medida} & \multicolumn{7}{l}{Tempos em segundos } \\
+\textbf{Amostras} & \textbf{GIE} & \textbf{GII} & \textbf{PO} & 
+\textbf{GIIPPO} & \textbf{POPGII} & \textbf{GIEPO} & \textbf{RGI} \\ \toprule
+ 1      & 0.8753 & 0.8249 & 1.0309  & 0.8424  & 0.7564  & 0.9224  & 0.6065  \\ 
+ 2      & 0.8422 & 0.8275 & 0.7369  & 0.7748  & 0.7616  & 0.8796  & 0.5017  \\ 
+ 3      & 0.7950 & 0.8539 & 0.9389  & 0.8111  & 0.7928  & 0.8366  & 0.5277  \\ 
+ 4      & 0.7599 & 0.7930 & 1.1065  & 0.9166  & 0.7444  & 0.8158  & 0.5033  \\ 
+ 5      & 0.8539 & 0.7760 & 0.8515  & 1.0654  & 0.8573  & 0.7830  & 0.5114  \\ 
+ 6      & 0.9596 & 0.8868 & 1.0004  & 0.9729  & 1.3346  & 0.8005  & 0.5864  \\ 
+ 7      & 0.8569 & 0.8558 & 1.0348  & 1.3181  & 1.2343  & 0.8366  & 0.5791  \\ 
+ 8      & 0.7840 & 0.7600 & 1.0462  & 1.2104  & 1.2177  & 0.9315  & 0.5044  \\ 
+ 9      & 0.7987 & 0.8231 & 1.1556  & 1.2441  & 0.9490  & 1.2485  & 0.7518  \\ 
+ 10     & 0.9568 & 0.7484 & 1.1298  & 0.9836  & 0.8628  & 1.0419  & 0.5954  \\ \bottomrule
+ Média: & 0.8482 & 0.8149 & 1.0031  & 1.0139  & 0.9511  & 0.9097  & 0.5668  \\ 
+\end{tabular}
+\end{tiny}
+\end{table}
+
+\begin{table}[!ht]
+\centering
+\caption{Resultados Guardas de Inclusão aplicado no Windows 7}
+\label{tab:resutados_guards_de_inclusao:windows7}
+\begin{tiny}
+\begin{tabular}{lp{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}p{1cm}}
+\textbf{Tipo} & \multicolumn{7}{l}{Utilização de Guarda de Inclusão} \\
+\textbf{Medida} & \multicolumn{7}{l}{Tempos em segundos } \\
+\textbf{Amostras} & \textbf{GIE} & \textbf{GII} & \textbf{PO} & 
+\textbf{GIIPPO} & \textbf{POPGII} & \textbf{GIEPO} & \textbf{RGI} \\ \toprule
+ 1      & 2.4736 & 2.4535 & 4.2161 & 4.4164 & 4.3262 & 4.3863  & 2.1030 \\ 
+ 2      & 2.3634 & 2.3834 & 4.1760 & 4.3162 & 4.3062 & 4.2761  & 2.1030 \\ 
+ 3      & 2.4235 & 2.4135 & 4.2962 & 4.2060 & 4.2962 & 4.2261  & 2.1331 \\ 
+ 4      & 2.4035 & 2.3934 & 4.4564 & 4.2962 & 4.3563 & 4.2060  & 2.1531 \\ 
+ 5      & 2.3634 & 2.3534 & 4.2161 & 4.2661 & 4.2962 & 4.3663  & 2.1130 \\ 
+ 6      & 2.3834 & 2.3634 & 4.1560 & 4.2561 & 4.2862 & 4.2461  & 2.1030 \\ 
+ 7      & 2.4235 & 2.3734 & 4.1660 & 4.2161 & 4.3262 & 4.1960  & 2.2032 \\ 
+ 8      & 2.4035 & 2.4235 & 4.1460 & 4.2060 & 4.3663 & 4.2261  & 2.2933 \\ 
+ 9      & 2.3934 & 2.4235 & 4.1760 & 4.2261 & 4.2862 & 4.2561  & 2.1331 \\ 
+ 10     & 2.3834 & 2.3734 & 4.1560 & 4.2060 & 4.3062 & 4.2361  & 2.1331 \\ \bottomrule 
+ Média: & 2.4015 & 2.3954 & 4.2161 & 4.2611 & 4.3152 & 4.2621  & 2.1471 \\
 \end{tabular}
 \end{tiny}
 \end{table}
@@ -42,37 +94,233 @@ visual. Os tempos são dados em segundos, e os métodos aplicados foram abreviad
     \label{benchmark_guardas_de_inclusao}
 \end{figure}
 
-De acordo com dados apresentados, pode-se observe que, para os experimentos em questão, todos os métodos que utilizam a diretiva 
-\texttt{\#pragma once} atigiram tempo de compilação superior em relação aos métodos a utilizam, independente do sistema operacional em questão.
-Dentre os métodos que não utilizaram esta diretiva, o método \textbf{RIG} foi o que resultou em menor tempo médio de compilação.
+\begin{itemize}
+     \item Analise
 
-Em relação aos sistemas operacionais listados, o Mac OS Yosemite apresentou a menor variação dentre os diferentes métodos, apresentado comportamento 
-aproximadamente linear (com média 0,8725 e desvio padrão de 0,1424, o que corresponde a 16\% de variação em torna da média, contra 61\% e 28\% obtido
-no Linux e Windows, respectivamente).  No Windows 7, o tempo de compilação dos métodos foi, na maior parte dos métodos, de 3 a 4 vezes maior que nos outros sistemas operacionais. 
+    Com base nos dados coletados e o gráfico gerado é possível concluir :
+    \begin{enumerate}
+        \item Todos os métodos que incluem \texttt{pragma once} atigiram tempo de compilação maior que os métodos que não possuem, independente do sistema operacional;
+        \item Dos métodos que não possuem \texttt{\#pragma once} o método redundante foi o que atingiu o menor tempo de compilação;
+        \item Em sistema operacional Mac OS Yosemite o tempo de compilação entre os métodos possui a menor variação.
+        \item Em ambiente Windows 7 o tempo de compilação dos métodos é entre 3 e 4 vezes maior que nos outros sistemas operacionais. 
+    \end{enumerate}
+\end{itemize}
 
-\section{Métodos que envolvem a edição do código fonte}
+\clearpage
+\section{Aplicado no Projeto}
 
-O primeiro método avaliado, que evolve a edição do código fonte, foi a guarda de inclusão \texttt{\#pragma once} (apresentada na Seção XTZ). Este método foi aplicado em todos os 
-5 projetos selecionado, e os tempos médios de compilação são apresentados na Tabela \ref{tab:pragma}.
-\begin{table}[!ht]
+\subsection{Alteração no Código}\label{resultados_alteracao_de_codigo}
+
+\begin{itemize}
+    \item Tabelas e Gráficos
+
+\end{itemize}
+
+\subsubsection*{Aseprite}
+%  PROJETO ASEPRITE TABELAS
+
+\begin{table}[!h]
 \tiny
 \centering
-\caption{Resultados do \texttt{\#pragma once}}
-\label{tab:pragma}
-\begin{tabular}{lccccccccc}
-& \multicolumn{6}{c}{\textbf{Tempo médio de compilação (em segundos)} } \\
-\textbf{Projeto} & \multicolumn{3}{c}{\textbf{Linux}} & \multicolumn{3}{c}{\textbf{Mac OS Yosemite}} & \multicolumn{3}{c}{\textbf{Windows 7}} \\ 
-& \textbf{Sem } & \textbf{Com }  & \textbf{Redução (\%)} & \textbf{Sem } & \textbf{Com }  & \textbf{Redução (\%)} & \textbf{Sem } & \textbf{Com }  & \textbf{Redução (\%)} \\
-\toprule
-Aseprite & 2357 &  2362 & 0,002 & 769 & 772 &   - &  2441 & 2317 & 0,05 \\
-iRecoveryplusplus & 1,16 & 0,86  & 25,9 & 2,85 & 2,9229 & - & 4,9688     & 5,0187 & - \\
-Pencil & 455         &  459  & - &  353         & 346  & 0,02 &  530      & 529 & 0,002 \\
+\caption{Aseprite - Alteração de Código no Linux }
+\label{tab:alteracao_de_codigo:linux:aseprite}
+\begin{tabular}{lllll}
+\textbf{Aseprite} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                      &    2514.9207         &  2418.7051   &  -   &  -   \\ 
+2                      &    2333.7905         &  2370.1243   &  -   &  -   \\ 
+3                      &    2352.6054         &  2358.9848   &  -   &  -   \\ 
+4                      &    2341.8494         &  2346.8402   &  -   &  -   \\ 
+5                      &    2326.8056         &  2347.7365   &  -   &  -   \\ 
+6                      &    2342.5205         &  2367.7181   &  -   &  -   \\ 
+7                      &    2339.0471         &  2347.5773   &  -   &  -   \\ 
+8                      &    2335.0176         &  2364.5381   &  -   &  -   \\ 
+9                      &    2344.1943         &  2352.7533   &  -   &  -   \\ 
+10                     &    2347.9277         &  2351.9232   &  -   &  -   \\ \bottomrule
+Média                  &    2357.8679         &  2362.6901   &  -   &  -   \\ 
 \end{tabular}
 \end{table}
 
-Para os projetos selecionados, o impacto desta técnica não se mostrou relevante, pois em várias configurações não houve sequer ganho em relação ao tempo médio e, nos casos onde
-houve ganho, a porcentagem foi muito baixa (exceto no caso do iRecoveryPlus no Linux, com 25\% de ganho, mas o tempo de compilação do projeto já era muito baixo, o que afeta diretamente 
-na proporção ganho).
+\begin{table}[!h]
+\tiny
+\centering
+\caption{Aseprite - Alteração de Código no Mac OS Yosemite }
+\label{tab:alteracao_de_codigo:mac:aseprite}
+\begin{tabular}{lllll}
+\textbf{Aseprite} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                       & 788.2866           &793.1793 &  -   &  -   \\ 
+2                       & 767.4185           &778.4403 &  -   &  -   \\ 
+3                       & 764.6951           &769.6590 &  -   &  -   \\ 
+4                       & 764.9236           &772.5233 &  -   &  -   \\ 
+5                       & 779.1553           &771.1125 &  -   &  -   \\ 
+6                       & 763.0460           &767.2010 &  -   &  -   \\ 
+7                       & 764.7422           &768.7916 &  -   &  -   \\ 
+8                       & 768.9518           &768.6012 &  -   &  -   \\ 
+9                       & 764.8288           &765.9876 &  -   &  -   \\ 
+10                      & 765.5380           &769.1677 &  -   &  -   \\ \bottomrule
+Média                   & 769.1586           &772.4663 &  -   &  -   \\ 
+\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+\tiny
+\centering
+\caption{Aseprite - Alteração de Código no Windows 7}
+\label{tab:alteracao_de_codigo:windows:aseprite}
+\begin{tabular}{lllll}
+\textbf{Aseprite} & \textbf{master}  & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                     &    2504.0313          & 2348.2715  &  -   &  -   \\ 
+2                     &    2462.2656          & 2320.0910  &  -   &  -   \\ 
+3                     &    2429.9063          & 2316.0552  &  -   &  -   \\ 
+4                     &    2419.6250          & 2322.7848  &  -   &  -   \\ 
+5                     &    2436.5938          & 2313.0809  &  -   &  -   \\ 
+6                     &    2413.1406          & 2311.7142  &  -   &  -   \\ 
+7                     &    2444.6719          & 2310.8516  &  -   &  -   \\ 
+8                     &    2437.4375          & 2310.6613  &  -   &  -   \\ 
+9                     &    2437.3125          & 2307.9774  &  -   &  -   \\ 
+10                    &    2428.8438          & 2310.4009  &  -   &  -   \\ \bottomrule
+Média                 &    2441.3828          & 2317.1889  &  -   &  -   \\ 
+\end{tabular}
+\end{table}
+
+
+\clearpage
+%  PROJETO IRECOVERYPLUSPLUS TABELAS
+\subsubsection*{iRecoveryplusplus}
+
+\begin{table}[!h]
+\centering
+\tiny
+\caption{iRecoveryplusplus - Alteração de Código no Linux}
+\label{tab:alteracao_de_codigo:linux:irecovery}
+\begin{tabular}{lllll}
+\textbf{iRecoveryplusplus} & \textbf{master}   & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                     &   1.1434           & 0.8880   & 1.0075   &  0.8692     \\ 
+2                     &   1.0827           & 0.8912   & 0.9056   &  0.8717     \\ 
+3                     &   1.1257           & 0.8359   & 0.8436   &  0.9154     \\ 
+4                     &   1.0751           & 0.8506   & 0.8626   &  0.8796     \\ 
+5                     &   1.0623           & 0.8314   & 0.9103   &  0.8760     \\ 
+6                     &   1.1633           & 0.8658   & 0.8285   &  0.8405     \\ 
+7                     &   1.0963           & 0.8921   & 0.9060   &  0.9267     \\ 
+8                     &   1.4273           & 0.7975   & 0.9121   &  1.0221     \\ 
+9                     &   1.0871           & 0.8991   & 0.8943   &  0.9513     \\ 
+10                    &   1.4181           & 0.8476   & 0.9039   &  0.9898     \\ \bottomrule
+Média                 &   1.1681           & 0.8599   & 0.8975   &  0.9142     \\ 
+\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+\tiny
+\centering
+\caption{iRecoveryplusplus - Alteração de Código no Mac OS Yosemite}
+\label{tab:alteracao_de_codigo:mac:irecovery}
+\begin{tabular}{lllll}
+\textbf{iRecoveryplusplus} & \textbf{master}  & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                   &  2.7747              & 2.7420 & 2.6686 & 2.6628 \\ 
+2                   &  2.9096              & 2.6853 & 2.6563 & 2.5578 \\ 
+3                   &  2.8155              & 2.6057 & 2.7956 & 2.7908 \\ 
+4                   &  2.8629              & 2.8325 & 2.6673 & 2.7269 \\ 
+5                   &  2.8847              & 2.8229 & 2.7536 & 2.7051 \\ 
+6                   &  2.8877              & 3.0290 & 2.7412 & 2.6424 \\ 
+7                   &  2.8877              & 3.1176 & 2.6894 & 2.6555 \\ 
+8                   &  2.8634              & 3.1709 & 2.6639 & 2.8007 \\ 
+9                   &  2.7734              & 3.1759 & 2.6337 & 2.6727 \\ 
+10                  &  2.8015              & 3.0473 & 2.6510 & 2.7748 \\ \bottomrule
+Média               &  2.8461              & 2.9229 & 2.6921 & 2.6990 \\ 
+\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+\tiny
+\centering
+\caption{iRecoveryplusplus - Alteração de Código no Windows 7}
+\label{tab:alteracao_de_codigo:windows:irecovery}
+\begin{tabular}{lllll}
+\textbf{iRecoveryplusplus} &  \textbf{master}  & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                            &  4.4375     & 5.0447  & 4.2836  & 4.8445 \\ 
+2                            &  4.7969     & 4.9847  & 4.2937  & 4.8344 \\ 
+3                            &  4.7969     & 4.9947  & 4.3037  & 4.8344 \\ 
+4                            &  4.8438     & 5.0047  & 4.2836  & 4.7944 \\ 
+5                            &  5.1094     & 4.9847  & 4.2536  & 4.8344 \\ 
+6                            &  5.6875     & 4.9947  & 4.3437  & 4.8344 \\ 
+7                            &  5.0625     & 5.0347  & 4.2836  & 4.8244 \\ 
+8                            &  5.1719     & 5.0648  & 4.3437  & 4.8545 \\ 
+9                            &  5.0156     & 5.0447  & 4.3037  & 4.8545 \\ 
+10                           &  4.7656     & 5.0347  & 4.3037  & 4.8244 \\ \bottomrule
+Média                        &  4.9688     & 5.0187  & 4.2997  & 4.8334 \\ 
+\end{tabular}
+\end{table}
+
+\clearpage
+%  PROJETO PENCIL TABELAS
+\subsubsection*{Pencil}
+
+\begin{table}[!h]
+\tiny
+\centering
+\caption{Pencil - Alteração de Código no Linux}
+\label{tab:alteracao_de_codigo:linux:pencil}
+\begin{tabular}{lllll}
+\textbf{Pencil} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                        &   455.6515         &  459.8221  &  -   & 455.7540      \\ 
+2                        &   458.6480         &  457.9709  &  -   & 453.2132      \\ 
+3                        &   453.9845         &  458.2263  &  -   & 455.5010      \\ 
+4                        &   452.3321         &  458.2057  &  -   & 454.1596      \\ 
+5                        &   456.3933         &  456.9206  &  -   & 451.7834      \\ 
+6                        &   452.3841         &  458.6638  &  -   & 451.9862      \\ 
+7                        &   455.8518         &  461.7113  &  -   & 454.3775      \\ 
+8                        &   454.1806         &  461.1395  &  -   & 453.9680      \\ 
+9                        &   455.4113         &  456.5944  &  -   & 454.3351      \\ 
+10                       &   455.8023         &  463.0633  &  -   & 453.5500      \\ \bottomrule 
+Média                    &   455.0640         &  459.2318  &  -   & 453.8628      \\
+\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+\tiny
+\centering
+\caption{Pencil - Alteração de Código no Mac OS Yosemite}
+\label{tab:alteracao_de_codigo:mac:pencil}
+\begin{tabular}{lllll}
+\textbf{Pencil} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                         &  355.0881         & 345.0807  &  -   & 355.7133  \\ 
+2                         &  352.3484         & 345.0180  &  -   & 354.2093  \\ 
+3                         &  353.0415         & 346.0400  &  -   & 352.3386  \\ 
+4                         &  352.9057         & 344.8880  &  -   & 352.3613  \\ 
+5                         &  352.1713         & 343.9720  &  -   & 352.1329  \\ 
+6                         &  352.2540         & 348.2278  &  -   & 352.0875  \\ 
+7                         &  352.2950         & 345.0131  &  -   & 351.9197  \\ 
+8                         &  352.9621         & 346.0316  &  -   & 352.4711  \\ 
+9                         &  353.0637         & 343.7028  &  -   & 351.6541  \\ 
+10                        &  354.2621         & 354.0800  &  -   & 352.8941  \\ \bottomrule 
+Média                     &  353.0392         & 346.2054  &  -   & 352.7782  \\
+\end{tabular}
+\end{table}
+
+\begin{table}[!h]
+\tiny
+\centering
+\caption{Pencil - Alteração de Código no Windows 7}
+\label{tab:alteracao_de_codigo:windows:pencil}
+\begin{tabular}{lllll}
+\textbf{Pencil} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
+1                            &  538.3750      & 534.8552 &  -   & 520.8307 \\ 
+2                            &  521.5781      & 525.2313 &  -   & 519.9795 \\ 
+3                            &  532.3281      & 524.4802 &  -   & 519.9094 \\ 
+4                            &  528.8750      & 524.3200 &  -   & 520.3501 \\ 
+5                            &  533.0938      & 526.0625 &  -   & 524.8165 \\ 
+6                            &  530.6719      & 530.8694 &  -   & 521.4516 \\ 
+7                            &  531.1250      & 535.8866 &  -   & 519.6390 \\ 
+8                            &  538.9375      & 539.3316 &  -   & 519.1383 \\ 
+9                            &  528.5156      & 527.6548 &  -   & 518.9781 \\ 
+10                           &  524.0313      & 526.1026 &  -   & 517.6862 \\ \bottomrule 
+Média                        &  530.7531      & 529.4794 &  -   & 520.2780 \\
+\end{tabular}
+\end{table}
+
+
+\clearpage
+%  PROJETO SUDOKU TABELAS
+\subsubsection*{Sudoku}
 
 \begin{table}[!h]
 \tiny
@@ -136,6 +384,10 @@ Média                      &   38.4152      & 38.7889  & 36.2605  & 37.8161  \\
 Média               &       32.7234         & 29.3980 & 27.9699 & 28.7821  \\ 
 \end{tabular}
 \end{table}
+
+\clearpage
+%  PROJETO QCAD TABELAS
+\subsubsection*{Qcad}
 
 \begin{table}[!h]
 \tiny
@@ -220,9 +472,8 @@ com tempo de compilação baixo, a diferença foi pouco perceptivel,
     \end{enumerate}
 \end{itemize}
 
-Por fim, os dados detalhados de todos os experimentos com métodos que envolvem a edição do código fonte estão no Apêndice ZRAX.
-
-\subsection{Métodos que envolvem a parametrização do \textit{build}}
+\clearpage
+\subsection{Alteração de flags de Otimização}
 
 \begin{itemize}
     \item Tabelas e Gráficos
@@ -950,7 +1201,7 @@ Média        & 3596.1113  &  3685.4563 &   3745.4151 &   3422.6263 &   3103.997
 \end{itemize}
 
 \clearpage
-\section{Métodos que envolvem o uso de ferramentas externas}
+\subsection{Ferramentas Auxiliares}
 
 \begin{itemize}
     \item Tabelas e Gráficos
