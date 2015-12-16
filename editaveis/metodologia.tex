@@ -12,15 +12,6 @@ Este capítulo foi elaborado para melhorar o entendimento das atividades
     \label{fig:fases_metodologia}
 \end{figure}
 
-
-\section{Revisão Bibliográfica}
-
-A revisão bibliográfica foi a primeira atividade realizada para a construção
- deste trabalho. Foi feito um estudo e levantamento de métodos, técnicas e
- ferramentas que podem auxiliar o desenvolvimento deste trabalho, além de
- elucidar a viabilidade da realização do mesmo. Esta revisão foi utilizada
- como referência para a  escrita da fundamentação teórica.
-
 \section{Seleção de Métodos}
 
 Para seleção de métodos foi realizada uma priorização dos métodos, técnicas e
@@ -73,8 +64,10 @@ utiliza o sistema de versionamento \textit{git}. Esta plataforma foi selecionada
  linguagem principal do projeto, conteúdo de texto dentro da descrição de um projeto e
  quantidade de estrelas dadas para um projeto.
 
-
-A pesquisa avançada foi realizada no dia 27 de agosto de 2015, utilizando os seguintes critérios:
+A pesquisa avançada foi realizada no dia 27 de agosto de 2015 e resultou na seleção dos
+ projetos mostrados na Tabela \ref{projetos_selecionados}
+ ( que podem ser visualizados com maior detalhe na Seção 
+\ref{projetos_apendice} do Apêndice). Os criterios de seleção foram: 
 
 \begin{itemize}
     \item \textbf{Busca por palavra chave nas informações dos projetos}
@@ -105,9 +98,8 @@ projetos que utilizam a linguagem C++ na maior parte de seu código.
  de 10 mil estrelas, indicando que pelo menos 10 mil pessoas gostaram do projeto e este
 é fortemente utilizado. 
         \end{enumerate}
+	\item \textbf{Selecionar os 5 primeiros projetos};
 \end{itemize}
-
-Após esta pesquisa avançada foram selecionado os 5 primeiros projetos.
 
 \begin{lstlisting}[language=python, caption={Busca avançada github },
                   label=busca_avanacada_github]
@@ -128,7 +120,6 @@ Após esta pesquisa avançada foram selecionado os 5 primeiros projetos.
     \label{pesquisa_github}
 \end{figure}
 
-
 \begin{table}[h]
 \centering
 \tiny
@@ -145,83 +136,17 @@ iRecoveryplusplus & C++ & 17 & 11 & 84,7\% & -  \\ \bottomrule
 \end{table}
 
 
-\subsection{Sobre os Projetos}
+\section{Coleta de Dados}
 
-\begin{itemize}
-    \item \textbf{Asepriter}
- \footnote{\url{http://www.aseprite.org/}} é uma ferramenta para criação de \textit{sprites},
- compostas por camadas e quadros, com suporte a RGBA, paleta de 256 cores e escala de cinza.
- Permite visualizar a animação em tempo real e contém ferramentas para preencher contornos
- e polígonos. Esta ferramenta e open source e livre, e pode ser encontrada no \textit{Github}
- \footnote{\url{https://github.com/aseprite/aseprite}} ou no site da ferramenta
- \footnote{\url{http://www.aseprite.org/}}.
-
-    \begin{figure}[h]
-        \centering
-            \includegraphics[scale=0.3]{figuras/aseprite.eps}
-        \caption{Imagem da ferramenta Aseprite}
-        \label{ferramenta_aseprite}
-    \end{figure}
-
-    \item \textbf{Pencil}
- \footnote{\url{http://www.pencil2d.org/pencil2d/}} é uma ferramenta para
- desenho e animação desenhada a mão, e utilizando desenhos em formato bitmap ou gráfico vetoriais. 
-Esta ferramenta é gratuita  e open source, podendo ser encontrada em no \textit{Github}
- \footnote{\url{https://github.com/pencil2d/pencil}} ou no site da ferramenta
- \footnote{\url{http://www.pencil2d.org}}.
-
-    \begin{figure}[h]
-        \centering
-            \includegraphics[scale=0.3]{figuras/pencil2D.eps}
-        \caption{Imagem da ferramenta }
-        \label{ferramenta_pencil2D}
-    \end{figure}
-
-    \item \textbf{Qcad}
- \footnote{\url{http://www.qcad.org/en/}} é um software para desenho
- assistido por computador em duas dimensões, permitindo a criação de desenhos técnicos como
- planos para edifícios, interiores, peças mecânicas ou esquemas e diagramas. Esta ferramenta
- e open source  e gratuita e podendo ser encontrada no \textit{Github}
- \footnote{\url{https://github.com/qcad/qcad}} ou no site da ferramenta.
- \footnote{\url{http://www.qcad.org/en/}}
-
-    \begin{figure}[h]
-        \centering
-            \includegraphics[scale=0.3]{figuras/qcad.eps}
-        \caption{Imagem da ferramenta Qcad}
-        \label{ferramenta_qcad}
-    \end{figure}
-
-    \item \textbf{Sudoku}
- \footnote{\url{https://github.com/macartur-tcc/sudoku}} é um software que foi
- desenvolvido em um curso na universidade de Hasselt na Bélgica, esta foi escrita em c++ e utilizando Qt.
- Este é um software livre e liberado para domínio publico e pode ser encontrado apenas no \textit{Github}
- \footnote{\url{https://github.com/macartur-tcc/sudoku}}.
-
-    \begin{figure}[h]
-        \centering
-            \includegraphics[scale=0.3]{figuras/sudoku.eps}
-        \caption{Imagem da ferramenta Sudoku}
-        \label{ferramenta_qcad}
-    \end{figure}
-
-    \item \textbf{iRecoveryplusplus}
- \footnote{\url{https://github.com/GreySyntax/iRecoveryplusplus}} é um programa projetado para
- realizar comunicação de iPod, iPhone e iPad iBoot/iBSS  com interface USB. 
-Este é um software livre e sobre a licença GPV v3 e pode ser encontrado no \textit{github}
- \footnote{\url{https://github.com/GreySyntax/iRecoveryplusplus}} e é suportado em Linux, Mac OS e Windows.
-
-\end{itemize}
-
-
-
-
-\section{Ambiente}
+Nesta seção será abordado a criação do ambiente para a coleta dos dados,
+ detalhando configurações da máquina utilizada, bibliotecas e software instalados,
+ambiente vírtual criado e quais foram os impedimentos encontrados na criação do ambiente.	
 
 \subsection{Ambiente Físico}
 
-Para a realização dos estudos foi utilizado uma máquina com as
- especificações listada na tabela \ref{configuracoes_ambiente_fisico}
+	Para realizar a coleta de dados o ambiente foi montando
+ utilizando uma máquina com as especificações listadas na Tabela
+ \ref{configuracoes_ambiente_fisico}.
 
 \begin{table}[h]
 \centering
@@ -456,28 +381,33 @@ make & 4.1-1 \\ \bottomrule
 \end{table}
 \end{itemize}
 
-\section{Restrições de Compilação}
+\subsection{Impedimentos durante a coleta}
 
-\subsection{Restrição Global}
+	Durante a montagem do ambiente foram encontrados
+ alguns impedimentos que impactaram em alguns dados a serem coletados.
+Estes impedimentos foram:
+ 
+	\begin{enumerate}[label=\roman* )]
+		\item Um ambiente \textit{mingw} ou \textit{cygwin} não possui suporte
+ a biblioteca glibc\footnote{\url{https://www.gnu.org/software/gnulib/manual/html\_node/execinfo\_002eh.html}},
+ o que fez com que o projeto Qcad não pode ser compilado neste ambiente pois este necessita do header exec\_info.h que é encontrado na biblioteca glibc.
+		\item Durante a montagem do ambiente no Windows 7 o projeto Aseprite teve que ser  
+ ser adicionado o \textit{header} \texttt{<cstdlib>}, pois neste ambiente não foi
+ encontrado este header no projeto. Estas modificações foram colocadas no
+ Github\footnote{\url{https://github.com/macartur-tcc/}} e não impediu a
+ compilação do projeto.
+	\end{enumerate}
 
-    A utilização do linker gold não permite a compilação em todos os ambientes,
- pois é aplicada apenas a sistemas de arquivos binários ELF e nos ambientes
- Windows e Mac OS Yosemite os sistemas de arquivos são PE ou PE32+ e PEF, respectivamente.
+\section {Exemplos de Uso}
 
-\subsection{Restrição Especifica}
-    Um ambiente \textit{mingw} ou \textit{cygwin} não possui suporte
- a biblioteca glibc \footnote{\url{https://www.gnu.org/software/gnulib/manual/html\_node/execinfo\_002eh.html}},
- o que fez com que o projeto Qcad, que necessita do header exec\_info.h não podesse ser compilado.
+	Esta seção apresenta como foi elaborado a execução
+ de cada método e ferramenta na realização da coleta de dados.
+Primeiro foi utilizado um benchmark com guardas de inclusão
+ executado em cada um dos diferentes ambientes e
+ em seguida a aplicação dos métodos e ferramentas utilizando
+ os projetos selecionados.
 
-    Para alguns projetos foi necessário realizar modificações para a compilação
- dos mesmos nos diferentes sistemas operacionais. Estas alterações foram colocadas
- na branch master do repositório modificado, utilizando um \textit{fork} do Github
-  \footnote{\url{https://github.com/macartur-tcc/}} que contém todos os projetos.
- Esta restrição não impediu a compilação dos projetos nos diferentes ambientes.
-
-\section {Estudo de Caso}
-
-\subsection{Aplicado no Ambiente}
+\subsection{Guardas de Inclusão}
 
 Os casos de guardas de inclusão foram realizados utilizando \textit{script} de \textit{benchmark},
  na qual os métodos detalhados na Seção \ref{include_guards_section} foram
@@ -519,13 +449,13 @@ Os scripts abordam os métodos:
 	\item redundância de Guarda de Inclusão.
 \end{itemize}
 
-\subsection{Aplicado no Projeto}
+\subsection{Aplicação de métodos e uso de ferramentas externas}
 
-Antes da realização do estudo de caso foi necessário identificar quais
+	Para a realizar a coleta foi necessário identificar quais
  as técnicas que poderiam ser aplicadas em cada um dos projetos.
- As tabelas \ref{tecnicas_que_podem_ser_aplicadas_codigo}, \ref{tecnicas_que_podem_ser_aplicadas_flag} e 
-\ref{tecnicas_que_podem_ser_aplicadas_ferramenta} mostram esta analise.
-
+ As tabelas \ref{tecnicas_que_podem_ser_aplicadas_codigo},
+ \ref{tecnicas_que_podem_ser_aplicadas_flag} 
+e \ref{tecnicas_que_podem_ser_aplicadas_ferramenta} mostram esta analise.
 
 \begin{table}[h]
 \centering
@@ -595,23 +525,33 @@ Estas alterações estão na branch \lq\lq\textit{forward\_declaration}\rq\rq do
 Estas alterações estão na branch \lq\lq\textit{pimpl}\rq\rq dos projetos que foi possível aplicar.
     \end{enumerate}
 
-\subsubsection{Alteração de flags de Compilação}
+\subsubsection{Parametrização de Build}
+
+	Antes da realização da compilação será feito 2 tipos de parametrização,
+ utilizando os métodos detalhados nas Seções \ref{Makefile_section} e 
+\ref{Otimizacao_de_baixo_nivel}. Sendo assim será utilizado: 
 
         \begin{enumerate}
             \item makefile
-                \subitem Neste estudo de casos no momento da utilização do makefile
- será utilizado as flags: -j2,-j4,-j6,-j8 e -j10. Com esta abordagem será investigada a relação entre a compilação e a quantidade de \textit{jobs} (\textit{threads}).
+                \subitem No momento da utilização do makefile será utilizado
+ as flags: -j2,-j4,-j6,-j8 e -j10.
+ Com esta abordagem será investigada a relação entre a compilação
+ e a quantidade de \textit{jobs} (\textit{threads}).
             \item Otimização de Baixo Nível
-                \subitem Neste estudo de caso todos os arquivos Makefile serão
+                \subitem Todos os arquivos Makefile serão
  alterados para receber a flags: -O, -O0, -O2, -Ofast, -O3, -Os,-Og.
  Com estes resultados será possível verificar a relação do tempo gasto com
  o tempo de otimização do compilador.
         \end{enumerate}
 
-\subsubsection{Ferramentas Auxiliares}
+\subsubsection{Ferramentas Externas}
+
+	Para a realização da coleta de dados utilizando ferramentas
+ externas será utilizado as ferramentas detalhadas na Seção 
+\ref{ferramentas_de_otimizacao} e seguindo os comandos:
 
         \begin{enumerate}
-               \item CCache
+               \item Ccache
                     \subitem Neste estudo de caso em cada projeto será adicionado
  a palavra ccache antes de cada linha de compilação. Será utilizado as
  configurações padrão do ccache, e antes de cada compilação para ter certeza
@@ -746,7 +686,6 @@ no github utilizando os comandos no Cógido \ref{clonando_sudoku}.
 
 \end{lstlisting}
 
-
     \item \textbf{Qcad}
     \subitem Para compilar o projeto Qcad é necessário clonar o
  projeto no github, gerar os arquivos makefile e compilar
@@ -780,7 +719,6 @@ no github utilizando os comandos no Cógido \ref{clonando_sudoku}.
 \end{lstlisting}
 \end{itemize}
 
-
 \section{Montagem de Scripts}
 
 
@@ -789,7 +727,7 @@ Os scripts foram elaborados utilizando a linguagem de programação python,
 \footnote{\url{https://github.com/macartur-tcc/tcc_scripts}}.
 
 
-\subsection{Aplicado ao Ambiente}\label{Amplicação ao Ambiente}
+\subsection{Benchmark com Guardas de Inclusão}\label{Amplicação ao Ambiente}
 
 Para o estudo aplicado ao ambiente foi criado um script de benchmark utilizando
  a linguagem python, e foi detalhado no apêndice na seção Benchmark \ref{script_bench_mark}.
@@ -826,8 +764,7 @@ A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dad
 \end{tiny}
 \end{table}
 
-
-\subsection{Aplicado a Projeto}
+\section{Métodos e ferramentas aplicados a um projeto}
 
 Para realizar as compilações dos projetos foi criado um script de recompilação que
  segue no código \ref{script_recompilacoes}, com este é possível alterar entre
@@ -842,14 +779,15 @@ Para realizar as compilações dos projetos foi criado um script de recompilaç�
 Para a contagem do tempo de compilação foi utilizado o módulo datetime do python,
  realizando a diferença do tempo inicial e final do tempo de compilação.
 
-Após a execução do script será preenchida as tabelas abaixo, e gerado gráficos para melhor
-analisar os resultados. 
-
+	Após a execução do script e a coleta dos dados as Tabelas \ref{tab:modelo_alteracao_de_codigo},
+ \ref{tab:modelo_otimizacao_compilacao}, \ref{tab:modelo_flag_processamento_paralelo} e
+\ref{tab:modelo_ferramentas_auxliares} foram preenchidas e resultou nas tabelas encontradas na Seção 
+\ref{metodos_ferramenas_aplicado_a_um_projeto} do Apêndice.
 
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Modelo Alteração de Código}
+\caption{Modelo que aplica Alteração de Código}
 \label{tab:modelo_alteracao_de_codigo}
 \begin{tabular}{lllll}
 \textbf{<Nome do Projeto>} & \textbf{master} & \textbf{pragma once} & \textbf{forward declaration} & \textbf{private implementation}   \\ \toprule
@@ -871,7 +809,7 @@ Média                         &      &     &     &        \\
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Modelo Flags de Otimização da Compilação}
+\caption{Modelo aplica parametrização com flags de otimização}
 \label{tab:modelo_otimizacao_compilacao}
 \begin{tabular}{llllllll}
 \textbf{<Nome do Projeto>} & \textbf{-O} & \textbf{-O0} & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -892,7 +830,7 @@ Média                      &             &              &              &       
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Modelo Flags de Processamento Paralelo}
+\caption{Modelo que aplica flgas de processamento paralelo}
 \label{tab:modelo_flag_processamento_paralelo}
 \begin{tabular}{llllll}
 \textbf{<Nome do Projeto>} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -913,7 +851,7 @@ Média                                &    &     &     &     &        \\
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Modelo Ferramentas Auxiliares}
+\caption{Modelo com utilização de ferramentas externas}
 \label{tab:modelo_ferramentas_auxliares}
 \begin{tabular}{lll}
 \textbf{<Nome do Projeto>} & \textbf{gold} & \textbf{ccache}   \\ \toprule

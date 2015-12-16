@@ -4,9 +4,6 @@ Este capítulo apresenta os resultado obtido com a aplicação dos exemplos de u
 
 Para melhor organização do trabalho, os resultados serão apresentados em seções, que correspondem à métodos correlacionados.
 
-% palavras chaves para pesquisa
-%PROJETO ASEPRITE TABELAS 
-
 \section{Guardas de Inclusão}
 
 As tabelas que contém o detalhamento das execuções dos experimentos se encontram no Apêndice ZYX. A Tabela \ref{tab:resutados_guards_de_inclusao}
@@ -58,7 +55,7 @@ no Linux e Windows, respectivamente).  No Windows 7, o tempo de compilação dos
 
 \section{Métodos que envolvem a edição do código fonte}
 
-O primeiro método avaliado, que evolve a edição do código fonte, foi a guarda de inclusão \texttt{\#pragma once} (apresentada na Seção XTZ). Este método foi aplicado em todos os 5 projetos selecionado, e os tempos médios de compilação são apresentados na Tabela \ref{tab:pragma}.
+O primeiro método avaliado, que evolve a edição do código fonte, foi a guarda de inclusão \texttt{\#pragma once} (apresentada na Seção \ref{include_guards_section}). Este método foi aplicado em todos os 5 projetos selecionado, e os tempos médios de compilação são apresentados na Tabela \ref{tab:pragma}.
 
 \begin{table}[!ht]
 \tiny
@@ -79,8 +76,7 @@ Qcad   & 3923 &  3841 &  2,09  &  3729  & 3290 & 11,77   & - & -  & - \\
 \end{table}
 
 Para os projetos selecionados, o impacto desta técnica não se mostrou relevante, pois em várias configurações não houve sequer ganho em relação ao tempo médio e, nos casos onde
-houve ganho, a porcentagem foi muito baixa (exceto no caso do iRecoveryPlus no Linux, com 25\% de ganho, mas o tempo de compilação do projeto já era muito baixo, o que afeta diretamente 
-na proporção ganho).
+houve ganho, a porcentagem foi muito baixa (exceto no caso do iRecoveryplusplus no Linux, com 25\% de ganho, mas o tempo de compilação do projeto já era muito baixo, o que afeta diretamente na proporção ganho).
 
 \begin{table}[!ht]
 \tiny
@@ -121,7 +117,7 @@ Por fim, os dados detalhados de todos os experimentos com métodos que envolvem 
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{Resultados parametrização utilizando flags de otimização no Linux}
+\caption{Resultados de parametrização utilizando flags de otimização no Linux}
 \label{tab:flags_otimizacao:linux}
 \begin{tabular}{lccccccccc}
 & \multicolumn{6}{c}{\textbf{Tempo médio de compilação (em segundos)} } \\
@@ -138,7 +134,7 @@ Qcad    & 3919 &  3925 &  3923 & 3919 & \textbf{3886} & 3922 & 3937 & 0,94  \\
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{Resultados parametrização utilizando flags de otimização no Mac OS Yosemite}
+\caption{Resultados de parametrização utilizando flags de otimização no Mac OS Yosemite}
 \label{tab:flags_otimizacao:mac_os}
 \begin{tabular}{lccccccccc}
 & \multicolumn{6}{c}{\textbf{Tempo médio de compilação (em segundos)} } \\
@@ -154,7 +150,7 @@ Qcad   & 3795 & \textbf{3079} & 3729  & 3737 & 3793  & 3786 &  17,43  \\
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{Resultados parametrização utilizando flags de otimização no Windows 7}
+\caption{Resultados de parametrização utilizando flags de otimização no Windows 7}
 \label{tab:flags_otimizacao:windows}
 \begin{tabular}{lccccccccc}
 & \multicolumn{6}{c}{\textbf{Tempo médio de compilação (em segundos)} } \\
@@ -166,12 +162,10 @@ Sudoku & 31,15 & \textbf{29,29} & 32,72 & 35,28 & 31,41 & 35,69 & 30,11 & 16,98 
 \end{tabular}
 \end{table}
 
-\section{Alteração de flags de processamento paralelo}
-
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{Resultados parametrização utilizando flags de processamento paralelo no Linux}
+\caption{Resultados de parametrização utilizando flags de processamento paralelo no Linux}
 \label{tab:flags_processamento_paralelo:linux}
 \begin{tabular}{lccccccc}
 & \multicolumn{4}{c}{\textbf{Tempo médio de compilação (em segundos)} } \\
@@ -188,7 +182,7 @@ Qcad & 3923 & 2437 & \textbf{2301} & 2323 & 1603 & 1557 & 41,34 \\
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{Resultados parametrização utilizando flags de processamento paralelo no Mac OS Yosemite}
+\caption{Resultados de parametrização utilizando flags de processamento paralelo no Mac OS Yosemite}
 \label{tab:flags_processamento_paralelo:mac_os}
 \begin{tabular}{lccccccc}
 & \multicolumn{4}{c}{\textbf{Tempo médio de compilação (em segundos)} } \\
