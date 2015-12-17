@@ -63,10 +63,10 @@ No processo de interpretação, o código fonte é passado para um programa cham
  interpretador, o qual é responsável pela leitura do código e pela tradução, 
 em tempo real, deste código em instruções a serem executadas pelo sistema 
 operacional ou  pelo processador \cite{ref2}. No caso de linguagens que são, em geral, 
-interpretadas, costuma-se nomear os códigos-fonte como scripts, embora esta não seja 
+interpretadas, na maioria dos casos são nomeadas como scripts, embora esta não seja 
 uma regra geral.
 
-Ao contrário do compilador, o interpretador faz a leitura do código fonte e 
+Diferente do compilador, o interpretador faz a leitura do código fonte e 
 executa  as respectivas instruções em tempo real. Isso faz com que  códigos 
 interpretados tenham maior flexibilidade e um melhor diagnóstico (exibição de 
 mensagens de erros) do que  códigos compilados. A interpretação também pode lidar 
@@ -97,7 +97,7 @@ Sem  o recurso da interpretação, seria uma tarefa deveras complexa implementar
 alguns recursos  presentes em linguagens Lisp e Prolog onde, por exemplo, 
 um programa pode escrever novas peças de si mesmo e executá-las em tempo real
  \cite[pág. 17]{ref6}.
-Como exemplos de linguagens que, em geral, são interpretadas, temos ActionScript,
+Como exemplos de linguagens que, em geral, são interpretadas as linguagens: ActionScript,
  APL, ASP, BASIC, C\#, CYBOL, Java, JavaScript, Lisp, Logo, Lua, PHP, Python, Ruby,
  Scheme, Smalltalk, VBScript.
  
@@ -138,7 +138,7 @@ interpretadas, ferramentas que se valem do JIT para acelerar a interpretação
 por exemplo, o PyPy para a linguagem Python.\footnote{\url{http://pypy.org/}}
 
 
-\section{Compilação}
+\section{Processo de Compilação}
 
 \subsection{Preprocessadores}
 
@@ -206,15 +206,16 @@ código alvo e otimização de código para o alvo específico \cite[pág. 36]{r
 A análise léxica é a primeira fase a ser executada pelo compilador \cite[pág. 59]{ref15}. 
 A função do analisador léxico, também denominado \textit{scanner}, é ler o código fonte, 
 caractere a caractere, buscando a separação e  a identificação dos elementos do 
-programa, denominados símbolos léxicos ou tokens \cite[pág. 195]{ref16}. Assim, é 
-produzida uma sequência de tokens que será utilizada na análise sintática \cite[pág. 38]{ref3}. 
+programa, denominados símbolos léxicos ou \textit{tokens} \cite[pág. 195]{ref16}. Assim, é 
+produzida uma sequência de \textit{tokens} que será
+ utilizada na análise sintática \cite[pág. 38]{ref3}. 
 
 Esta fase também tem a importância de realizar a remoção de elementos 
 “decorativos” do programa, tais como espaços, tabulações, caracteres de 
 avanço e comentários \cite[pág. 59]{ref15}. Para auxiliar a construção deste analisador,
  estão disponíveis uma série de geradores automáticos de analisadores léxicos, 
 cujo objetivo é reduzir o esforço de programação deste tipo de ferramenta, 
-especificando-se apenas os tokens a serem reconhecidos \cite[pág. 50]{ref18}.
+especificando-se apenas os \textit{tokens} a serem reconhecidos \cite[pág. 50]{ref18}.
 
 \subsection{Análise Sintática}
 
@@ -358,7 +359,7 @@ por acrônimos do inglês (por exemplo, \texttt{mov} representa ‘mover’, \te
 representa repetição e assim por diante) \cite[pág. 5]{ref6}.
 
 O mesmo programa mostrado no Código \ref{codigo_02} pode ser representado 
-em assembly, conforme ilustrado no Código \ref{codigo_03} \cite[pág. 5]{ref6}. 
+em \textit{assembly}, conforme ilustrado no Código \ref{codigo_03} \cite[pág. 5]{ref6}. 
 
 \begin{lstlisting}[language=Pascal,caption={Algoritmo de 
                                  Euclides estendido em Assembly , com adaptações},
@@ -377,12 +378,12 @@ em assembly, conforme ilustrado no Código \ref{codigo_03} \cite[pág. 5]{ref6}.
 
 \end{lstlisting}
 
-Para converter um programa de assembly para um código de máquina é necessário
- um montador, denominado Assembler. O montador é um programa que realiza a 
+Para converter um programa de \textit{assembly} para um código de máquina é necessário
+ um montador, denominado \textit{Assembler} ou montador. O \textit{assembly} é um programa que realiza a 
 parametrização das instruções da linguagem Assembly para os \textit{bits} 
 correspondentes da linguagem de máquina (também chamado de \textit{opcode}) \cite[pág. 6]{ref6}.
 
-\subsection{Linking}
+\subsection{\textit{Linking}}
 
 
 \begin{figure}[h]
@@ -402,7 +403,7 @@ mais próximos da sua realizade \cite{ref36}.
 
  Basicamente o Linker liga um nome ou símbolo escrito por um desenvolvedor e
  referencia a localização do inicio do código que possui a função ou o dado
- estático. Como no exemplo descrito por John Levine, o linker pega um 
+ estático. Como no exemplo descrito por John Levine, o \textit{linker} pega um 
 referência escrita como \texttt{getline}  e vincula a “uma localização de 612 \textit{bytes}
 no inicio de um código executável do módulo \texttt{iosys}” \cite[pág. 7]{ref36}. 
 
@@ -411,7 +412,7 @@ entrada um conjunto de arquivos objetos, bibliotecas e parâmetros e produz
  como resultado um arquivo de saída, como mostrado na Figura \ref{fig03}
  \cite[pág. 13]{ref36}. Neste passo é criada uma tabela com 
 todos os segmentos definidos nos arquivos fontes e uma tabela de símbolos 
-importados ou exportados. Depois o Linker atribui uma localização numérica 
+importados ou exportados. Depois o \textit{Linker} atribui uma localização numérica 
 para cada símbolo, determinando o tamanho e a localização dos segmentos no
  espaço de endereço final. O segundo passo usa as informações do primeiro
  para controlar a link-edição, ajustando os endereços de memória do código e
@@ -421,7 +422,7 @@ para cada símbolo, determinando o tamanho e a localização dos segmentos no
 
 \subsection{Bibliotecas}
 
-Após algum tempo utilizando compiladores e linkers, muitos 
+Após algum tempo utilizando compiladores e \textit{linkers}, muitos 
 desenvolvedores perceberam que poderiam economizar tempo e esforço 
 reutilizando pedaços de códigos escritos em outros programas. Para evitar a
  cópia de arquivos entre projetos surgiram as chamadas bibliotecas \cite[pág.  227]{ref36}.
@@ -455,7 +456,7 @@ dinâmicas e compartilhadas \cite{Lasca}.
 Bibliotecas estáticas (que normalmente  são nomeadas com o  sufixo \texttt{.a}) 
 são módulos de programas compilados separadamente, que podem ser utilizados
  na construção de um programa executável. Assim, após a etapa de compilação de
- um projeto, o linker faz a ligação entre as bibliotecas estáticas como
+ um projeto, o \textit{linker} faz a ligação entre as bibliotecas estáticas como
  mostrado na Figura \ref{fig04} \cite[pág. 54]{ref39}.
 
 Estas bibliotecas são mais difíceis de se manter, pois a cada atualização de uma
@@ -1089,10 +1090,10 @@ Make é uma ferramenta utilizada para determinar automaticamente quais
  hoje vem sendo mantida por Paul D.Smith \cite{Lasca2}. O manual de utilização do \texttt{makefile}
  é disponibilizado no portal GNU \cite{ref45}.
 
-Para utilizar a ferramenta make é necessário a criação de um arquivo chamado
+Para utilizar a ferramenta \textit{make} é necessário a criação de um arquivo chamado
  \texttt{makefile}, que contém as descrições de relações entre os arquivos em um projeto
  e comandos necessários para realizar as atualizações em cada arquivo \cite{Lasca2}.
- Depois de definir o arquivo \texttt{make}, utiliza a chamada de sistema apresentada 
+ Depois de definir o arquivo \texttt{makefile}, utiliza a chamada de sistema apresentada 
 no Código \ref{codigo_20}.
 
 \begin{lstlisting}[language=C++,caption={
@@ -1115,7 +1116,7 @@ Arquivos \texttt{makefile} contém 5 tipos básicos de elementos: regras explici
 
 \begin{enumerate}
 
-    \item Regras Explicitas: \
+    \item Regras Explícitas: \
         conjunto de regras que informam quando e como refazer as construções
          de arquivos. Ela é definida pela estrutura apresentada no Código \ref{codigo_21}.
 
@@ -1296,8 +1297,8 @@ O comando pode ser utilizado como mostrado no Código \ref{codigo_26} e conforme
 
 
 onde \textbf{alvo} é a instrução que será executada pelo \textit{make}(A omissão deste
-parâmetro leva a execução do alvo \textit{all}) e \textbf{opções} são flags de controle
- utilizadas pelo utilitário make. Exemplos de flags estão definidas na Tabela \ref{tab:tabela_05}:
+parâmetro leva a execução do alvo \textit{all}) e \textbf{opções} são \textit{flags} de controle
+ utilizadas pelo utilitário \textit{make}. Exemplos de \textit{flags} estão definidas na Tabela \ref{tab:tabela_05}:
 
 \begin{table}[h]
     \centering
@@ -1309,16 +1310,16 @@ parâmetro leva a execução do alvo \textit{all}) e \textbf{opções} são flag
     \midrule
     \texttt{-C dir} , \texttt{--directory=dir} & Modifica o diretório antes de fazer a leitura do \texttt{makefile}\\
     \midrule
-    \texttt{-f file}, \texttt{--file=file}, \texttt{--makefile=FILE} & Realiza a leitura de um \texttt{makefile} especifico\\
+    \texttt{-f file}, \texttt{--file=file}, \texttt{--makefile=FILE} & Realiza a leitura de um \texttt{makefile} específico\\
     \midrule
     \texttt{-i}, \texttt{--ignore-errors} & Ignora erros na reconstrução de arquivos\\
     \midrule
     \texttt{-I dir}, \texttt{ --include-dir=dir} & Especifica o diretório que inclue os \texttt{makefiles}\\
     \midrule
-    \texttt{-j [jobs]}, \texttt{--jobs[=jobs]} & Especifica a quantidade de threads
+    \texttt{-j [jobs]}, \texttt{--jobs[=jobs]} & Especifica a quantidade de \textit{threads}
                                  que podem ser executadas em paralelo. 
                                  Caso não seja passado a quantidade de
-                                 threads ele não terá limites na criação
+                                 \textit{threads} ele não terá limites na criação
                                  de threads.\\
     \bottomrule
     \end{tabular}
@@ -1408,7 +1409,7 @@ Esta técnica, ao ser utilizada, tem como benefício minimizar a
     }
 \end{lstlisting}
 
-\subsection{Flags de Otimização de Baixo Nível}
+\subsection{\textit{Flags} de Otimização de Baixo Nível}
 \label{Otimizacao_de_baixo_nivel}
 
 Como visto na Seção \ref{Compilação} é possível otimizar
@@ -1418,8 +1419,7 @@ Como visto na Seção \ref{Compilação} é possível otimizar
  Para controlar estas otimizações, os compiladores recebem como \textit{flags} (parâmetros) que
  indicam quais tipos de otimização pode ser aplicadas pelo compilador.\footnote{\url{https://gcc.gnu.org}}
 
-No gcc/g++
-\footnote{\url{https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html}}
+No gcc/g++\footnote{\url{https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html}} 
 \footnote{\url{https://gcc.gnu.org/onlinedocs/gnat\_ugn/Optimization-Levels.html\#Optimization-Levels}},
  as flags de otimizações de compilação podem ser:
 
@@ -1474,13 +1474,12 @@ Possui as vantagens : gerencia o tamanho de \textit{cache},
  formatos de arquivos binários, pelo pesquisador da Google,
  Ian Lance Taylor, que realizou a remoção da biblioteca e utilização de menos camadas de abstrações.
 
-	\subitem O linker \textit{gold} vem por padrão nos pacotes do GNU e pode ser utilizado no gcc/g++ passando a flag
+	\subitem O \textit{linker} \textit{gold} vem por padrão nos pacotes do GNU e pode ser utilizado no gcc/g++ passando a \textit{flag}
  -Wl,-fuse-ld=gold\footnote{\url{https://gcc.gnu.org/onlinedocs/gcc/Link-Options.html}},
- caso nenhuma \textit{flag} seja passada, será utilizado o linker padrão \textit{ld} que utiliza
- a biblioteca BFD. O linker \textit{gold} para ser utilizado em sistemas com \textit{back-end llvm} é necessário
- instalar o plugin \textit{llvm-gold-plugin}\footnote{\url{http://llvm.org/docs/GoldPlugin.html}}.
+ caso nenhuma \textit{flag} seja passada, será utilizado o \textit{linker} padrão \textit{ld} que utiliza
+ a biblioteca BFD. O \textit{linker} \textit{gold} para ser utilizado em sistemas com \textit{back-end llvm} é necessário
+ instalar o \textit{plugin} \textit{llvm-gold-plugin}\footnote{\url{http://llvm.org/docs/GoldPlugin.html}}.
 
 	\subitem Para sistemas operacionais como um Mac OS e Windows esta ferramenta não é suportada, uma vez que
-estes sistemas possuem formato de arquivo binário diferente do ELF. Windows possui os sistemas de arquivo PE ou PE32+, enquanto o Mac OS utiliza PEF ou XCOFF
-\footnote{\url{https://en.wikipedia.org/wiki/Comparison\_of\_executable\_file\_formats\#cite\_note-apple-pef-9}}.
+estes sistemas possuem formato de arquivo binário diferente do ELF. Windows possui os sistemas de arquivo PE ou PE32+, enquanto o Mac OS utiliza PEF ou XCOFF\footnote{\url{https://en.wikipedia.org/wiki/Comparison\_of\_executable\_file\_formats\#cite\_note-apple-pef-9}}.
 \end{itemize}

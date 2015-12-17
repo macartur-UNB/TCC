@@ -67,15 +67,19 @@ Esta ferramenta é gratuita  e open source, podendo ser encontrada em no
     \end{figure}
 
 \section{iRecoveryplusplsu}
+
     \textbf{iRecoveryplusplus}\footnote{\url{https://github.com/GreySyntax/iRecoveryplusplus}}
  é um programa projetado para realizar comunicação de iPod, iPhone e iPad iBoot/iBSS  com interface USB. 
 Este é um software livre e sobre a licença GPV v3 e pode ser encontrado
  no \textit{github}\footnote{\url{https://github.com/GreySyntax/iRecoveryplusplus}} com
  suporte aos sistemas operacionais Windows, Mac OS e Linux.
 
+
 \chapter{Script Guardas de Inclusão}
+\label{script_benchmark}
 
 \section{Guardas de Inclusão Externa mais Pragma Once}
+
 \begin{lstlisting}[language=Python, caption={
      Script Guardas de Inclusão Externa mais pragma once},
                   label=script_external_pragma_include]
@@ -1169,27 +1173,6 @@ Média                    &   3729.7937      &  3290.4201 &  -   & - \\
 \end{tabular}
 \end{table}
 
-\begin{figure}[b]
-    \centering
-        \includegraphics{figuras/graficos/linux_alteracao_codigo.eps}
-    \caption{Dados Coletados - Alteração de Código no Linux}
-    \label{benchmark_guardas_de_inclusao}
-\end{figure}
-
-\begin{figure}[b]
-    \centering
-        \includegraphics{figuras/graficos/mac_os_alteracao_codigo.eps}
-    \caption{Dados Coletados - Alteração de Código no Mac OS Yosemite}
-    \label{benchmark_guardas_de_inclusao}
-\end{figure}
-
-\begin{figure}[b]
-    \centering
-        \includegraphics{figuras/graficos/windows_alteracao_codigo.eps}
-    \caption{Dados Coletados - Alteração de Código no Windows 7}
-    \label{benchmark_guardas_de_inclusao}
-\end{figure}
-
 \clearpage
 \subsection{Métodos que envolvem a parametrização do \textit{build}}
 \label{parametrizacao_apendice}
@@ -1200,7 +1183,7 @@ Média                    &   3729.7937      &  3290.4201 &  -   & - \\
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{Aseprite - Flags de Otimização da Compilação no Linux}
+\caption{Aseprite - \textit{Flags} de Otimização da Compilação no Linux}
 \label{tab:otimizacao_compilacao:linux:aseprite}
 \begin{tabular}{llllllll}
 \textbf{Aseprite} & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1221,7 +1204,7 @@ Média             & 2274.5095    & 2073.3554      & 2357.8679    & 2412.4096   
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{Aseprite - Flags de Otimização da Compilação no Mac OS Yosemite}
+\caption{Aseprite - \textit{Flags} de Otimização da Compilação no Mac OS Yosemite}
 \label{tab:otimizacao_compilacao:mac:aseprite}
 \begin{tabular}{llllllll}
 \textbf{Aseprite} & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1242,7 +1225,7 @@ Média             & 775.6925     &  592.3120      &  769.1586    & 795.4195    
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{aseprite - flags de otimização da compilação no Windows 7}
+\caption{aseprite - \textit{flags} de otimização da compilação no Windows 7}
 \label{tab:otimizacao_compilacao:windows:aseprite}
 \begin{tabular}{llllllll}
 \textbf{Aseprite} & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1267,7 +1250,7 @@ média             &  2254.2453   &  2092.4125     & 2441.3828    &  2550.6655  
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{iRecoveryplusplus - Flags de Otimização da Compilação no Linux}
+\caption{iRecoveryplusplus - \textit{Flags} de Otimização da Compilação no Linux}
 \label{tab:otimizacao_compilacao:linux:irecoveryplusplus}
 \begin{tabular}{llllllll}
 \textbf{iRecoveryplusplus} & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1288,7 +1271,7 @@ Média                      & 1.0429       &   0.8906       &  1.1681      &   1
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{iRecoveryplusplus - Flags de Otimização da Compilação no Mac OS Yosemite}
+\caption{iRecoveryplusplus - \textit{Flags} de Otimização da Compilação no Mac OS Yosemite}
 \label{tab:otimizacao_compilacao:mac:irecoveryplusplus}
 \begin{tabular}{llllllll}
 \textbf{iRecoveryplusplus} & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1310,7 +1293,7 @@ Média                      & 2.8967       &   2.5714      &  2.8461      &  2.8
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{iRecoveryplusplus - flags de otimização da compilação no Windows 7}
+\caption{iRecoveryplusplus - \textit{flags} de otimização da compilação no Windows 7}
 \label{tab:otimizacao_compilacao:windows:irecoveryplusplus}
 \begin{tabular}{llllllll}
 \textbf{iRecoveryplusplus} & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1335,7 +1318,7 @@ média                      &   4.5813     &    4.6484      & 4.9688       & 5.1
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{Pencil - Flags de Otimização da Compilação no Linux}
+\caption{Pencil - \textit{Flags} de Otimização da Compilação no Linux}
 \label{tab:otimizacao_compilacao:linux:pencil}
 \begin{tabular}{llllllll}
 \textbf{Pencil}            & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1357,7 +1340,7 @@ Média                      & 456.5454     &   454.6564     &  455.0640    &   4
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Pencil - Flags de Otimização da Compilação no Mac OS Yosemite}
+\caption{Pencil - \textit{Flags} de Otimização da Compilação no Mac OS Yosemite}
 \label{tab:otimizacao_compilacao:mac:pencil}
 \begin{tabular}{llllllll}
 \textbf{Pencil}         & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1378,7 +1361,7 @@ Média                   & 353.1064     &   352.8868     &    353.0392  &    353
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Pencil - flags de otimização da compilação no Windows 7}
+\caption{Pencil - \textit{flags} de otimização da compilação no Windows 7}
 \label{tab:otimizacao_compilacao:windows:pencil}
 \begin{tabular}{llllllll}
 \textbf{Pencil}    & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1404,7 +1387,7 @@ média              & 516.6875     &   501.8844     &    530.7531  &    534.5563
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Sudoku - Flags de Otimização da Compilação no Linux}
+\caption{Sudoku - \textit{Flags} de Otimização da Compilação no Linux}
 \label{tab:otimizacao_compilacao:linux:sudoku}
 \begin{tabular}{llllllll}
 \textbf{Sudoku}            & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1425,7 +1408,7 @@ Média                      & 22.2322      & 22.5147        & 22.2112      & 21.
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Sudoku - Flags de Otimização da Compilação no Mac OS Yosemite}
+\caption{Sudoku - \textit{Flags} de Otimização da Compilação no Mac OS Yosemite}
 \label{tab:otimizacao_compilacao:mac:sudoku}
 \begin{tabular}{llllllll}
 \textbf{Sudoku}         & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1446,7 +1429,7 @@ Média                   & 38.3618      & 38.5014        & 38.4152      & 38.320
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Sudoku - flags de otimização da compilação no Windows 7}
+\caption{Sudoku - \textit{flags} de otimização da compilação no Windows 7}
 \label{tab:otimizacao_compilacao:windows:sudoku}
 \begin{tabular}{llllllll}
 \textbf{Sudoku}    & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1471,7 +1454,7 @@ média              & 31.1531      & 29.2781        & 32.7234      & 35.2766    
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Qcad - Flags de Otimização da Compilação no Linux}
+\caption{Qcad - \textit{Flags} de Otimização da Compilação no Linux}
 \label{tab:otimizacao_compilacao:linux:qcad}
 \begin{tabular}{llllllll}
 \textbf{Qcad}            & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1492,7 +1475,7 @@ Média                    & 3919.1792    &  3925.6860     &  3923.0922   &   391
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Qcad - Flags de Otimização da Compilação no Mac OS Yosemite}
+\caption{Qcad - \textit{Flags} de Otimização da Compilação no Mac OS Yosemite}
 \label{tab:otimizacao_compilacao:mac:qcad}
 \begin{tabular}{llllllll}
 \textbf{Qcad}         & \textbf{-O}  & \textbf{-O0}   & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
@@ -1514,14 +1497,14 @@ Média                 & 3795.9526    &   3079.1739    &   3729.7937  &   3737.8
 \begin{figure}[!h]
     \centering
         \includegraphics{figuras/graficos/linux_otimizacao.eps}
-    \caption{Dados Coletados - Utilização de Flags de Otimização no Linux}
+    \caption{Dados Coletados - Utilização de \textit{Flags} de Otimização no Linux}
     \label{flags_de_otimizacao_linux}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
         \includegraphics{figuras/graficos/mac_os_otimizacao.eps}
-    \caption{Dados Coletados - Utilização de Flags de Otimização no Mac OS Yosemite}
+    \caption{Dados Coletados - Utilização de \textit{Flags} de Otimização no Mac OS Yosemite}
     \label{flags_de_otimizacao_mac_os}
 \end{figure}
 
@@ -1529,7 +1512,7 @@ Média                 & 3795.9526    &   3079.1739    &   3729.7937  &   3737.8
 \begin{figure}[!h]
     \centering
         \includegraphics{figuras/graficos/windows_otimizacao.eps}
-    \caption{Dados Coletados - Utilização de Flags de Otimização no Windows 7}
+    \caption{Dados Coletados - Utilização de \textit{Flags} de Otimização no Windows 7}
     \label{flags_de_otimizacao_windows}
 \end{figure}
 
@@ -1541,7 +1524,7 @@ Média                 & 3795.9526    &   3079.1739    &   3729.7937  &   3737.8
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Aseprite - Flags de Processamento Paralelo no Linux}
+\caption{Aseprite - \textit{Flags} de Processamento Paralelo no Linux}
 \label{tab:flag_processamento_paralelo:linux:aseprite}
 \begin{tabular}{llllll}
 \textbf{Aseprite} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1562,7 +1545,7 @@ Média             &  1390.2033    &     1229.5982 &     1479.0813 &     1695.46
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Aseprite - Flags de Processamento Paralelo no Mac OS Yosemite}
+\caption{Aseprite - \textit{Flags} de Processamento Paralelo no Mac OS Yosemite}
 \label{tab:flag_processamento_paralelo:mac:aseprite}
 \begin{tabular}{llllll}
 \textbf{Aseprite} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1584,7 +1567,7 @@ Média             & 576.2197      &   575.8510    &    288.6196   &     578.506
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Aseprite - Flags de Processamento Paralelo no Windows 7}
+\caption{Aseprite - \textit{Flags} de Processamento Paralelo no Windows 7}
 \label{tab:flag_processamento_paralelo:windows:aseprite}
 \begin{tabular}{llllll}
 \textbf{Aseprite} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1609,7 +1592,7 @@ Média             & 1140.4421     &   1093.1125   &   1005.5703   &   1083.2172
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{iRecoveryplusplus - Flags de Processamento Paralelo no Linux}
+\caption{iRecoveryplusplus - \textit{Flags} de Processamento Paralelo no Linux}
 \label{tab:flag_processamento_paralelo:linux:irecoveryplusplus}
 \begin{tabular}{llllll}
 \textbf{iRecoveryplusplus} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1630,7 +1613,7 @@ Média                      & 1.1076        &  1.1183       &  1.1255       &  1
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{iRecoveryplusplus - Flags de Processamento Paralelo no Mac OS Yosemite}
+\caption{iRecoveryplusplus - \textit{Flags} de Processamento Paralelo no Mac OS Yosemite}
 \label{tab:flag_processamento_paralelo:mac:irecoveryplusplus}
 \begin{tabular}{llllll}
 \textbf{iRecoveryplusplus} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1651,7 +1634,7 @@ Média                      & 2.4955        &  2.7314       &  2.4957       &  2
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{iRecoveryplusplus - Flags de Processamento Paralelo no Windows 7}
+\caption{iRecoveryplusplus - \textit{Flags} de Processamento Paralelo no Windows 7}
 \label{tab:flag_processamento_paralelo:windows:irecoveryplusplus}
 \begin{tabular}{llllll}
 \textbf{iRecoveryplusplus} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1676,7 +1659,7 @@ Média                      & 4.9875        &  5.0188       &  5.1141       &  5
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Pencil - Flags de Processamento Paralelo no Linux}
+\caption{Pencil - \textit{Flags} de Processamento Paralelo no Linux}
 \label{tab:flag_processamento_paralelo:linux:pencil}
 \begin{tabular}{llllll}
 \textbf{Pencil} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1697,7 +1680,7 @@ Média              & 271.7197  &   242.2229   &  257.7493 &    284.9924 &    28
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Pencil - Flags de Processamento Paralelo no Mac OS Yosemite}
+\caption{Pencil - \textit{Flags} de Processamento Paralelo no Mac OS Yosemite}
 \label{tab:flag_processamento_paralelo:mac:pencil}
 \begin{tabular}{llllll}
 \textbf{Pencil} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1718,7 +1701,7 @@ Média           & 279.3184  &   275.5002 &    282.1313  &   276.4103  &   265.5
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Pencil - Flags de Processamento Paralelo no Windows 7}
+\caption{Pencil - \textit{Flags} de Processamento Paralelo no Windows 7}
 \label{tab:flag_processamento_paralelo:windows:pencil}
 \begin{tabular}{llllll}
 \textbf{Pencil} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1743,7 +1726,7 @@ Média           & 262.3516  &   259.9453 &    258.8969   &  259.1531 &    266.4
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Sudoku - Flags de Processamento Paralelo no Linux}
+\caption{Sudoku - \textit{Flags} de Processamento Paralelo no Linux}
 \label{tab:flag_processamento_paralelo:linux:sudoku}
 \begin{tabular}{llllll}
 \textbf{Sudoku} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1764,7 +1747,7 @@ Média           & 13.7004 & 13.2242 & 13.3974 & 14.1667 & 10.2710  \\
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Sudoku - Flags de Processamento Paralelo no Mac OS Yosemite}
+\caption{Sudoku - \textit{Flags} de Processamento Paralelo no Mac OS Yosemite}
 \label{tab:flag_processamento_paralelo:mac:sudoku}
 \begin{tabular}{llllll}
 \textbf{Sudoku} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1785,7 +1768,7 @@ Média           & 28.2745 & 28.1724 & 27.9658 & 28.3094 & 27.9440   \\
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Sudoku - Flags de Processamento Paralelo no Windows 7}
+\caption{Sudoku - \textit{Flags} de Processamento Paralelo no Windows 7}
 \label{tab:flag_processamento_paralelo:windows:sudoku}
 \begin{tabular}{llllll}
 \textbf{Sudoku} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1810,7 +1793,7 @@ Média    & 17.3203 & 17.8438 & 16.5734 & 18.4266 & 18.1418  \\
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Qcad - Flags de Processamento Paralelo no Linux}
+\caption{Qcad - \textit{Flags} de Processamento Paralelo no Linux}
 \label{tab:flag_processamento_paralelo:linux:qcad}
 \begin{tabular}{llllll}
 \textbf{Qcad} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1832,7 +1815,7 @@ Média     & 2437.8189 &   2301.5169  &  2323.3258  &  1603.1811 &   1557.1257  
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Qcad - Flags de Processamento Paralelo no Mac OS Yosemite}
+\caption{Qcad - \textit{Flags} de Processamento Paralelo no Mac OS Yosemite}
 \label{tab:flag_processamento_paralelo:mac:qcad}
 \begin{tabular}{llllll}
 \textbf{Qcad} & \textbf{-j 2} & \textbf{-j 4} & \textbf{-j 6} & \textbf{-j 8} & \textbf{-j10}  \\ \toprule
@@ -1853,21 +1836,21 @@ Média        & 3596.1113  &  3685.4563 &   3745.4151 &   3422.6263 &   3103.997
         \begin{figure}[!h]
             \centering
                 \includegraphics{figuras/graficos/linux_processamento_paralelo.eps}
-            \caption{Gráfico flags de processamento paralelo no Linux}
+            \caption{Gráfico \textit{flags} de processamento paralelo no Linux}
             \label{flags_de_processamento_paralelo_linux}
         \end{figure}
 
         \begin{figure}[!h]
             \centering
                 \includegraphics{figuras/graficos/mac_os_processamento_paralelo.eps}
-            \caption{Gráfico flags de processamento paralelo Mac OS Yosemite}
+            \caption{Gráfico \textit{flags} de processamento paralelo Mac OS Yosemite}
             \label{flags_de_processamento_paralelo_mac_os}
         \end{figure}
 
         \begin{figure}[!h]
             \centering
                 \includegraphics{figuras/graficos/windows_processamento_paralelo.eps}
-            \caption{Gráfico flags de processamento paralelo no Windows 7}
+            \caption{Gráfico \textit{flags} de processamento paralelo no Windows 7}
             \label{flags_de_processamento_paralelo_windows}
         \end{figure}
 

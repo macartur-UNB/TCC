@@ -1,6 +1,5 @@
 \chapter[Metodologia]{Metodologia}
 
-
 Este capítulo foi elaborado para melhorar o entendimento das atividades
  realizadas para a produção deste trabalho. O fluxo da Figura 
 \ref{fig:fases_metodologia} define estas atividades.
@@ -8,7 +7,7 @@ Este capítulo foi elaborado para melhorar o entendimento das atividades
 \begin{figure}[h]
     \centering
         \includegraphics[keepaspectratio=true,scale=0.7]{figuras/fases_metodologia.eps}
-    \caption{Fluxo de Atividades para a resolução destes trabalho}
+    \caption{Fluxo de atividades para a resolução destes trabalho}
     \label{fig:fases_metodologia}
 \end{figure}
 
@@ -42,23 +41,23 @@ Os métodos selecionados foram:
 \subsection{Método de Seleção}
 
 Para a seleção dos projetos foram analisadas 3 plataformas de controle de informação
-de software livre: \textit{Openhub}, \textit{Github}, \textit{Gitlab}.
+de \textit{software} livre: \textit{Openhub}, \textit{Github}, \textit{Gitlab}.
 
-\textit{Openhub}, conhecido como Black Duck Open Hubi, é uma plataforma que busca dados através
+\textit{Openhub}, conhecido como Black Duck Open Hub, é uma plataforma que busca dados através
  dos sistemas de versionamento (tais como CVS, Git, Subversion, Bazaar e Mercurial),
- exibindo estatísticas sobre o histórico de um projeto e métricas do software.
+ exibindo estatísticas sobre o histórico de um projeto e métricas do \textit{software}.
  Esta plataforma não foi selecionada devido a possuir um sistema de busca baseada em \textit{tags},
  o que dificultava encontrar projetos específicos, pois o desenvolvedor que deve prover
  informações do projeto, e em alguns casos estas informações estão incoerentes e ou
  redundantes. Além disso não havia sistema de busca avançado.
 
-\textit{Gitlab} é uma plataforma de gerenciamento de software que permite os
+\textit{Gitlab} é uma plataforma de gerenciamento de \textit{software} que permite os
  desenvolvedores criarem uma instância própria da ferramenta para o armazenamento
- de um projeto de software em uma infraestrutura própria. Esta ferramenta foi
+ de um projeto de \textit{software} em uma infraestrutura própria. Esta ferramenta foi
  descartada pois também possui sistema de \textit{tags} para localizar projetos de uma linguagem,
 não permite selecionar múltiplas tags e não possui filtro de pesquisa avançada.
 
-\textit{Github} é uma plataforma de gerenciamento de projetos de software que
+\textit{Github} é uma plataforma de gerenciamento de projetos de \textit{software} que
 utiliza o sistema de versionamento \textit{git}. Esta plataforma foi selecionada devido a
  possibilidade de fazer pesquisa avançada utilizando \textit{tags}, selecionar quantidade de \textit{forks},
  linguagem principal do projeto, conteúdo de texto dentro da descrição de um projeto e
@@ -76,8 +75,7 @@ A pesquisa avançada foi realizada no dia 27 de agosto de 2015 e resultou na sel
  que poderiam ser compilados em um sistema operacional da Apple. Este sistema tem
  como padrão o compilador clang e gcc/g++ como \textit{front-end}  e como \textit{back-end} possui o LLVM.
         \item \textbf{windows} - esta palavra foi selecionada para encontrar 
- que possui compatibilidade com suporte ao compiladores gcc/g++.
-\footnote{Para instalar um compilador é necessário utilizar uma ferramenta de criação de ambiente de desenvolvimento como \textit{cygwin}, \textit{mingw}, \textit{Visual Studio}, entre outros.}
+ que possui compatibilidade com suporte ao compiladores gcc/g++.\footnote{Para instalar um compilador é necessário utilizar uma ferramenta de criação de ambiente de desenvolvimento como \textit{cygwin}, \textit{mingw}, \textit{Visual Studio}, entre outros.}
         \item \textbf{linux} - esta palavra foi selecionada para encontrar projetos
  que seja possível compilar em um sistema operacional Linux. Este vem por padrão com
  o compilador g++/gcc.
@@ -109,13 +107,13 @@ projetos que utilizam a linguagem C++ na maior parte de seu código.
 
 \begin{figure}[h]
     \centering
-        \includegraphics[scale=0.40]{figuras/github_search_1.eps}
+        \includegraphics[scale=0.50]{figuras/github_advanced_search.eps}
     \caption{Pesquisa avançada Github parte 1}
     \label{pesquisa_github}
 \end{figure}
 \begin{figure}[h]
     \centering
-        \includegraphics[scale=0.40]{figuras/github_search_2.eps}
+        \includegraphics[scale=0.50]{figuras/github_advanced_search_2.eps}
     \caption{Pesquisa avançada Github parte 2}
     \label{pesquisa_github}
 \end{figure}
@@ -164,7 +162,7 @@ ambiente vírtual criado e quais foram os impedimentos encontrados na criação 
 Nesta máquina foi instalado os programas:
 
 \begin{itemize}
-    \item \textbf{VirtualBox} (4.0) : é uma ferramenta open source sobre a
+    \item \textbf{VirtualBox} (4.0) : é uma ferramenta \textit{open source} sobre a
  licença GPL v2 que permite a virtualização de máquinas.
     \item \textbf{Vagrant} - (1.7.4) : ferramenta de controle de
  máquina virtual possibilitando fácil acesso, criação, destruição, ligar e 
@@ -179,7 +177,7 @@ com o mesmo objetivo do \textit{SubVersion}(\textbf{SVN}).
 
     \item \textbf{Linux}
         \subitem  O ambiente virtual Linux foi criado utilizando a box
- ubuntu/trusty64 \footnote{\url{https://atlas.hashicorp.com/ubuntu/boxes/trusty64}},
+ ubuntu/trusty64\footnote{\url{https://atlas.hashicorp.com/ubuntu/boxes/trusty64}},
  com a configuração do Vagrantfile representada no Código \ref{vagrant_linux} e com especificações
  da máquina virtual mostradas na Tabela \ref{especificacoes_linux}.
  Depois que construída a máquina virtual foram instalados os pacotes utilizando o
@@ -239,19 +237,16 @@ ccache & 3.1.9  \\ \bottomrule
 
     \item \textbf{Mac OS Yosemite}
         \subitem Para o ambiente Mac OS foi utilizada uma box com o sistema
- operacional na versão Yosemite 10.10.4
- \footnote{\url{http://files.dryga.com/boxes/osx-yosemite-0.2.1.box}},
+ operacional na versão Yosemite 10.10.4\footnote{\url{http://files.dryga.com/boxes/osx-yosemite-0.2.1.box}},
  com as configurações do Vagrantfile representada no Código \ref{vagrant_mac_os_x} e com
  especificações da máquina virtual mostradas na Tabela \ref{especificacoes_mac_os_x}.
  Após a máquina criada foi necessário instalar os pacotes utilizando o gerenciador de
- pacotes brew \footnote{\url{http://brew.sh/}}, e foram listados os pacotes listados na tabela
+ pacotes brew\footnote{\url{http://brew.sh/}}, e foram listados os pacotes listados na tabela
  \ref{pacotes_instalados_mac_os_x}.
-Além dos listados foi necessário instalar o pacote " \textbf{MacOSX10.4.Universal.pkg}”
- \footnote{\url{https://github.com/macartur-tcc/aseprite/blob/master/INSTALL.md}}
- disponibilizado pela Apple  \footnote{\url{https://developer.apple.com/downloads/}}.
+Além dos listados foi necessário instalar o pacote " \textbf{MacOSX10.4.Universal.pkg}”\footnote{\url{https://github.com/macartur-tcc/aseprite/blob/master/INSTALL.md}}
+ disponibilizado pela Apple\footnote{\url{https://developer.apple.com/downloads/}}.
 
-        \subitem Em um ambiente Mac OS o LLVM
- \footnote{LLVM: infraestrutura de compilação utilizando o principio de modularização
+        \subitem Em um ambiente Mac OS o LLVM\footnote{LLVM: infraestrutura de compilação utilizando o principio de modularização
  e reuso, propondo otimizar a compilação, execução e link-edição de programas
  escritos em linguagens variadas} é o \textit{back-end} do compilador e como \textit{front-end}
  padrão possui o clang/clang++, que foi projetado para ser 3 vezes mais rápido
@@ -310,11 +305,11 @@ ccache & 3.2.3 \\ \bottomrule
 
     \item \textbf{Windows}
         \subitem Para o ambiente virtual Windows foi utilizado uma box com
- o sistema operacional Windows7 \footnote{\url{https://vagrantcloud.com/datacastle/boxes/windows7}},
+ o sistema operacional Windows7\footnote{\url{https://vagrantcloud.com/datacastle/boxes/windows7}},
  com as configurações do Vagrantfile mostradas no Código \ref{vagrant_windows},
  e com especificações da máquina virtual mostradas na Tabela \ref{especificacoes_windows}.
  Para a utilização de um ambiente de desenvolvimento no windows é necessário a instalação
- do software \textit{cygwin} \footnote{\url{https://www.cygwin.com/}}, que permite a instalação
+ do software \textit{cygwin}\footnote{\url{https://www.cygwin.com/}}, que permite a instalação
 o dos pacotes necessários para a criação do ambiente igual ao Unix.
  Utilizando o \textit{cygwin} é necessário instalar todos os pacotes para o sistema 
 conseguir compilar programas em C/C++, para isto foram instalados os programas 
@@ -389,7 +384,7 @@ make & 4.1-1 \\ \bottomrule
 Estes impedimentos foram:
  
 	\begin{enumerate}[label=\roman* )]
-		\item Um ambiente \textit{mingw} ou \textit{cygwin} não possui suporte
+		\item Ambiente com \textit{mingw} ou \textit{cygwin} não possui suporte
  a biblioteca glibc\footnote{\url{https://www.gnu.org/software/gnulib/manual/html\_node/execinfo\_002eh.html}},
  o que fez com que o projeto Qcad não pode ser compilado neste ambiente pois este necessita do header exec\_info.h que é encontrado na biblioteca glibc.
 		\item Durante a montagem do ambiente no Windows 7 o projeto Aseprite teve que ser  
@@ -536,12 +531,12 @@ Estas alterações estão na branch \lq\lq\textit{pimpl}\rq\rq dos projetos que 
         \begin{enumerate}
             \item makefile
                 \subitem No momento da utilização do makefile será utilizado
- as flags: -j2,-j4,-j6,-j8 e -j10.
+ as \textit{flags}: -j2,-j4,-j6,-j8 e -j10.
  Com esta abordagem será investigada a relação entre a compilação
  e a quantidade de \textit{jobs} (\textit{threads}).
             \item Otimização de Baixo Nível
                 \subitem Todos os arquivos Makefile serão
- alterados para receber a flags: -O, -O0, -O2, -Ofast, -O3, -Os,-Og.
+ alterados para receber a \textit{flags}: -O, -O0, -O2, -Ofast, -O3, -Os,-Og.
  Com estes resultados será possível verificar a relação do tempo gasto com
  o tempo de otimização do compilador.
         \end{enumerate}
@@ -560,7 +555,7 @@ Estas alterações estão na branch \lq\lq\textit{pimpl}\rq\rq dos projetos que 
  que toda a cache será removida utilizará o comando ccache -C e ccache -c.
                 \item Gold
                     \subitem Neste estudo de caso será ativado o ld.gold
- utilizando a flag:-Wl,-fuse-ld=gold como mostrado na seção \ref{Gold}. Assim  a
+ utilizando a \textit{flag}:-Wl,-fuse-ld=gold como mostrado na seção \ref{Gold}. Assim  a
  compilação irá deixar de utilizar o linker padrão e utilizará o linker
  otimizado para sistema ELF.
         \end{enumerate}
@@ -596,8 +591,7 @@ Estas alterações estão na branch \lq\lq\textit{pimpl}\rq\rq dos projetos que 
 
     \item \textbf{Sudoku}
     \subitem Para compilar o projeto Sudoku é necessário realizar o clone do projeto
-no github utilizando os comandos no Cógido \ref{clonando_sudoku}.
-\footnote{Neste projeto e necessário remover a flag -archi386 do arquivo Makefile gerado na raiz, pois em sistemas Mac OS esta flag causa erro.}
+no github utilizando os comandos no Cógido \ref{clonando_sudoku}.\footnote{Neste projeto e necessário remover a \textit{flag} -archi386 do arquivo \textit{Makefile} gerado na raiz, pois em sistemas Mac OS esta \textit{flag} causa erro.}
 
 \begin{lstlisting}[language=bash, caption={Clonado e compilando o Projeto Sudoku},
                   label=clonando_sudoku]
@@ -725,21 +719,20 @@ no github utilizando os comandos no Cógido \ref{clonando_sudoku}.
 
 
 Os scripts foram elaborados utilizando a linguagem de programação python,
- e estão sendo armazenados no github
-\footnote{\url{https://github.com/macartur-tcc/tcc_scripts}}.
+ e estão sendo armazenados no github\footnote{\url{https://github.com/macartur-tcc/tcc_scripts}}.
 
 
 \subsection{Benchmark com Guardas de Inclusão}\label{Amplicação ao Ambiente}
 
 Para o estudo aplicado ao ambiente foi criado um script de benchmark utilizando
- a linguagem python, e foi detalhado no apêndice na seção Benchmark \ref{script_bench_mark}.
+ a linguagem python, e foi detalhado no Apêndice \ref{script_benchmark}.
 
 A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dados,
- contendo Guarda de Inclusão Externa(GIE), Guarda de Inclusão Interna(GII),
- Pragma Once(PO), Guarda de Inclusão Interna Primeiro que Pragma Once(GIIPPO),
+ contendo Guarda de Inclusão Externa (GIE), Guarda de Inclusão Interna (GII),
+ Pragma Once (PO), Guarda de Inclusão Interna Primeiro que Pragma Once (GIIPPO),
  Pragma Once Primeiro que Guarda de Inclusão Interna (POPGII),
  Guarda de Inclusão Externa e Pragma Once (GIEPPO) e
- Redundância de Guarda de Inclusão(RGI).
+ Redundância de Guarda de Inclusão (RGI).
 
 \begin{table}[!ht]
 \centering
@@ -770,14 +763,14 @@ A Tabela \ref{tab:modelo_guards} representa o modelo utilizado na coleta dos dad
 \label{metodos_ferramentas_aplicados_a_um_projeto_template}
 
 Para realizar as compilações dos projetos foi criado um script de recompilação que
- segue no código \ref{script_recompilacoes}, com este é possível alterar entre
+ segue no Código \ref{script_recompilacoes}, com este é possível alterar entre
  branch para compilar as alterações de código dos projetos,
  executar comandos antes e depois de cada compilação.
  Para receber todos estes comandos foi necessário a leitura de um arquivo de
  configuração de cada projeto contendo a localização do projeto,
  localização do makefile, comandos que serão executados antes e depois
  da compilação.
- Este arquivo foi escrito em yaml e seguindo o template do código
+ Este arquivo foi escrito em yaml e seguindo o template do Código
  \ref{template_para_script_recompilacoes}.
 Para a contagem do tempo de compilação foi utilizado o módulo datetime do python,
  realizando a diferença do tempo inicial e final do tempo de compilação.
@@ -812,7 +805,7 @@ Média                         &      &     &     &        \\
 \begin{table}[!ht]
 \centering
 \tiny
-\caption{Modelo aplica parametrização com flags de otimização}
+\caption{Modelo aplica parametrização com \textit{flags} de otimização}
 \label{tab:modelo_otimizacao_compilacao}
 \begin{tabular}{llllllll}
 \textbf{<Nome do Projeto>} & \textbf{-O} & \textbf{-O0} & \textbf{-O2} & \textbf{-O3} & \textbf{-Os} & \textbf{-Ofast} & \textbf{-Og} \\ \toprule
