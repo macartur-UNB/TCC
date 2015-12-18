@@ -1,40 +1,28 @@
 \part{Conclusão}
 
-\chapter[Conclusão]{Considerações Finais}
+\chapter[Conclusão]{Conclusão}
 
-	Durante este trabalho foram pesquisadas e analisadas métodos e ferramentas que reduzem
- o tempo de compilação de projetos escritos em C++. Foram elas Guardas de inclusão,
- declaração implicita de estrutura e implementação privada de uma classe, utilização das
- ferramentas gold e ccache e acionamento de \textit{flags} de otimização providas pelos
- compiladores de C++ padrão dos 3 diferentes sistemas operacionais e \textit{flags} o controle de
- \textit{flags} de otimização de código do compilador.
+    Neste trabalho foi apresentado 5 métodos de redução do tempo de compilação: guardas de inclusão,
+ declaração implicita de estrutura, ponteiro privado de implementação, uso de flags de compilação para 
+ otimização de baíxo nível, flags de processamento paralelo, e o uso de 2 ferramentas \textit{linker gold} e o
+ \textit{ccache}.
 
-	Os três sistemas operacionais foram Windows 7, Mac OS Yosemite e Ubuntu(Linux). O ambiente
- linux com a utilização dos métodos e ferramentas de compilação foi o ambiente com maior
- tempo de compilação, utilizando o ambiente de desenvolvimento (cygwin). O melhores tempos de
- compilação utilizando os métodos e as ferramentas aqui analisados foram encontrados no
- Mac OS Yosemite devido a utilização do compilador padrão clang++ que foi
- contruído com o objetivo de ser mais rápido que o compilador padrão do gnu o g++, que vem
- como default no Ubuntu.
+    Dentre as técnicas utilizadas as tecnicas que envolvem alteração de código não apresentaram
+ valores satisfatórios na coleta de dados realizada. Ao contrario destes os métodos que apresentam
+ parametrização e ferramentas obtiveram um resultado bastante satisfatório, na qual é possível
+ reduzir mais de 50\% do tempo de compilação de um projeto.
 
-    Com a coleta dos dados e analise de cada estudo de caso nos projetos aqui analisados resultou que
- os métodos de alteração de código não foi obtido valores satisfatórios pois a redução do
- tempo de compilação. Para as flags de processamento paralelo utilizando o programa make
- obteve resultados resultados consideraveis uma vez que com elas é possivel reduzir mais
- de 30\% do tempo de compilação de um projeto. Analisando as ferramentas o programa gold
- não foi encontrado uma redução satisfatória, uma vez que a redução é muito baixo, ao
- contrário da ferramenta ccache que conseguiu produzir resultados em que reduziu mais
- de 50\% do tempo de compilação de um projeto.
+    O método que apresentou melhores resultados utilizou as \textit{flags} de processamento paralelo, 
+ na qual proporcionou uma redução minima de 45\% do tempo de compilação do projeto. Dentre as ferramentas
+ utilizadas a ferramenta \textit{ccache} é a mais eficiente pois reduziu mais de 50\% do tempo de compilação
+ de todos os projetos apresentados.
 
-	Após os estudos o objetivo principal destes trabalho foi alcançado pois foram
- analisadas as ferramentas aqui propostas em projetos de software livres escritos em C++ 
-em diferentes ambientes e analisados e selecionados os melhores métodos dentre os que possuem
-um impacto de no mínimo 30\% na redução dos projetos.
+    Para a coleta de dados foi utilizado 3 ambientes diferentes, na qual utilizando virtualização foram instalados
+ o sistema operacional Windows 7, Mac OS Yosemite e Ubuntu. Dentre estes ambientes o Windows 7, que utilizou o \textit{cygwin}
+ como ambiente de desenvolvimento,  foi o ambiente que resultou no 
+ maior tempo de compilação dos projetos sem a utilização de nenhuma técnica ou ferramenta. O ambiente Mac OS Yosemite
+ foi o ambiente rápido dentre os selecionados pois este utiliza o compilador com \textit{back-end} LLVM.
 
-	Como trabalho futuro é possível tentar verificar o comportamento do método de implementação
- privada de classe, utilizando recompilações com alterações em partes de um projeto e sem
- realizar remoção dos arquivos objetos já gerados.
-	Outra abordagem que pode ser explorada é realizar um estudo das ferramentas de redução do
- tempo de compilação, uma vez que neste trabalho a ferramenta foi utilizada com as configurações
- padrão da instalação da ferramenta sendo possível aumentar a quantidade de cache
- da ferramenta ccache.
+    Tendo estas informações este trabalho conseguiu atingir os seu objetivo geral, que foi conseguir
+ selecionar métodos e ferramentas que consegui-se atingir uma redução em mais de 30\% do tempo de compilação
+ de projetos de código aberto selecionados.

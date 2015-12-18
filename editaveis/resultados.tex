@@ -83,7 +83,7 @@ Qcad   & 3923 &  3841 &  2,09  &  3729  & 3290 & 11,77   & - & -  & - \\
 Para os projetos selecionados, o impacto desta técnica não se mostrou relevante, pois em várias configurações não houve sequer ganho em relação ao tempo médio e, nos casos onde
 houve ganho, a porcentagem foi muito baixa (exceto no caso do iRecoveryplusplus no Linux, com 25\% de ganho, mas o tempo de compilação do projeto já era muito baixo, o que afeta diretamente na proporção ganho).
 
-O segundo método que envolve a edição de código fonte foi a técnica de declaração implicita de estrutura (encontrada na Seção \ref{forward_declaration_section}). Este método foi aplicado apenas em 2 projetos, pois os outros projetos já possuiam esta técnica. A Tabela \ref{tab:forward_declaration} apresenta  os tempos médios de compilação produzidos durante a coleta de dados.
+O segundo método ,que envolve a edição de código fonte, foi a técnica de declaração implicita de estrutura (encontrada na Seção \ref{forward_declaration_section}). Este método foi aplicado apenas em 2 projetos, pois os outros projetos já possuiam esta técnica. A Tabela \ref{tab:forward_declaration} apresenta  os tempos médios de compilação produzidos durante a coleta de dados.
 
 \begin{table}[!ht]
 \tiny
@@ -101,7 +101,8 @@ Sudoku            & 22,21  & 20,63   & 7,11  &  38.42  & 36.26  & 5,62  & 32,72 
 \end{table}
 
 Para os projetos avaliados o impacto desta técnica reduziu o tempo de compilação, no entanto não se mostrou tão relevante, uma vez que o tempo de redução máximo atingido foi de 23,7\% ( no qual este projeto possui um tempo de compilação muito baixo e com uma variação muito alta levando a uma perda de proporção) no Linux e as outras ocorrencias reduziram menos de 15\% do tempo de compilação. 
-O terceiro método avaliado que envolve a edição de código foi a implementação do ponteiro de declaração privada encontrado no Seção \ref{Pimpl_Idiom}. Aplicando esta técnica a Tabela \ref{tab:pimpl} foi elaborada com os tempos médios de compilação dos 3 projetos que foram alterados utilizando a técnica.
+
+O terceiro método avaliado, que envolve a edição de código fonte, foi a implementação do ponteiro de declaração privada apresentado no Seção \ref{Pimpl_Idiom}. Aplicando esta técnica a Tabela \ref{tab:pimpl} foi elaborada com os tempos médios de compilação dos 3 projetos que foram alterados utilizando a técnica.
 
 \begin{table}[!ht]
 \tiny
@@ -123,8 +124,6 @@ Para os projetos avaliados esta técnica impactou na redução do tempo de compi
 
 Por fim, os dados detalhados de todos os experimentos com métodos que envolvem a edição do código fonte estão no Apêndice \ref{metodos_codigo_apendice}.
 
-
-
 \section{Métodos que envolvem a parametrização do \textit{build}}
 
 
@@ -132,13 +131,13 @@ O primeiro método avaliado na parametrização de \textit{build} é o
  método que utiliza flags de otimização,
  apresentado na Seção \ref{Otimizacao_de_baixo_nivel}. Este método foi
  aplicado em todos os 5 projetos selecionados. A Tabela 
-\ref{tab:flags_de_otimização:linux} apresenta os resultados coletados no ambiente linux.
+\ref{tab:flags_otimizacao:linux} apresenta os resultados coletados no ambiente linux.
  Vale ressaltar que em todos os projetos a o gerador de makefile coloca por padrão a \textit{flag} \texttt{-O2} no makefile.
  
 \begin{table}[!ht]
 \tiny
 \centering
-\caption{Resultados com flags de otimização no Linux}
+\caption{Resultados com \textit{flags} de otimização no Linux}
 \label{tab:flags_otimizacao:linux}
 \begin{tabular}{lccccccccc}
 & \multicolumn{6}{c}{\textbf{Tempo médio de compilação (em segundos)} } \\
@@ -180,7 +179,7 @@ Para este ambiente o projeto \textit{Aseprite} também obteve o maior ganho
 
 No ambiente Windows 7 a Tabela \ref{tab:flags_otimizacao:windows} apresenta o tempo
  de compilação médio utilizando apenas 4 projetos selecioados, pois dito anteriormente
- na Seção \ref{impedimentos_durante_a_coleta} o projeto \ref{Qcad} não pode ser instalado
+ na Seção \ref{impedimentos_durante_a_coleta} o projeto \ref{projeto_qcad_apendice} não pode ser instalado
  devido a falta de dependências neste ambiente.
 
 \begin{table}[!ht]
