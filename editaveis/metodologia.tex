@@ -504,18 +504,18 @@ Qcad              &  SIM & SIM \\ \bottomrule
  destinado ao TCC\footnote{\url{https://github.com/macartur-tcc/}}.
 
     \begin{enumerate}
-        \item Pragma Once
+        \item \textit{Pragma Once}
         \subitem Neste estudo de caso os arquivos de header foram alterados
  com a inclusão da diretiva “\#pragma once” no inicio de cada arquivo.
  No projeto aseprite está sendo removida a diretiva, pois todos os arquivos já possuem.
 Estas alterações estão na branch “\textit{pragma\_once}” dos projetos que foi possível aplicar.
-        \item Forward Declaration
+        \item \textit{Forward Declaration}
         \subitem Neste estudo de caso os \textit{headers} foram alterados para reduzir
  a quantidade de \textit{headers} de todos os cabeçalhos e das implementação.
  Para isso foram removidos \textit{headers} redundantes e que referenciava
  ponteiros e referências de endereço.
 Estas alterações estão na branch \lq\lq\textit{forward\_declaration}\rq\rq dos projetos que foram possíveis  aplicar.
-        \item Técnicas de Pimpl Idiom
+        \item \textit{Técnicas de Pimpl Idiom}
         \subitem Neste estudo de caso atributos e métodos privados foram removidos do cabeçalho
  e incluídos nos arquivos de implementação, como no exemplo de Código \ref{exemplo_implementacao_pimpl} da Seção \ref{Pimpl_Idiom}
  que demostra como aplicar a técnica.
@@ -529,14 +529,14 @@ Estas alterações estão na branch \lq\lq\textit{pimpl}\rq\rq dos projetos que 
 \ref{Otimizacao_de_baixo_nivel}. Sendo assim será utilizado: 
 
         \begin{enumerate}
-            \item makefile
+            \item \textit{makefile}
                 \subitem No momento da utilização do makefile será utilizado
  as \textit{flags}: -j2,-j4,-j6,-j8 e -j10.
  Com esta abordagem será investigada a relação entre a compilação
  e a quantidade de \textit{jobs} (\textit{threads}).
             \item Otimização de Baixo Nível
                 \subitem Todos os arquivos Makefile serão
- alterados para receber a \textit{flags}: -O, -O0, -O2, -Ofast, -O3, -Os,-Og.
+ alterados para receber a \textit{flags}: \texttt{-O}, \texttt{-O0}, \texttt{-O2}, \texttt{-Ofast}, \texttt{-O3}, \texttt{-Os},\texttt{-Og}.
  Com estes resultados será possível verificar a relação do tempo gasto com
  o tempo de otimização do compilador.
         \end{enumerate}
@@ -548,12 +548,12 @@ Estas alterações estão na branch \lq\lq\textit{pimpl}\rq\rq dos projetos que 
 \ref{ferramentas_de_otimizacao} e seguindo os comandos:
 
         \begin{enumerate}
-               \item Ccache
+               \item \textit{ccache}
                     \subitem Neste estudo de caso em cada projeto será adicionado
  a palavra ccache antes de cada linha de compilação. Será utilizado as
  configurações padrão do ccache, e antes de cada compilação para ter certeza
  que toda a cache será removida utilizará o comando ccache -C e ccache -c.
-                \item Gold
+                \item \textit{linker gold}
                     \subitem Neste estudo de caso será ativado o ld.gold
  utilizando a \textit{flag}:-Wl,-fuse-ld=gold como mostrado na seção \ref{Gold}. Assim  a
  compilação irá deixar de utilizar o linker padrão e utilizará o linker
